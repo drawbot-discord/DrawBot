@@ -15,7 +15,6 @@ require 'yaml'
 $db = YAML.load(File.read('db.yaml'))
 
 
-bot = Discordrb::Commands::CommandBot.new token: 'token', application_id: 168123456789123456, prefix: '~'
 
 
 BoopAction = $db['BoopAction']
@@ -30,15 +29,16 @@ LewdDrawFagTopic = $db['LewdDrawFagTopic']
 Snake = $db['Snake']
 Puns = $db['Puns']
 Pokemon = $db['Pokemon']
+Token = $db['token']
 
-
+bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
 
 
 #restart bot
 bot.command(:restart, description: "restarts the bot") do |event|
-  break unless event.channel.id == devChannel
+  break unless event.channel.id == 180323434226647040
 
-  bot.send_message(devChannel,"Restart issued.. :wrench:")
+  bot.send_message(180323434226647040,"Restart issued.. :wrench:")
   bot.stop
   exit
 
