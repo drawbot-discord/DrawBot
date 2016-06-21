@@ -46,7 +46,7 @@ end
 
 bot.ready do |event|
   event << "Bot online! :heart:"
-  avatar = File.open('avatar.jpg','rb')
+  avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   nil
 end
