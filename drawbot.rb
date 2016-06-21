@@ -38,14 +38,14 @@ bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 1
 bot.command(:restart, description: "restarts the bot") do |event|
   break unless event.channel.id == 180323434226647040
 
-  bot.send_message(180323434226647040,"Restart issued.. :wrench:")
+  bot.send_message(180323434226647040,180323434226647040,"Restart issued.. :wrench:")
   bot.stop
   exit
 
 end
 
 bot.ready do |event|
-
+    event.bot.send_message(175579371975868416, "Drawbot online! Let's get some art done!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   nil
