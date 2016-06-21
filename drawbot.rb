@@ -45,7 +45,7 @@ bot.command(:restart, description: "restarts the bot") do |event|
 end
 
 bot.ready do |event|
-  event << "Bot online! :heart:"
+
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   nil
