@@ -43,6 +43,13 @@ bot.command(:restart, description: "restarts the bot") do |event|
   exit
 
 end
+
+bot.ready do |event|
+  event << "Bot online! :heart:"
+  avatar = File.open('avatar.jpg','rb')
+  event.bot.profile.avatar = avatar
+  nil
+end
 #require 'discordrb'
 
 #bot = Discordrb::Bot.new token: '', application_id: 168123456789123456
