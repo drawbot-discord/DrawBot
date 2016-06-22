@@ -425,6 +425,8 @@ bot.command :addref do |event, *url|
   #add ref to user
   user['refs'] << url
 
+  event << "Ref added! :wink:"
+
   #save db
   save
   nil
