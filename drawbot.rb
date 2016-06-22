@@ -30,6 +30,10 @@ Snake = $db['Snake']
 Puns = $db['Puns']
 Pokemon = $db['Pokemon']
 Token = $db['token']
+Fpose = $db['fpose']
+Told = $db['told']
+Pout = $db['pout']
+Rekt = $db['rekt']
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
 
@@ -86,6 +90,7 @@ commands = [
 "	~colour",
 "	~outfit",
 "	~pokemon",
+"   ~fpose",
 "",
 "Fun Commands",
 "	~8ball",
@@ -100,8 +105,11 @@ commands = [
 "	~lewd",
 "	~roll (default 6, add number after to make larger)",
 "	~pun",
+"   ~told",
+"   ~gimme",
+"   ~pout",
 "",
-"References (type ~refs before name)",
+"References (type ~refs then @them)",
 "	AngryCoconut",
 "	Bluebun",
 "	ClearCandy",
@@ -141,45 +149,44 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
 message = message.join(' ')
-response = [
-	"Nah",
-	"Your Mother",
-	"Pfft hahaha don't even ask.",
-	"I don't feel like saying yes, so no",
-	"Let me think about it..... no",
-	"One sec. Let me ask my magic 8 ball...hold on...just a bit more...yes",
-	"One sec. Let me ask my magic 8 ball...hold on...just a bit more...no",
-	"Maybe if you yell louder",
-	"Maybe if you shake harder you'll get a proper answer",
-	"Does a bear shit in the woods?",
-	"Do aliens stick shit up our poopers? Yes, yes they do.",
-	"no, just stop",
-	"It's not gonna happen, guy.",
-	"Sure thing, friend",
-	"No but I can make it a yes for $20",
-	"Yes god dammit. Now quit shaking me!",
-	"No, fuck you and your shitty dreams",
-	"Stop oppressing me! No means No!",
-	"Hell YEA",
-	"Hell NO",
-	"Fuck you, you figure it out",
-	"Ha haha hahaha no",
-	"Fuck yea",
-	"Fuck no",
-    "It is certain",
-    "It is decidedly so",
-    "Without a doubt",
-    "Yes definitely",
-    "You may rely on it",
-    "As I see it, yes",
-    "Most likely",
-    "Outlook good",
-    "Yes",
-    "Signs point to yes",
-    "Ask again later",
-    "Don't count on it",
-    "My reply is no",
-    "Drawbot says no"].sample
+response = ["Nah\nhttp://puu.sh/pBohd/86210da8e5.png",
+    "Your Mother\nhttp://puu.sh/pBoq8/a52417e26f.jpg",
+    "Pfft hahaha don't even ask.\nhttp://puu.sh/pBor6/6a4ba444fc.jpg",
+    "I don't feel like saying yes, so no\nhttp://puu.sh/pBov7/31d4796a73.png",
+    "Let me think about it..... no\nhttp://puu.sh/pBosq/5f1d0e3479.png",
+    "One sec. Let me ask my magic 8 ball...hold on...just a bit more...yes\nhttp://puu.sh/pBox4/5811840c5c.png",
+    "One sec. Let me ask my magic 8 ball...hold on...just a bit more...no\nhttp://puu.sh/pBow6/567875b3ac.jpg",
+    "Maybe if you yell louder\nhttp://puu.sh/pBoxH/c150a055ed.png",
+    "Maybe if you shake harder you'll get a proper answer\nhttp://puu.sh/pBoy8/dafb191e20.png",
+    "Does a bear shit in the woods?\nhttp://puu.sh/pBoD4/e399c9a5ea.jpg",
+    "Do aliens stick shit up our poopers? Yes, yes they do.\nhttp://puu.sh/pBoDN/309a8725ef.png",
+    "no, just stop\nhttp://puu.sh/pBoEt/492ee5ecb5.jpg",
+    "It's not gonna happen, guy.\nhttp://puu.sh/pBoFn/b3327e5f17.jpg",
+    "Sure thing, friend\nhttp://puu.sh/pBoG0/9fea6ced19.jpg",
+    "No but I can make it a yes for $20\nhttp://puu.sh/pBoHY/9c561c47b3.png",
+    "Yes god dammit. Now quit shaking me!\nhttp://puu.sh/pBoID/4495d77f3c.png",
+    "No, fuck you and your shitty dreams\nhttp://puu.sh/pBoJP/0ec1b5a19a.png",
+    "Stop oppressing me! No means No!\nhttp://puu.sh/pBoKd/46a632c992.png",
+    "Hell YEA\nhttp://puu.sh/pBoLm/f9e3a3b416.jpg",
+    "Hell NO\nhttp://puu.sh/pBoME/7c410e64a9.jpg",
+    "Fuck you, you figure it out\nhttp://puu.sh/pBoNB/dfd904b8fe.jpg",
+    "Ha haha hahaha no\nhttp://puu.sh/pBoO4/a1a4a04145.jpg",
+    "Fuck yea\nhttp://puu.sh/pBoOP/66e7448ab7.jpg",
+    "Fuck no\nhttp://puu.sh/pBoPP/eabf6e1ae2.png",
+    "It is certain\nhttp://puu.sh/pBoUg/8b16d31453.png",
+    "It is decidedly so\nhttp://puu.sh/pBoVa/30164ceae0.png",
+    "Without a doubt\nhttp://puu.sh/pBoQo/76a7125b54.png",
+    "Yes definitely\nhttp://puu.sh/pBoTF/56fe2f5b8d.png",
+    "You may rely on it\nhttp://puu.sh/pBoTj/7c2664df15.png",
+    "As I see it, yes\nhttp://puu.sh/pBoWf/e73c08fcac.png",
+    "Most likely\nhttp://puu.sh/pBoSw/8963c65d89.png",
+    "doesn't look good...\nhttp://puu.sh/pBoRT/ab49e451c9.png",
+    "Yes\nhttp://puu.sh/pBoWx/ca8bf43307.jpg",
+    "Signs point to yes\nhttp://puu.sh/pBoYk/87127da2ad.png",
+    "Ask again later\nhttp://puu.sh/pBoYJ/c7fe27ca63.jpg",
+    "Don't count on it\nhttp://puu.sh/pBoZR/a4cddea3f4.png",
+    "My reply is no\nhttp://puu.sh/pBp0c/8648ce0a70.png",
+    "Drawbot says no\nhttp://puu.sh/pBp0L/0c77ff36c7.png"].sample
 	event << "#{event.user.mention} `#{message}`: #{response}"
 end
 
@@ -219,9 +226,24 @@ event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
 
 end
 
+bot.command(:doit) do |event|
+response = "https://puu.sh/pvFxQ/893adbe906.jpg"
+event << response
+
+end
+
+
+bot.command(:gimme) do |event|
+response = "http://puu.sh/pBgxi/d0b8de2e31.png"
+event << response
+
+end
+
+
 
 #TIMEOUT
 bot.command(:bad) do |event, *message|
+break unless !event.user.roles.find { |x| x.name =="DBAdmin" }.nil?
 message = message.join(' ')
 event << "#{event.user.display_name} throws #{message} into timeout"
 
@@ -252,6 +274,13 @@ end
 
 bot.command(:pun) do |event|
 event << "#{Puns.sample}"
+end
+
+bot.command(:told) do |event|
+event << $db['told'].join("\n")
+end
+bot.command(:rekt) do |event|
+event << $db['rekt'].join("\n")
 end
 
 bot.command(:rules) do |event|
@@ -367,7 +396,7 @@ event << "You should draw something #{DrawComboTopic.sample} #{LewdDrawTopic.sam
 end
 
 bot.command(:drawcombo) do |event|
-event << "You should draw something #{DrawComboTopic.sample}#{NormalDrawTopic.sample}"
+event << "You should draw something #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
 end
 
 bot.command(:drawfaglewd) do |event|
@@ -378,33 +407,91 @@ bot.command(:pokemon) do |event|
 event << "The pokemon you get to draw is #{Pokemon.sample}"
 end
 
+
+bot.command(:fpose) do |event|
+event << "The pose you get is #{Fpose.sample}"
+end
+
+bot.command(:pout) do |event|
+event << "#{Pout.sample}"
+end
+
 #-----------REFERENCES--------#
 
 #uses the yaml file, add more artists there!
 
-bot.command :refs do |event, *message|
-    message = message.join(' ')
-    user = Array.new
+#bot.command :refs do |event, *message|
+#    message = message.join(' ')
+#    user = Array.new
+#
+#    #pull users refs from db
+#    $db['refs'].each do |key, value|
+#        if key.casecmp(message) == 0
+#            user = value
+#        end
+#    end
+#
+#    #check if array is still empty
+#    #if it is, we didn't find a match
+#    if user.empty?
+#        event << "User not found.. :eyes:"
+#        return
+#    end
+#
+#    #output each ref
+#    event << "#{message}'s refs:"
+#    user.each { |x| event << x }
+#    nil
+#end
 
-    #pull users refs from db
-    $db['refs'].each do |key, value|
-        if key.casecmp(message) == 0
-            user = value
-        end
-    end
+bot.command :refs do |event, mention|
 
-    #check if array is still empty
-    #if it is, we didn't find a match
-    if user.empty?
+    #get user
+    user = $db['users'][event.bot.parse_mention(mention).id]
+
+    #check if user isn't in our db
+    if user.nil?
         event << "User not found.. :eyes:"
         return
     end
 
+    if user['refs'].nil?
+        event << "They don't have a ref, laugh at them!\nhttp://puu.sh/pBzdD/b516b51ba1.jpg"
+        return
+    end
+
     #output each ref
-    event << "#{message}'s refs:"
-    user.each { |x| event << x }
+    event << "#{user['name']}'s refs:"
+    user['refs'].each { |x| event << x }
     nil
 end
+
+
+bot.command :addref do |event, *url|
+    url = url.join(' ')
+
+    #get user
+    user = $db['users'][event.user.id]
+
+    #check if user isn't in our db
+    if user.nil?
+        event << "User not found.. :eyes:"
+        return
+    end
+
+    #add ref to user
+    user['refs'] << url
+
+    #save db
+    save
+    nil
+end
+
+def save
+  file = File.open("db.yaml", "w")
+  file.write($db.to_yaml)
+end
+
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656 # Replace number with your ID
@@ -415,5 +502,16 @@ bot.command(:eval, help_available: false) do |event, *code|
     "An error occured 😞"
   end
 end
+
+
+bot.command(:eval, help_available: false) do |event, *code|
+  break unless event.user.id == 132893552102342656
+  begin
+    eval code.join(' ')
+  rescue => e
+    "An error occured :disappointed: ```#{e}```"
+  end
+end
+
 
 bot.run
