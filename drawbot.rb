@@ -1,5 +1,6 @@
 require 'discordrb'
 require 'yaml'
+require 'rest_client'
 
 # at the beginning of your program in global scope
 # $ symbol denotes a global variable
@@ -348,8 +349,12 @@ bot.command(:drawfaglewd) do |event|
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
 
-bot.command(:pokemon) do |event|
-  event << "The pokemon you get to draw is #{Pokemon.sample}"
+bot.command :pokemon do |event|
+  break unless !servers.grep(event.server.id).empty?
+  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
+  url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
+  event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
+  event << url
 end
 
 bot.command(:fpose) do |event|
