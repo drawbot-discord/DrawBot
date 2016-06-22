@@ -411,6 +411,7 @@ bot.command :refs do |event, mention|
 end
 
 bot.command :addref do |event, *url|
+  break unless event.channel.id == 180323434226647040
   url = url.join(' ')
 
   #get user
