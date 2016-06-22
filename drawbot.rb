@@ -350,7 +350,6 @@ bot.command(:drawfaglewd) do |event|
 end
 
 bot.command :pokemon do |event|
-  break unless !servers.grep(event.server.id).empty?
   pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
   url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
   event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
