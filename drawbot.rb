@@ -257,7 +257,7 @@ end
 
 bot.command(:hump) do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
+  event << "#{event.user.display_name} #{BoopAction.sample} humps #{message}"
 end
 
 bot.command(:doit) do |event|
