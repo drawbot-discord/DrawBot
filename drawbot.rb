@@ -59,7 +59,7 @@ commands = [
   " ~colour",
   " ~outfit",
   " ~pokemon",
-  "   ~fpose",
+  " ~fpose",
   "",
   "Fun Commands",
   " ~8ball",
@@ -74,9 +74,13 @@ commands = [
   " ~lewd",
   " ~roll (default 6, add number after to make larger)",
   " ~pun",
-  "   ~told",
-  "   ~gimme",
-  "   ~pout",
+  " ~told",
+  " ~gimme",
+  " ~pout",
+  " ~poses",
+  " ~texas",
+  " ~salt",
+  " ~orangyheart",
   "",
   "References (type ~refs then @them)",
   " AngryCoconut",
@@ -422,6 +426,24 @@ end
 bot.command(:fpose) do |event|
   event << "The pose you get is #{Fpose.sample}"
 end
+
+bot.command(:poses) do |event|
+  event << "roll 98\nhttps://puu.sh/oNXxK/474217250e.jpg\nroll 20\nhttps://puu.sh/oNxer/cb15424c85.jpg"
+end
+
+bot.command(:texas) do |event|
+  event << "https://puu.sh/oQk1b/ddf195310c.png"
+end
+
+bot.command(:salt) do |event|
+  event << "https://puu.sh/pwPPr/c4ea4b2e93.jpg"
+end
+
+bot.command(:orangyheart) do |event|
+  event << "http://puu.sh/pCzpn/8f0f140aa1.jpg"
+end
+
+
 
 bot.command(:pout) do |event|
   event << "#{Pout.sample}"
