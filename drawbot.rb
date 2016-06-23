@@ -124,7 +124,7 @@ bot.command(:'8ball') do |event, *message|
               "http://puu.sh/pCwU7/7363e7b5ad.jpg",
               "http://puu.sh/pCwV1/6db9f62766.jpg",
               "http://puu.sh/pCwXm/e0def20ba2.jpg",
-              "http://puu.sh/pCwZh/669d9212d8.jpg",
+              "uhhhhh, sure\nhttp://puu.sh/pCwZh/669d9212d8.jpg",
               "http://puu.sh/pCwZh/669d9212d8.jpg",
               "http://puu.sh/pCwZu/772d8e3e09.jpg",
               "http://puu.sh/pCx1M/672739a131.jpg",
