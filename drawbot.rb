@@ -67,6 +67,7 @@ commands = [
   " ~boop",
   " ~slap",
   " ~rub",
+  " ~hump",
   " ~spray",
   " ~grope",
   " ~nellyheart",
@@ -250,6 +251,11 @@ bot.command(:grope) do |event, *message|
 end
 
 bot.command(:hug) do |event, *message|
+  message = message.join(' ')
+  event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
+end
+
+bot.command(:hump) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
 end
