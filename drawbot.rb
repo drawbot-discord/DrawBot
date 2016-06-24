@@ -221,7 +221,7 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.mention} `#{message}`: #{EIGHTBALL.sample[:message]}"
+  event << "#{event.user.mention} `#{message}`: #{EIGHTBALL.sample[:fortune]}"
 end
 
 bot.command(:zii) do |event, *message|
@@ -231,8 +231,8 @@ bot.command(:zii) do |event, *message|
   fortune = EIGHTBALL[index][:fortune]
   zii = EIGHTBALL[index][:zii]
 
-  event << "#{event.user.mention} #{fortune}"
-  event << "`#{message}`: #{zii}"
+  event << "#{event.user.mention} #{zii}"
+  event << "`#{message}` : #{fortune}"
 
 end
 
