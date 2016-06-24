@@ -121,12 +121,12 @@ EIGHTBALL= [{ :fortune => "What? Yea, fine whatever. Yes", :zii => "http://puu.s
             { :fortune => "Don't count on it", :zii => "http://puu.sh/pBoZR/a4cddea3f4.png" },
             { :fortune => "My reply is no", :zii => "http://puu.sh/pBp0c/8648ce0a70.png" },
             { :fortune => "Drawbot says no", :zii => "http://puu.sh/pBp0L/0c77ff36c7.png" },
-            { :fortune => "", :zii => "http://puu.sh/pCwQc/b10381298b.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCxrg/490bb762aa.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCxGO/3a27832a82.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuIb/54c95d8a75.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuM3/e2508bc376.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuTm/8adfba1e8b.jpg"}]
+            { :zii => "http://puu.sh/pCwQc/b10381298b.jpg"},
+            { :zii => "http://puu.sh/pCxrg/490bb762aa.jpg"},
+            { :zii => "http://puu.sh/pCxGO/3a27832a82.jpg"},
+            { :zii => "http://puu.sh/pCuIb/54c95d8a75.jpg"},
+            { :zii => "http://puu.sh/pCuM3/e2508bc376.jpg"},
+            { :zii => "http://puu.sh/pCuTm/8adfba1e8b.jpg"}]
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
 
@@ -221,7 +221,8 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.mention} `#{message}`: #{EIGHTBALL.sample[:fortune]}"
+  fortune = EIGHTBALL.select { |e| e[:message] }.sample
+  event << "#{event.user.mention} `#{message}`: #{fortune}"
 end
 
 bot.command(:zii) do |event, *message|
