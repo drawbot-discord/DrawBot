@@ -48,7 +48,7 @@ EIGHTBALL= ["What? Yea, fine whatever. Yes",
             "Fine yes!",
             "Sure whatever.",
             "Yea, but ony cause I care about you.",
-            "I'm going for a drive, s ask me in a bit.",
+            "I'm going for a drive, ask me in a bit.",
             "yes...?",
             "Heh.. heh.. Ask later?",
             "Yyyyeeaaa....",
@@ -305,7 +305,6 @@ rules = ["Golden Rule Be excelent to each other
 2 - This place is to help everyone improve their art skills. So please use constructive criticism
 3 - If there is an active conversation going on please do not try to derail it
 4 - Be mature. We are all adults, so don't go memeing it up too much
-
 Rules will be added by majority interest or by obtuse necessity by the acting administration, and shall exclusively serve to maintain creative expressionism and the integrity of the community, or to prevent the abuse, harassment or bullying by or unto one of the participants"]
 
 #___________________________________________
@@ -316,12 +315,12 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.mention} `#{message}`: **#{EIGHTBALL.sample}**"
+  event << "#{event.user.mention} `#{message}`: #{EIGHTBALL.sample}"
 end
 
 bot.command(:zii) do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.mention} `#{message}`: **#{EIGHTBALL.sample}**"
+  event << "#{event.user.mention} `#{message}`: #{EIGHTBALL.sample}"
   event << "#{ZII.sample}"
 end
 
