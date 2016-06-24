@@ -23,8 +23,8 @@ Pokemon = $db['Pokemon']
 Token = $db['token']
 Fpose = $db['fpose']
 Pout = $db['pout']
-Told = $db['told'].join('\n')
-Rekt = $db['rekt'].join('\n')
+Told = $db['told'].join("\n")
+Rekt = $db['rekt'].join("\n")
 
 DEVCHANNEL = 180323434226647040
 
