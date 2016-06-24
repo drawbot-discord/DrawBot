@@ -221,7 +221,7 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
-  fortune = EIGHTBALL.select { |e| e[:message] }.sample
+  fortune = EIGHTBALL.select { |e| e[:message] }.sample[:message]
   event << "#{event.user.mention} `#{message}`: #{fortune}"
 end
 
