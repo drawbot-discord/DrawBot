@@ -26,6 +26,8 @@ Told = $db['told']
 Pout = $db['pout']
 Rekt = $db['rekt']
 
+DEVCHANNEL = 180323434226647040
+
 EIGHTBALL= ["What? Yea, fine whatever. Yes",
             "Ugh not this time. No.",
             "would you hate me if I said no? because... no.",
@@ -224,16 +226,14 @@ bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 1
 
 #restart bot
 bot.command(:restart, description: "restarts the bot") do |event|
-  break unless event.channel.id == 180323434226647040
-
-  bot.send_message(180323434226647040,"Restart issued.. :wrench:")
+  break unless event.channel.id == DEVCHANNEL
+  event << "Restart issued.. :wrench:"
   bot.stop
   exit
-
 end
 
 bot.ready do |event|
-  event.bot.send_message(180323434226647040, "Drawbot online! Let's get some art done!")
+  event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   nil
@@ -608,7 +608,7 @@ bot.command :refs do |event, mention|
 end
 
 bot.command :addref do |event, *url|
-  break unless event.channel.id == 180323434226647040
+  break unless event.channel.id == DEVCHANNEL
   url = url.join(' ')
 
   #get user
@@ -646,7 +646,7 @@ bot.command(:eval, help_available: false) do |event, *code|
 end
 
 bot.command :getdb do |event|
-  break unless event.channel.id == 180323434226647040
+  break unless event.channel.id == DEVCHANNEL
   file = File.open('db.yaml')
   event.channel.send_file(file)    
 end
