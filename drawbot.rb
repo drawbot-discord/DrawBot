@@ -520,7 +520,7 @@ end
 bot.command(:drawfaglewd) do |event|
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
-
+#this is really cool, i'm glad it was added!
 bot.command :pokemon do |event|
   pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
   url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
@@ -558,6 +558,7 @@ end
 
 #uses the yaml file, add more artists there!
 
+
 #bot.command :refs do |event, *message|
 #    message = message.join(' ')
 #    user = Array.new
@@ -581,6 +582,7 @@ end
 #    user.each { |x| event << x }
 #    nil
 #end
+
 
 bot.command :refs do |event, mention|
 
