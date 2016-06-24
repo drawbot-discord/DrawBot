@@ -645,4 +645,10 @@ bot.command(:eval, help_available: false) do |event, *code|
   end
 end
 
+bot.command :getdb do |event|
+  break unless event.channel.id == 180323434226647040
+  file = File.open('db.yaml')
+  event.channel.send_file(file)    
+end
+
 bot.run
