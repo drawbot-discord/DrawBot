@@ -321,8 +321,8 @@ end
 
 bot.command(:zii) do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.mention} `#{message}`: **#{EIGHTBALL.sample}**"
-  event << "#{ZII.sample}"
+  event << "#{event.user.mention} #{ZII.sample}"
+  event << "`#{message}`: **#{EIGHTBALL.sample}**"
 end
 
 bot.command :roll do |event, roll|
