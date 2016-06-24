@@ -22,9 +22,9 @@ Puns = $db['Puns']
 Pokemon = $db['Pokemon']
 Token = $db['token']
 Fpose = $db['fpose']
-Told = $db['told']
 Pout = $db['pout']
-Rekt = $db['rekt']
+Told = $db['told'].join('\n')
+Rekt = $db['rekt'].join('\n')
 
 DEVCHANNEL = 180323434226647040
 
@@ -402,10 +402,11 @@ bot.command(:pun) do |event|
 end
 
 bot.command(:told) do |event|
-  event << $db['told'].join("\n")
+  event << Told
 end
+
 bot.command(:rekt) do |event|
-  event << $db['rekt'].join("\n")
+  event << Rekt
 end
 
 bot.command(:rules) do |event|
