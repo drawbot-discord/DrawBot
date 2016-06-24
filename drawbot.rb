@@ -63,7 +63,7 @@ commands = [
   "",
   "Fun Commands",
   " ~8ball",
-  " ~zii(8ball clone)"
+  " ~zii(8ball clone)",
   " ~bad",
   " ~boop",
   " ~slap",
