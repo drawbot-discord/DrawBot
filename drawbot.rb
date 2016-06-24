@@ -228,7 +228,7 @@ end
 bot.command(:zii) do |event, *message|
   message = message.join(' ')
 
-  index = 0..EIGHTBALL.length-1
+  index = rand 0..EIGHTBALL.length-1
   fortune = EIGHTBALL[index][:fortune]
   zii = EIGHTBALL[index][:zii]
 
