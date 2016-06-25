@@ -27,7 +27,7 @@ Told = $db['told'].join("\n")
 Rekt = $db['rekt'].join("\n")
 
 DEVCHANNEL = 180323434226647040
-
+#To be moved to YAML soon. Probably on sunday.
 EIGHTBALL= [{ :fortune => "What? Yea, fine whatever. Yes", :zii => "http://puu.sh/pCwOM/a55cb94cea.jpg" },
             { :fortune => "Ugh not this time. No.", :zii => "http://puu.sh/pCwSu/a87c3f352e.jpg" },
             { :fortune => "would you hate me if I said no? because... no.", :zii => "" },
@@ -40,7 +40,7 @@ EIGHTBALL= [{ :fortune => "What? Yea, fine whatever. Yes", :zii => "http://puu.s
             { :fortune => "Mmmm no.", :zii => "http://puu.sh/pCx1M/672739a131.jpg" },
             { :fortune => "Yea if you call me a cutie :heart:", :zii => "http://puu.sh/pCx4v/57577b2411.jpg" },
             { :fortune => "let me take a picture of you face first. Ok now, yea.", :zii => "http://puu.sh/pCxbC/8049f3232f.jpg" },
-            { :fortune => "Don't talk to me right now, LEave me alone. Ask later", :zii => "http://puu.sh/pCxcy/68da5bc7b9.jpg" },
+            { :fortune => "Don't talk to me right now, Leave me alone. Ask later", :zii => "http://puu.sh/pCxcy/68da5bc7b9.jpg" },
             { :fortune => "Go away, ask later. Jerk", :zii => "http://puu.sh/pCxdc/28e7b19d9d.jpg" },
             { :fortune => "Does that seem like a good idea? No. Because it's not.", :zii => "http://puu.sh/pCxe4/fbde5b31bf.jpg" },
             { :fortune => "Don't worry I don't blame you. You can ask later", :zii => "http://puu.sh/pCxfZ/7669209698.jpg" },
@@ -328,7 +328,7 @@ end
 bot.command(:commands) do |event|
   event << "#{commands.join("\n")}"
 end
-
+#To add this to the YAML db, sunday
 #COLOUR COMMAND
 bot.message(with_text: "~colour") do |event|
   response = [
@@ -384,7 +384,7 @@ bot.message(with_text: "~colour") do |event|
   event << response
 
 end
-
+#to add to yaml on sundayyyyy ughghghgghggh
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
   response = [
