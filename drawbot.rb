@@ -240,11 +240,11 @@ end
 
 
 bot.command(:randomchar) do |event|
-  event << "Your randomly generated pathfinder character is a:"
   event << "#{Race.sample}"
   event << "#{Class.sample}"
   event << "#{Stats.sample}"
 end
+
 #COLOUR COMMAND
 bot.command(:colour) do |event|
   event << "Your complementary colours are"
