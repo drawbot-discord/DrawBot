@@ -406,7 +406,7 @@ bot.command(:bank, description: "fetches your balance, or @user's balance") do |
   end
 
   #load user from $db, report if user is invalid or not registered.
-  user = $db["users"]
+  user = $db["users"][mention]
   if user.nil?
     event << "User does not exist http://puu.sh/pGi6t/862de15c71.jpg"
     return
