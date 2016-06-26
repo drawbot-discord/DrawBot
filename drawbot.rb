@@ -25,6 +25,7 @@ Fpose = $db['fpose']
 Pout = $db['pout']
 Told = $db['told'].join("\n")
 Rekt = $db['rekt'].join("\n")
+Lewd = $db['lewd']
 
 DEVCHANNEL = 180323434226647040
 #To be moved to YAML soon. Probably on sunday.
@@ -387,35 +388,7 @@ end
 #to add to yaml on sundayyyyy ughghghgghggh
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
-  response = [
-    "https://i.imgur.com/I3apoUB.gif",
-    "https://i.imgur.com/um5vVcC.gif",
-    "https://i.imgur.com/pTb7vbZ.gif",
-    "https://i.imgur.com/cqiyR1L.gif",
-    "https://i.imgur.com/vZnMTFn.gif",
-    "https://i.imgur.com/Ftuig9v.gif",
-    "https://i.imgur.com/Gygj9sg.gif",
-    "https://i.imgur.com/pPVVu2b.gif",
-    "https://i.imgur.com/7QCizTa.gif",
-    "https://i.imgur.com/PS12w7X.gif",
-    "https://i.imgur.com/6fzs6jV.gif",
-    "https://i.imgur.com/eBjiGR9.gif",
-    "https://i.imgur.com/7KZ7hHy.gif",
-    "https://i.imgur.com/hJP68mL.gif",
-    "https://i.imgur.com/YXlOYiW.gif",
-    "https://i.imgur.com/fUBsH9X.jpg",
-    "https://i.imgur.com/MXeL1Jh.gif",
-    "https://i.imgur.com/pUBnlrE.gif",
-    "https://i.imgur.com/5xLBY1Y.gif",
-    "https://i.imgur.com/WurU1qy.jpg",
-    "https://i.imgur.com/UZV0T1p.gif",
-    "https://i.imgur.com/7ncmr6H.png",
-    "https://i.imgur.com/QQZmrJw.gif",
-    "https://media.giphy.com/media/Ek61AvsTykm6k/giphy.gif",
-  "https://i.imgur.com/3Etd0ik.gif",].sample
-
-  event <<  response
-end
+  event <<  "#{Lewd.sample}"
 
 
 #---------DRAW COMMANDS-----------#
