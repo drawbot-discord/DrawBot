@@ -27,108 +27,10 @@ Told = $db['told'].join("\n")
 Rekt = $db['rekt'].join("\n")
 Lewd = $db['lewd']
 Compcolour = $db['compcolour']
-
+Eightball = $db['eightball']
 DEVCHANNEL = 180323434226647040
 #To be moved to YAML soon. Probably on sunday.
-EIGHTBALL= [{ :fortune => "What? Yea, fine whatever. Yes", :zii => "http://puu.sh/pCwOM/a55cb94cea.jpg" },
-            { :fortune => "Ugh not this time. No.", :zii => "http://puu.sh/pCwSu/a87c3f352e.jpg" },
-            { :fortune => "would you hate me if I said no? because... no.", :zii => "" },
-            { :fortune => "the truth is hard sometimes, and my answer is no", :zii => "http://puu.sh/pCwU7/7363e7b5ad.jpg" },
-            { :fortune => "Yes. Do it. It'll be cool.", :zii => "http://puu.sh/pCwV1/6db9f62766.jpg" },
-            { :fortune => "What is in it for me? Nothing? Ask later.", :zii => "http://puu.sh/pCwXm/e0def20ba2.jpg" },
-            { :fortune => "uhhhhh, sure", :zii => "http://puu.sh/pCwZh/669d9212d8.jpg" },
-            { :fortune => "Yea sure man I don't see why not.", :zii => "http://puu.sh/pCwZh/669d9212d8.jpg" },
-            { :fortune => "Yes as long as you give me head pats.", :zii => "http://puu.sh/pCwZu/772d8e3e09.jpg" },
-            { :fortune => "Mmmm no.", :zii => "http://puu.sh/pCx1M/672739a131.jpg" },
-            { :fortune => "Yea if you call me a cutie :heart:", :zii => "http://puu.sh/pCx4v/57577b2411.jpg" },
-            { :fortune => "let me take a picture of you face first. Ok now, yea.", :zii => "http://puu.sh/pCxbC/8049f3232f.jpg" },
-            { :fortune => "Don't talk to me right now, Leave me alone. Ask later", :zii => "http://puu.sh/pCxcy/68da5bc7b9.jpg" },
-            { :fortune => "Go away, ask later. Jerk", :zii => "http://puu.sh/pCxdc/28e7b19d9d.jpg" },
-            { :fortune => "Does that seem like a good idea? No. Because it's not.", :zii => "http://puu.sh/pCxe4/fbde5b31bf.jpg" },
-            { :fortune => "Don't worry I don't blame you. You can ask later", :zii => "http://puu.sh/pCxfZ/7669209698.jpg" },
-            { :fortune => "I'm sorry ask me some other time.", :zii => "http://puu.sh/pCxgA/d8f919ec8e.jpg" },
-            { :fortune => "Fine yes!", :zii => "http://puu.sh/pCxhm/1637cc0f7d.jpg" },
-            { :fortune => "Sure whatever.", :zii => "http://puu.sh/pCxid/1f8c059fa1.jpg" },
-            { :fortune => "Yea, but ony cause I care about you.", :zii => "http://puu.sh/pCxky/784115712b.jpg" },
-            { :fortune => "I'm going for a drive, ask me in a bit.", :zii => "http://puu.sh/pCxqR/7a8158fc89.jpg" },
-            { :fortune => "yes...?", :zii => "http://puu.sh/pCxt4/a3a64a85a8.jpg" },
-            { :fortune => "Heh.. heh.. Ask later?", :zii => "http://puu.sh/pCxwo/ff11e43c1f.jpg" },
-            { :fortune => "Yyyyeeaaa....", :zii => "http://puu.sh/pCxx8/783e6b98c0.jpg" },
-            { :fortune => "Yes sure let's get on with it", :zii => "http://puu.sh/pCxyV/c2c2da4a01.jpg" },
-            { :fortune => "FINE YES JUST STOP SHAKING MY HEAD", :zii => "http://puu.sh/pCxF3/a2c110de3c.jpg" },
-            { :fortune => "What? No. Don't ever ask again", :zii => "http://puu.sh/pCxIp/a22edff12b.jpg" },
-            { :fortune => "Uhhhhhh nnnoooooo", :zii => "http://puu.sh/pCxJr/1d917a0ecf.jpg" },
-            { :fortune => "Is... is that the thing you want? no man. god.", :zii => "http://puu.sh/pCxKR/7bbd6d36e9.jpg" },
-            { :fortune => "No and no to your next question", :zii => "http://puu.sh/pCxLU/dffe1dd72a.jpg" },
-            { :fortune => "A-ask again l-later...", :zii => "http://puu.sh/pCxMd/b47a317e88.jpg" },
-            { :fortune => "That's a hard question.... ask me again some other time please?", :zii => "http://puu.sh/pCxMx/7e4d32fc38.jpg" },
-            { :fortune => "Yea I don't see why not", :zii => "http://puu.sh/pCutG/b3085a9fb2.jpg" },
-            { :fortune => "Pffft Haha, yea sure why not", :zii => "http://puu.sh/pCuvw/64b387388a.jpg" },
-            { :fortune => "A-ask again later", :zii => "http://puu.sh/pCuwA/e60052bb42.jpg" },
-            { :fortune => "give me a sec... ask me some other time...", :zii => "http://puu.sh/pCuxf/bb2633b2ad.jpg" },
-            { :fortune => "Yes.... Yes...", :zii => "http://puu.sh/pCuys/40a51a64cb.jpg" },
-            { :fortune => "mmmmm..... maybe", :zii => "http://puu.sh/pCuzt/f415ddcf09.jpg" },
-            { :fortune => "N-no...", :zii => "http://puu.sh/pCuAR/72b993d9dd.jpg" },
-            { :fortune => "sure thing big boy", :zii => "http://puu.sh/pCuBY/08697be7b3.jpg" },
-            { :fortune => "certainly!", :zii => "http://puu.sh/pCuCP/473f07c1a4.jpg" },
-            { :fortune => "Yes I'm feeling it", :zii => "http://puu.sh/pCuDC/b9dee75ad9.jpg" },
-            { :fortune => "yes", :zii => "http://puu.sh/pCuFV/4b85f5a1a5.jpg" },
-            { :fortune => "oh boy! Yes!", :zii => "http://puu.sh/pCuH2/c5cb50dd2b.jpg" },
-            { :fortune => "dude no, let it go", :zii => "http://puu.sh/pCuIN/e25702470e.jpg" },
-            { :fortune => "what do you think?", :zii => "http://puu.sh/pCuJv/388cdd25eb.jpg" },
-            { :fortune => "I'm not sure...", :zii => "http://puu.sh/pCuKl/da6528c513.jpg" },
-            { :fortune => "I don't wanna answer that", :zii => "http://puu.sh/pCuKY/643e2dff72.jpg" },
-            { :fortune => "yes, but you will regret it", :zii => "http://puu.sh/pCuMW/9767fe964d.jpg" },
-            { :fortune => "c-come back later", :zii => "http://puu.sh/pCuNZ/21ed1d828c.jpg" },
-            { :fortune => "ve me time to think about it", :zii => "http://puu.sh/pCuPt/7ce105b079.jpg" },
-            { :fortune => "no you fucker!", :zii => "http://puu.sh/pCuQL/789a74f811.jpg" },
-            { :fortune => "yea sure, what ever", :zii => "http://puu.sh/pCuRi/c2af6ab667.jpg" },
-            { :fortune => "no not this time...", :zii => "http://puu.sh/pCuS2/72b6a67f74.jpg" },
-            { :fortune => "hell yea man", :zii => "http://puu.sh/pCuU6/c34922448f.jpg" },
-            { :fortune => "Nah", :zii => "http://puu.sh/pBohd/86210da8e5.png" },
-            { :fortune => "Your Mother", :zii => "http://puu.sh/pBoq8/a52417e26f.jpg" },
-            { :fortune => "Pfft hahaha don't even ask.", :zii => "http://puu.sh/pBor6/6a4ba444fc.jpg" },
-            { :fortune => "I don't feel like saying yes, so no", :zii => "http://puu.sh/pBov7/31d4796a73.png" },
-            { :fortune => "Let me think about it..... no", :zii => "http://puu.sh/pBosq/5f1d0e3479.png" },
-            { :fortune => "One sec. Let me ask my magic 8 ball...hold on...just a bit more...yes", :zii => "http://puu.sh/pBox4/5811840c5c.png" },
-            { :fortune => "One sec. Let me ask my magic 8 ball...hold on...just a bit more...no", :zii => "http://puu.sh/pBow6/567875b3ac.jpg" },
-            { :fortune => "Maybe if you yell louder", :zii => "http://puu.sh/pBoxH/c150a055ed.png" },
-            { :fortune => "Maybe if you shake harder you'll get a proper answer", :zii => "http://puu.sh/pBoy8/dafb191e20.png" },
-            { :fortune => "Does a bear shit in the woods?", :zii => "http://puu.sh/pBoD4/e399c9a5ea.jpg" },
-            { :fortune => "Do aliens stick shit up our poopers? Yes, yes they do.", :zii => "http://puu.sh/pBoDN/309a8725ef.png" },
-            { :fortune => "no, just stop", :zii => "http://puu.sh/pBoEt/492ee5ecb5.jpg" },
-            { :fortune => "It's not gonna happen, guy.", :zii => "http://puu.sh/pBoFn/b3327e5f17.jpg" },
-            { :fortune => "Sure thing, friend", :zii => "http://puu.sh/pBoG0/9fea6ced19.jpg" },
-            { :fortune => "No but I can make it a yes for $20", :zii => "http://puu.sh/pBoHY/9c561c47b3.png" },
-            { :fortune => "Yes god dammit. Now quit shaking me!", :zii => "http://puu.sh/pBoID/4495d77f3c.png" },
-            { :fortune => "No, fuck you and your shitty dreams", :zii => "http://puu.sh/pBoJP/0ec1b5a19a.png" },
-            { :fortune => "Stop oppressing me! No means No!", :zii => "http://puu.sh/pBoKd/46a632c992.png" },
-            { :fortune => "Hell YEA", :zii => "http://puu.sh/pBoLm/f9e3a3b416.jpg" },
-            { :fortune => "Hell NO", :zii => "http://puu.sh/pBoME/7c410e64a9.jpg" },
-            { :fortune => "Fuck you, you figure it out", :zii => "http://puu.sh/pBoNB/dfd904b8fe.jpg" },
-            { :fortune => "Ha haha hahaha no", :zii => "http://puu.sh/pBoO4/a1a4a04145.jpg" },
-            { :fortune => "Fuck yea", :zii => "http://puu.sh/pBoOP/66e7448ab7.jpg" },
-            { :fortune => "Fuck no", :zii => "http://puu.sh/pBoPP/eabf6e1ae2.png" },
-            { :fortune => "It is certain", :zii => "http://puu.sh/pBoUg/8b16d31453.png" },
-            { :fortune => "It is decidedly so", :zii => "http://puu.sh/pBoVa/30164ceae0.png" },
-            { :fortune => "Without a doubt", :zii => "http://puu.sh/pBoQo/76a7125b54.png" },
-            { :fortune => "Yes definitely", :zii => "http://puu.sh/pBoTF/56fe2f5b8d.png" },
-            { :fortune => "You may rely on it", :zii => "http://puu.sh/pBoTj/7c2664df15.png" },
-            { :fortune => "As I see it, yes", :zii => "http://puu.sh/pBoWf/e73c08fcac.png" },
-            { :fortune => "Most likely", :zii => "http://puu.sh/pBoSw/8963c65d89.png" },
-            { :fortune => "Doesn't look good...", :zii => "http://puu.sh/pBoRT/ab49e451c9.png" },
-            { :fortune => "Yes", :zii => "http://puu.sh/pBoWx/ca8bf43307.jpg" },
-            { :fortune => "Signs point to yes", :zii => "http://puu.sh/pBoYk/87127da2ad.png" },
-            { :fortune => "Ask again later", :zii => "http://puu.sh/pBoYJ/c7fe27ca63.jpg" },
-            { :fortune => "Don't count on it", :zii => "http://puu.sh/pBoZR/a4cddea3f4.png" },
-            { :fortune => "My reply is no", :zii => "http://puu.sh/pBp0c/8648ce0a70.png" },
-            { :fortune => "Drawbot says no", :zii => "http://puu.sh/pBp0L/0c77ff36c7.png" },
-            { :fortune => "", :zii => "http://puu.sh/pCwQc/b10381298b.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCxrg/490bb762aa.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCxGO/3a27832a82.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuIb/54c95d8a75.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuM3/e2508bc376.jpg"},
-            { :fortune => "", :zii => "http://puu.sh/pCuTm/8adfba1e8b.jpg"}]
+
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
 
@@ -223,7 +125,7 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
-  fortune = EIGHTBALL.select { |e| !e[:fortune].empty? }.sample[:fortune]
+  fortune = EIGHTBALL.select { |e| !e['fortune'].empty? }.sample['fortune']
   event << "#{event.user.mention} `#{message}`: #{fortune}"
 end
 
@@ -231,8 +133,8 @@ bot.command(:zii) do |event, *message|
   message = message.join(' ')
 
   index = rand 0..EIGHTBALL.length-1
-  fortune = EIGHTBALL[index][:fortune]
-  zii = EIGHTBALL[index][:zii]
+  fortune = EIGHTBALL[index]['fortune']
+  zii = EIGHTBALL[index]['zii']
 
   event << "#{event.user.mention} #{zii}"
   event << "`#{message}` : #{fortune}"
