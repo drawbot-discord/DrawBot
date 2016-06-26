@@ -537,6 +537,13 @@ bot.command(:setstipend, min_args: 1, description: "sets all users stipend value
   nil
 end
 
+bot.command :say do |event, *message|
+   break unless event.channel.id == DEVCHANNEL
+    message = message.join(' ')
+    event.bot.channel(175579371975868416).send_message(message)
+end
+
+
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
