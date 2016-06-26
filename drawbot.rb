@@ -333,7 +333,7 @@ end
 #To add this to the YAML db, sunday
 #COLOUR COMMAND
 bot.message(with_text: "~colour") do |event|
-  event "#{Compcolour.sample}"
+  event << "#{Compcolour.sample}"
 end
 
 
