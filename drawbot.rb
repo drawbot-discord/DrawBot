@@ -389,6 +389,7 @@ end
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
   event <<  "#{Lewd.sample}"
+end
 
 
 #---------DRAW COMMANDS-----------#
