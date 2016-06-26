@@ -330,14 +330,15 @@ end
 bot.command(:commands) do |event|
   event << "#{commands.join("\n")}"
 end
-#To add this to the YAML db, sunday
+
 #COLOUR COMMAND
 bot.command(:colour) do |event|
-  event << "Your complementary colours are\n#{Compcolour.sample}"
+  event << "Your complementary colours are"
+  event << "#{Compcolour.sample}"
 end
 
 
-#to add to yaml on sundayyyyy ughghghgghggh
+
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
   event <<  "#{Lewd.sample}"
