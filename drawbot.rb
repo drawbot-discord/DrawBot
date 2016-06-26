@@ -447,6 +447,74 @@ bot.command(:setbank, min_args: 3, description: "sets @user's bank and stipend b
 end
 
 
+
+
+#------GIVE COMMAND
+bot.command(:give, min_args: 3,  description: "give currency") do |event, to, value, type|
+
+  value = value.to_i
+
+  #pick up user
+  fromUser = $db["users"][event.user.id]
+
+  #return if invalid user
+  if fromUser.nil?
+    event << "User does not exist :x:"
+    return
+  end
+
+  #check if they have enough first
+  if (fromUser["stipend"] - value) < 0
+    event << "You do not have enough currency to make this transaction. :disappointed_relieved:"
+    return
+  end
+
+  #flattery won't get you very far with KekBot
+  if bot.parse_mention(to).id == event.bot.profile.id
+    event << "Is that all you have to offer, peasant?!"
+    event << "http://puu.sh/pBA9k/5801785072.jpg"
+    return
+  end
+
+  #pick up user to receive currency
+  toUser = $db["users"][event.bot.parse_mention(to).id]
+
+  #check that they exist
+  if toUser.nil?
+    event << "User does not exist :x:"
+    return
+  end
+
+  #you can't give keks to yourself
+  if fromUser == toUser
+    event << "You can't give to yourself, so give to me." 
+    event << "http://puu.sh/pBAc6/b8710b6a54.png"
+    return
+  end
+
+  #transfer currency
+  #remove from stipend
+  fromUser["stipend"] -= value
+
+  #give toUser the desired currency
+  if type == 'salt'
+      toUser['salt'] += value
+    elsif type == 'hearts'
+      toUser['hearts'] += value
+    end
+  else
+    event << "Hey buddy! Choose `salt` or `hearts`, I can't do that for you!"
+    event << "http://puu.sh/pGb07/d293637db9.jpg"
+    return
+  end        
+
+  #notification
+  event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
+
+  save
+  nil
+end
+
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
