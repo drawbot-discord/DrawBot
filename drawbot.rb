@@ -32,6 +32,7 @@ EIGHTBALL = $db['eightball']
 Race = $db['race']
 PClass = $db['class']
 Stats = $db['stats']
+Align = $db['align']
 
 DEVCHANNEL = 180323434226647040
 #To be moved to YAML soon. Probably on sunday.
@@ -242,7 +243,7 @@ end
 
 bot.command(:randomchar) do |event|
   event << "Your randomly generated pathfinder character is a"
-  event << "#{Race.sample} #{PClass.sample}, #{Stats.sample}"
+  event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
 end
 
 #COLOUR COMMAND
