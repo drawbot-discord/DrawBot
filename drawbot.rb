@@ -6,6 +6,7 @@ require 'rest_client'
 # $ symbol denotes a global variable
 
 #-------YAML THINGS------#
+
 $db = YAML.load(File.read('db.yaml'))
 
 BoopAction = $db['BoopAction']
