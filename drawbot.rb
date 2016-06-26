@@ -332,8 +332,8 @@ bot.command(:commands) do |event|
 end
 #To add this to the YAML db, sunday
 #COLOUR COMMAND
-bot.message(with_text: "~colour") do |event|
-  event << "#{Compcolour.sample}"
+bot.command(:colour) do |event|
+  event << "Your complementary colours are\n#{Compcolour.sample}"
 end
 
 
