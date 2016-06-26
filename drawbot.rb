@@ -30,7 +30,7 @@ Lewd = $db['lewd']
 Compcolour = $db['compcolour']
 EIGHTBALL = $db['eightball']
 Race = $db['race']
-Class = $db['class']
+PClass = $db['class']
 Stats = $db['stats']
 
 DEVCHANNEL = 180323434226647040
@@ -242,9 +242,7 @@ end
 
 bot.command(:randomchar) do |event|
   event << "Your randomly generated pathfinder character is a"
-  event << "#{Race.sample}"
-  event << "#{Class.sample}"
-  event << "#{Stats.sample}"
+  event << "#{Race.sample} #{PClass.sample}, #{Stats.sample}"
 end
 
 #COLOUR COMMAND
