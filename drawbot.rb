@@ -27,7 +27,9 @@ Told = $db['told'].join("\n")
 Rekt = $db['rekt'].join("\n")
 Lewd = $db['lewd']
 Compcolour = $db['compcolour']
-Eightball = $db['eightball']
+EIGHTBALL = $db['eightball']
+
+
 DEVCHANNEL = 180323434226647040
 #To be moved to YAML soon. Probably on sunday.
 
