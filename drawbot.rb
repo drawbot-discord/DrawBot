@@ -515,6 +515,27 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
   nil
 end
 
+
+
+bot.command(:setstipend, min_args: 1, description: "sets all users stipend values") do |event, value|
+  break unless event.channel.id == devChannel
+
+  #get integer
+  value = value.to_i
+
+  #update all users
+  $db["users"].each do |id, data|
+    data["stipend"] = value
+    $db['users'][132893552102342656]['stipend'] = 1000
+  end
+
+  #notification
+  event << "All stipends set to `#{value.to_s}`"
+
+  save
+  nil
+end
+
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
