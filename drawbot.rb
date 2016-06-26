@@ -501,7 +501,7 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
       toUser['salt'] += value
     elsif type == 'hearts'
       toUser['hearts'] += value
-    end
+
   else
     event << "Hey buddy! Choose `salt` or `hearts`, I can't do that for you!"
     event << "http://puu.sh/pGb07/d293637db9.jpg"
