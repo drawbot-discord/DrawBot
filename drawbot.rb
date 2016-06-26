@@ -389,6 +389,64 @@ def save
   file.write($db.to_yaml)
 end
 
+
+
+
+#-----------BANK AND CURRENCY
+
+#get bank amount
+bot.command(:bank, description: "fetches your balance, or @user's balance") do |event, mention|
+
+  #report our own bank if no @mention
+  #pick up user if we have a @mention
+  if mention.nil?
+    mention = event.user.id.to_i
+  else
+    mention = event.message.mentions.at(0).id.to_i
+  end
+
+  #load user from $db, report if user is invalid or not registered.
+  user = $db["users"]
+  if user.nil?
+    event << "User does not exist http://puu.sh/pGi6t/862de15c71.jpg"
+    return
+  end
+
+  #report bank
+event << "Heart balance: #{user['hearts']}"
+event << "Salt balance: #{user['salt']}"
+event << "Stipend balance: #{user['stipend']}"
+
+  nil
+end
+
+
+
+
+
+#set bank amount
+bot.command(:setbank, min_args: 3, description: "sets @user's bank and stipend balance") do |event, mention, hearts, salt, stipend|
+  break unless event.channel.id == devChannel
+
+    #get integers
+  hearts = hearts.to_i
+  salt = salt.to_i
+  stipend = stipend.to_i
+
+  #update $db with requested values
+  user = $db['users'][event.bot.parse_mention(mention).id]
+  user['salt'] = saltbank
+  user['heart'] = heartbank
+  user['stipend'] = stipend
+
+  #notification
+  event << "Updated! :wink:"
+
+  save
+  nil
+end
+
+
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
