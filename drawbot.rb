@@ -28,7 +28,9 @@ Rekt = $db['rekt'].join("\n")
 Lewd = $db['lewd']
 Compcolour = $db['compcolour']
 EIGHTBALL = $db['eightball']
-
+Race = $db['race']
+Class = $db['class']
+Stats = $db['stats']
 
 DEVCHANNEL = 180323434226647040
 #To be moved to YAML soon. Probably on sunday.
@@ -89,6 +91,7 @@ commands = [
   " ~texas",
   " ~salt",
   " ~orangyheart",
+  " ~randomchar",
   "",
   "References (type ~refs then @them)",
   " AngryCoconut",
@@ -235,6 +238,13 @@ bot.command(:commands) do |event|
   event << "#{commands.join("\n")}"
 end
 
+
+bot.command(:randomchar) do |event|
+  event << "Your randomly generated pathfinder character is a:"
+  event << "#{Race.sample}"
+  event << "#{Class.sample}"
+  event << "#{Stats.sample}"
+end
 #COLOUR COMMAND
 bot.command(:colour) do |event|
   event << "Your complementary colours are"
