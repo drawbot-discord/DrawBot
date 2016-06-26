@@ -526,9 +526,9 @@ bot.command(:setstipend, min_args: 1, description: "sets all users stipend value
   #update all users
   $db["users"].each do |id, data|
     data["stipend"] = value
-    $db['users'][132893552102342656]['stipend'] = 1000
-  end
 
+  end
+    $db['users'][132893552102342656]['stipend'] = 10000
   #notification
   event << "All stipends set to `#{value.to_s}`"
 
