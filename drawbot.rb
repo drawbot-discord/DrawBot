@@ -426,7 +426,7 @@ end
 
 #set bank amount
 bot.command(:setbank, min_args: 3, description: "sets @user's bank and stipend balance") do |event, mention, hearts, salt, stipend|
-  break unless event.channel.id == devChannel
+  break unless event.channel.id == DEVCHANNEL
 
     #get integers
   hearts = hearts.to_i
