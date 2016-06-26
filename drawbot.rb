@@ -518,7 +518,7 @@ end
 
 
 bot.command(:setstipend, min_args: 1, description: "sets all users stipend values") do |event, value|
-  break unless event.channel.id == devChannel
+  break unless event.channel.id == DEVCHANNEL
 
   #get integer
   value = value.to_i
