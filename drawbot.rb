@@ -435,8 +435,8 @@ bot.command(:setbank, min_args: 3, description: "sets @user's bank and stipend b
 
   #update $db with requested values
   user = $db['users'][event.bot.parse_mention(mention).id]
-  user['salt'] = saltbank
-  user['heart'] = heartbank
+  user['salt'] = salt
+  user['hearts'] = heart
   user['stipend'] = stipend
 
   #notification
