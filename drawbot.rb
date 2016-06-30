@@ -415,9 +415,9 @@ bot.command(:bank, description: "fetches your balance, or @user's balance") do |
 
   #report bank
   total = user['hearts'] + user['salt']
-  percent_hearts = (user['hearts'] / total) * 100
+  percent_hearts = (user['hearts'].to_f / total.to_f) * 100.0
   percent_hearts = percent_hearts.round(2)
-  percent_salty = (user['salt'] / total) * 100
+  percent_salty = (user['salt'].to_f / total.to_f) * 100.0
   percent_salty = percent_salty.round(2)
   event << "You are **#{percent_hearts}%** lovely :kissing_heart: and **#{percent_salty}%** salty! :unamused:"
   event << ""
