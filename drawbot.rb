@@ -255,7 +255,6 @@ end
 bot.command(:color) do |event|
   event << "Your complementary colours are"
   event << "#{Compcolour.sample}"
-  event << "you yankee"
 end
 
 
