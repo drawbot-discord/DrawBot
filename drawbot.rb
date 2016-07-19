@@ -433,6 +433,9 @@ bot.command(:bank, description: "fetches your balance, or @user's balance") do |
   event << "Stipend balance: #{user['stipend']}"
 
   nil
+
+   
+
 end
 
 
@@ -558,17 +561,6 @@ bot.command :say do |event, *message|
 end
 
 
-  #report bank
-  total = user['hearts'] + user['salt']
-  percent_hearts = (user['hearts'] / total) * 100
-  percent_hearts = percent_hearts.round(2)
-  percent_salty = (user['salt'] / total) * 100
-  percent_salty = percent_salty.round(2)
-  event << "You are **#{percent_hearts}%** lovely and **#{percent_salty}%** salty."
-  event << ""
-  event << "Heart balance: #{user['hearts']}"
-  event << "Salt balance: #{user['salt']}"
-  event << "Stipend balance: #{user['stipend']}"
 
 
 #------------Eval-----------#
