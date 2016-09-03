@@ -422,7 +422,7 @@ end
 
 #get bank amount
 bot.command(:bank, description: "fetches your balance, or @user's balance") do |event, mention|
-
+break unless event.channel.id == DRAWCHANNEL
   #report our own bank if no @mention
   #pick up user if we have a @mention
   if mention.nil?
@@ -487,7 +487,7 @@ end
 
 #------GIVE COMMAND
 bot.command(:give, min_args: 3,  description: "give currency") do |event, to, value, type|
-
+break unless event.channel.id == DRAWCHANNEL
   value = value.to_i
 
   #pick up user
