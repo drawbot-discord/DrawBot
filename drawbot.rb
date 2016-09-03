@@ -74,6 +74,7 @@ commands = [
   " ~fpose",
   "",
   "Fun Commands",
+  " wave",
   " ~8ball",
   " ~zii(8ball clone)",
   " ~bad",
@@ -137,6 +138,11 @@ bot.command :roll do |event, roll|
   roll = roll[0].times.collect { |x| rand(1..roll[1]) }
   total = roll.inject(0){|sum,x| sum + x }
   event << "#{event.user.display_name} throws their dice down and roll `#{roll.join(', ')} = #{total}`"
+end
+
+bot.command(:wave) do |event, *message|
+  message = message.join(' ')
+  event << "#{event.user.display_name} waves at #{message}"
 end
 
 bot.command(:boop) do |event, *message|
