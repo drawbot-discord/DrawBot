@@ -120,7 +120,6 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
-bot.ru
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
