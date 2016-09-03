@@ -1,6 +1,7 @@
 require 'discordrb'
 require 'yaml'
 require 'rest_client'
+require 'rufus-scheduler'
 
 # at the beginning of your program in global scope
 # $ symbol denotes a global variable
@@ -588,6 +589,39 @@ bot.command :say do |event, *message|
     message = message.join(' ')
     event.bot.channel(175579371975868416).send_message(message)
 end
+
+
+
+
+
+
+
+bot.ready do |event|
+  event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
+  avatar = File.open('media/avatar.jpg','rb')
+  event.bot.profile.avatar = avatar
+  scheduler = Rufus::Scheduler.new
+  scheduler.cron '0 0 * * *' do
+    #update all users
+    $db["users"].each do |id, data|
+      data["stipend"] = $db['stipend']
+    end
+    bot.channel(DEVCHANNEL).send_message("Stipends reset to: `#{$db['stipend']}`")
+    nil
+  end
+end
+
+# This should reset stipends every day at midnight. 
+# It reads the 'stipend' key from the YAML config file,
+# and will report in DEVCHANNEL whenever the reset occurs.
+
+# Additional steps could be taken to check when the last
+# time stipends were reset, such that if the bot happened
+# to be offline at midnight, they would be reset when
+# the bot came back online and realized the stipends
+# hadn't been reset yet. Up to you! 
+
+
 
 
 
