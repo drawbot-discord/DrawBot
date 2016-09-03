@@ -35,6 +35,8 @@ Stats = $db['stats']
 Align = $db['align']
 
 DEVCHANNEL = 180323434226647040
+DRAWCHANNEL = 175579371975868416
+
 #To be moved to YAML soon. Probably on sunday.
 
 
@@ -65,7 +67,7 @@ commands = [
   " ~draw",
   " ~drawlewd",
   " ~drawcombo",
-  " ~drawfaglewd",
+  " ~drawfaglewd(private)",
   " ~colour",
   " ~outfit",
   " ~pokemon",
@@ -263,6 +265,7 @@ bot.command(:drawcombo) do |event|
 end
 
 bot.command(:drawfaglewd) do |event|
+  break unless event.channel.id == DRAWCHANNEL
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
 #this is really cool, i'm glad it was added!
