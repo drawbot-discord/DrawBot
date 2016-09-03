@@ -151,7 +151,7 @@ end
 
 bot.command(:wave) do |event, *message|
   message = message.join(' ')
-  event << "#{event.user.display_name} waves at #{message}"
+  event << "#{event.user.display_name} waves #{message}"
 end
 
 bot.command(:boop) do |event, *message|
