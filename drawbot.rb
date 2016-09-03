@@ -33,6 +33,7 @@ Race = $db['race']
 PClass = $db['class']
 Stats = $db['stats']
 Align = $db['align']
+Study = $db['StudyDrawTopic']
 
 DEVCHANNEL = 180323434226647040
 DRAWCHANNEL = 175579371975868416
@@ -196,6 +197,10 @@ bot.command(:bad) do |event, *message|
   break unless !event.user.roles.find { |x| x.name =="DBAdmin" }.nil?
   message = message.join(' ')
   event << "#{event.user.display_name} throws #{message} into timeout"
+    member_role = event.server.roles.find { |r| r.name == 'Red Members'}
+  unless member_role.nil?
+    event.user.add_role member_role
+  end
 end
 
 bot.command(:spray) do |event, *message|
@@ -282,6 +287,11 @@ bot.command(:drawfaglewd) do |event|
 
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
+
+bot.command(:study) do |event|
+  event << "You should draw #{Study.sample}"
+end
+
 #this is really cool, i'm glad it was added!
 bot.command :pokemon do |event|
   pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
