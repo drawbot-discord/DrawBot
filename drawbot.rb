@@ -67,7 +67,7 @@ commands = [
   "",
   "Drawing Commands",
   " ~draw",
-  " ~drawlewd",
+  " ~drawlewd(private)",
   " ~drawcombo",
   " ~drawfaglewd(private)",
   " ~colour",
