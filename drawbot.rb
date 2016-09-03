@@ -73,7 +73,7 @@ commands = [
   " ~colour",
   " ~outfit",
   " ~pokemon",
-  " ~fpose",
+  " ~fpose(private)",
   " ~study",
   "",
   "Fun Commands",
