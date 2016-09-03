@@ -115,6 +115,13 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 #-------------SILLY COMMANDS---------#
 
+
+bot.message(with_text: '/o/') do |event|
+  event.respond '\o\ '
+end
+
+bot.ru
+
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
   fortune = EIGHTBALL.select { |e| !e['fortune'].empty? }.sample['fortune']
