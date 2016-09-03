@@ -277,6 +277,7 @@ bot.command :pokemon do |event|
 end
 
 bot.command(:fpose) do |event|
+  break unless event.channel.id == DRAWCHANNEL
   event << "The pose you get is #{Fpose.sample}"
 end
 
