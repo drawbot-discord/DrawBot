@@ -73,6 +73,7 @@ commands = [
   " ~outfit",
   " ~pokemon",
   " ~fpose",
+  " ~study",
   "",
   "Fun Commands",
   " wave",
@@ -289,7 +290,7 @@ bot.command(:drawfaglewd) do |event|
 end
 
 bot.command(:study) do |event|
-  event << "You should draw #{Study.sample}"
+  event << "The body part you get to study is #{Study.sample}"
 end
 
 #this is really cool, i'm glad it was added!
