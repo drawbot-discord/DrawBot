@@ -123,6 +123,9 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
+bot.message(with_text: 'hey') do |event|
+  event.respond 'LISTEN!'
+end
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
