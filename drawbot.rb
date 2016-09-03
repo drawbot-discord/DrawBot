@@ -257,6 +257,7 @@ bot.command(:draw) do |event|
 end
 
 bot.command(:drawlewd) do |event|
+  break unless event.channel.id == DRAWCHANNEL
   event << "You should draw something #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
 end
 
@@ -266,6 +267,7 @@ end
 
 bot.command(:drawfaglewd) do |event|
   break unless event.channel.id == DRAWCHANNEL
+
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
 #this is really cool, i'm glad it was added!
