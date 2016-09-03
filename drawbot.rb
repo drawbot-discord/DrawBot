@@ -96,24 +96,6 @@ commands = [
   " ~randomchar",
   "",
   "References (type ~refs then @them)",
-  " AngryCoconut",
-  " Bluebun",
-  " ClearCandy",
-  " Dako",
-  " Echo",
-  " GlooTheSlime",
-  " Jim",
-  " Luna",
-  " Mothbro",
-  " Mundy",
-  " Murphy",
-  " Nelsha",
-  " Nim",
-  " Nuclear",
-  " Orangy",
-  " Ossien",
-  " Solitaire",
-  " mpsketches"
 ]
 #-------------VARIABLES-------------#
 
