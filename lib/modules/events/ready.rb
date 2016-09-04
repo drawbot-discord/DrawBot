@@ -9,11 +9,11 @@ module DrawBot
 
         # Sync Server cache while we were asleep
         event.bot.servers.each do |id, data|
-          server_sql = Server.find(discord_id: id)
+          server_sql = Database::Server.find(discord_id: id)
           next unless server_sql.nil?
-          Server.create(discord_id: id,
-                        owner_id: data.owner.id,
-                        discord_name: data.name)
+          Database::Server.create(discord_id: id,
+                                 owner_id: data.owner.id,
+                                 discord_name: data.name)
         end
       end
     end
