@@ -42,7 +42,7 @@ DRAWCHANNEL = 175579371975868416
 #To be moved to YAML soon. Probably on sunday.
 
 
-bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
+bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: $db['application_id'], prefix: '~'
 
 #restart bot
 bot.command(:restart, description: "restarts the bot") do |event|
@@ -68,7 +68,7 @@ bot.ready do |event|
   end
 end
 
-# This should reset stipends every day at midnight. 
+# This should reset stipends every day at midnight.
 # It reads the 'stipend' key from the YAML config file,
 # and will report in DEVCHANNEL whenever the reset occurs.
 
@@ -76,7 +76,7 @@ end
 # time stipends were reset, such that if the bot happened
 # to be offline at midnight, they would be reset when
 # the bot came back online and realized the stipends
-# hadn't been reset yet. Up to you! 
+# hadn't been reset yet. Up to you!
 
 
 
@@ -130,7 +130,7 @@ commands = [
 
 
 #Private commands
-bot.command(:help) do |event|  
+bot.command(:help) do |event|
   break unless event.channel.id == DRAWCHANNEL
   event << "#{commands.join("\n")}"
 end
@@ -545,7 +545,7 @@ break unless event.channel.id == DRAWCHANNEL
 
   nil
 
-   
+
 
 end
 
@@ -616,7 +616,7 @@ break unless event.channel.id == DRAWCHANNEL
 
   #you can't give keks to yourself
   if fromUser == toUser
-    event << "You can't give to yourself, so give to me." 
+    event << "You can't give to yourself, so give to me."
     event << "http://puu.sh/pBAc6/b8710b6a54.png"
     return
   end
@@ -635,7 +635,7 @@ break unless event.channel.id == DRAWCHANNEL
     event << "Hey buddy! Choose `salt` or `hearts`, I can't do that for you!"
     event << "http://puu.sh/pGb07/d293637db9.jpg"
     return
-  end        
+  end
 
   #notification
   event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
@@ -682,7 +682,7 @@ end
 
 #------------Eval-----------#
 bot.command(:eval, help_available: false) do |event, *code|
-  break unless event.user.id == 132893552102342656
+  break unless event.user.id == $db['owner']
   begin
     eval code.join(' ')
   rescue => e
