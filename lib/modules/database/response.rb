@@ -3,6 +3,7 @@ module DrawBot
     # A collection of chat reponses based
     # off a certain key.
     class Response < Sequel::Model
+      # Log object after succesful creation
       def after_create
         Discordrb::LOGGER.info "created response: #{inspect}"
       end
