@@ -8,3 +8,6 @@ Gemfile.lock
 db.yaml
 run.sh
 *.swp
+
+# Temporary
+drawbot.rb
