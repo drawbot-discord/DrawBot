@@ -1,8 +1,10 @@
-db.yaml
-run.sh
+data/
 media/
 vendor/
-.bundle/
 bin/
+.bundle/
+
 Gemfile.lock
+db.yaml
+run.sh
 *.swp
