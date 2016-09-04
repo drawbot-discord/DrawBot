@@ -12,10 +12,10 @@ module DrawBot
         Discordrb::LOGGER.info "created server: #{inspect}"
       end
 
-      # Fetches Discord user of the owner from cache
-      # @return [Discordrb::User] the server owner
+      # Fetches Discord member of the owner from cache
+      # @return [Discordrb::Member] the server owner
       def owner
-        BOT.user(owner_id)
+        BOT.server(discord_id).member(owner_id)
       end
     end
   end
