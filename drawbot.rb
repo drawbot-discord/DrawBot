@@ -130,7 +130,7 @@ commands = [
 
 
 #Private commands
-bot.command(:commands) do |event|  
+bot.command(:help) do |event|  
   break unless event.channel.id == DRAWCHANNEL
   event << "#{commands.join("\n")}"
 end
