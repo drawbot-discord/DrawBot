@@ -310,7 +310,7 @@ end
 
 #Public commands
 bot.command(:commands) do |event|
-  break unless event.server.id == 175579371975868416
+  break if event.server.id == 175579371975868416
   event << "#{publiccommands.join("\n")}"
 end
 
