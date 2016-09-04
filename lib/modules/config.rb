@@ -1,4 +1,4 @@
-module Bot
+module DrawBot
   # Represents a bot configuration.
   class Config
     # Initializes a new config.
