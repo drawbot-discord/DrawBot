@@ -156,7 +156,7 @@ bot.command(:'8ball') do |event, *message|
 end
 
 bot.command(:zii) do |event, *message|
-  break if event.user.id == 181972174918254592
+  break if event.server.id == 175579371975868416
   message = message.join(' ')
 
   index = rand 0..EIGHTBALL.length-1
