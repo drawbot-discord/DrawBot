@@ -83,7 +83,8 @@ end
 
 #-----------COMMANDS COMMAND--------#
 #private server commands
-commands1 = [
+
+privatecommands = [
   "=======",
   "~rules",
   "=======",
@@ -126,8 +127,8 @@ commands1 = [
   "",
   "References (type ~refs then @them)",
 ]
-
-commands2 = [
+#public Server
+publiccommands = [
   "Drawing Commands",
   " ~draw",
   " ~drawlewd",
@@ -304,13 +305,13 @@ end
 #Private commands
 bot.command(:commands) do |event|
   break unless event.server.id == 175579371975868416
-  event << "#{commands1.join("\n")}"
+  event << "#{privatecommands.join("\n")}"
 end
 
 #Public commands
 bot.command(:commands) do |event|
   break unless event.server.id == 175579371975868416
-  event << "#{commands2.join("\n")}"
+  event << "#{publiccommands.join("\n")}"
 end
 
 
