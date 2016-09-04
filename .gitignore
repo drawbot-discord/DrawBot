@@ -1,3 +1,8 @@
 db.yaml
 run.sh
 media/
+vendor/
+.bundle/
+bin/
+Gemfile.lock
+*.swp
