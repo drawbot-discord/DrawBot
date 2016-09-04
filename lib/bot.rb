@@ -2,9 +2,10 @@
 require 'bundler/setup'
 require 'discordrb'
 require 'yaml'
+require 'rufus-scheduler'
 
 # The main bot module.
-module Bot
+module DrawBot
   # Load non-Discordrb modules
   Dir['lib/modules/*.rb'].each { |mod| load mod }
 

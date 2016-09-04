@@ -1,11 +1,11 @@
-module Bot
+module DrawBot
   module DiscordEvents
     # This event is processed when the bot connects to Discord.
     module Ready
       extend Discordrb::EventContainer
       ready do |event|
-        event.bot.user(CONFIG.owner).pm 'Bot online'
-        event.bot.game = 'Discordrb'
+        event.bot.channel(CONFIG.devchannel).send_message '🎨'
+        event.bot.game = 'with Lune'
       end
     end
   end
