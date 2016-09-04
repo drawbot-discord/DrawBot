@@ -36,7 +36,7 @@ Stats = $db['stats']
 Align = $db['align']
 Study = $db['StudyDrawTopic']
 
-DEVCHANNEL = 180323434226647040
+DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
 #To be moved to YAML soon. Probably on sunday.
