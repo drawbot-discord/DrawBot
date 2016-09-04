@@ -131,9 +131,49 @@ commands = [
 
 #Private commands
 bot.command(:commands) do |event|
+  break unless event.server.id == 175579371975868416
   event << "#{commands.join("\n")}"
 end
 
+
+#public Server
+publiccommands = [
+  "Drawing Commands",
+  " ~draw",
+  " ~drawlewd",
+  " ~drawcombo",
+  " ~colour",
+  " ~outfit",
+  " ~pokemon",
+  " ~study",
+  "",
+  "Fun Commands",
+  " wave",
+  " ~8ball",
+  " ~zii(8ball clone)",
+  " ~bad",
+  " ~boop",
+  " ~slap",
+  " ~rub",
+  " ~hump",
+  " ~spray",
+  " ~grope",
+  " ~snek",
+  " ~lewd",
+  " ~roll (default 6, add number after to make larger)",
+  " ~pun",
+  " ~told",
+  " ~pout",
+  " ~poses",
+  " ~randomchar",
+]
+
+
+
+#Public commands
+bot.command(:commands) do |event|
+  event << "#{publiccommands.join("\n")}"
+end
 
 
 #-------------VARIABLES-------------#
