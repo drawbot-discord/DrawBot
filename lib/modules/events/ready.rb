@@ -15,6 +15,14 @@ module DrawBot
                                   owner_id: data.owner.id,
                                   discord_name: data.name)
         end
+
+        # Sync User cache while we were asleep
+        event.bot.users.each do |_, user|
+          user_sql = Database::User.find(discord_id: user.id)
+          next unless user_sql.nil?
+          Database::User.create(discord_id: user.id,
+                                discord_name: user.distinct)
+        end
       end
     end
   end
