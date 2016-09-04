@@ -82,20 +82,21 @@ end
 
 
 #-----------COMMANDS COMMAND--------#
-commands = [
+#private server commands
+commands1 = [
   "=======",
   "~rules",
   "=======",
   "",
   "Drawing Commands",
   " ~draw",
-  " ~drawlewd(private)",
+  " ~drawlewd",
   " ~drawcombo",
-  " ~drawfaglewd(private)",
+  " ~drawfaglewd",
   " ~colour",
   " ~outfit",
   " ~pokemon",
-  " ~fpose(private)",
+  " ~fpose",
   " ~study",
   "",
   "Fun Commands",
@@ -124,6 +125,37 @@ commands = [
   " ~randomchar",
   "",
   "References (type ~refs then @them)",
+]
+
+commands2 = [
+  "Drawing Commands",
+  " ~draw",
+  " ~drawlewd",
+  " ~drawcombo",
+  " ~colour",
+  " ~outfit",
+  " ~pokemon",
+  " ~study",
+  "",
+  "Fun Commands",
+  " wave",
+  " ~8ball",
+  " ~zii(8ball clone)",
+  " ~bad",
+  " ~boop",
+  " ~slap",
+  " ~rub",
+  " ~hump",
+  " ~spray",
+  " ~grope",
+  " ~snek",
+  " ~lewd",
+  " ~roll (default 6, add number after to make larger)",
+  " ~pun",
+  " ~told",
+  " ~pout",
+  " ~poses",
+  " ~randomchar",
 ]
 #-------------VARIABLES-------------#
 
@@ -211,11 +243,13 @@ bot.command(:hump) do |event, *message|
 end
 
 bot.command(:doit) do |event|
+  break unless event.server.id == 175579371975868416
   response = "https://puu.sh/pvFxQ/893adbe906.jpg"
   event << response
 end
 
 bot.command(:gimme) do |event|
+  break unless event.server.id == 175579371975868416
   response = "http://puu.sh/pBgxi/d0b8de2e31.png"
   event << response
 end
@@ -241,6 +275,7 @@ bot.command(:outfit) do |event|
 end
 
 bot.command(:nellyheart) do |event|
+  break unless event.server.id == 175579371975868416
   response = "http://puu.sh/pc0pc/2b1b918f9d.png"
   event << "#{response}"
 end
@@ -262,11 +297,20 @@ bot.command(:rekt) do |event|
 end
 
 bot.command(:rules) do |event|
+  break unless event.server.id == 175579371975868416
   event << "#{rules.join("\n")}"
 end
 
+#Private commands
 bot.command(:commands) do |event|
-  event << "#{commands.join("\n")}"
+  break unless event.server.id == 175579371975868416
+  event << "#{commands1.join("\n")}"
+end
+
+#Public commands
+bot.command(:commands) do |event|
+  break unless event.server.id == 175579371975868416
+  event << "#{commands2.join("\n")}"
 end
 
 
@@ -338,14 +382,17 @@ bot.command(:poses) do |event|
 end
 
 bot.command(:texas) do |event|
+  break unless event.server.id == 175579371975868416
   event << "https://puu.sh/oQk1b/ddf195310c.png"
 end
 
 bot.command(:salt) do |event|
+  break unless event.server.id == 175579371975868416
   event << "https://puu.sh/pwPPr/c4ea4b2e93.jpg"
 end
 
 bot.command(:orangyheart) do |event|
+  break unless event.server.id == 175579371975868416
   event << "http://puu.sh/pCzpn/8f0f140aa1.jpg"
 end
 
@@ -404,6 +451,7 @@ end
 
 
 bot.command :refs do |event, mention|
+  break unless event.server.id == 175579371975868416
 
   #get user
   user = $db['users'][event.bot.parse_mention(mention).id]
