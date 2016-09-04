@@ -1,4 +1,5 @@
 module DrawBot
+  # The bot's SQL database.
   module Database
     # Connect to database
     DB = Sequel.connect('sqlite://data/drawbot.db')
