@@ -2,6 +2,8 @@ module DrawBot
   module Database
     # Represents a Discord user
     class User < Sequel::Model
+      one_to_one :bank
+
       # Sets up model before creation
       def before_create
         super
