@@ -12,8 +12,8 @@ module DrawBot
           server_sql = Database::Server.find(discord_id: id)
           next unless server_sql.nil?
           Database::Server.create(discord_id: id,
-                                 owner_id: data.owner.id,
-                                 discord_name: data.name)
+                                  owner_id: data.owner.id,
+                                  discord_name: data.name)
         end
       end
     end
