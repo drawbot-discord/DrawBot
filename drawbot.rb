@@ -304,7 +304,7 @@ end
 
 #Private commands
 bot.command(:commands) do |event|
-  break unless event.server.id == 175579371975868416
+  
   event << "#{privatecommands.join("\n")}"
 end
 
