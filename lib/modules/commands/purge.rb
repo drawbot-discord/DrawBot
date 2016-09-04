@@ -6,7 +6,6 @@ module DrawBot
       command(:prune,
               description: 'Prunes (deletes) a channel\'s messages en-masse.',
               usage: "#{BOT.prefix}prune 2-100",
-              min_args: 1,
               max_args: 1,
               help_available: false) do |event, number|
         break unless event.user.id == CONFIG.owner
