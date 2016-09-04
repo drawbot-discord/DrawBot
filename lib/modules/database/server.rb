@@ -1,5 +1,6 @@
 module DrawBot
   module Database
+    # Represents a Discord server.
     class Server < Sequel::Model
       # Sets up model before creation
       def before_create
