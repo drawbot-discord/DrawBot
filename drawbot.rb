@@ -84,7 +84,7 @@ end
 #-----------COMMANDS COMMAND--------#
 #private server commands
 
-privatecommands = [
+commands = [
   "=======",
   "~rules",
   "=======",
@@ -127,6 +127,13 @@ privatecommands = [
   "",
   "References (type ~refs then @them)",
 ]
+
+
+#Private commands
+bot.command(:commands) do |event|
+  event << "#{commands.join("\n")}"
+end
+
 #public Server
 publiccommands = [
   "Drawing Commands",
@@ -158,6 +165,16 @@ publiccommands = [
   " ~poses",
   " ~randomchar",
 ]
+
+
+
+#Public commands
+bot.command(:commands) do |event|
+  break if event.server.id == 175579371975868416
+  event << "#{publiccommands.join("\n")}"
+end
+
+
 #-------------VARIABLES-------------#
 
 rules = ["Golden Rule Be excelent to each other
@@ -300,18 +317,6 @@ end
 bot.command(:rules) do |event|
   break unless event.server.id == 175579371975868416
   event << "#{rules.join("\n")}"
-end
-
-#Private commands
-bot.command(:commands) do |event|
-  
-  event << "#{privatecommands.join("\n")}"
-end
-
-#Public commands
-bot.command(:commands) do |event|
-  break if event.server.id == 175579371975868416
-  event << "#{publiccommands.join("\n")}"
 end
 
 
