@@ -16,7 +16,8 @@ module DrawBot
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} boops #{thing}"
+        event << "#{event.user.display_name} #{response} boops #{thing}"
+        event.message.delete
       end
 
       command(:slap,
@@ -25,7 +26,8 @@ module DrawBot
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} slaps #{thing}"
+        event << "#{event.user.display_name} #{response} slaps #{thing}"
+        event.message.delete
       end
 
       command(:rub,
@@ -34,16 +36,18 @@ module DrawBot
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} rubs #{thing}"
+        event << "#{event.user.display_name} #{response} rubs #{thing}"
+        event.message.delete
       end
 
-      command(:gropes,
+      command(:grope,
               description: 'Gropes someone or something',
               usage: "#{BOT.prefix}grope something") do |event, *thing|
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} gropes #{thing}"
+        event << "#{event.user.display_name} #{response} gropes #{thing}"
+        event.message.delete
       end
 
       command(:hug,
@@ -52,7 +56,8 @@ module DrawBot
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} hugs #{thing}"
+        event << "#{event.user.display_name} #{response} hugs #{thing}"
+        event.message.delete
       end
 
       command(:hump,
@@ -61,7 +66,8 @@ module DrawBot
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        "#{event.user.display_name} #{response} humps #{thing}"
+        event << "#{event.user.display_name} #{response} humps #{thing}"
+        event.message.delete
       end
     end
   end
