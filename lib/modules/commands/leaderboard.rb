@@ -8,9 +8,9 @@ module DrawBot
         kind ||= :total
         kind = if [:hearts, :salt, :total].include? kind.to_sym
                  event << "**DrawBot Leaderboard** sorted by: `#{kind}`"
-                 kind.to_sym                 
+                 kind.to_sym
                else
-                 event << '**DrawBot Leaderboard**'
+                 event << '**DrawBot Leaderboard** sorted by: `total`'
                  :total
                end
         place = 0
