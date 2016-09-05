@@ -3,11 +3,21 @@ module DrawBot
     # Represents a Discord user
     class User < Sequel::Model
       one_to_one :bank
+      one_to_many :transactions
 
       # Sets up model before creation
       def before_create
         super
         self.timestamp ||= Time.now
+      end
+
+      def update_bank
+        bank.hearts = transactions.select { |t| t.kind == 'hearts' }
+                                  .inject(0) { |a, e| a + e[:amount] }
+        bank.salt = transactions.select { |t| t.kind == 'salt' }
+                                .inject(0) { |a, e| a + e[:amount] }
+        bank.save
+        Discordrb::LOGGER.info "updated bank: #{bank.inspect}"
       end
 
       # Logs successful User creation
