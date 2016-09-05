@@ -4,6 +4,7 @@ require 'discordrb'
 require 'yaml'
 require 'rufus-scheduler'
 require 'sequel'
+require 'terminal-table'
 
 # The main bot module.
 module DrawBot
