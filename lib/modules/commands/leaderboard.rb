@@ -3,12 +3,20 @@ module DrawBot
     # View the Bank leaderboard!
     module Leaderboard
       extend Discordrb::Commands::CommandContainer
-      command :leaderboard do |event|
+      command :leaderboard do |event, kind|
         break unless event.user.id == CONFIG.owner
+        kind ||= :total
+        kind = if [:hearts, :salt, :total].include? kind.to_sym
+                 event << "**DrawBot Leaderboard** sorted by: `#{kind}`"
+                 kind.to_sym                 
+               else
+                 event << '**DrawBot Leaderboard**'
+                 :total
+               end
         place = 0
         stats = Database::Bank.all
                               .map(&:stats)
-                              .sort_by { |s| s[:total] }
+                              .sort_by { |s| s[kind] }
                               .reverse
                               .collect do |s|
                                 place += 1
