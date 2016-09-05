@@ -16,6 +16,7 @@ module DrawBot
         Discordrb::LOGGER.info "created transaction: #{inspect}"
         bank.stipend -= amount
         bank.save
+        user.update_bank
       end
     end
   end
