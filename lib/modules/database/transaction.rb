@@ -12,7 +12,10 @@ module DrawBot
 
       # Log successful creation
       def after_create
+        super
         Discordrb::LOGGER.info "created transaction: #{inspect}"
+        bank.stipend -= amount
+        bank.save
       end
     end
   end
