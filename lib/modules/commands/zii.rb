@@ -7,7 +7,7 @@ module DrawBot
               description: 'Gives you a random Zii fortune',
               usage: "#{BOT.prefix}zii question") do |event, *args|
         args = args.join(' ')
-        zii = Database::Zii.where { !:image_url.empty? }.all.sample
+        zii = Database::Zii.where(image_url: nil).invert.all.sample
         event << "#{event.user.mention} #{zii.image_url}"
         event << if args.empty?
                    zii.fortune
