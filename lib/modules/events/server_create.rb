@@ -14,6 +14,13 @@ module DrawBot
           Database::Server.create(discord_id: server.id,
                                   discord_name: server.name,
                                   owner_id: server.owner.id)
+          server.members.each do |member|
+            user_sql = Database::User.find(discord_id: member.id)
+            if user_sql.nil?
+              Database::User.create(discord_id: member.id,
+                                    discord_name: member.distinct)
+            end
+          end
         end
       end
     end
