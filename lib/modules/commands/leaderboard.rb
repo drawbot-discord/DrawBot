@@ -28,7 +28,7 @@ module DrawBot
                                   s[:total]
                                 ]
                               end
-        stats = stats.take 10
+        stats = stats.take 20
         headings = [
           '#',
           'Name',
