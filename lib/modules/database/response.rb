@@ -7,6 +7,11 @@ module DrawBot
       def after_create
         Discordrb::LOGGER.info "created response: #{inspect}"
       end
+
+      # Log object before destruction
+      def before_destroy
+        Discordrb::LOGGER.info "deleted response: #{inspect}"
+      end
     end
   end
 end
