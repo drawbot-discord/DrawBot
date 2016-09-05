@@ -12,12 +12,14 @@ module DrawBot
       end
 
       def update_bank
-        bank.hearts = transactions.select { |t| t.kind == 'hearts' }
+        unless bank.nil?
+          bank.hearts = transactions.select { |t| t.kind == 'hearts' }
+                                    .inject(0) { |a, e| a + e[:amount] }
+          bank.salt = transactions.select { |t| t.kind == 'salt' }
                                   .inject(0) { |a, e| a + e[:amount] }
-        bank.salt = transactions.select { |t| t.kind == 'salt' }
-                                .inject(0) { |a, e| a + e[:amount] }
-        bank.save
-        Discordrb::LOGGER.info "updated bank: #{bank.inspect}"
+          bank.save
+          Discordrb::LOGGER.info "updated bank: #{bank.inspect}"
+        end
       end
 
       # Logs successful User creation
