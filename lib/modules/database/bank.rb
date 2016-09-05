@@ -7,6 +7,7 @@ module DrawBot
       # Log successful creation
       def after_create
         Discordrb::LOGGER.info "created bank account: #{inspect}"
+        user.update_bank
       end
 
       # Bank stats
