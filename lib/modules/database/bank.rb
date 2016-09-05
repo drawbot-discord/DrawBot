@@ -18,6 +18,7 @@ module DrawBot
           total: total,
           hearts: hearts,
           salt: salt,
+          stipend: stipend,
           percent_hearts: percent_hearts,
           percent_salt: percent_salt
         }
