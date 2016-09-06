@@ -8,11 +8,11 @@ module DrawBot
     # - `grope`
     # - `hug`
     # - `hump`
-    # - 'poke'
+    # - `poke`
     # - `pet`
-    # - 'spray'
-    # - 'stare
-    # - 'bite'
+    # - `spray`
+    # - `stare`
+    # - `bite`
     module Actions
       extend Discordrb::Commands::CommandContainer
       command(:boop,
