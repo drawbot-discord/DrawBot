@@ -1,3 +1,15 @@
+data/
+media/
+vendor/
+bin/
+doc/
+.yardoc/
+.bundle/
+
+Gemfile.lock
 db.yaml
 run.sh
-media/
+*.swp
+
+# Temporary
+drawbot.rb
