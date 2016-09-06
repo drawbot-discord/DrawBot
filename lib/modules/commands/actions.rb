@@ -1,4 +1,3 @@
-
 module DrawBot
   module DiscordCommands
     # Available actions:
@@ -14,7 +13,6 @@ module DrawBot
     # - 'poke'
     # - 'stare
     # - 'bite'
-
     module Actions
       extend Discordrb::Commands::CommandContainer
       command(:boop,
@@ -104,8 +102,6 @@ module DrawBot
         event.message.delete
       end
 
-
-
       command(:stare,
               description: 'Stare at people, maybe senpai will notice',
               usage: "#{BOT.prefix}stare") do |event, *message|
@@ -121,7 +117,6 @@ module DrawBot
         response = Database::Response.where(key: 'adverb').all.sample.response
         event << "#{event.user.display_name} #{response} bites #{message}"
         event.message.delete
-      end
       end
     end
   end
