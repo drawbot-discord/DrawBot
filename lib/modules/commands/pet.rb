@@ -4,8 +4,8 @@ module DrawBot
     module Pet
       extend Discordrb::Commands::CommandContainer
       command(:pet,
-              :description 'Pet other users!',
-              :usage "#{BOT.prefix}pet") do |event, *message|
+              description: 'Pet other users!',
+              usage: "#{BOT.prefix}pet") do |event, *message|
         message = message.join(' ')
         response = Database::Response.where(key: 'adverb').all.sample.response
         "#{event.user.display_name} #{response} pets #{message}"
