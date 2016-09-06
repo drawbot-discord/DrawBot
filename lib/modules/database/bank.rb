@@ -10,7 +10,15 @@ module DrawBot
         user.update_bank
       end
 
-      # Bank stats
+      # Bank stats. This is primarily used to generate leaderboards.
+      # @return [Hash]
+      #   * :owner [String] owner of the account
+      #   * :total [Integer] sum total of currency (hearts + salt)
+      #   * :hearts [Integer] heart total
+      #   * :salt [Integer] salt total
+      #   * :stipend [Integer] stipend total
+      #   * :percent_hearts [Float] percentage of user currency that is hearts
+      #   * :percent_salt [Float] percentage of user currency that is salt
       def stats
         total = hearts + salt
         percent_hearts = ((hearts.to_f / total.to_f) * 100).round(2)
