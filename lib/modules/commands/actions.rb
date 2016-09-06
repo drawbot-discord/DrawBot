@@ -75,7 +75,6 @@ module DrawBot
         event.message.delete
       end
 
-<<<<<<< HEAD
       command(:pet,
               description: 'Pet other users!',
               usage: "#{BOT.prefix}pet") do |event, *message|
@@ -85,8 +84,8 @@ module DrawBot
       end
 
       command(:poke,
-            description: 'Poke the other users and annoy them!',
-            usage: "#{BOT.prefix}poke") do |event, *thing|
+              description: 'Poke the other users and annoy them!',
+              usage: "#{BOT.prefix}poke") do |event, *thing|
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
