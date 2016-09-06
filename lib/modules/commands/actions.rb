@@ -77,50 +77,50 @@ module DrawBot
 
       command(:poke,
             description: 'Poke the other users and annoy them!',
-            usage: "#{BOT.prefix}poke") do |event, *message|
-        message = message.join(' ')
+            usage: "#{BOT.prefix}poke") do |event, *thing|
+        thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        event << "#{event.user.display_name} #{response} pokes #{message}"
+        event << "#{event.user.display_name} #{response} pokes #{thing}"
         event.message.delete
       end
 
       command(:pet,
               description: 'Pet other users!',
-              usage: "#{BOT.prefix}pet") do |event, *message|
-        message = message.join(' ')
+              usage: "#{BOT.prefix}pet") do |event, *thing|
+        thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        event << "#{event.user.display_name} #{response} pets #{message}"
+        event << "#{event.user.display_name} #{response} pets #{thing}"
         event.message.delete
       end
 
       command(:spray,
               description: 'Spray other users with various, deadly, weaponry!',
-              usage: "#{BOT.prefix}spray") do |event, *message|
-        message = message.join(' ')
+              usage: "#{BOT.prefix}spray") do |event, *thing|
+        thing = thing.join(' ')
         response = Database::Response.where(key: 'watercontainer')
                                      .all.sample.response
-        event << "#{event.user.display_name} sprays #{message}"\
+        event << "#{event.user.display_name} sprays #{thing}"\
                  " with a #{response}"
         event.message.delete
       end
 
       command(:stare,
               description: 'Stare at people, maybe senpai will notice',
-              usage: "#{BOT.prefix}stare") do |event, *message|
-        message = message.join(' ')
-        event << "#{event.user.display_name} stares at #{message}"
+              usage: "#{BOT.prefix}stare") do |event, *thing|
+        thing = thing.join(' ')
+        event << "#{event.user.display_name} stares at #{thing}"
         event.message.delete
       end
 
       command(:bite,
               description: 'Bite other users!',
-              usage: "#{BOT.prefix}bite") do |event, *message|
-        message = message.join(' ')
+              usage: "#{BOT.prefix}bite") do |event, *thing|
+        thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
-        event << "#{event.user.display_name} #{response} bites #{message}"
+        event << "#{event.user.display_name} #{response} bites #{thing}"
         event.message.delete
       end
     end
