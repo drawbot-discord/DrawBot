@@ -8,6 +8,7 @@ module DrawBot
     # - `grope`
     # - `hug`
     # - `hump`
+    # - `pet`
     module Actions
       extend Discordrb::Commands::CommandContainer
       command(:boop,
@@ -67,6 +68,15 @@ module DrawBot
         response = Database::Response.where(key: 'adverb')
                                      .all.sample.response
         event << "#{event.user.display_name} #{response} humps #{thing}"
+        event.message.delete
+      end
+
+      command(:pet,
+              description: 'Pet other users!',
+              usage: "#{BOT.prefix}pet") do |event, *message|
+        message = message.join(' ')
+        response = Database::Response.where(key: 'adverb').all.sample.response
+        event << "#{event.user.display_name} #{response} pets #{message}"
         event.message.delete
       end
     end
