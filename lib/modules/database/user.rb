@@ -11,6 +11,7 @@ module DrawBot
         self.timestamp ||= Time.now
       end
 
+      # Updates a User's bank based on their recieved Transactions
       def update_bank
         unless bank.nil?
           unless transactions.empty?
