@@ -1,5 +1,6 @@
 module DrawBot
   module Database
+    # A bank to store DrawBot's currency for a User.
     class Bank < Sequel::Model
       many_to_one :user
       one_to_many :transactions
