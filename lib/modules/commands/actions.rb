@@ -8,9 +8,9 @@ module DrawBot
     # - `grope`
     # - `hug`
     # - `hump`
+    # - 'poke'
     # - `pet`
     # - 'spray'
-    # - 'poke'
     # - 'stare
     # - 'bite'
     module Actions
