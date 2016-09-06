@@ -31,6 +31,7 @@ module DrawBot
       end
 
       # Fetches Discord user from cache
+      # @return [Discordrb::User] the associated user
       def user
         BOT.user(discord_id)
       end
