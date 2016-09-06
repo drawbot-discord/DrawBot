@@ -79,7 +79,8 @@ module DrawBot
             description: 'Poke the other users and annoy them!',
             usage: "#{BOT.prefix}poke") do |event, *message|
         message = message.join(' ')
-        response = Database::Response.where(key: 'adverb').all.sample.response
+        response = Database::Response.where(key: 'adverb')
+                                     .all.sample.response
         event << "#{event.user.display_name} #{response} pokes #{message}"
         event.message.delete
       end
@@ -88,7 +89,8 @@ module DrawBot
               description: 'Pet other users!',
               usage: "#{BOT.prefix}pet") do |event, *message|
         message = message.join(' ')
-        response = Database::Response.where(key: 'adverb').all.sample.response
+        response = Database::Response.where(key: 'adverb')
+                                     .all.sample.response
         event << "#{event.user.display_name} #{response} pets #{message}"
         event.message.delete
       end
@@ -97,8 +99,10 @@ module DrawBot
               description: 'Spray other users with various, deadly, weaponry!',
               usage: "#{BOT.prefix}spray") do |event, *message|
         message = message.join(' ')
-        response = Database::Response.where(key: 'watercontainer').all.sample.response
-        event << "#{event.user.display_name} sprays #{message} with a #{response}"
+        response = Database::Response.where(key: 'watercontainer')
+                                     .all.sample.response
+        event << "#{event.user.display_name} sprays #{message}"\
+                 " with a #{response}"
         event.message.delete
       end
 
@@ -114,7 +118,8 @@ module DrawBot
               description: 'Bite other users!',
               usage: "#{BOT.prefix}bite") do |event, *message|
         message = message.join(' ')
-        response = Database::Response.where(key: 'adverb').all.sample.response
+        response = Database::Response.where(key: 'adverb')
+                                     .all.sample.response
         event << "#{event.user.display_name} #{response} bites #{message}"
         event.message.delete
       end
