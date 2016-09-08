@@ -342,7 +342,7 @@ end
 
 #COLOUR SHADES COMMAND
 bot.command(:colourshade) do |event|
-  event << "Your complementary colours are"
+  event << "Your colour shades are"
   event << "#{Colourshade.sample}"
 end
 
