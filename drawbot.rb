@@ -363,7 +363,7 @@ bot.command(:references,
   end
   #this is for when you don't have arguments, to find the list of refs
   event << 'List of available references:'
-  event << $db['refs'].collect { |r| r['title'] }.join(', ')
+  event << $db['refs'].collect { |r| r['title'] }.join('`, `')
 end
 
 
