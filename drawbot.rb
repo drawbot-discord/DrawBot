@@ -35,11 +35,10 @@ PClass = $db['class']
 Stats = $db['stats']
 Align = $db['align']
 Study = $db['StudyDrawTopic']
+Colourshade = $db['shadecolour']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
-
-#To be moved to YAML soon. Probably on sunday.
 
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 168123456789123456, prefix: '~'
@@ -95,6 +94,7 @@ commands = [
   " ~drawcombo",
   " ~drawfaglewd",
   " ~colour",
+  " ~colourshade",
   " ~outfit",
   " ~pokemon",
   " ~fpose",
@@ -143,6 +143,7 @@ publiccommands = [
   " ~drawlewd",
   " ~drawcombo",
   " ~colour",
+  " ~colourshade",
   " ~outfit",
   " ~pokemon",
   " ~study",
@@ -337,6 +338,12 @@ bot.command(:color) do |event|
   event << "Your complementary colours are"
   event << "#{Compcolour.sample}"
   event << "You yankee"
+end
+
+#COLOUR SHADES COMMAND
+bot.command(:colourshade) do |event|
+  event << "Your complementary colours are"
+  event << "#{Colourshade.sample}"
 end
 
 
