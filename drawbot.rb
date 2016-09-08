@@ -36,7 +36,7 @@ Stats = $db['stats']
 Align = $db['align']
 Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
-References = $db['References']
+References = $db['refs']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
