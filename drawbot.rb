@@ -349,7 +349,7 @@ end
 
 #REFERENCES COMMAND
 bot.command(:references) do |event|
-  event << "#{References.list}"
+  event << "#{References.join("\n")}"
 end
 
 
