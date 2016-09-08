@@ -347,11 +347,22 @@ bot.command(:colourshade) do |event|
   event << "#{Colourshade.sample}"
 end
 
-#REFERENCES COMMAND
-bot.command(:references) do |event|
-  event << "#{References.join("\n")}"
+bot.command(:references,
+            description: 'Lists artistic reference galleries',
+            usage: '~refs (topic)') do |event, *args|
+  args = args.join(' ')
+  unless args.empty?
+    ref = $db['refs'].find { |r| r['title'].casecmp(args) }
+    unless ref.nil?
+      event << "#{ref['title']}"
+      event << "#{ref['url']}"
+      return
+    end
+    event << 'I couldn\'t find that reference..'
+  end
+  event << 'List of available references:'
+  event << $db['refs'].collect { |r| r['title'] }.join(', ')
 end
-
 
 
 #LEWD COMMAND
