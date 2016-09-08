@@ -349,7 +349,7 @@ end
 
 #REFERENCES COMMAND
 bot.command(:references) do |event|
-  event << "$db['References']"
+  event << "#{References.list}"
 end
 
 
