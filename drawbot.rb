@@ -348,8 +348,8 @@ bot.command(:colourshade) do |event|
 end
 
 #REFERENCES COMMAND
-bot.command(:refs) do |event|
-  event << "#{References}"
+bot.command(:references) do |event|
+  event << "$db['References']"
 end
 
 
