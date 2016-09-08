@@ -36,6 +36,7 @@ Stats = $db['stats']
 Align = $db['align']
 Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
+References = $db['References']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
@@ -344,6 +345,11 @@ end
 bot.command(:colourshade) do |event|
   event << "Your colour shades are"
   event << "#{Colourshade.sample}"
+end
+
+#REFERENCES COMMAND
+bot.command(:refs) do |event|
+  event << "#{References}"
 end
 
 
