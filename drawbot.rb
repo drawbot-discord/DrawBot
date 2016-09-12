@@ -37,6 +37,9 @@ Align = $db['align']
 Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
 References = $db['refs']
+Malenames = $db['malenames']
+Femalenames = $db['femalenames']
+
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
@@ -100,6 +103,7 @@ commands = [
   " ~pokemon",
   " ~fpose",
   " ~study",
+  " ~names",
   "",
   "Fun Commands",
   " wave",
@@ -148,6 +152,7 @@ publiccommands = [
   " ~outfit",
   " ~pokemon",
   " ~study",
+  " ~names",
   "",
   "Fun Commands",
   " wave",
@@ -364,6 +369,20 @@ bot.command(:references,
   #this is for when you don't have arguments, to find the list of refs
   event << 'List of available references:'
   event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+end
+
+
+#NAMES COMMANDS
+bot.command(:names do |event|
+  event << "#{event.user.display_name}"
+  event << "Your randomly generated names are"
+  event << "**Male Names**"
+  event << " `#{Malenames.sample}` `#{Malenames.sample}`"\
+           "  `#{Malenames.sample}` `#{Malenames.sample}`"
+  event << "**Female Names**"
+  event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
+           " `#{Femalenames.sample}` `#{Femalenames.sample}`")
+  event.message.delete
 end
 
 
