@@ -236,36 +236,43 @@ end
 bot.command(:wave) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} waves #{message}"
+  event.message.delete
 end
 
 bot.command(:boop) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} boops #{message}"
+  event.message.delete
 end
 
 bot.command(:slap) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} slaps #{message}"
+  event.message.delete
 end
 
 bot.command(:rub) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} rubs #{message}"
+  event.message.delete
 end
 
 bot.command(:grope) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} gropes #{message}"
+  event.message.delete
 end
 
 bot.command(:hug) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
+  event.message.delete
 end
 
 bot.command(:hump) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} #{BoopAction.sample} humps #{message}"
+  event.message.delete
 end
 
 bot.command(:doit) do |event|
