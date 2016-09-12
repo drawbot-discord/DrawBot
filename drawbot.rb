@@ -381,7 +381,7 @@ bot.command(:names do |event|
            "  `#{Malenames.sample}` `#{Malenames.sample}`"
   event << "**Female Names**"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
-           " `#{Femalenames.sample}` `#{Femalenames.sample}`")
+           " `#{Femalenames.sample}` `#{Femalenames.sample}`" )
   event.message.delete
 end
 
