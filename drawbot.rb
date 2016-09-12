@@ -38,7 +38,7 @@ Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
 References = $db['refs']
 Malenames = $db['malenames']
-Femalenames = $db['femalenames']
+Femalenames = $db['femalesnames']
 
 
 DEVCHANNEL = 222032313154928640
