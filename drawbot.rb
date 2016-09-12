@@ -375,10 +375,11 @@ end
 #NAMES COMMANDS
 bot.command(:names) do |event|
   event << "#{event.user.display_name}, Your randomly generated names are;"
-  event << "*Male Names*"
+  event << "Male Names"
+  event << ""
   event << " `#{Malenames.sample}` `#{Malenames.sample}`"\
            "  `#{Malenames.sample}` `#{Malenames.sample}`"
-  event << "*Female Names*"
+  event << "Female Names"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
            " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
   event.message.delete
