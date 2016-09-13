@@ -58,6 +58,8 @@ end
 
 bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
+  event.bot.servers.count
+  event.bot.servers.collect { |_, s| s.name }.join(', ')
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   scheduler = Rufus::Scheduler.new
