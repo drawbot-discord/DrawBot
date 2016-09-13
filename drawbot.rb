@@ -724,6 +724,13 @@ bot.command :say do |event, *message|
 end
 
 
+bot.command :sayoify do |event, *message|
+   break unless event.channel.id == DEVCHANNEL
+    message = message.join(' ')
+    event.bot.channel(153108535239114752).send_message(message)
+end
+
+
 
 
 
