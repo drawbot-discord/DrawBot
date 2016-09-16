@@ -43,7 +43,6 @@ Femalenames = $db['femalesnames']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
-SCOUNT = event.bot.servers.count
 
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 186636165938413569, prefix: '~'
@@ -61,7 +60,7 @@ bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
-  event.bot.send_message(DEVCHANNEL, "I am on SCOUNT servers!")
+  event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
