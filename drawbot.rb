@@ -43,6 +43,7 @@ Femalenames = $db['femalesnames']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
+SCOUNT = event.bot.servers.count
 
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 186636165938413569, prefix: '~'
@@ -60,7 +61,7 @@ bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
-  event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
+  event.bot.send_message(DEVCHANNEL, "I am on SCOUNT servers!")
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
@@ -279,13 +280,13 @@ end
 
 bot.command(:doit) do |event|
   break unless event.server.id == 175579371975868416
-  response = "https://puu.sh/pvFxQ/893adbe906.jpg"
+  response = "http://i.imgur.com/nFWku9b.jpg"
   event << response
 end
 
 bot.command(:gimme) do |event|
   break unless event.server.id == 175579371975868416
-  response = "http://puu.sh/pBgxi/d0b8de2e31.png"
+  response = "http://i.imgur.com/A9UWyst.png"
   event << response
 end
 
@@ -294,9 +295,6 @@ bot.command(:bad) do |event, *message|
   break unless !event.user.roles.find { |x| x.name =="DBAdmin" }.nil?
   message = message.join(' ')
   event << "#{event.user.display_name} throws #{message} into timeout"
-    member_role = event.server.roles.find { |r| r.name == 'Red Members'}
-  unless member_role.nil?
-    event.user.add_role member_role
   end
 end
 
