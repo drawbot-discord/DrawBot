@@ -131,6 +131,12 @@ module DrawBot
         event << "#{event.user.display_name} #{response} bites #{thing}"
         event.message.delete
       end
+
+      command(:bad,
+               usage: "#{BOT.prefix}bad") do |event, *message|
+        message = message.join(' ')
+      "#{event.user.display_name} throws #{message} into timeout"
+      end
     end
   end
 end
