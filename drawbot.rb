@@ -294,7 +294,6 @@ bot.command(:bad) do |event, *message|
   break unless !event.user.roles.find { |x| x.name =="DBAdmin" }.nil?
   message = message.join(' ')
   event << "#{event.user.display_name} throws #{message} into timeout"
-  end
 end
 
 bot.command(:spray) do |event, *message|
