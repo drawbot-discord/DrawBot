@@ -279,7 +279,7 @@ end
 
 bot.command(:doit) do |event|
   break unless event.server.id == 175579371975868416
-  response = "http://i.imgur.com/nFWku9b.jpg"
+  response = "http://i.imgur.com/grXCyq2.png"
   event << response
 end
 
