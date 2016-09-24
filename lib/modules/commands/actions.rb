@@ -133,9 +133,9 @@ module DrawBot
       end
 
       command(:bad,
-               usage: "#{BOT.prefix}bad") do |event, *message|
+              usage: "#{BOT.prefix}bad") do |event, *message|
         message = message.join(' ')
-      "#{event.user.display_name} throws #{message} into timeout"
+        "#{event.user.display_name} throws #{message} into timeout"
       end
     end
   end
