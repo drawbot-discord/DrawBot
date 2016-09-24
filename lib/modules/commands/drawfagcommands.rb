@@ -1,6 +1,6 @@
 module DrawBot
   module DiscordCommands
-    #Available Commands
+    # Available Commands
     # - 'gimme'
     # - 'doit'
     module DrawFagCommands
