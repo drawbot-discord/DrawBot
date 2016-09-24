@@ -13,6 +13,7 @@ module DrawBot
     # - `spray`
     # - `stare`
     # - `bite`
+    # - `bad`
     module Actions
       extend Discordrb::Commands::CommandContainer
       command(:boop,
