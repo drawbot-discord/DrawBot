@@ -13,6 +13,7 @@ module DrawBot
     # - `spray`
     # - `stare`
     # - `bite`
+    # - `bad`
     module Actions
       extend Discordrb::Commands::CommandContainer
       command(:boop,
@@ -130,6 +131,13 @@ module DrawBot
                                      .all.sample.response
         event << "#{event.user.display_name} #{response} bites #{thing}"
         event.message.delete
+      end
+
+      command(:bad,
+              description: 'Throws people into timeout',
+              usage: "#{BOT.prefix}bad") do |event, *message|
+        message = message.join(' ')
+        "#{event.user.display_name} throws #{message} into timeout"
       end
     end
   end
