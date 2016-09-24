@@ -133,6 +133,7 @@ module DrawBot
       end
 
       command(:bad,
+              description: 'Throws people into timeout',
               usage: "#{BOT.prefix}bad") do |event, *message|
         message = message.join(' ')
         "#{event.user.display_name} throws #{message} into timeout"
