@@ -427,7 +427,7 @@ bot.command(:fpose) do |event|
 end
 
 bot.command(:poses) do |event|
-  event << "roll 98\nhttps://puu.sh/oNXxK/474217250e.jpg\nroll 20\nhttps://puu.sh/oNxer/cb15424c85.jpg"
+  event << "`~roll 98`\nhttps://puu.sh/oNXxK/474217250e.jpg\n`~roll 20`\nhttps://puu.sh/oNxer/cb15424c85.jpg"
 end
 
 bot.command(:texas) do |event|
@@ -521,8 +521,9 @@ bot.command :refs do |event, mention|
   nil
 end
 
-bot.command :addref do |event, *url|
-  break unless event.channel.id == DEVCHANNEL
+bot.command (:addref,
+              description: 'add a ref for yourself, or your character!' do |event, *url|
+
   url = url.join(' ')
 
   #get user
