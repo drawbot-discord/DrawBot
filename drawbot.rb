@@ -186,22 +186,10 @@ bot.command(:commands) do |event|
 end
 
 
-#-------------VARIABLES-------------#
-
-rules = ["Golden Rule Be excelent to each other
-1 - This is not a hugbox, but that does not give you the right to be a dick
-2 - This place is to help everyone improve their art skills. So please use constructive criticism
-3 - If there is an active conversation going on please do not try to derail it
-4 - Be mature. We are all adults, so don't go memeing it up too much
-Rules will be added by majority interest or by obtuse necessity by the acting administration, and shall exclusively serve to maintain creative expressionism and the integrity of the community, or to prevent the abuse, harassment or bullying by or unto one of the participants"]
-
-#___________________________________________
-#___________________________________________
-#___________________________________________
 
 bot.command(:info,
              description: 'Get some general info about drawbot!') do |event|
-  response = "Hey there, My name is DrawBot. I'm hosted by `Echo#5248` and worked on by `Echo#5248` and `Lune#2639`\n
+  response = "Hey there, my name is DrawBot. I'm hosted by `Echo#5248` and worked on by `Echo#5248` and `Lune#2639`\n
 If you have any questions or issues you can join my server `discord.gg/u3a2Ck9`\n
 Use `~commands` to find out what I can do for you!"
   event << response
@@ -337,12 +325,6 @@ bot.command(:rekt) do |event|
   event << Rekt
 end
 
-bot.command(:rules) do |event|
-  break unless event.server.id == 175579371975868416
-  event << "#{rules.join("\n")}"
-end
-
-
 bot.command(:randomchar) do |event|
   event << "Your randomly generated pathfinder character is a"
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
@@ -391,10 +373,10 @@ end
 bot.command(:names) do |event|
   event << "#{event.user.mention}, Your randomly generated names are;"
   event << ""
-  event << "Male Names"
+  event << "**Male Names**"
   event << " `#{Malenames.sample}` `#{Malenames.sample}`"\
            "  `#{Malenames.sample}` `#{Malenames.sample}`"
-  event << "Female Names"
+  event << "**Female Names**"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
            " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
   event.message.delete
@@ -518,7 +500,6 @@ end
 
 
 bot.command :refs do |event, mention|
-  break unless event.server.id == 175579371975868416
 
   #get user
   user = $db['users'][event.bot.parse_mention(mention).id]
