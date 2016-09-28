@@ -522,7 +522,7 @@ bot.command :refs do |event, mention|
 end
 
 bot.command (:addref,
-              description: 'add a ref for yourself, or your character!' do |event, *url|
+              description: 'add a ref for yourself, or your character!') do |event, *url|
 
   url = url.join(' ')
 
