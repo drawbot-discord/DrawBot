@@ -521,7 +521,9 @@ bot.command :refs do |event, mention|
   nil
 end
 
-bot.command(:addref, description: "Add a reference for yourself or your character!") do |event, *url|
+bot.command(:addref, 
+            description: 'Add a reference for yourself or your character!',
+            usage: "`~addref (URL)`") do |event, *url|
 
   url = url.join(' ')
 
