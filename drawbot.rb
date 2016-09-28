@@ -201,9 +201,9 @@ Rules will be added by majority interest or by obtuse necessity by the acting ad
 
 bot.command(:info,
              description: 'Get some general info about drawbot!') do |event|
-  response = "Hey there, My name is DrawBot. I'm hosted by Echo#5248 and worked on by `Echo#5248` and `Lune#2639`\n
-             If you have any questions or issues you can join my server (https://discord.gg/u3a2Ck9)\n
-             Use `~commands` to find out what I can do for you!"
+  response = "Hey there, My name is DrawBot. I'm hosted by `Echo#5248` and worked on by `Echo#5248` and `Lune#2639`\n
+If you have any questions or issues you can join my server (https://discord.gg/u3a2Ck9)\n
+Use `~commands` to find out what I can do for you!"
   event << response
 end
 
