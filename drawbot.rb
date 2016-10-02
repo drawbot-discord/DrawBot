@@ -2,6 +2,7 @@ require 'discordrb'
 require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
+require 'cleverbot'
 
 # at the beginning of your program in global scope
 # $ symbol denotes a global variable
@@ -73,68 +74,6 @@ bot.ready do |event|
     nil
   end
 end
-
-# This should reset stipends every day at midnight. 
-# It reads the 'stipend' key from the YAML config file,
-# and will report in DEVCHANNEL whenever the reset occurs.
-
-# Additional steps could be taken to check when the last
-# time stipends were reset, such that if the bot happened
-# to be offline at midnight, they would be reset when
-# the bot came back online and realized the stipends
-# hadn't been reset yet. Up to you! 
-
-
-
-
-#-----------COMMANDS COMMAND--------#
-#private server commands
-
-commands = [
-  "=======",
-  "~rules",
-  "=======",
-  "",
-  "Drawing Commands",
-  " ~draw",
-  " ~drawlewd",
-  " ~drawcombo",
-  " ~drawfaglewd",
-  " ~colour",
-  " ~colourshade",
-  " ~outfit",
-  " ~pokemon",
-  " ~fpose",
-  " ~study",
-  " ~names",
-  "",
-  "Fun Commands",
-  " wave",
-  " ~8ball",
-  " ~zii(8ball clone)",
-  " ~bad",
-  " ~boop",
-  " ~slap",
-  " ~rub",
-  " ~hump",
-  " ~spray",
-  " ~grope",
-  " ~nellyheart",
-  " ~snek",
-  " ~lewd",
-  " ~roll (default 6, add number after to make larger)",
-  " ~pun",
-  " ~told",
-  " ~gimme",
-  " ~pout",
-  " ~poses",
-  " ~texas",
-  " ~salt",
-  " ~orangyheart",
-  " ~randomchar",
-  "",
-  "References (type ~refs then @them)",
-]
 
 
 ##Private commands
@@ -451,6 +390,12 @@ bot.command(:pout) do |event|
   event << "#{Pout.sample}"
 end
 
+
+
+bot.command(:echo) do |event|
+      event << "Echoooo `#{event.timestamp - Time.now} ms`"
+end
+
 #-----------REFERENCES--------#
 
 #uses the yaml file, add more artists there!
@@ -731,6 +676,7 @@ end
 
 
 
+#------Cleverbot
 
 
 
