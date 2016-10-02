@@ -2,7 +2,7 @@ require 'discordrb'
 require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
-require 'cleverbot'
+
 
 # at the beginning of your program in global scope
 # $ symbol denotes a global variable
