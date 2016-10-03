@@ -393,7 +393,7 @@ end
 
 
 bot.command(:echo) do |event|
-      event << "Echoooo `#{event.timestamp - Time.now} ms`"
+      event << "Echoooo `#{Time.now - event.timestamp} ms`"
 end
 
 #-----------REFERENCES--------#
