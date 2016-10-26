@@ -229,7 +229,7 @@ end
 
 #TIMEOUT
 bot.command(:bad) do |event, *message|
-  break unless !event.user.roles.find { |x| x.name =="DBAdmin" }.nil?
+  break unless event.user.id == 132893552102342656
   message = message.join(' ')
   event << "#{event.user.display_name} throws #{message} into timeout"
 end
@@ -243,11 +243,6 @@ bot.command(:outfit) do |event|
   event << "#{event.user.mention} your outfit is #{Outfit.sample}"
 end
 
-bot.command(:nellyheart) do |event|
-  break unless event.server.id == 175579371975868416
-  response = "http://puu.sh/pc0pc/2b1b918f9d.png"
-  event << "#{response}"
-end
 
 bot.command(:snek) do |event|
   event << "#{Snake.sample}"
