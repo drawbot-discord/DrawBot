@@ -46,7 +46,7 @@ DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
 
-bot = Discordrb::Commands::CommandBot.new token: $db['token'], application_id: 186636165938413569, prefix: '~'
+bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
 
 #restart bot
 bot.command(:restart,
