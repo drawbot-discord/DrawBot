@@ -286,7 +286,7 @@ end
 
 bot.command(:references,
             description: 'Lists artistic reference galleries',
-            usage: '~refs (topic)') do |event, *args|
+            usage: '~references (topic)') do |event, *args|
   args = args.join(' ')
   unless args.empty?
     #finds the ref listed with the arg you use
