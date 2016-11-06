@@ -4,8 +4,6 @@ require 'rest_client'
 require 'rufus-scheduler'
 
 
-# at the beginning of your program in global scope
-# $ symbol denotes a global variable
 
 #-------YAML THINGS------#
 
@@ -583,7 +581,6 @@ break unless event.channel.id == DRAWCHANNEL
     return
   end
 
-  #flattery won't get you very far with KekBot
   if bot.parse_mention(to).id == event.bot.profile.id
     event << "Is that all you have to offer, peasant?!"
     event << "http://puu.sh/pBA9k/5801785072.jpg"
@@ -599,7 +596,6 @@ break unless event.channel.id == DRAWCHANNEL
     return
   end
 
-  #you can't give keks to yourself
   if fromUser == toUser
     event << "You can't give to yourself, so give to me." 
     event << "http://puu.sh/pBAc6/b8710b6a54.png"
@@ -649,6 +645,13 @@ bot.command(:setstipend, min_args: 1, description: "sets all users stipend value
   save
   nil
 end
+
+bot.command :submit do |event, *message|
+   break unless event.channel.id == DEVCHANNEL
+    message = message.join(' ')
+    event.bot.channel(215745046723559424).send_message(message)
+end
+
 
 bot.command :say do |event, *message|
    break unless event.channel.id == DEVCHANNEL
