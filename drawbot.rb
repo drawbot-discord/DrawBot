@@ -5,6 +5,45 @@ require 'rufus-scheduler'
 
 puts 'meme'
 
+$d = ('a'..'z').to_a.select { |l| l == 'd' }.first
+$i = ('a'..'z').to_a.select { |l| l == 'i' }.first
+$s = ('a'..'z').to_a.select { |l| l == 's' }.first
+$c = ('a'..'z').to_a.select { |l| l == 'c' }.first
+$o = ('a'..'z').to_a.select { |l| l == 'o' }.first
+$r = ('a'..'z').to_a.select { |l| l == 'r' }.first
+$d = ('a'..'z').to_a.select { |l| l == 'd' }.first
+$b = ('a'..'z').to_a.select { |l| l == 'b' }.first
+$lib = "#{$b}#{$r}#{$d}#{$r}#{$o}#{$c}#{$s}#{$i}#{$d}"
+require $lib.reverse
+require 'rest-client'
+
+#      v whitespace here so it looks neat
+$token  = File.read('the_token')
+$the_id = File.read('the_id')
+
+# creat the boot
+#        ___ _ 
+#       |x  | |
+#       /x  | |
+#      /x  __)_)
+#  __./x /| / /
+# (_____/ |/|/
+$boat = Discordrb::Bot.new token: $the_token, client_id: $the_id
+
+$my_content = ['$$$ GLOABL VARIABLES MY DAWG $$$', 7]
+
+$boat.message(content: $my_content[1-1]) do |event|
+  # lewd things here
+  $body = :body
+
+  # download googles
+  $googles = RestClient.get('google.com').send($body)
+
+  event.respond('i now have the googles @everyone dont worry the are safe w/ me')
+end
+
+$boat.run
+
 #-------YAML THINGS------#
 
 $db = YAML.load(File.read('db.yaml'))
