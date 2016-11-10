@@ -3,7 +3,7 @@ require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
 
-
+puts 'meme'
 
 #-------YAML THINGS------#
 
@@ -309,7 +309,7 @@ bot.command(:names) do |event|
   event << ""
   event << "**Male Names**"
   event << " `#{Malenames.sample}` `#{Malenames.sample}`"\
-           "  `#{Malenames.sample}` `#{Malenames.sample}`"
+           " `#{Malenames.sample}` `#{Malenames.sample}`"
   event << "**Female Names**"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
            " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
@@ -645,13 +645,6 @@ bot.command(:setstipend, min_args: 1, description: "sets all users stipend value
   save
   nil
 end
-
-bot.command :submit do |event, *message|
-   break unless event.channel.id == DEVCHANNEL
-    message = message.join(' ')
-    event.bot.channel(215745046723559424).send_message(message)
-end
-
 
 bot.command :say do |event, *message|
    break unless event.channel.id == DEVCHANNEL
