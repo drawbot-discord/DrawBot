@@ -148,6 +148,11 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
+
+bot.message(contains:'sparkle') do |event|
+  event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
+end
+
 #bot.message(with_text: 'hey') do |event|
 #  event.respond 'LISTEN!'
 #end
