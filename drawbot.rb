@@ -148,12 +148,10 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
-rate_limiter = Discordrb::Commands::SimpleRateLimiter.new
-rate_limiter.bucket :sparkle, delay 10
-  bot.message(contains:'sparkle') do |event|
+
+bot.message(contains:'sparkle') do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
-next if rate_limiter.rate_limited?(:'sparkle', event.channel)
-event.respond 'Too many sparkles! :scream: '
+
 end
 
 #bot.message(with_text: 'hey') do |event|
