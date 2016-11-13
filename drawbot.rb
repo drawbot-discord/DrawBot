@@ -320,7 +320,7 @@ bot.command(:names) do |event|
   event << "#{event.user.mention}, Your randomly generated names are;"
   event << ""
   event << "**Male Names**"
-  event << " `#{Malenames.sample}` `#{Malenames.sample}`"\
+  event << "`#{Malenames.sample}` `#{Malenames.sample}`"\
            " `#{Malenames.sample}` `#{Malenames.sample}`"
   event << "**Female Names**"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
