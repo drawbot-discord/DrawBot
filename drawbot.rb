@@ -68,7 +68,7 @@ bot.ready do |event|
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
   event.bot.send_message(DEVCHANNEL, "The number of servers I'm in; " event.bot.servers.count)
-  event.bot.send_message(DEVCHANNEL, "All of which are;" event.bot.servers.collect { |_, s| s.name }.join(', '))
+  event.bot.send_message(DEVCHANNEL, "All of which are; " event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
