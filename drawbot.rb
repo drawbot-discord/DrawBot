@@ -149,7 +149,7 @@ bot.message(with_text: '/o/') do |event|
 end
 
 
-bot.message(contains:/sparkle/i) do |event|
+bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
 end
 
