@@ -64,12 +64,11 @@ end
 
 bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
-  event.bot.send_message("Test, ignore me!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
-  event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
-  event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
+  event.bot.send_message(DEVCHANNEL, "I am in" event.bot.servers.count "servers!")
+  event.bot.send_message(DEVCHANNEL, "All of which are;" event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
