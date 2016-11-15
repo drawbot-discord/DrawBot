@@ -688,16 +688,19 @@ end
 
 
 #------------Eval-----------#
-bot.command(:eval, help_available: false) do |event, *code|
+bot.command(:eval, 
+             help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
   begin
     eval code.join(' ')
   rescue => e
-    "An error occured :disappointed: ```#{e}```"
+    "An error occured, and I heard something\
+            break :broken_heart: ```#{e}```"
   end
 end
 
-bot.command :getdb do |event|
+bot.command (:getdb,
+             help_available: false) do |event|
   break unless event.channel.id == DEVCHANNEL
   file = File.open('db.yaml')
   event.channel.send_file(file)
