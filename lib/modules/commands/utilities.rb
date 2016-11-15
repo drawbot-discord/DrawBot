@@ -9,14 +9,6 @@ module DrawBot
         'https://github.com/LeggoMyEcho/DrawBot/wiki/Commands'
       end
 
-     command(:restart,
-                 description: "restarts the bot") do |event|
-                 break unless event.channel.id == DEVCHANNEL
-                 event.channel.send_message("Restart issued.. :wrench:")
-                 bot.stop
-                 exit
-      end
-
       #------------Eval-----------#
      command(:eval,
                  help_available: false) do |event, *code|
