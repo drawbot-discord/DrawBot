@@ -3,9 +3,14 @@ require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
 
-puts 'meme'
-puts 'meme'
-puts 'meme'
+
+puts 'I think it\'s time to blow this thing.'
+puts 'Get everybody and their stuff together'
+puts 'Okay, three, two, one let\'s jam.'
+puts '.. '
+puts '... '
+puts '.... '
+puts '..... '
 puts 'meme'
 
 
@@ -67,7 +72,7 @@ bot.ready do |event|
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
-  event.bot.send_message(DEVCHANNEL, "I am in some servers;")
+  event.bot.send_message(DEVCHANNEL, "Numberof servers I'm in;" event.bot.servers.count)
   event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
