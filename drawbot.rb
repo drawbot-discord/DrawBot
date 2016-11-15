@@ -72,7 +72,7 @@ bot.ready do |event|
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
-  event.bot.send_message(DEVCHANNEL, "Numberof servers I'm in;" event.bot.servers.count)
+  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in;", event.bot.servers.count)
   event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
