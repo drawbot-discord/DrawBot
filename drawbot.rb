@@ -3,7 +3,9 @@ require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
 
-
+puts ' '
+puts ' '
+puts ' '
 puts 'I think it\'s time to blow this thing.'
 puts 'Get everybody and their stuff together'
 puts 'Okay, three, two, one let\'s jam.'
@@ -12,9 +14,9 @@ puts '... '
 puts '.... '
 puts '..... '
 puts 'meme'
-
-
-
+puts ' '
+puts ' '
+puts ' '
 
 #-------YAML THINGS------#
 
@@ -72,8 +74,7 @@ bot.ready do |event|
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
-  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in;", event.bot.servers.count)
-  event.bot.send_message(DEVCHANNEL, event.bot.servers.count)
+  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; #{event.bot.servers.count}")
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
@@ -86,12 +87,6 @@ bot.ready do |event|
   end
 end
 
-
-##Private commands
-#bot.command(:help) do |event|  
-#  break unless event.channel.id == DRAWCHANNEL
-#  event << "#{commands.join("\n")}"
-#end
 
 
 #public Server
