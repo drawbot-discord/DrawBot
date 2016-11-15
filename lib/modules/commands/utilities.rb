@@ -5,7 +5,7 @@ module DrawBot
      bot.command(:commands,
                  description: 'Lists the publicly available commands',
                  usage: "#{BOT.prefix}commands") do |event|
-     "#{publiccommands.join("\n")}"
+     "https://github.com/LeggoMyEcho/DrawBot/wiki/Commands"
      end
     end
   end
