@@ -16,6 +16,25 @@ module DrawBot
                  bot.stop
                  exit
       end
+
+      #------------Eval-----------#
+     bot.command(:eval, 
+                 help_available: false) do |event, *code|
+                  break unless event.user.id == 132893552102342656
+                  begin
+                  eval code.join(' ')
+                  rescue => e
+                  "An error occured, and I heard something\
+                        break :disappointed: ```#{e}```"
+                  end
+                end
+
+     bot.command (:getdb,
+                   help_available: false) do |event|
+                    break unless event.channel.id == DEVCHANNEL
+                    file = File.open('db.yaml')
+                    event.channel.send_file(file)
+                   end
     end
   end
 end
