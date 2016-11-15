@@ -127,7 +127,7 @@ publiccommands = [
 
 #Public commands
 bot.command(:commands) do |event|
-  event << "#{publiccommands.join("\n")}"
+  event << "https://github.com/LeggoMyEcho/DrawBot/wiki/Commands"
 end
 
 
