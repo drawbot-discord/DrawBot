@@ -39,6 +39,7 @@ module DrawBot
                                      .response
           event << "You should draw something #{prefix} #{suffix}"
         end
+      end
 
       command(:outfit,
               description: 'Generate a random outfit'
