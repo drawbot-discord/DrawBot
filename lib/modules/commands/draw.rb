@@ -42,10 +42,11 @@ module DrawBot
       end
 
       command(:outfit,
-              description: 'Generate a random outfit'
-               usage:"#{BOT.prefix}outfit") do |event|
-             response = Database::Response.where(key: 'outfits').all.sample
-                                                                .response
+              description: 'Generate a random outfit',
+              usage:"#{BOT.prefix}outfit") do |event|
+        response = Database::Response.where(key: 'outfits')
+                                     .all.sample
+                                     .response
         "#{event.user.mention} your outfit is #{response}"
       end
     end
