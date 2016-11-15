@@ -22,7 +22,7 @@ module DrawBot
         end
       end
 
-       command(:drawlewd,
+      command(:drawlewd,
               description: 'Gives you a random idea of what to draw!',
               usage: "#{BOT.prefix}drawlewd") do |event|
         single_or_combo = %w(single single single combo).sample
@@ -43,7 +43,7 @@ module DrawBot
 
       command(:outfit,
               description: 'Generate a random outfit',
-              usage:"#{BOT.prefix}outfit") do |event|
+              usage: "#{BOT.prefix}outfit") do |event|
         response = Database::Response.where(key: 'outfits')
                                      .all.sample
                                      .response
