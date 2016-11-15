@@ -695,12 +695,11 @@ bot.command(:eval,
     eval code.join(' ')
   rescue => e
     "An error occured, and I heard something\
-            break :broken_heart:o ```#{e}```"
+            break :disappointed: ```#{e}```"
   end
 end
 
-bot.command (:getdb
-             help_available: false) do |event|
+bot.command(:getdb) do |event|
   break unless event.channel.id == DEVCHANNEL
   file = File.open('db.yaml')
   event.channel.send_file(file)
