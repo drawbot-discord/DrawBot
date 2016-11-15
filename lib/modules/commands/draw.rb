@@ -19,8 +19,9 @@ module DrawBot
                                      .sample
                                      .response
           event << "You should draw something #{prefix} #{suffix}"
+        end
       end
-      
+
        command(:drawlewd,
               description: 'Gives you a random idea of what to draw!',
               usage: "#{BOT.prefix}drawlewd") do |event|
@@ -38,7 +39,7 @@ module DrawBot
                                      .response
           event << "You should draw something #{prefix} #{suffix}"
         end
-      
+
       command(:outfit,
               description: 'Generate a random outfit'
                usage:"#{BOT.prefix}outfit") do |event|
