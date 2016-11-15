@@ -2,12 +2,12 @@
 module DrawBot
   module DiscordCommands
     module UtilityCommands
-     extend Discordrb::Commands::CommandContainer
-     command(:commands,
-                 description: 'Lists the publicly available commands',
-                 usage: "#{BOT.prefix}commands") do |event|
-     'https://github.com/LeggoMyEcho/DrawBot/wiki/Commands'
-     end
+      extend Discordrb::Commands::CommandContainer
+      command(:commands,
+              description: 'Lists the publicly available commands',
+              usage: "#{BOT.prefix}commands") do |event|
+        'https://github.com/LeggoMyEcho/DrawBot/wiki/Commands'
+      end
 
      command(:restart,
                  description: "restarts the bot") do |event|
