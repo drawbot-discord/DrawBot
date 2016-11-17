@@ -156,9 +156,9 @@ end
 
 
 bot.message(start_wth:/(should)|(can)/i) do |event|
-  event.respond ['Yea #{event.user.display_name} :thumbs_up:',
-                 'Nah #{event.user.display_name} :thumbs_down:',
-                 'Dunno #{event.user.display_name} :open_hands:'].sample
+  event.respond ['Yea "#{event.user.display_name}" :thumbsup:',
+                 'Nah "#{event.user.display_name}" :thumbsdown:',
+                 'Dunno "#{event.user.display_name}" :open_hands:'].sample
 end
 
 #bot.message(with_text: 'hey') do |event|
