@@ -155,7 +155,7 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
 end
 
 
-bot.message(start_with:/(should i)|(can i)/i) do |event|
+bot.message(start_with:/(should i)|(should )|(can i)/i) do |event|
   event.respond ["Yea #{event.user.display_name} :thumbsup:",
                  "Nah #{event.user.display_name} :thumbsdown:",
                  "Dunno #{event.user.display_name} :open_hands:"].sample
@@ -188,7 +188,7 @@ bot.command :roll do |event, roll|
   roll = roll.split('d').map(&:to_i)
   roll = roll[0].times.collect { |x| rand(1..roll[1]) }
   total = roll.inject(0){|sum,x| sum + x }
-  event << "#{event.user.display_name} throws their dice down and roll `#{roll.join(', ')} = #{total}`"
+  event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
 
 bot.command(:wave) do |event, *message|
