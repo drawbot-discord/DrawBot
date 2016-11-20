@@ -256,6 +256,7 @@ end
 bot.command(:spray) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} sprays #{message} with a #{WaterContainer.sample}"
+  event.message.delete
 end
 
 bot.command(:outfit) do |event|
@@ -523,7 +524,6 @@ end
 
 #get bank amount
 bot.command(:bank, description: "fetches your balance, or @user's balance") do |event, mention|
-break unless event.channel.id == DRAWCHANNEL
   #report our own bank if no @mention
   #pick up user if we have a @mention
   if mention.nil?
