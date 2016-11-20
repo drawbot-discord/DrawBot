@@ -156,15 +156,12 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
 end
 
 
-bot.message(start_with:/(should i)|(should )|(can i)/i) do |event|
+bot.message(start_with:/(should i)|(should )|(can i)|(can )/i) do |event|
   event.respond ["Yea #{event.user.display_name} :thumbsup:",
                  "Nah #{event.user.display_name} :thumbsdown:",
                  "Dunno #{event.user.display_name} :open_hands:"].sample
 end
 
-#bot.message(with_text: 'hey') do |event|
-#  event.respond 'LISTEN!'
-#end
 
 bot.command(:'8ball') do |event, *message|
   message = message.join(' ')
