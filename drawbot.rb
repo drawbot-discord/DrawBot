@@ -156,7 +156,7 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
 end
 
 
-bot.message(start_with:/(should.+\?i)|(should+\?)|(can+\?i)|(can+\?)|(will+\?)|(is+\?)/i) do |event|
+bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)/i) do |event|
   event.respond ["Yea, #{event.user.display_name} :thumbsup:",
                  "Nah, #{event.user.display_name} :thumbsdown:",
                  "Dunno, #{event.user.display_name} :open_hands:"].sample
