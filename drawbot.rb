@@ -51,6 +51,7 @@ Colourshade = $db['shadecolour']
 References = $db['refs']
 Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
+FantasyNames = $db['fantasynames']
 
 
 DEVCHANNEL = 222032313154928640
@@ -324,7 +325,7 @@ end
 
 #NAMES COMMANDS
 bot.command(:names) do |event|
-  event << "#{event.user.mention}, Your randomly generated names are;"
+  event << "#{event.user.mention}, your randomly generated names are;"
   event << ""
   event << "**Male Names**"
   event << "`#{Malenames.sample}` `#{Malenames.sample}`"\
@@ -335,6 +336,11 @@ bot.command(:names) do |event|
   event.message.delete
 end
 
+bot.command(:fantasyname, 
+             description: Generate a random fantasy name!) do |event|
+  event << "#{event.user.mention}, your random fantasy name is `#{FantasyNames.sample}`"
+  event.message.delete
+end
 
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
