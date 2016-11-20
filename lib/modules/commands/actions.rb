@@ -25,6 +25,16 @@ module DrawBot
         event << "#{event.user.display_name} #{response} boops #{thing}"
         event.message.delete
       end
+      
+      command(:colour,
+             description: 'Returns matching colours',
+             usage: "#{BOT.prefix} colour") do |event|
+        thing = thing.join(' ')
+        response = Database::Response.where(key: 'colour')
+                                     .all.sample.response
+        event << "#{event.user.display_name} #{response}"
+        event.message.delete
+      end
 
       command(:slap,
               description: 'Slaps someone or something',
