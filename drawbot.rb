@@ -336,7 +336,8 @@ bot.command(:names) do |event|
   event.message.delete
 end
 
-bot.command(:fantasyname) do |event|
+bot.command(:fantasyname, 
+             description: "Generate a random fantasy name!") do |event|
   event << "#{event.user.mention}, your random fantasy name is `#{FantasyNames.sample}`"
   event.message.delete
 end
