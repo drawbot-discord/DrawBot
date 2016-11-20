@@ -704,7 +704,7 @@ bot.command(:eval,
   begin
     eval code.join(' ')
   rescue => e
-    "An error occured, you did it :broken_heart:  ```#{e}```"
+    "An error occured, the fuck are you doing?  ```#{e}```"
   end
 end
 
