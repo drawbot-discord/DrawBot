@@ -585,7 +585,6 @@ end
 
 #------GIVE COMMAND
 bot.command(:give, min_args: 3,  description: "give currency") do |event, to, value, type|
-break unless event.channel.id == DRAWCHANNEL
   value = value.to_i
 
   #pick up user
