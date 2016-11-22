@@ -191,7 +191,7 @@ end
 
 bot.command(:pick) do |event, *message|
   pickmessage = message.join(' ').split(',')
-  event << "#{event.user.display_name}, I choose;"
+  event << "#{event.user.mention}, I choose;"
   event << "#{pickmessage.sample}"
 end
 
