@@ -168,8 +168,8 @@ bot.command(:drawfaglewd) do |event|
   event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
 
-bot.command(:outfit
-             description:"Generate a random outfit for you, or your character!",
+bot.command(:outfit,
+             description: "Generate a random outfit for you, or your character!",
              usage: '~outfit') do |event|
   event << "#{event.user.mention} your outfit is #{Outfit.sample}"
 end
