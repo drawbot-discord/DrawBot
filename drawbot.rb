@@ -279,9 +279,9 @@ end
 
 
 
-bot.command (:refs,
-             description: "Get the reference of a fellow artist!",
-             usage: '~refs @user') do |event, mention|
+bot.command(:refs,
+            description: "Get the reference of a fellow artist!",
+            usage: '~refs @user') do |event, mention|
 
   #get user
   user = $db['users'][event.bot.parse_mention(mention).id]
