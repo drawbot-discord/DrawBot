@@ -175,9 +175,9 @@ bot.command(:outfit,
 end
 
 #this is really cool, i'm glad it was added!
-bot.command (:pokemon,
-              description: "Gets a random pokemon for you to draw",
-              usage: '~pokemon') do |event|
+bot.command(:pokemon,
+             description: "Gets a random pokemon for you to draw",
+             usage: '~pokemon') do |event|
   pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
   url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
   event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
