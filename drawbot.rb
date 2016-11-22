@@ -142,198 +142,6 @@ Use `~commands` to find out what I can do for you!"
   event << response
 end
 
-#------------ART COMMANDS-----------#
-
-bot.command(:draw,
-            description: 'Generate a random thing to draw!',
-            usage: "~draw") do |event|
-  event << "You should draw #{DrawTopic.sample}"
-end
-
-bot.command(:drawlewd,
-             description: "Generate a random lewd thing to draw!",
-             usage: '~drawlewd') do |event|
-  break unless event.channel.id == DRAWCHANNEL
-  event << "You should draw something #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
-end
-
-bot.command(:drawcombo,
-             description: "Generate a more random thing to draw!",
-             usage: '~drawcombo') do |event|
-  event << "You should draw something #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
-end
-
-bot.command(:drawfaglewd) do |event|
-  break unless event.channel.id == DRAWCHANNEL
-  event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
-end
-
-bot.command(:outfit,
-             description: "Generate a random outfit for you, or your character!",
-             usage: '~outfit') do |event|
-  event << "#{event.user.mention} your outfit is #{Outfit.sample}"
-end
-
-#this is really cool, i'm glad it was added!
-bot.command(:pokemon,
-             description: "Gets a random pokemon for you to draw",
-             usage: '~pokemon') do |event|
-  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
-  url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
-  event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
-  event << url
-end
-
-bot.command(:study,
-             description: "Generate a random bodypart to practice drawing!",
-             usage: '~study') do |event|
-  event << "The body part you get to study is #{Study.sample}"
-end
-
-bot.command(:fpose,
-             description: "Generate a random female image as a drawing reference (NSFW)",
-             usage: '~fpose') do |event|
-  break unless event.channel.id == DRAWCHANNEL
-  event << "The pose you get is #{Fpose.sample}"
-end
-
-bot.command(:poses,
-             description: "Get two lists of poses to draw from! (Use ~roll # to choose)",
-             usage: '~poses') do |event|
-  event << "`~roll 98`\nhttps://puu.sh/oNXxK/474217250e.jpg\n`~roll 20`\nhttps://puu.sh/oNxer/cb15424c85.jpg"
-end
-
-bot.command(:randomchar,
-             description: "Generate a random fantasy character (Pathfinder/DnD)",
-             usage: '~randomchar') do |event|
-  event << "Your randomly generated pathfinder character is a"
-  event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
-end
-
-#COLOUR COMMAND
-bot.command(:colour,
-             description: "Generate a random set of complementary colours!",
-             usage: '~colour') do |event|
-  event << "Your complementary colours are"
-  event << "#{Compcolour.sample}"
-end
-
-#COLOUR COMMAND
-bot.command(:color,
-             description: "Generate a random set of complementary colours, you yankee!",
-             usage: '~color') do |event|
-  event << "Your complementary colours are"
-  event << "#{Compcolour.sample}"
-  event << "You yankee"
-end
-
-#COLOUR SHADES COMMAND
-bot.command(:colourshade,
-            description: "Generate shades of a random character",
-            usage: '~colourshade') do |event|
-  event << "Your colour shades are"
-  event << "#{Colourshade.sample}"
-end
-
-bot.command(:references,
-            description: 'Lists artistic reference galleries',
-            usage: '~references (topic)') do |event, *args|
-  args = args.join(' ')
-  unless args.empty?
-    #finds the ref listed with the arg you use
-    ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
-    unless ref.nil?
-      event << "#{ref['title']}"
-      event << "#{ref['url']}"
-      return
-    end
-    event << 'I couldn\'t find that reference..'
-  end
-  #this is for when you don't have arguments, to find the list of refs
-  event << 'List of available references:'
-  event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-end
-
-
-#NAMES COMMANDS
-bot.command(:names,
-             description: " Generate 8 random names from a 1990 census, 4 male, 4 female",
-             usage: '~names') do |event|
-  event << "#{event.user.mention}, your randomly generated names are;"
-  event << ""
-  event << "**Male Names**"
-  event << "`#{Malenames.sample}` `#{Malenames.sample}`"\
-           " `#{Malenames.sample}` `#{Malenames.sample}`"
-  event << "**Female Names**"
-  event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
-           " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
-  event.message.delete
-end
-
-bot.command(:fantasyname, 
-             description: "Generate a random fantasy name!",
-             usage: '~fantasyname') do |event|
-  event << "#{event.user.mention}, your random fantasy name is `#{FantasyNames.sample}`"
-  event.message.delete
-end
-
-
-
-bot.command(:refs,
-            description: "Get the reference of a fellow artist!",
-            usage: '~refs @user') do |event, mention|
-
-  #get user
-  user = $db['users'][event.bot.parse_mention(mention).id]
-
-  #check if user isn't in our db
-  if user.nil?
-    event << "User not found.. :eyes:"
-    return
-  end
-
-  if user['refs'].nil?
-    event << "They don't have a ref, laugh at them!\nhttp://puu.sh/pBzdD/b516b51ba1.jpg"
-    return
-  end
-
-  #output each ref
-  event << "#{user['name']}'s refs:"
-  user['refs'].each { |x| event << x }
-  nil
-end
-
-bot.command(:addref, 
-            description: 'Add a reference for yourself or your character!',
-            usage: "`~addref (URL)`") do |event, *url|
-
-  url = url.join(' ')
-
-  #get user
-  user = $db['users'][event.user.id]
-
-  #check if user isn't in our db
-  if user.nil?
-    event << "User not found.. :eyes:"
-    return
-  end
-
-  #add ref to user
-  user['refs'] << url
-
-  event << "Ref added! :wink:"
-
-  #save db
-  save
-  nil
-end
-
-def save
-  file = File.open("db.yaml", "w")
-  file.write($db.to_yaml)
-end
-
-
 
 #-------------SILLY COMMANDS---------#
 
@@ -381,9 +189,7 @@ bot.command :roll do |event, roll|
   event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
 
-bot.command(:pick,
-             description: 'Use Drawbot to choose things for you',
-             usage: "~pick choice 1, choice 2" ) do |event, *message|
+bot.command(:pick) do |event, *message|
   pickmessage = message.join(' ').split(',')
   event << "#{event.user.mention}, I choose;"
   event << "#{pickmessage.sample}"
@@ -456,6 +262,9 @@ bot.command(:spray) do |event, *message|
   event.message.delete
 end
 
+bot.command(:outfit) do |event|
+  event << "#{event.user.mention} your outfit is #{Outfit.sample}"
+end
 
 
 bot.command(:snek) do |event|
@@ -474,6 +283,68 @@ bot.command(:rekt) do |event|
   event << Rekt
 end
 
+bot.command(:randomchar) do |event|
+  event << "Your randomly generated pathfinder character is a"
+  event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
+end
+
+#COLOUR COMMAND
+bot.command(:colour) do |event|
+  event << "Your complementary colours are"
+  event << "#{Compcolour.sample}"
+end
+
+#COLOUR COMMAND
+bot.command(:color) do |event|
+  event << "Your complementary colours are"
+  event << "#{Compcolour.sample}"
+  event << "You yankee"
+end
+
+#COLOUR SHADES COMMAND
+bot.command(:colourshade) do |event|
+  event << "Your colour shades are"
+  event << "#{Colourshade.sample}"
+end
+
+bot.command(:references,
+            description: 'Lists artistic reference galleries',
+            usage: '~references (topic)') do |event, *args|
+  args = args.join(' ')
+  unless args.empty?
+    #finds the ref listed with the arg you use
+    ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
+    unless ref.nil?
+      event << "#{ref['title']}"
+      event << "#{ref['url']}"
+      return
+    end
+    event << 'I couldn\'t find that reference..'
+  end
+  #this is for when you don't have arguments, to find the list of refs
+  event << 'List of available references:'
+  event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+end
+
+
+#NAMES COMMANDS
+bot.command(:names) do |event|
+  event << "#{event.user.mention}, your randomly generated names are;"
+  event << ""
+  event << "**Male Names**"
+  event << "`#{Malenames.sample}` `#{Malenames.sample}`"\
+           " `#{Malenames.sample}` `#{Malenames.sample}`"
+  event << "**Female Names**"
+  event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
+           " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
+  event.message.delete
+end
+
+bot.command(:fantasyname, 
+             description: "Generate a random fantasy name!") do |event|
+  event << "#{event.user.mention}, your random fantasy name is `#{FantasyNames.sample}`"
+  event.message.delete
+end
 
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
@@ -481,6 +352,46 @@ bot.command(:'lewd') do |event|
 end
 
 
+#---------DRAW COMMANDS-----------#
+bot.command(:draw) do |event|
+  event << "You should draw #{DrawTopic.sample}"
+end
+
+bot.command(:drawlewd) do |event|
+  break unless event.channel.id == DRAWCHANNEL
+  event << "You should draw something #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
+end
+
+bot.command(:drawcombo) do |event|
+  event << "You should draw something #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
+end
+
+bot.command(:drawfaglewd) do |event|
+  break unless event.channel.id == DRAWCHANNEL
+
+  event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
+end
+
+bot.command(:study) do |event|
+  event << "The body part you get to study is #{Study.sample}"
+end
+
+#this is really cool, i'm glad it was added!
+bot.command :pokemon do |event|
+  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
+  url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
+  event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
+  event << url
+end
+
+bot.command(:fpose) do |event|
+  break unless event.channel.id == DRAWCHANNEL
+  event << "The pose you get is #{Fpose.sample}"
+end
+
+bot.command(:poses) do |event|
+  event << "`~roll 98`\nhttps://puu.sh/oNXxK/474217250e.jpg\n`~roll 20`\nhttps://puu.sh/oNxer/cb15424c85.jpg"
+end
 
 bot.command(:texas) do |event|
   break unless event.server.id == 175579371975868416
@@ -555,6 +466,60 @@ bot.member_join do |event|
 end
 
 ############################
+
+
+bot.command :refs do |event, mention|
+
+  #get user
+  user = $db['users'][event.bot.parse_mention(mention).id]
+
+  #check if user isn't in our db
+  if user.nil?
+    event << "User not found.. :eyes:"
+    return
+  end
+
+  if user['refs'].nil?
+    event << "They don't have a ref, laugh at them!\nhttp://puu.sh/pBzdD/b516b51ba1.jpg"
+    return
+  end
+
+  #output each ref
+  event << "#{user['name']}'s refs:"
+  user['refs'].each { |x| event << x }
+  nil
+end
+
+bot.command(:addref, 
+            description: 'Add a reference for yourself or your character!',
+            usage: "`~addref (URL)`") do |event, *url|
+
+  url = url.join(' ')
+
+  #get user
+  user = $db['users'][event.user.id]
+
+  #check if user isn't in our db
+  if user.nil?
+    event << "User not found.. :eyes:"
+    return
+  end
+
+  #add ref to user
+  user['refs'] << url
+
+  event << "Ref added! :wink:"
+
+  #save db
+  save
+  nil
+end
+
+def save
+  file = File.open("db.yaml", "w")
+  file.write($db.to_yaml)
+end
+
 
 
 
