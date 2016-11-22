@@ -189,7 +189,9 @@ bot.command :roll do |event, roll|
   event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
 
-bot.command(:pick) do |event, *message|
+bot.command(:pick,
+             description: 'Use Drawbot to choose things for you',
+             usage: "~pick choice 1, choice 2" ) do |event, *message|
   pickmessage = message.join(' ').split(',')
   event << "#{event.user.mention}, I choose;"
   event << "#{pickmessage.sample}"
