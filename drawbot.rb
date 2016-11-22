@@ -189,6 +189,12 @@ bot.command :roll do |event, roll|
   event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
 
+bot.command(:pick) do |event, *message|
+  pickmessage = message.join(' ').split(',')
+  event << "#{event.user.user_mention}I choose;"
+  event << "#{pickmessage.sample}"
+end
+
 bot.command(:wave) do |event, *message|
   message = message.join(' ')
   event << "#{event.user.display_name} waves #{message}"
