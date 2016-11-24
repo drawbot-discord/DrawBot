@@ -349,7 +349,7 @@ end
 
 
 bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
-  role = event.server.roles.find { |r| r.name.cmpcase('inquisitive').zero? }
+  role = event.server.roles.find { |r| r.name.casecmp('inquisitive').zero? }
   break unless event.bot.profile.on(event.server).role? role
     event.respond ["Yea, #{event.user.display_name} :thumbsup:",
                    "Nah, #{event.user.display_name} :thumbsdown:",
