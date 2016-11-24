@@ -208,8 +208,8 @@ bot.command(:randomchar,
              usage: '~randomchar') do |event|
   event << "Your randomly generated pathfinder character is a"
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
-  event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`\
-                               `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
+  event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
+                               " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
 end
 
 #COLOUR COMMAND
