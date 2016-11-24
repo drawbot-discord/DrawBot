@@ -257,7 +257,7 @@ end
 
 #NAMES COMMANDS
 bot.command(:names,
-             description: " Generate 8 random names from a 1990 census, 4 male, 4 female",
+             description: "Generate 8 random names from a 1990 census, 4 male, 4 female",
              usage: '~names') do |event|
   event << "#{event.user.mention}, your randomly generated names are;"
   event << ""
@@ -349,9 +349,11 @@ end
 
 
 bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
-  event.respond ["Yea, #{event.user.display_name} :thumbsup:",
-                 "Nah, #{event.user.display_name} :thumbsdown:",
-                 "Dunno, #{event.user.display_name} :open_hands:"].sample
+  role = event.server.roles.find { |r| r.name.cmpcase('inquisitive').zero? }
+  break unless event.bot.profile.on(event.server).role? role
+    event.respond ["Yea, #{event.user.display_name} :thumbsup:",
+                   "Nah, #{event.user.display_name} :thumbsdown:",
+                   "Dunno, #{event.user.display_name} :open_hands:"].sample
 end
 
 
