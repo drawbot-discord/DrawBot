@@ -767,7 +767,8 @@ bot.command(:e621,
             puts '----'
             puts x.css('img').attr('src')
             x.css('img').attr('src')
+          end
+          event.respond bigimage
       event.respond pictures.empty? ? 'couldn\'t find anything' : pictures.sample
       end
-      
 bot.run
