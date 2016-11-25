@@ -750,9 +750,9 @@ bot.command(:getdb) do |event|
 end
 
 
-bot.command (:e621,
-             :description "Search for an image on e621.net",
-             :usage '~e621 (search_term)') do |event, *search|
+bot.command(:e621,
+            :description "Search for an image on e621.net",
+            :usage '~e621 (search_term)') do |event, *search|
   search = search.join('%20')
    next event.respond 'Please give me something to search for' if search.nil?
    base_url = 'https://e621.net/post/index/1/'
