@@ -751,11 +751,11 @@ end
 
 
 bot.command (:e621) do |event, search|
+next event.respond 'Please give me something to search for' if search.nil?
 BASE_URL = 'https://e621.net/post/index/1/'
 e621 = Nokogiri::HTML RestClient.get(BASE_URL + search)
 pictures = e621.css('.thumb').map { |x| x.css('a').css('img').attr('src') }
 event << pictures.sample
 end
-
 
 bot.run
