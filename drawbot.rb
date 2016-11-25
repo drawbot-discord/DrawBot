@@ -765,8 +765,8 @@ bot.command(:e621,
           bigimage_page = Nokogiri::HTML RestClient.get(pictures.sample)
           bigimage = bigimage_page.css('.content').map do |x|
             puts '----'
-            puts x.css('img').attr('src')
-            x.css('img').attr('src')
+            puts x.css('img').css('src')
+            #x.css('img').attr('src')
           end
           event.respond bigimage
       event.respond pictures.empty? ? 'couldn\'t find anything' : pictures.sample
