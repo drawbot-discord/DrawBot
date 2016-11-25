@@ -751,19 +751,23 @@ end
 
 
 bot.command(:e621,
-            description: "Search for an image on e621.net",
+            description: "Search for an image on e621.net", 
             usage: '~e621 (search_term)') do |event, *search|
-  search = search.join('%20')
-   next event.respond 'Please give me something to search for' if search.nil?
-   base_url = 'https://e621.net/post/index/1/'
-   e621 = Nokogiri::HTML RestClient::Request.execute(:url => base_url + search, :method => :get, :verify_ssl => false)
-     pictures = e621.css('.thumb').map do |x|
-       bigimage_link = "https://e621.net#{x.css('a').attr('href')}"
-       bigimage_page = Nokogiri::HTML RestClient.get(bigimage_link)
-       bigimage = bigimage_page.css('.content').css('img').attr('src')
-       x = bigimage
-     end
-   event.respond pictures.empty? ? 'couldn\'t find anything' : pictures.sample
-end
-
+  role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
+  break unless event.bot.profile.on(event.server).role? role
+        search = search.join('%20')
+        next event.respond 'Please give me something to search for' if search.nil?
+        base_url = 'https://e621.net/post/index/1/'
+        e621 = Nokogiri::HTML RestClient.get(base_url + search)
+          pictures = e621.css('.thumb').map do |x|
+          x = "https://e621.net#{x.css('a').attr('href')}"
+          end
+          bigimage_page = Nokogiri::HTML RestClient.get(pictures.sample)
+          bigimage = bigimage_page.css('.content').map do |x|
+            puts '----'
+            puts x.css('img').attr('src')
+            x.css('img').attr('src')
+      event.respond pictures.empty? ? 'couldn\'t find anything' : pictures.sample
+      end
+      
 bot.run
