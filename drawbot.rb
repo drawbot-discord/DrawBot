@@ -751,9 +751,11 @@ end
 
 
 bot.command (:e621) do |event, search|
-e621 = Nokogiri::HTML RestClient.get('https://e621.net/post/index/1/tentacles')
+BASE_URL = 'https://e621.net/post/index/1/'
+e621 = Nokogiri::HTML RestClient.get(BASE_URL + search)
 pictures = e621.css('.thumb').map { |x| x.css('a').css('img').attr('src') }
 event << pictures.sample
 end
+
 
 bot.run
