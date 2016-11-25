@@ -533,8 +533,6 @@ end
 
 
 bot.command(:pout) do |event|
-  role = event.server.roles.find { |r| r.name.casecmp('sad').zero? }
-  break unless event.bot.profile.on(event.server).role? role
    event << "#{Pout.sample}"
 end
 
@@ -748,6 +746,13 @@ bot.command(:getdb) do |event|
   break unless event.channel.id == DEVCHANNEL
   file = File.open('db.yaml')
   event.channel.send_file(file)
+end
+
+
+bot.command (:e621) do |event, search|
+e621 = Nokogiri::HTML RestClient.get('https://e621.net/post/index/1/tentacles')
+pictures = e621.css('.thumb').map { |x| x.css('a').css('img').attr('src') }
+event << pictures.sample
 end
 
 bot.run
