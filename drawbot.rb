@@ -751,11 +751,13 @@ end
 
 
 bot.command (:e621) do |event, *search|
-search = search.join('%20')
-next event.respond 'Please give me something to search for' if search.nil?
-base_url = 'https://e621.net/post/index/1/'
-e621 = Nokogiri::HTML RestClient::Request.execute(:url => base_url + search, :method => :get, :verify_ssl => false)
-pictures = e621.css('.thumb').map { |x| x.css('a').css('img').attr('src') }
+  search = search.join('%20')
+   next event.respond 'Please give me something to search for' if search.nil?
+  base_url = 'https://e621.net/post/index/1/'
+ e621 = Nokogiri::HTML RestClient::Request.execute(:url => base_url + search, :method => :get, :verify_ssl => false)
+  pictures = e621.css('.thumb').map do |x|
+  bigimage = "https://e621.net#{x.css('a').attr('href')}"
+  end
 event.respond pictures.empty? ? 'couldn\'t find anything' : pictures.sample
 end
 
