@@ -750,7 +750,8 @@ bot.command(:getdb) do |event|
 end
 
 
-bot.command (:e621) do |event, search|
+bot.command (:e621) do |event, *search|
+search.join!('%20')
 next event.respond 'Please give me something to search for' if search.nil?
 BASE_URL = 'https://e621.net/post/index/1/'
 e621 = Nokogiri::HTML RestClient.get(BASE_URL + search)
