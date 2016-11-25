@@ -2,6 +2,7 @@ require 'discordrb'
 require 'yaml'
 require 'rest_client'
 require 'rufus-scheduler'
+require 'nokogiri'
 
 puts ' '
 puts ' '
