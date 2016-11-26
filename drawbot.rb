@@ -90,44 +90,6 @@ bot.ready do |event|
 end
 
 
-
-#public Server
-publiccommands = [
-  "Drawing Commands",
-  " ~draw",
-  " ~drawlewd",
-  " ~drawcombo",
-  " ~colour",
-  " ~colourshade",
-  " ~outfit",
-  " ~pokemon",
-  " ~study",
-  " ~names",
-  "",
-  "Fun Commands",
-  " wave",
-  " ~8ball",
-  " ~zii(8ball clone)",
-  " ~bad",
-  " ~boop",
-  " ~slap",
-  " ~rub",
-  " ~hump",
-  " ~spray",
-  " ~grope",
-  " ~snek",
-  " ~lewd",
-  " ~roll (default 6, add number after to make larger)",
-  " ~pun",
-  " ~told",
-  " ~pout",
-  " ~poses",
-  " ~randomchar",
-]
-
-
-
-#Public commands
 bot.command(:commands) do |event|
   event << "https://github.com/LeggoMyEcho/DrawBot/wiki/Commands"
 end
@@ -174,6 +136,7 @@ bot.command(:outfit,
              description: "Generate a random outfit for you, or your character!",
              usage: '~outfit') do |event|
   event << "#{event.user.mention} your outfit is #{Outfit.sample}"
+  event << "I bet you'll look great in it~"
 end
 
 #this is really cool, i'm glad it was added!
@@ -190,6 +153,7 @@ bot.command(:study,
              description: "Generate a random bodypart to practice drawing!",
              usage: '~study') do |event|
   event << "The body part you get to study is #{Study.sample}"
+  event << "You can do it!"
 end
 
 bot.command(:fpose,
@@ -210,7 +174,7 @@ bot.command(:randomchar,
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
   event << "Your randomly generated fantasy character is a;"
-  event << "-"
+  event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
@@ -222,6 +186,7 @@ bot.command(:colour,
              usage: '~colour') do |event|
   event << "Your complementary colours are"
   event << "#{Compcolour.sample}"
+  event << "Oooh they're so pretty~"
 end
 
 #COLOUR COMMAND
@@ -239,6 +204,7 @@ bot.command(:colourshade,
             usage: '~colourshade') do |event|
   event << "Your colour shades are"
   event << "#{Colourshade.sample}"
+  event << "Oooh they're so pretty~"
 end
 
 bot.command(:references,
@@ -288,18 +254,15 @@ end
 bot.command(:refs,
             description: "Get the reference of a fellow artist!",
             usage: '~refs @user') do |event, mention|
-
-  #get user
   user = $db['users'][event.bot.parse_mention(mention).id]
 
-  #check if user isn't in our db
   if user.nil?
-    event << "User not found.. :eyes:"
+    event << "User not found.. sorry sweetheart!"
     return
   end
 
   if user['refs'].nil?
-    event << "They don't have a ref, laugh at them!\nhttp://puu.sh/pBzdD/b516b51ba1.jpg"
+    event << "They don't have a ref, yet"
     return
   end
 
@@ -320,7 +283,7 @@ bot.command(:addref,
 
   #check if user isn't in our db
   if user.nil?
-    event << "User not found.. :eyes:"
+    event << "User not found.. sorry hun!"
     return
   end
 
@@ -551,7 +514,7 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
         pictures = e621.css('.thumb').map do |x|
           x = "https://e621.net#{x.css('a').attr('href')}"
         end
-        next event.respond 'I couldn\'t find anything, sorry hun' if pictures.empty?
+        next event.respond 'I couldn\'t find anything, sorry hun.' if pictures.empty?
         bigimage_page = Nokogiri::HTML RestClient.get(pictures.sample)
         bigimage = bigimage_page.css('.content').css('img').map do |x|
           x.attr('src')
@@ -592,7 +555,7 @@ end
 #-----------BANK AND CURRENCY
 
 #get bank amount
-bot.command(:bank, description: "fetches your balance, or @user's balance") do |event, mention|
+bot.command(:bank, description: "Fetches your balance, or @user's balance") do |event, mention|
   role = event.server.roles.find { |r| r.name.casecmp('banker').zero? }
   break unless event.bot.profile.on(event.server).role? role
    if mention.nil?
@@ -604,7 +567,7 @@ bot.command(:bank, description: "fetches your balance, or @user's balance") do |
     #load user from $db, report if user is invalid or not registered.
     user = $db["users"][mention]
     if user.nil?
-      event << "User does not exist http://puu.sh/pGi6t/862de15c71.jpg"
+      event << "User does not exist, sorry sweety."
       return
     end
  
@@ -672,8 +635,8 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
     end
  
     if bot.parse_mention(to).id == event.bot.profile.id
-      event << "Is that all you have to offer, peasant?!"
-      event << "http://puu.sh/pBA9k/5801785072.jpg"
+      event << "Is that all you have to offer, hun?"
+      event << "https://i.imgur.com/SZAppZR.jpg"
       return
     end
  
@@ -687,8 +650,7 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
     end
  
     if fromUser == toUser
-      event << "You can't give to yourself, so give to me." 
-      event << "http://puu.sh/pBAc6/b8710b6a54.png"
+      event << "You can't give yourself things, sweety." 
      return
   end
 
@@ -703,8 +665,7 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
       toUser['hearts'] += value
 
   else
-    event << "Hey buddy! Choose `salt` or `hearts`, I can't do that for you!"
-    event << "http://puu.sh/pGb07/d293637db9.jpg"
+    event << "Hey hun? Choose `salt` or `hearts`, I can't do that for you!"
     return
   end        
 
@@ -719,16 +680,12 @@ end
 
 bot.command(:setstipend, min_args: 1, description: "sets all users stipend values") do |event, value|
   break unless event.channel.id == DEVCHANNEL
-  #get integer
   value = value.to_i
-
-  #update all users
   $db["users"].each do |id, data|
     data["stipend"] = value
 
   end
     $db['users'][132893552102342656]['stipend'] = 10000
-  #notification
   event << "All stipends set to `#{value.to_s}`"
 
   save
@@ -763,7 +720,7 @@ bot.command(:eval,
   begin
     eval code.join(' ')
   rescue => e
-    "An error occured, the fuck are you doing?  ```#{e}```"
+    "An error occured, but I believe you can do it!  ```#{e}```"
   end
 end
 
