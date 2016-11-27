@@ -117,7 +117,8 @@ bot.command(:drawlewd,
              description: "Generate a random lewd thing to draw!",
              usage: '~drawlewd') do |event|
    role = event.server.roles.find { |r| r.name.casecmp('lewd').zero? }
-   break unless event.bot.profile.on(event.server).role? role
+   next event.respond "I need the `lewd` role for that, silly" unless
+   event.bot.profile.on(event.server).role? role
   event << "You should draw something #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
 end
 
@@ -161,7 +162,8 @@ bot.command(:fpose,
              description: "Generate a random female image as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
    role = event.server.roles.find { |r| r.name.casecmp('nsfw').zero? }
-   break unless event.bot.profile.on(event.server).role? role
+   next event.respond "I need the `nsfw` role for that, silly" unless
+   event.bot.profile.on(event.server).role? role
   event << "The pose you get is #{Fpose.sample}"
 end
 
@@ -337,7 +339,8 @@ end
 
 bot.command(:zii) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('zii').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `zii` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
  
     index = rand 0..EIGHTBALL.length-1
@@ -365,7 +368,8 @@ end
 
 bot.command(:wave) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} waves #{message}"
    event.message.delete
@@ -373,7 +377,8 @@ end
 
 bot.command(:boop) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} boops #{message}"
    event.message.delete
@@ -381,7 +386,8 @@ end
 
 bot.command(:slap) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} slaps #{message}"
    event.message.delete
@@ -389,7 +395,8 @@ end
 
 bot.command(:rub) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} rubs #{message}"
    event.message.delete
@@ -397,7 +404,8 @@ end
 
 bot.command(:grope) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} gropes #{message}"
    event.message.delete
@@ -405,7 +413,8 @@ end
 
 bot.command(:hug) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
    event.message.delete
@@ -413,7 +422,8 @@ end
 
 bot.command(:hump) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} humps #{message}"
    event.message.delete
@@ -440,7 +450,8 @@ end
 
 bot.command(:spray) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    message = message.join(' ')
    event << "#{event.user.display_name} sprays #{message} with a #{WaterContainer.sample}"
    event.message.delete
@@ -450,25 +461,29 @@ end
 
 bot.command(:snek) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `playful` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    event << "#{Snake.sample}"
 end
 
 bot.command(:pun) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('pun').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `pun` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    event << "#{Puns.sample}"
 end
 
 bot.command(:told) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('spam').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `spam` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    event << Told
 end
 
 bot.command(:rekt) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('spam').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `spam` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    event << Rekt
 end
 
@@ -507,9 +522,8 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
             description: "Search for an image on e621.net", 
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
-  next event.respond "I don't have the role required for that, silly" unless
+  next event.respond "I need the `e621` role for that, silly" unless
   event.bot.profile.on(event.server).role? role
-
     search = search.join('%20')
     next event.respond 'Please give me something to search for' if search.empty?
       base_url = 'https://e621.net/post/index/1/'
@@ -560,7 +574,8 @@ end
 #get bank amount
 bot.command(:bank, description: "Fetches your balance, or @user's balance") do |event, mention|
   role = event.server.roles.find { |r| r.name.casecmp('banker').zero? }
-  break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `banker` role for that, silly" unless
+  event.bot.profile.on(event.server).role? role
    if mention.nil?
      mention = event.user.id.to_i
    else
