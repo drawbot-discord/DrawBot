@@ -517,7 +517,7 @@ bot.command(:pout) do |event|
 end
 
 
-bot.bucket :e621, limit: 3, time_span: 30, delay: 10
+#bot.bucket :e621, limit: 3, time_span: 30, delay: 10
 bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
             description: "Search for an image on e621.net", 
             usage: '~e621 (search_term)') do |event, *search|
