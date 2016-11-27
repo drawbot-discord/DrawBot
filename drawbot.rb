@@ -575,7 +575,7 @@ end
 bot.command(:bank, description: "Fetches your balance, or @user's balance") do |event, mention|
   role = event.server.roles.find { |r| r.name.casecmp('banker').zero? }
   next event.respond "I need the `banker` role for that, silly" unless
-  event.bot.profile.on(event.server).role? role
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    if mention.nil?
      mention = event.user.id.to_i
    else
