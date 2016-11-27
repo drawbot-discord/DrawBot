@@ -91,7 +91,7 @@ end
 
 
 bot.command(:commands) do |event|
-  event << "https://github.com/LeggoMyEcho/DrawBot/wiki/Commands"
+  event << "<https://github.com/LeggoMyEcho/DrawBot/wiki/Commands>"
 end
 
 
@@ -508,7 +508,7 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
   event.respond "I don't have the role required for that, silly" if role.nil?
-  break unless event.bot.profile.on(event.server).role? role
+
       search = search.join('%20')
     next event.respond 'Please give me something to search for' if search.empty?
       base_url = 'https://e621.net/post/index/1/'
