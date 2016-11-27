@@ -507,9 +507,10 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
             description: "Search for an image on e621.net", 
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
-  next event.respond "I don't have the role required for that, silly" if role.empty?
-  #break unless event.bot.profile.on(event.server).role? role
-      search = search.join('%20')
+  next event.respond "I don't have the role required for that, silly" unless
+  event.bot.profile.on(event.server).role? role
+
+    search = search.join('%20')
     next event.respond 'Please give me something to search for' if search.empty?
       base_url = 'https://e621.net/post/index/1/'
       e621 = Nokogiri::HTML RestClient.get(base_url + search)
