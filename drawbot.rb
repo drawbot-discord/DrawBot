@@ -522,8 +522,7 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
             description: "Search for an image on e621.net", 
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
-  next event.respond "I need the `e621` role for that, silly" unless
-  event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `e621` role for that, silly" unless event.bot.profile.on(event.server).role? role
     search = search.join('%20')
     next event.respond 'Please give me something to search for' if search.empty?
       base_url = 'https://e621.net/post/index/1/'
