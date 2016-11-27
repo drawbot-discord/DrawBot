@@ -143,10 +143,11 @@ end
 bot.command(:pokemon,
              description: "Gets a random pokemon for you to draw",
              usage: '~pokemon') do |event|
-  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
-  url = JSON.parse(RestClient.get(pkmn['forms'][0]['url']))['sprites']['front_default']
-  event << "Your pokemon to draw is: **#{pkmn['name'].split.map(&:capitalize).join(' ')}**"
-  event << url
+  i = rand(0..720)
+  img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{i.next}.png"
+  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/?limit=1&offset=#{i}"))
+  event << "Your pokemon to draw is: **#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}**"
+  event << img
 end
 
 bot.command(:study,
