@@ -508,13 +508,14 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('e621').zero? }
   break unless event.bot.profile.on(event.server).role? role
-        search = search.join('%20')
-        next event.respond 'Please give me something to search for' if search.empty?
-        base_url = 'https://e621.net/post/index/1/'
-        e621 = Nokogiri::HTML RestClient.get(base_url + search)
-        pictures = e621.css('.thumb').map do |x|
-          x = "https://e621.net#{x.css('a').attr('href')}"
-        end
+  next event.respond "I don't have the role required for that, silly" if role.empty?
+    search = search.join('%20')
+    next event.respond 'Please give me something to search for' if search.empty?
+      base_url = 'https://e621.net/post/index/1/'
+      e621 = Nokogiri::HTML RestClient.get(base_url + search)
+      pictures = e621.css('.thumb').map do |x|
+      x = "https://e621.net#{x.css('a').attr('href')}"
+      end
         next event.respond 'I couldn\'t find anything, sorry hun.' if pictures.empty?
         bigimage_page = Nokogiri::HTML RestClient.get(pictures.sample)
         bigimage = bigimage_page.css('.content').css('img').map do |x|
