@@ -318,7 +318,7 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
 end
 
-bot.message(start: /( )/i) do |event|
+bot.message(start_wth:/( )/i) do |event|
   event.message.react 'eggplant'
 end
 
