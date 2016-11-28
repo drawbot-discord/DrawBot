@@ -368,7 +368,7 @@ end
 
 bot.command(:wave) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} waves #{message}"
@@ -377,7 +377,7 @@ end
 
 bot.command(:boop) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} boops #{message}"
@@ -386,7 +386,7 @@ end
 
 bot.command(:slap) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} slaps #{message}"
@@ -395,7 +395,7 @@ end
 
 bot.command(:rub) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} rubs #{message}"
@@ -404,7 +404,7 @@ end
 
 bot.command(:grope) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} gropes #{message}"
@@ -413,7 +413,7 @@ end
 
 bot.command(:hug) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
@@ -422,7 +422,7 @@ end
 
 bot.command(:hump) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} humps #{message}"
@@ -450,7 +450,7 @@ end
 
 bot.command(:spray) do |event, *message|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} sprays #{message} with a #{WaterContainer.sample}"
@@ -461,7 +461,7 @@ end
 
 bot.command(:snek) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('playful').zero? }
-  next event.respond "I need the `playful` role for that, silly" unless
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    event << "#{Snake.sample}"
 end
