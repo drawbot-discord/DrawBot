@@ -318,10 +318,6 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
 end
 
-bot.message(contains:/(a)|(b)|(c)|(d)|(e)|(f)|(g)|(H)|(I)|(J)|(K)|(L)|(M)|(N)|(O)|(P)|(Q)|(R)|(S)|(T)|(U)|(V)|(W)|(X)|(Y)|(Z)|(!)|(@)|(#)|($)|(%)|(^)|(&)|(*)|(~)|(`)/i do |event|
-  event.message.react ':eggplant:'
-end
-
 
 bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
   role = event.server.roles.find { |r| r.name.casecmp('inquisitive').zero? }
