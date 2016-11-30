@@ -60,9 +60,7 @@ FantasyNames = $db['fantasynames']
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
-clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'drawbot'
-clever_bot.ask 'hey zii'
-bot.command(:cb) { |e| clever_bot.ask e.message.content }
+
 module Cleverbot
   class Bot
     # @return [String] Cleverbot IO user ID
@@ -114,6 +112,12 @@ module Cleverbot
 end
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
+
+
+clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'drawbot'
+clever_bot.ask 'hey zii'
+bot.command(:cb) { |e| clever_bot.ask e.message.content }
+
 
 #restart bot
 bot.command(:restart,
