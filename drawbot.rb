@@ -62,6 +62,8 @@ DRAWCHANNEL = 175579371975868416
 
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
+clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'DrawBotCB'
+clever_bot.ask 'hey zii'
 
 #restart bot
 bot.command(:restart,
@@ -734,8 +736,7 @@ end
 #CLEVERBOT
 
 
-clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'DrawBotCB'
-clever_bot.ask 'hey zii'
+
 bot.command(:cb) { |e| clever_bot.ask e.message.content }
 module Cleverbot
   class Bot
