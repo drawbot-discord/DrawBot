@@ -61,63 +61,8 @@ DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
 
-module Cleverbot
-  class Bot
-    # @return [String] Cleverbot IO user ID
-    attr_reader :user
-
-    # @return [String] API key associated with the user
-    attr_reader :key
-
-    # @return [String] nickname associated with this bot
-    attr_reader :nick
-
-    # Create a new bot and register it with the API
-    def initialize(user, key, nick: nil)
-      @user = user
-      @key  = key
-      @nick = nick
-
-      API.create user, key, nick
-    end
-
-    # @return [String] response to the provided text
-    def ask(text)
-      response = API.ask user, key, nick, text
-      response[:response]
-    end
-  end
-
-  module API
-    API_URL = 'https://cleverbot.io/1.0'.freeze
-
-    module_function
-
-    # POST helper method
-    def post(path = '', payload = {})
-      response = RestClient.post "#{API_URL}/#{path}", payload
-      JSON.parse response, symbolize_names: true
-    end
-
-    # Create bot endpoint
-    def create(user, key, nick = nil)
-      post 'create', user: user, key: key, nick: nick
-    end
-
-    # Ask endpoint
-    def ask(user, key, nick, text)
-      post 'ask', user: user, key: key, nick: nick, text: text
-    end
-  end
-end
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
-
-
-clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'drawbot'
-clever_bot.ask 'hey zii'
-bot.command(:cb) { |e| clever_bot.ask e.message.content }
-
 
 #restart bot
 bot.command(:restart,
