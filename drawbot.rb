@@ -733,9 +733,10 @@ end
 
 #CLEVERBOT
 
-bot.command(:cb) { |e| clever_bot.ask e.message.content }
+
 clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'DrawBotCB'
 clever_bot.ask 'hey zii'
+bot.command(:cb) { |e| clever_bot.ask e.message.content }
 module Cleverbot
   class Bot
     # @return [String] Cleverbot IO user ID
