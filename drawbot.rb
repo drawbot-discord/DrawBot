@@ -60,10 +60,10 @@ FantasyNames = $db['fantasynames']
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
+clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'drawbot'
+clever_bot.ask 'hey zii'
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
-clever_bot = Cleverbot::Bot.new 'ItP3ZRaTtMWEWEBN', '4wA3XTywiPdARSxWEWW4RLK0ATnWP8mu', nick: 'DrawBotCB'
-clever_bot.ask 'hey zii'
 
 #restart bot
 bot.command(:restart,
