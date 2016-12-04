@@ -179,11 +179,13 @@ end
 bot.command(:randomchar,
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
+  Gender = ["He", "She"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
+  event << "#{Gender.sample}"
 end
 
 #COLOUR COMMAND
@@ -244,11 +246,11 @@ bot.command(:names,
            " `#{Malenames.sample}` `#{Malenames.sample}`"
   event << "**Female Names**"
   event << "`#{Femalenames.sample}` `#{Femalenames.sample}` "\
-           " `#{Femalenames.sample}` `#{Femalenames.sample}`" 
+           " `#{Femalenames.sample}` `#{Femalenames.sample}`"
   event.message.delete
 end
 
-bot.command(:fantasyname, 
+bot.command(:fantasyname,
              description: "Generate a random fantasy name!",
              usage: '~fantasyname') do |event|
   event << "#{event.user.mention}, your random fantasy name is `#{FantasyNames.sample}`"
@@ -278,7 +280,7 @@ bot.command(:refs,
   nil
 end
 
-bot.command(:addref, 
+bot.command(:addref,
             description: 'Add a reference for yourself or your character!',
             usage: "`~addref (URL)`") do |event, *url|
 
@@ -345,11 +347,11 @@ bot.command(:zii) do |event, *message|
   next event.respond "I need the `zii` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'zii'
    message = message.join(' ')
- 
+
     index = rand 0..EIGHTBALL.length-1
     fortune = EIGHTBALL[index]['fortune']
     zii = EIGHTBALL[index]['zii']
- 
+
     event << "#{event.user.mention} #{zii}"
    event << "`#{message}` : #{fortune}"
 end
@@ -522,7 +524,7 @@ end
 
 bot.bucket :e621, limit: 3, time_span: 30, delay: 10
 bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
-            description: "Search for an image on e621.net", 
+            description: "Search for an image on e621.net",
             usage: '~e621 (search_term)') do |event, *search|
   role = event.server.roles.find { |r| r.name.casecmp('nsfw').zero? }
   next event.respond "I need the `e621` role for that, silly" unless
@@ -584,14 +586,14 @@ bot.command(:bank, description: "Fetches your balance, or @user's balance") do |
    else
      mention = event.message.mentions.at(0).id.to_i
    end
- 
+
     #load user from $db, report if user is invalid or not registered.
     user = $db["users"][mention]
     if user.nil?
       event << "User does not exist, sorry sweety."
       return
     end
- 
+
     #report bank
     total = user['hearts'] + user['salt']
     percent_hearts = (user['hearts'].to_f / total.to_f) * 100.0
@@ -603,7 +605,7 @@ bot.command(:bank, description: "Fetches your balance, or @user's balance") do |
     event << "Heart balance: #{user['hearts']}"
     event << "Salt balance: #{user['salt']}"
     event << "Stipend balance: #{user['stipend']}"
- 
+
    nil
 end
 
@@ -639,39 +641,39 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
   role = event.server.roles.find { |r| r.name.casecmp('banker').zero? }
   break unless event.bot.profile.on(event.server).role? role
    value = value.to_i
- 
+
     #pick up user
     fromUser = $db["users"][event.user.id]
- 
+
     #return if invalid user
     if fromUser.nil?
       event << "User does not exist :x:"
       return
     end
- 
+
     #check if they have enough first
     if (fromUser["stipend"] - value) < 0
       event << "You do not have enough currency to make this transaction. :disappointed_relieved:"
       return
     end
- 
+
     if bot.parse_mention(to).id == event.bot.profile.id
       event << "Is that all you have to offer, hun?"
       event << "https://i.imgur.com/SZAppZR.jpg"
       return
     end
- 
+
     #pick up user to receive currency
     toUser = $db["users"][event.bot.parse_mention(to).id]
- 
+
     #check that they exist
     if toUser.nil?
       event << "User does not exist :x:"
       return
     end
- 
+
     if fromUser == toUser
-      event << "You can't give yourself things, sweety." 
+      event << "You can't give yourself things, sweety."
      return
   end
 
@@ -688,7 +690,7 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
   else
     event << "Hey hun? Choose `salt` or `hearts`, I can't do that for you!"
     return
-  end        
+  end
 
   #notification
   event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
@@ -738,7 +740,7 @@ end
 
 
 #------------Eval-----------#
-bot.command(:eval, 
+bot.command(:eval,
              help_available: false) do |event, *code|
   break unless event.user.id == 132893552102342656
   begin
