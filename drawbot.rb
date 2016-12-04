@@ -182,14 +182,14 @@ bot.command(:randomchar,
              usage: '~randomchar') do |event|
   Gender = ["He", "She"].sample
   HairLength = ["long", "short", "thick", "thin"]
-  BodyType = ["lean", "lightly muscled", "broad shouldered", "small shouldered", "athletic", "muscular", "fat", "atrophied"]
+  BodyType = ["a lean", "a lightly muscled", "a broad shouldered", "a small shouldered", "an athletic", "a muscular", "a fat", "an atrophied"]
   Height = ["shorter than most of their kind", "taller than most of their kind", "of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
-  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, a #{BodyType.sample}"\
+  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
            " body and #{Height.sample}."
 end
 
