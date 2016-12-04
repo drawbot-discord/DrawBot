@@ -183,14 +183,14 @@ bot.command(:randomchar,
   Gender = ["He", "She"].sample
   HairLength = ["long", "short", "thick", "thin"]
   BodyType = ["lean", "lightly muscled", "broad shouldered", "small shouldered", "athletic", "muscular", "fat", "atrophied"]
-  Height = ["shorter than most", "taller than most", "of average height"]
+  Height = ["shorter than most of their kind", "taller than most of their kind", "of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
-  event << "#{Gender} has `#{HairLength.sample}` `#{Hair.sample}` hair, a `#{BodyType.sample}`"\
-           "body. #{Gender} is #{Height.sample}."
+  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, a #{BodyType.sample}"\
+           " body. #{Gender} is #{Height.sample}."
 end
 
 #COLOUR COMMAND
