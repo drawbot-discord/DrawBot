@@ -55,6 +55,7 @@ References = $db['refs']
 Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
+Hair = $db['hair']
 
 
 DEVCHANNEL = 222032313154928640
