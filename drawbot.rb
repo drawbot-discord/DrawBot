@@ -180,7 +180,7 @@ bot.command(:randomchar,
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
   Gender = ["He", "She"]
-  HairLength = ["long", "short", "thick", "thin"]
+  Hair = ["long", "short", "thick", "thin"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
