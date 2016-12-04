@@ -183,7 +183,7 @@ bot.command(:randomchar,
   Gender = ["He", "She"].sample
   HairLength = ["long", "short", "thick", "thin"]
   BodyType = ["a lean", "a lightly muscled", "a broad shouldered", "a small shouldered", "an athletic", "a muscular", "a fat", "an atrophied"]
-  Height = ["shorter than most of their kind", "taller than most of their kind", "of average height"]
+  Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
