@@ -190,7 +190,7 @@ bot.command(:randomchar,
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
   event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, a #{BodyType.sample}"\
-           " body. #{Gender} is #{Height.sample}."
+           " body and #{Height.sample}."
 end
 
 #COLOUR COMMAND
