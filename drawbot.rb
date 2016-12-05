@@ -186,7 +186,8 @@ bot.command(:randomchar,
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
-  event << "#{Gender} may follower `#{Deity}`, `#{Deity}`, `#{Deity}`, or `#{Deity}` "
+  event << "#{Gender} may follower `#{Deity.sample}`, `#{Deity.sample}`,"\
+                                 " `#{Deity.sample}`, or `#{Deity.sample}`"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
   event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
