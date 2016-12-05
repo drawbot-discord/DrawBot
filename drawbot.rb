@@ -56,7 +56,7 @@ Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 Hair = $db['hair']
-Detiy = $db['deity']
+Deity = $db['deity']
 
 
 DEVCHANNEL = 222032313154928640
