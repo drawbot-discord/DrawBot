@@ -56,6 +56,7 @@ Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 Hair = $db['hair']
+Detiy = $db['deity']
 
 
 DEVCHANNEL = 222032313154928640
@@ -185,6 +186,7 @@ bot.command(:randomchar,
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
+  event << "#{Gender} may follower `#{Deity}`, `#{Deity}`, `#{Deity}`, or `#{Deity}` "
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
   event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
