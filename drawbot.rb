@@ -56,7 +56,9 @@ Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 Hair = $db['hair']
-
+HairLength = $db['hairlength']
+BodyType = $db['bodytype']
+Height = $db['height']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
@@ -181,9 +183,6 @@ bot.command(:randomchar,
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
   Gender = ["He", "She"].sample
-  HairLength = ["long", "short", "thick", "thin"]
-  BodyType = ["a lean", "a lightly muscled", "a broad shouldered", "a small shouldered", "an athletic", "a muscular", "a fat", "an atrophied"]
-  Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
@@ -751,7 +750,7 @@ bot.command(:eval,
   begin
     eval code.join(' ')
   rescue => e
-    "An error occured, but I believe you can do it!  ```#{e}```"
+    "An error occurred, but I believe you can do it!  ```#{e}```"
   end
 end
 
