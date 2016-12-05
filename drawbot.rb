@@ -487,8 +487,8 @@ end
 
 
 bot.command(:joke) do |event|
-  #next event.respond "I need the `offensive` role for that, silly" unless
-  #event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'offensive'
+  next event.respond "I need the `offensive` role for that, silly" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'offensive'
    event << "#{DirtyJoke.sample}"
 end
 
