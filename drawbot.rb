@@ -54,11 +54,9 @@ Colourshade = $db['shadecolour']
 References = $db['refs']
 Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
-Hairlength = $db['hairlength']
-Hair = $db['hair']
 FantasyNames = $db['fantasynames']
-BodyType = $db['bodytype']
-Height = $db['height']
+Hair = $db['hair']
+
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
@@ -183,12 +181,15 @@ bot.command(:randomchar,
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
   Gender = ["He", "She"].sample
+  HairLength = ["long", "short", "thick", "thin"]
+  BodyType = ["a lean", "a lightly muscled", "a broad shouldered", "a small shouldered", "an athletic", "a muscular", "a fat", "an atrophied"]
+  Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
-  event << "#{Gender} has #{Hairlength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
+  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
            " body and #{Height.sample}."
 end
 
@@ -558,7 +559,6 @@ end
 
 
 
-
 #Creation Corner commands
 
 
@@ -577,12 +577,11 @@ end
 ############################
 
 
-
 #-----------BANK AND CURRENCY
 
 #get bank amount
 bot.command(:bank, description: "Fetches your balance, or @user's balance") do |event, mention|
-  role = event.server.roles.find { |r| r.name.casecmp('banker').zero? }
+  
   next event.respond "I need the `banker` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    if mention.nil?
@@ -679,7 +678,7 @@ bot.command(:give, min_args: 3,  description: "give currency") do |event, to, va
     if fromUser == toUser
       event << "You can't give yourself things, sweety."
      return
-  end
+    end
 
   #transfer currency
   #remove from stipend
@@ -750,7 +749,7 @@ bot.command(:eval,
   begin
     eval code.join(' ')
   rescue => e
-    "An error occurred, but I believe you can do it!  ```#{e}```"
+    "An error occured, but I believe you can do it!  ```#{e}```"
   end
 end
 
