@@ -57,6 +57,7 @@ Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 Hair = $db['hair']
 Deity = $db['deity']
+DirtyJoke = $db['dirtyjoke']
 
 
 DEVCHANNEL = 222032313154928640
@@ -484,6 +485,12 @@ bot.command(:rekt) do |event|
    event << Rekt
 end
 
+
+bot.command(:joke) do |event|
+  #next event.respond "I need the `offensive` role for that, silly" unless
+  #event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'offensive'
+   event << "#{DirtyJoke.sample}"
+end
 
 #LEWD COMMAND
 bot.command(:'lewd') do |event|
