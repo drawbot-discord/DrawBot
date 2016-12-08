@@ -57,7 +57,7 @@ Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 Hair = $db['hair']
 Deity = $db['deity']
-DirtyJoke = $db['dirtyjoke']
+DirtyJoke = $db['dirtyjoke'].join("\n")
 
 
 DEVCHANNEL = 222032313154928640
