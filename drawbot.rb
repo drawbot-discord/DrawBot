@@ -71,7 +71,8 @@ bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636
 #restart bot
 bot.command(:restart,
             description: "restarts the bot") do |event|
-        break unless event.channel.id == DEVCHANNEL
+        break unless event.user.id == 132893552102342656
+      event.channel.send_message("sure thing hun!")
       event.channel.send_message("Restart issued.. :wrench:")
     bot.stop
   exit
