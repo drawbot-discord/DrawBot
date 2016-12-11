@@ -166,11 +166,13 @@ bot.command(:pokevs, bucket: :pokevs, rate_limit_message: 'Too much Poke-abuse!'
              usage: '~pokevs') do |event|
   i = rand(0..720)
   u = rand(0..720)
+  level = rand(1..100)
+  level2 = rand(1..100)
   img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{i.next}.png"
   img2 = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{u.next}.png"
   pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/?limit=1&offset=#{i}"))
   pkmn2 = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/?limit=1&offset=#{u}"))
-  event << "**#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}** VS **#{pkmn2['results'][0]['name'].split.map(&:capitalize).join(' ')}**"
+  event << "A level #{level} **#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}** VS A level #{level2} **#{pkmn2['results'][0]['name'].split.map(&:capitalize).join(' ')}**"
   event << img
   event << img2
 end
