@@ -72,7 +72,7 @@ bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636
 bot.command(:restart,
             description: "restarts the bot") do |event|
         break unless event.user.id == 132893552102342656
-      event.channel.send_message("sure thing hun!")
+      event.channel.send_message("Sure thing hun!")
       event.channel.send_message("Restart issued.. :wrench:")
     bot.stop
   exit
@@ -148,7 +148,9 @@ bot.command(:outfit,
 end
 
 #this is really cool, i'm glad it was added!
-bot.command(:pokemon,
+
+bot.bucket :pokemon, limit: 3, time_span: 30, delay: 10
+bot.command(:pokemon, bucket: :pokemon, rate_limit_message: 'Too much Pokemon!',
              description: "Gets a random pokemon for you to draw",
              usage: '~pokemon') do |event|
   i = rand(0..720)
@@ -157,6 +159,18 @@ bot.command(:pokemon,
   event << "Your pokemon to draw is: **#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}**"
   event << img
 end
+
+bot.bucket :pokevs, limit: 3, time_span: 30, delay: 10
+bot.command(:pokevs, bucket: :pokevs, rate_limit_message: 'Too much Poke-abuse!',
+             description: "Gets a random pokemon to fight",
+             usage: '~pokevs') do |event|
+  i = rand(0..720)
+  img = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{i.next}.png"
+  pkmn = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/?limit=1&offset=#{i}"))
+  event << "**#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}** VS **#{pkmn['results'][0]['name'].split.map(&:capitalize).join(' ')}**"
+  event << img
+end
+
 
 bot.command(:study,
              description: "Generate a random bodypart to practice drawing!",
