@@ -222,7 +222,7 @@ end
 bot.command(:scene,
             description: "Get a random scene to draw/paint!",
             usage: '~scene') do |event|
-  event << "You should draw #{subject} #{weather} #{timeofday} in #{seasons}"
+  event << "You should draw #{Subject} #{Weather} #{Timeofday} in #{Seasons}"
 end
 
 
