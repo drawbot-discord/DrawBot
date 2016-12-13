@@ -59,7 +59,10 @@ Hair = $db['hair']
 Deity = $db['deity']
 DirtyJoke = $db['dirtyjoke']
 BodyType = $db['bodytype']
-
+Weather = $db['weather']
+Seasons = $db['seasons']
+TimeofDay = $db['timeofday']
+Subject = $db['subject']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
@@ -215,6 +218,13 @@ bot.command([:randomchar, :pc],
   event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
            " body and #{Height.sample}."
 end
+
+bot.command(:scene,
+            description: "Get a random scene to draw/paint!",
+            usage: '~scene') do |event|
+  event << "You should draw #{subject} #{weather} #{timeofday} in #{seasons}"
+end
+
 
 #COLOUR COMMAND
 bot.command(:colour,
