@@ -656,8 +656,8 @@ end
 
 #------GIVE COMMAND
 bot.command(:give, min_args: 3,
-            description: "give currency",
-            usage: `~give user amount hearts or salt`) do |event, to, value, type|
+            description: `give currency`,
+            usage: "~give user amount hearts or salt") do |event, to, value, type|
   next event.respond "I need the `banker` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    value = value.to_i
