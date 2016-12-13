@@ -90,7 +90,7 @@ bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;")
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
-  scheduler.cron '0 0 * * *' do
+  scheduler.cron '30 9 * * *' do
     #update all users
     $db["users"].each do |id, data|
       data["stipend"] = $db['stipend']
