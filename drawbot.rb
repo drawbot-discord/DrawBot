@@ -312,7 +312,6 @@ bot.command(:refs,
     return
   end
 
-  #output each ref
   event << "#{user['name']}'s refs:"
   user['refs'].each { |x| event << x }
   nil
@@ -321,28 +320,17 @@ end
 bot.command(:addref,
             description: 'Add a reference for yourself or your character!',
             usage: "`~addref (URL)`") do |event, *url|
-
   url = url.join(' ')
-
-  #get user
   user = $db['users'][event.user.id]
-
-  #check if user isn't in our db
-  if user.nil?
-    event << "User not found.. sorry hun!"
-    return
-  end
-
-  #add ref to user
-  user['refs'] << url
-
-  event << "Ref added! :wink:"
-
-  #save db
-  save
-  nil
-end
-
+         if user.nil?
+           event << "User not found.. sorry hun!"
+           return
+         end
+       user['refs'] << url
+       event << "Ref added! :wink:"
+       save
+       nil
+      end
 def save
   file = File.open("db.yaml", "w")
   file.write($db.to_yaml)
@@ -666,7 +654,8 @@ end
 
 #------GIVE COMMAND
 bot.command(:give, min_args: 3,  description: "give currency") do |event, to, value, type|
-    break unless event.bot.profile.on(event.server).role? role
+  next event.respond "I need the `banker` role for that, silly" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    value = value.to_i
 
     #pick up user
