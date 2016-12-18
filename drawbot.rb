@@ -90,7 +90,7 @@ bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;")
   event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
-  scheduler.cron '30 9 * * *' do
+  scheduler.cron '0 0 * * *' do
     #update all users
     $db["users"].each do |id, data|
       data["stipend"] = $db['stipend']
@@ -588,6 +588,17 @@ bot.member_join do |event|
   end
 end
 
+bot.command(:submit,
+             description: 'Submit to the gallery!',
+             usage: "~submit (link)") do |event, *url|
+   break unless event.channel.id == 215742738644205568
+     next event.respond('I need a link hun!') unless 'http://'.match(url.first)
+   event << "Submitted, #{event.user.display_name}! :wink:"
+   event.bot.channel(215742813831168004).send_message("#{event.user.display_name} posted their art")
+   event.bot.channel(215742813831168004).send_message(url)
+end
+
+
 ############################
 
 
@@ -753,9 +764,6 @@ bot.command :sayccmain do |event, *message|
     message = message.join(' ')
     event.bot.channel(153107239597506560).send_message(message)
 end
-
-#CLEVERBOT
-
 
 
 
