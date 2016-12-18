@@ -77,7 +77,7 @@ bot.command(:restart,
         break unless event.user.id == 132893552102342656
       event.channel.send_message("Sure thing hun!")
       event.channel.send_message("Restart issued.. :wrench:")
-      system('pm2 forward drawbot')
+      system('git pull')
     bot.stop
   exit
 end
@@ -591,7 +591,7 @@ end
 
 bot.command(:submit,
              description: "Submit to the gallery!",
-             usage: "~submit (testlink)") do |event, *url|
+             usage: "~submit (link)") do |event, *url|
    break unless event.channel.id == 215742738644205568
      next event.respond('I need an imgur link hun!') unless 'http'.match(/(http|https):\/\/(i\.)?imgur\.com(\/|\\)(.)*/i)
    num = 8.times.map { (65 + rand(26)).chr }.join
