@@ -591,7 +591,7 @@ end
 
 bot.command(:submit,
              description: "Submit to the gallery!",
-             usage: "~submit (imgur link)") do |event, *url|
+             usage: "~submit (link)") do |event, *url|
    break unless event.channel.id == 215742738644205568
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url.first)
    num = 8.times.map { rand(0...9) }.join
