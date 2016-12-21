@@ -192,8 +192,8 @@ end
 bot.command(:fpose,
              description: "Generate a random female image as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
-      event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'nsfw'
-   event.bot.profile.on(event.server).role? role
+               next event.respond "I need the `nsfw` role hun." unless
+               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'nsfw'
   event << "The pose you get is #{Fpose.sample}"
 end
 
@@ -351,12 +351,11 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
 end
 
 
-bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
-    break unless event.bot.profile.on(event.server).role? role
-    event.respond ["Yea, #{event.user.display_name} :thumbsup:",
-                   "Nah, #{event.user.display_name} :thumbsdown:",
-                   "Dunno, #{event.user.display_name} :open_hands:"].sample
-end
+#bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
+#        event.respond ["Yea, #{event.user.display_name} :thumbsup:",
+#                   "Nah, #{event.user.display_name} :thumbsdown:",
+#                   "Dunno, #{event.user.display_name} :open_hands:"].sample
+#end
 
 
 #-------------SILLY COMMANDS---------#
