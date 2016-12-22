@@ -190,7 +190,7 @@ bot.command(:study,
 end
 
 bot.command(:fpose,
-             description: "Generate a random female image as a drawing reference (NSFW)",
+             description: "Generate a random female image from the Playboy Centerfolds (1958-2008) as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
                next event.respond "I need the `nsfw` role hun." unless
                event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'nsfw'
