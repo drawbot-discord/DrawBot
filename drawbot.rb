@@ -136,7 +136,7 @@ end
 bot.command(:drawcombo,
              description: "Generate a more random thing to draw!",
              usage: '~drawcombo') do |event|
-  event << "You should draw something #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
+  event << "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
 end
 
 bot.command(:drawfaglewd) do |event|
