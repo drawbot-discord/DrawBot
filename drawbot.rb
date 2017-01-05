@@ -345,12 +345,6 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
-bot.message(wth_text: '/o/') do |event|
-  break unless event.user.id == 138411485025140736
-  event.respond 'tl;dr'
-end
-
-
 bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
 end
