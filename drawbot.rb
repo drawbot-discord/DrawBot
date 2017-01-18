@@ -672,7 +672,7 @@ bot.command(:give, min_args: 3,
   next event.respond "I need the `banker` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    value = value.to_i
-  next 'No negatives allowed' if (fromUser['stipend'] - value) < 1
+
     #pick up user
     fromUser = $db["users"][event.user.id]
 
@@ -685,6 +685,7 @@ bot.command(:give, min_args: 3,
     #check if they have enough first
     if (fromUser["stipend"] - value) < 0
       event << "You do not have enough currency to make this transaction. :disappointed_relieved:"
+      next 'No negatives allowed' if (fromUser['stipend'] - value) < 1
       return
     end
 
