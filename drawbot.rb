@@ -684,7 +684,7 @@ bot.command(:give, min_args: 3,
     #check if they have enough first
     if (fromUser["stipend"] - value) < 0
       event << "You do not have enough currency to make this transaction. :disappointed_relieved:"
-        next 'No negatives allowed' if (fromUser['stipend'] - value) < 1.abs
+        next 'No negatives allowed' if value < 1.abs
       return
 
     end
