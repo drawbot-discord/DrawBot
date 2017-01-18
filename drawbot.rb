@@ -680,11 +680,13 @@ bot.command(:give, min_args: 3,
       event << "User does not exist :x:"
       return
     end
-#next 'No negatives allowed' if (fromUser['stipend'] - value) < 1
+
     #check if they have enough first
-    if (fromUser["stipend"] - value) < 1.abs
+    if (fromUser["stipend"] - value) < 0
       event << "You do not have enough currency to make this transaction. :disappointed_relieved:"
+        next 'No negatives allowed' if (fromUser['stipend'] - value) < 1
       return
+
     end
 
     if bot.parse_mention(to).id == event.bot.profile.id
