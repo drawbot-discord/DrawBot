@@ -514,6 +514,86 @@ bot.command(:chop) do |event, *message|
    event.message.delete
 end
 
+bot.command(:squeeze) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} squeezes #{message}"
+   event.message.delete
+end
+
+bot.command(:arrest) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} arrests #{message}"
+   event.message.delete
+end
+
+bot.command(:sharpie) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} draws all over #{message} with a sharpie"
+   event.message.delete
+end
+
+bot.command(:dance) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} dances with #{message}"
+   event.message.delete
+end
+
+bot.command(:pat) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} pats #{message}"
+   event.message.delete
+end
+
+bot.command(:pet) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} pets #{message}"
+   event.message.delete
+end
+
+bot.command(:sit) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} sits on #{message}"
+   event.message.delete
+end
+
+bot.command(:tease) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} tease #{message}"
+   event.message.delete
+end
+
+bot.command(:whip) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} whips #{message}"
+   event.message.delete
+end
+
+bot.command(:murder) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} murders #{message}"
+   event.message.delete
+end
+
 bot.command(:doit) do |event|
   break unless event.server.id == 175579371975868416
   response = "http://i.imgur.com/grXCyq2.png"
