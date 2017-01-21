@@ -450,6 +450,70 @@ bot.command(:hump) do |event, *message|
    event.message.delete
 end
 
+bot.command(:bite) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} bites #{message}"
+   event.message.delete
+end
+
+bot.command(:smack) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} smacks #{message}"
+   event.message.delete
+end
+
+bot.command(:punch) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} punches #{message}"
+   event.message.delete
+end
+
+bot.command(:noogie) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} gives #{message} a noogie"
+   event.message.delete
+end
+
+bot.command(:smell) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} smells #{message}"
+   event.message.delete
+end
+
+bot.command(:lick) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} licks #{message}"
+   event.message.delete
+end
+
+bot.command(:kick) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} kicks #{message}"
+   event.message.delete
+end
+
+bot.command(:chop) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} karate chops #{message}"
+   event.message.delete
+end
+
 bot.command(:doit) do |event|
   break unless event.server.id == 175579371975868416
   response = "http://i.imgur.com/grXCyq2.png"
@@ -672,6 +736,7 @@ bot.command(:give, min_args: 3,
   next event.respond "I need the `banker` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
    value = value.to_i
+   #checks to make sure people aren't stealing (giving negative values)
    next "No negatives allowed" if value < 1
       #pick up user
     fromUser = $db["users"][event.user.id]
