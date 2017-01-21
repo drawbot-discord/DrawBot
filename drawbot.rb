@@ -63,7 +63,7 @@ Weather = $db['weather']
 Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
-
+Selfie = $db['Selfie']
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
@@ -226,6 +226,13 @@ bot.command(:scene,
   event << "You should draw #{Subject.sample} #{Weather.sample} #{TimeofDay.sample} in #{Seasons.sample}"
 end
 
+bot.command(:selfie,
+            description: "See my selfies of me, DrawBot AKA Eris!",
+            usage: '~selfie') do |event|
+  event << "Have a picture of your favourite bot! ;)"\
+           "#{Selfie.sample}"
+           "Here's an album of all my selfies <http://imgur.com/a/8lWRt>"
+end
 
 #COLOUR COMMAND
 bot.command(:colour,
@@ -591,6 +598,30 @@ bot.command(:murder) do |event, *message|
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} murders #{message}"
+   event.message.delete
+end
+
+bot.command(:wink) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} winks at #{message}"
+   event.message.delete
+end
+
+bot.command(:kiss) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} gives #{message} a kiss :kiss:"
+   event.message.delete
+end
+
+bot.command(:lean) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} leans on #{message}"
    event.message.delete
 end
 
