@@ -574,7 +574,7 @@ bot.command(:tease) do |event, *message|
   next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
-   event << "#{event.user.display_name} #{BoopAction.sample} tease #{message}"
+   event << "#{event.user.display_name} #{BoopAction.sample} teases #{message}"
    event.message.delete
 end
 
