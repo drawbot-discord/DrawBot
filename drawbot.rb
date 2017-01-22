@@ -627,17 +627,21 @@ end
 bot.command(:nick,
             description: "Give yourself a random name, or choose one",
             usage: '~nick (optional name) and clear your name with ~nick clear') do |event, *nick|
+  nick = nick.join ' '
   names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'] + $db['DrawTopic'])
-  nick = nick.empty? ? names.sample : nick.join(' ')
-    oldname = event.user.display_name
-    begin
-        event.user.nickname = nick
-        event.user.nickname = nil if nick == 'clear'
-        return "#{oldname} cleared their name" if nick == 'clear'
-        "#{oldname} has changed their name to **#{nick.upcase}**"
-    rescue => e
-      "Sorry sweetheart, something went wrong. :cry: ```#{e}```"
+  nick = names.sample if nick.empty?
+  nick = nil if nick == 'clear'
+  oldname = event.user.display_name
+  begin
+    event.user.nickname = nick
+    if nick.nil?
+      'Nickname cleared!'
+    else
+      "#{oldname} has changed their name to **#{nick.upcase}**"
     end
+  rescue
+    'Sorry sweetheart, something went wrong. :cry:'
+  end
 end
 
 bot.command(:doit) do |event|
