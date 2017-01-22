@@ -626,13 +626,15 @@ end
 
 bot.command(:nick,
             description: "Give yourself a random name, or choose one",
-            usage: '~nick (optional name)') do |event, *nick|
+            usage: '~nick (optional name) and clear your name with ~nick clear') do |event, *nick|
   names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'] + $db['DrawTopic'])
   nick = nick.empty? ? names.sample : nick.join(' ')
     oldname = event.user.display_name
     begin
-       event.user.nickname = nick
-       "#{oldname} has changed their name to **#{nick.upcase}**"
+        event.user.nickname = nick
+        event.user.nick = nil if nick == 'clear'
+        # "#{oldname} cleared their name"
+        "#{oldname} has changed their name to **#{nick.upcase}**"
     rescue
       "Sorry sweetheart, something went wrong. :cry:"
     end
