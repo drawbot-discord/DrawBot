@@ -632,8 +632,7 @@ bot.command(:nick,
     oldname = event.user.display_name
     begin
         event.user.nickname = nick
-        event.user.nick = nil if nick == 'clear'
-        # "#{oldname} cleared their name"
+        event.user.nick = nil if nick == 'clear' "#{oldname} cleared their name"        
         "#{oldname} has changed their name to **#{nick.upcase}**"
     rescue
       "Sorry sweetheart, something went wrong. :cry:"
