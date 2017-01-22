@@ -635,8 +635,8 @@ bot.command(:nick,
         event.user.nickname = nil if nick == 'clear'
         return "#{oldname} cleared their name" if nick == 'clear'
         "#{oldname} has changed their name to **#{nick.upcase}**"
-    rescue
-      "Sorry sweetheart, something went wrong. :cry:"
+    rescue => e
+      "Sorry sweetheart, something went wrong. :cry: ```#{e}```"
     end
 end
 
