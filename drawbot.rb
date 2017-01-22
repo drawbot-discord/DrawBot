@@ -627,7 +627,7 @@ end
 bot.command(:nick,
             description: "Give yourself a random name, or choose one",
             usage: '~nick (optional name)') do |event, *nick|
-  names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'])
+  names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'] + $db['DrawTopic'])
   nick = nick.empty? ? names.sample : nick.join(' ')
     begin
      event.user.nickname = "#{nick}"
