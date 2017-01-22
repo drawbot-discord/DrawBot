@@ -624,7 +624,9 @@ bot.command(:lean) do |event, *message|
    event.message.delete
 end
 
-bot.command(:nick) do |event, *nick|
+bot.command(:nick,
+            description: "Give yourself a random name, or choose one",
+            usage: '~nick (optional name)') do |event, *nick|
   names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'])
   nick = nick.empty? ? names.sample : nick.join(' ')
     begin
