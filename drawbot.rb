@@ -16,7 +16,6 @@ puts '.. '
 puts '... '
 puts '.... '
 puts '..... '
-puts 'meme'
 puts ' '
 puts ' '
 puts ' '
@@ -623,6 +622,17 @@ bot.command(:lean) do |event, *message|
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} leans on #{message}"
    event.message.delete
+end
+
+bot.command(:nick) do |event, *nick|
+  names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'])
+  nick = nick.empty? ? names.sample : nick.join(' ')
+    begin
+     event.user.nickname = "#{nick}"
+         "#{event.user.display_name} has changed their name to **#{nick.upcase}**"
+    rescue
+      "I can't do that sweetheart."
+    end
 end
 
 bot.command(:doit) do |event|
