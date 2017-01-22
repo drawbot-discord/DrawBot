@@ -629,12 +629,12 @@ bot.command(:nick,
             usage: '~nick (optional name)') do |event, *nick|
   names = ($db['malenames'] + $db['femalesnames'] + $db['fantasynames'] + $db['DrawTopic'])
   nick = nick.empty? ? names.sample : nick.join(' ')
+    oldname = event.user.display_name
     begin
-      event << "#{event.user.display_name} has changed their name to **#{nick.upcase}**"
-       event.user.nickname = "#{nick}"
-       nil
+       event.user.nickname = nick
+       "#{oldname} has changed their name to **#{nick.upcase}**"
     rescue
-      "I can't do that sweetheart."
+      "Sorry sweetheart, something went wrong. :cry:"
     end
 end
 
