@@ -628,7 +628,7 @@ bot.command(:pokeball) do |event, *message|
   next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
    message = message.join(' ')
-   catch = [caught, missed, missed, missed, missed].sample
+   catch = ['caught', 'missed', 'missed', 'missed', 'missed'].sample
    event << "#{event.user.display_name} throws a pokeball at #{message}, #{event.user.display_name} #{catch} #{message}"
 end
 
