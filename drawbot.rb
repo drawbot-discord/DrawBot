@@ -624,6 +624,14 @@ bot.command(:lean) do |event, *message|
    event.message.delete
 end
 
+bot.command(:squish) do |event, *message|
+  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+   message = message.join(' ')
+   event << "#{event.user.display_name} squishes #{message} Quick, grab the broom!"
+   event.message.delete
+end
+
 bot.command(:pokeball) do |event, *message|
   next event.respond "I need the `playful` role and I need to be able to delete messages" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
