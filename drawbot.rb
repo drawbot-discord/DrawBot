@@ -100,7 +100,6 @@ bot.ready do |event|
   end
 end
 
-
 bot.command(:commands) do |event|
   event << "<https://github.com/LeggoMyEcho/DrawBot/wiki/Commands>"
 end
