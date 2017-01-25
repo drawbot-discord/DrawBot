@@ -804,7 +804,7 @@ bot.command(:submit,
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url.first)
    num = 8.times.map { rand(0...9) }.join
    url = url.join(' ')
-   event.bot.channel(215742813831168004).send_message("**Submission number** '#{num}'
+   event.bot.channel(215742813831168004).send_message("**Submission number** `#{num}`
    #{event.user.display_name} posted their art' '#{url}")
 end
 
