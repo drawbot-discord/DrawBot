@@ -801,7 +801,7 @@ bot.command(:submit,
              usage: "~submit (link)") do |event, *url|
    break unless event.channel.id == 215742738644205568
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url.first)
-   num = 8.times.map { rand(0...9) }.join
+   num = Time.now
    url = url.join(' ')
    event.bot.channel(215742813831168004).send_message("**Submission number** `#{num}`
    #{event.user.display_name} posted their art #{url}")
