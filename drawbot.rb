@@ -326,6 +326,10 @@ end
 bot.command(:addref,
             description: 'Add a reference for yourself or your character!',
             usage: "`~addref (URL)`") do |event, *url|
+            def save
+              file = File.open("db.yaml", "w")
+              file.write($db.to_yaml)
+            end
   url = url.join(' ')
   user = $db['users'][event.user.id]
          if user.nil?
@@ -336,10 +340,6 @@ bot.command(:addref,
        event << "Ref added! :wink:"
        save
        nil
-      end
-def save
-  file = File.open("db.yaml", "w")
-  file.write($db.to_yaml)
 end
 
 
