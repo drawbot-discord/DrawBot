@@ -826,17 +826,6 @@ bot.command(:submit,
    "\n#{event.user.display_name} posted their art #{url}")
 end
 
-bot.command(:sub,
-             description: "Submit to the gallery!",
-             usage: "~submit (link)") do |event, message, *url|
-     next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url.first)
-   channel = event.server.channels.find { |c| c.name == "#{message}" }
-   num = Time.now.strftime("%Y%j%H%M%S")
-   url = url.join(' ')
-   event.bot.channel("#{channel}").send_message("**Submission number** `#{num}`"\
-   "\n#{event.user.display_name} posted their art #{url}")
-end
-
 ############################
 
 
