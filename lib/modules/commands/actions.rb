@@ -42,7 +42,7 @@ module DrawBot
 
       command(:wave,
               description: 'Wave at someone!',
-              usage: "#{BOT.prefix}wave") do |event, *thing|
+              usage: "#{BOT.prefix}wave @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -52,7 +52,7 @@ module DrawBot
 
       command(:smack,
               description: 'Smack someone!',
-              usage: "#{BOT.prefix}smack") do |event, *thing|
+              usage: "#{BOT.prefix}smack @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -62,7 +62,7 @@ module DrawBot
 
       command(:punch,
               description: 'Punch something!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}punch @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -74,7 +74,7 @@ module DrawBot
 
       command(:noogie,
               description: 'Give someone a noogie!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}noogie @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -84,7 +84,7 @@ module DrawBot
 
       command(:smell,
               description: 'Smell somone or something!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}smell @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -94,7 +94,7 @@ module DrawBot
 
       command(:lick,
               description: 'Lick someone or something!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}like @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -106,7 +106,7 @@ module DrawBot
 
       command(:kick,
               description: 'Kick someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}kick @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -118,7 +118,7 @@ module DrawBot
 
       command(:chop,
               description: 'Karate chop someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}chop @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -130,7 +130,7 @@ module DrawBot
 
       command(:squeeze,
               description: 'Squeeze someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}squeeze @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -142,7 +142,7 @@ module DrawBot
 
       command(:arrest,
               description: 'Arrest someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}arrest @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -154,7 +154,7 @@ module DrawBot
 
       command(:sharpie,
               description: 'Draw with a sharpie!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}sharpie @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -164,7 +164,7 @@ module DrawBot
 
       command(:dance,
               description: 'Dance with someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}dance @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -176,7 +176,7 @@ module DrawBot
 
       command(:pat,
               description: 'Pat someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}pat @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -189,7 +189,7 @@ module DrawBot
 
       command(:sit,
               description: 'Sit somewhere',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}sit @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -201,7 +201,7 @@ module DrawBot
 
       command(:tease,
               description: 'Tease someone, you meanie!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}tease @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -213,7 +213,7 @@ module DrawBot
 
       command(:whip,
               description: 'Whip someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}whip @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -225,7 +225,7 @@ module DrawBot
 
       command(:murder,
               description: 'Murder someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}murder @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -237,7 +237,7 @@ module DrawBot
 
       command(:wink,
               description: 'Wink at someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}wink @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -249,7 +249,7 @@ module DrawBot
 
       command(:kiss,
               description: 'Kiss someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}kiss @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -259,7 +259,7 @@ module DrawBot
 
       command(:lean,
               description: 'Lean on something, or someone!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}lean @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -271,7 +271,7 @@ module DrawBot
 
       command(:squish,
               description: 'Squish things!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}squish @user/something") do |event, *thing|
         thing = thing.join(' ')
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
         event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
@@ -281,7 +281,7 @@ module DrawBot
 
       command(:pokeball,
               description: 'Catch things with pokeballs!',
-              usage: "#{BOT.prefix}") do |event, *thing|
+              usage: "#{BOT.prefix}pokeball @user/something") do |event, *thing|
         thing = thing.join(' ')
         catch = ['caught', 'missed', 'missed', 'missed', 'missed'].sample
         next event.respond "I need the `playful` role and I need to be able to delete messages" unless
@@ -291,7 +291,7 @@ module DrawBot
 
       command(:boop,
               description: 'Boops someone or something',
-              usage: "#{BOT.prefix}boop something") do |event, *thing|
+              usage: "#{BOT.prefix}boop @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -303,7 +303,7 @@ module DrawBot
 
       command(:slap,
               description: 'Slaps someone or something',
-              usage: "#{BOT.prefix}slap something") do |event, *thing|
+              usage: "#{BOT.prefix}slap @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -315,7 +315,7 @@ module DrawBot
 
       command(:rub,
               description: 'Rubs someone or something',
-              usage: "#{BOT.prefix}rub something") do |event, *thing|
+              usage: "#{BOT.prefix}rub @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -327,7 +327,7 @@ module DrawBot
 
       command(:grope,
               description: 'Gropes someone or something',
-              usage: "#{BOT.prefix}grope something") do |event, *thing|
+              usage: "#{BOT.prefix}grope @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -339,7 +339,7 @@ module DrawBot
 
       command(:hug,
               description: 'Hugs someone or something',
-              usage: "#{BOT.prefix}hug something") do |event, *thing|
+              usage: "#{BOT.prefix}hug @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -351,7 +351,7 @@ module DrawBot
 
       command(:hump,
               description: 'Humps someone or something',
-              usage: "#{BOT.prefix}hump something") do |event, *thing|
+              usage: "#{BOT.prefix}hump @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -363,7 +363,7 @@ module DrawBot
 
       command(:pet,
               description: 'Pet other users!',
-              usage: "#{BOT.prefix}pet") do |event, *message|
+              usage: "#{BOT.prefix}pet @user/something") do |event, *message|
         thing = thing.join(' ')
         response = Database::Response.where(key: 'adverb')
                                       .all.sample.response
@@ -372,7 +372,7 @@ module DrawBot
 
       command(:poke,
               description: 'Poke the other users and annoy them!',
-              usage: "#{BOT.prefix}poke") do |event, *thing|
+              usage: "#{BOT.prefix}poke @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -384,7 +384,7 @@ module DrawBot
 
       command(:pet,
               description: 'Pet other users!',
-              usage: "#{BOT.prefix}pet") do |event, *thing|
+              usage: "#{BOT.prefix}pet @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -396,7 +396,7 @@ module DrawBot
 
       command(:spray,
               description: 'Spray other users with various, deadly, weaponry!',
-              usage: "#{BOT.prefix}spray") do |event, *thing|
+              usage: "#{BOT.prefix}spray @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -409,7 +409,7 @@ module DrawBot
 
       command(:stare,
               description: 'Stare at people, maybe senpai will notice',
-              usage: "#{BOT.prefix}stare") do |event, *thing|
+              usage: "#{BOT.prefix}stare @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -419,7 +419,7 @@ module DrawBot
 
       command(:bite,
               description: 'Bite other users!',
-              usage: "#{BOT.prefix}bite") do |event, *thing|
+              usage: "#{BOT.prefix}bite @user/something") do |event, *thing|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
@@ -431,7 +431,7 @@ module DrawBot
 
       command(:bad,
               description: 'Throws people into timeout',
-              usage: "#{BOT.prefix}bad") do |event, *message|
+              usage: "#{BOT.prefix}bad @user/something") do |event, *message|
               next event.respond "I need the `playful` role and I need to be able to delete messages" unless
               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
         thing = thing.join(' ')
