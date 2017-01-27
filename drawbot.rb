@@ -342,24 +342,6 @@ def save
   file.write($db.to_yaml)
 end
 
-bot.command(:clearrefs,
-            description: 'Remove your reference!',
-            usage: "`~clearefs`") do |event|
-  user = $db['users'][event.user.id]
-         if user.nil?
-           event << "User not found.. sorry hun!"
-           return
-         end
-       user['refs'] << url
-       event << "Ref removed! :wink:"
-       save
-       nil
-      end
-def save
-  file = File.open("db.yaml", "w")
-  file.write(' ' * (line.length - 1))
-end
-
 
 
 #-------------EVENTS---------#
