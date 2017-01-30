@@ -820,7 +820,7 @@ bot.command(:serverstat,
   chancount = event.server.channels.count
   #bancount = event.server.bans.count
    begin
-    "`#{owner}` is the owner."\
+    "`#{owner}` is the owner. "\
     "There are `#{members}` users on this server. There are `#{rolenum}` roles on this server "\
     "There is `#{chancount}` channels. "\
   #  "There are `#{bancount}` ban(s) on this server"
