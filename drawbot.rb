@@ -825,7 +825,7 @@ bot.command(:serverstat,
     "There is `#{chancount}` channels."\
     "There are `#{bancount}` ban(s) on this server"
     rescue => e
-      Something went wrong "`#{e}`"
+      "Something went wrong `#{e}` "
    end
 end
 #-----------BANK AND CURRENCY
