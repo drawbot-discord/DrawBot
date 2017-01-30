@@ -818,12 +818,12 @@ bot.command(:serverstat,
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
-  bancount = event.server.bans.count
+  #bancount = event.server.bans.count
    begin
     "`#{owner}` is the owner."\
     "There are `#{members}` on this server.  There are `#{rolenum}` roles on this server"\
     "There is `#{chancount}` channels."\
-    "There are `#{bancount}` ban(s) on this server"
+  #  "There are `#{bancount}` ban(s) on this server"
    rescue => e
      "An error occured, but I believe you can do it!  ```#{e}```"
    end
