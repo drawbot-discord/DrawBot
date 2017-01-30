@@ -813,16 +813,20 @@ end
 
 bot.command(:serverstat,
             description: "Get general information about your server!",
-            usage: `~serverstat`) do |event|
+            usage: "`~serverstat`") do |event|
   members = event.server.member_count
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
   bancount = event.server.bans.count
-   "`#{owner}` is the owner."\
-   "There are `#{members}` on this server.  There are `#{rolenum}` roles on this server"\
-   "There is `#{chancount}` channels."\
-   "There are `#{bancount}` ban(s) on this server"
+   begin
+    "`#{owner}` is the owner."\
+    "There are `#{members}` on this server.  There are `#{rolenum}` roles on this server"\
+    "There is `#{chancount}` channels."\
+    "There are `#{bancount}` ban(s) on this server"
+    rescue => e
+      Something went wrong "`#{e}`"
+   end
 end
 #-----------BANK AND CURRENCY
 
