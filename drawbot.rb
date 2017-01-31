@@ -814,7 +814,7 @@ end
 bot.command(:serverstat,
             description: "Get general information about your server!",
             usage: "`~serverstat`") do |event|
-
+next "I dont' have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
   members = event.server.member_count
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
@@ -827,7 +827,7 @@ bot.command(:serverstat,
     There are `#{rolenum}` roles on this server
     There are `#{chancount}` channels.
     There are `#{bancount}` ban(s) on this server"
-    next "I dont' have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
+
 end
 #-----------BANK AND CURRENCY
 
