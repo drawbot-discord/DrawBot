@@ -823,9 +823,14 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
   region = event.server.region.upcase
   onlinemems = event.server.online_members.count
   servername = event.server.name
+  veriflvl = event.server.verification_level.upcase
+  emoji = event.server.any_emoji?
   # event.server.icon_url
+  
     "`#{owner}` is the owner of this server named `#{servername}`.
-    This server is located in `#{region}`.
+    The voice region is `#{region}`.
+    The verification level for this server is set to `#{veriflvl}`
+    Emoji allowance is set to `#{emoji}`
     There are `#{members}` users on this server with `#{onlinemems}` online.
     There are `#{rolenum}` roles on this server.
     There are `#{chancount}` channels.
