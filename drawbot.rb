@@ -822,7 +822,9 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
   bancount = event.server.bans.count
   region = event.server.region.upcase
   onlinemems = event.server.online_members.count
-    "`#{owner}` is the owner of this server.
+  servername = event.server.name
+  # event.server.icon_url
+    "`#{owner}` is the owner of this server named `#{servername}`.
     This server is located in `#{region}`.
     There are `#{members}` users on this server with `#{onlinemems}` online.
     There are `#{rolenum}` roles on this server.
