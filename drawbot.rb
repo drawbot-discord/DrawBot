@@ -826,15 +826,15 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
   veriflvl = event.server.verification_level.upcase
   emoji = event.server.any_emoji?
   # event.server.icon_url
-  
+
     "`#{owner}` is the owner of this server named `#{servername}`.
-    The voice region is `#{region}`.
-    The verification level for this server is set to `#{veriflvl}`
-    Emoji allowance is set to `#{emoji}`
     There are `#{members}` users on this server with `#{onlinemems}` online.
     There are `#{rolenum}` roles on this server.
     There are `#{chancount}` channels.
-    There are `#{bancount}` ban(s) on this server"
+    There are `#{bancount}` ban(s) on this server
+    The voice region is `#{region}`.
+    The verification level for this server is set to `#{veriflvl}`
+    Custom emojis on server? `#{emoji}`"
 
 end
 #-----------BANK AND CURRENCY
