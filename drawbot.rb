@@ -820,11 +820,13 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
   bancount = event.server.bans.count
-
-
-    event << "`#{owner}` is the owner of this server.
+  region = event.server.region.upcase
+  emoji = event.server.any_emoji?
+    "`#{owner}` is the owner of this server.
+    This server is located in `#{region}`.
+    This server allows emoji? `#{emoji}` 
     There are `#{members}` users on this server.
-    There are `#{rolenum}` roles on this server
+    There are `#{rolenum}` roles on this server.
     There are `#{chancount}` channels.
     There are `#{bancount}` ban(s) on this server"
 
