@@ -821,12 +821,13 @@ bot.command(:serverstat,
   chancount = event.server.channels.count
   bancount = event.server.bans.count
 
-   next "I dont' have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
-    "`#{owner}` is the owner of this server.
+
+    event << "`#{owner}` is the owner of this server.
     There are `#{members}` users on this server.
     There are `#{rolenum}` roles on this server
     There are `#{chancount}` channels.
     There are `#{bancount}` ban(s) on this server"
+    next "I dont' have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
 end
 #-----------BANK AND CURRENCY
 
