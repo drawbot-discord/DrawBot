@@ -814,19 +814,20 @@ end
 bot.command(:serverstat,
             description: "Get general information about your server!",
             usage: "`~serverstat`") do |event|
+
   members = event.server.member_count
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
-  #bancount = event.server.bans.count
-   begin
+  bancount = event.server.bans.count
+
+  if event.bot.profile.on(event.server).permission? :ban_members == false
+    "I dont' have permission to do that!"
+  end
     "`#{owner}` is the owner. "\
     "There are `#{members}` users on this server. There are `#{rolenum}` roles on this server "\
-    "There is `#{chancount}` channels. "\
-  #  "There are `#{bancount}` ban(s) on this server"
-   rescue => e
-     "An error occured, but I believe you can do it!  ```#{e}```"
-   end
+    "There are `#{chancount}` channels. "\
+    "There are `#{bancount}` ban(s) on this server"
 end
 #-----------BANK AND CURRENCY
 
