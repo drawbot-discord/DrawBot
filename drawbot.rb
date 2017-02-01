@@ -839,6 +839,8 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
 end
 
 #Litterally stolen from Cyan No Shame (https://github.com/Cyan101/sapphire/blob/master/modules/reactions.rb)
+poll_desc = 'Does a poll that ends after 2min or the set time, can have up to 5 options seperated with a \'-\''
+   poll_usage = "#{CONFIG.prefix}poll 20min <option 1> - <option 2>` (from 1min to 60min don't forget the 'min')`"
 command :poll, help_available: true, description: poll_desc, usage: poll_usage, min_args: 1 do |event, *message|
        reactions = %w(🇦 🇧 🇨 🇩 🇪)
        time = '2m'
