@@ -925,6 +925,10 @@ end
 #set bank amount
 bot.command(:setbank, min_args: 3, description: "sets @user's bank and stipend balance") do |event, mention, hearts, salt, stipend|
   break unless event.channel.id == DEVCHANNEL
+  def save
+    file = File.open("db.yaml", "w")
+    file.write($db.to_yaml)
+  end
    hearts = hearts.to_i
    salt = salt.to_i
    stipend = stipend.to_i
@@ -1010,7 +1014,7 @@ bot.command(:give, min_args: 3,
 
   #notification
   event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
-  
+
   save
     nil
 
@@ -1020,6 +1024,10 @@ end
 
 bot.command(:setstipend, min_args: 1, description: "sets all users stipend values") do |event, value|
   break unless event.channel.id == DEVCHANNEL
+  def save
+    file = File.open("db.yaml", "w")
+    file.write($db.to_yaml)
+  end
   value = value.to_i
   $db["users"].each do |id, data|
     data["stipend"] = value
