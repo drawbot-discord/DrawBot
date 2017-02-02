@@ -1004,11 +1004,11 @@ bot.command(:give, min_args: 3,
     return
   end
 
+  save
   #notification
   event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
-
-  save
   nil
+
 end
 
 
