@@ -838,7 +838,7 @@ next "I don't have permission to do that!" unless event.bot.profile.on(event.ser
 
 "`#{owner}` is the owner of this server named `#{servername}`.
 The server was created on `#{age}`.
-You joined this server on #{usrjoin}
+You joined this server on `#{usrjoin}`
 There are `#{members}` users on this server with `#{onlinemems}` online.
 There are `#{rolenum}` roles on this server.
 There are `#{chancount}` channels.
