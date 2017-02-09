@@ -134,7 +134,7 @@ bot.command(:drawlewd,
        "You should draw #{event.server.members.sample.display_name} #{LewdDrawTopic.sample}"
      else
        "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
-     #end
+     end
      end
 end
 
