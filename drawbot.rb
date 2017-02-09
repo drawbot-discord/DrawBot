@@ -128,7 +128,7 @@ bot.command(:drawlewd,
              usage: '~drawlewd') do |event|
    next event.respond "I need the `lewd` role for that, silly" unless
    event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'lewd'
-     num = 1
+     num = rand(1...2)
      if num == 1
      "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
     else
