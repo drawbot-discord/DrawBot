@@ -822,6 +822,7 @@ bot.command(:serverstat,
             usage: "`~serverstat`") do |event|
 next "I dont' have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
   members = event.server.member_count
+  age = event.server.owner.joined_at
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
@@ -833,14 +834,17 @@ next "I dont' have permission to do that!" unless event.bot.profile.on(event.ser
   emoji = event.server.any_emoji?
   # event.server.icon_url
 
-    "`#{owner}` is the owner of this server named `#{servername}`.
-    There are `#{members}` users on this server with `#{onlinemems}` online.
-    There are `#{rolenum}` roles on this server.
-    There are `#{chancount}` channels.
-    There are `#{bancount}` ban(s) on this server
-    The voice region is `#{region}`.
-    The verification level for this server is set to `#{veriflvl}`
-    Custom emojis on server? `#{emoji}`"
+"`#{owner}` is the owner of this server named `#{servername}`.
+The server was created at `#{age}`*.
+There are `#{members}` users on this server with `#{onlinemems}` online.
+There are `#{rolenum}` roles on this server.
+There are `#{chancount}` channels.
+There are `#{bancount}` ban(s) on this server
+The voice region is `#{region}`.
+The verification level for this server is set to `#{veriflvl}`
+Custom emojis on server? `#{emoji}`
+`(This is based off the time when the
+server owner joined; may be inaccurate.)`"
 
 end
 
