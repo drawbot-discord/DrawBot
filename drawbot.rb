@@ -129,9 +129,11 @@ bot.command(:drawlewd,
    next event.respond "I need the `lewd` role for that, silly" unless
    event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'lewd'
      num = rand(1...1)
-     "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}" unless num == 1
-
-   "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
+     if num == 1
+     "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
+    else
+     "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
+     end
 end
 
 bot.command(:drawcombo,
