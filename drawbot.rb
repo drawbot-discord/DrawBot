@@ -87,8 +87,8 @@ bot.ready do |event|
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
-  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;")
-  event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
+  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are; #{event.bot.servers.collect { |_, s| s.name }.join('-\n')}")
+  #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
@@ -835,7 +835,7 @@ next "I don't have permission to do that!" unless event.bot.profile.on(event.ser
   # event.server.icon_url
 
 "`#{owner}` is the owner of this server named `#{servername}`.
-The server was created on `#{age}`*.
+The server was created on `#{age}*`.
 There are `#{members}` users on this server with `#{onlinemems}` online.
 There are `#{rolenum}` roles on this server.
 There are `#{chancount}` channels.
