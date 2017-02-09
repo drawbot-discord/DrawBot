@@ -88,7 +88,7 @@ bot.ready do |event|
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
   event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;
- #{event.bot.servers.collect { |_, s| s.name }.join("- \n")}")
+ #{event.bot.servers.collect { |_, s| s.name }.join("\n -")}")
   #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
