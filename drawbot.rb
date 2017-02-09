@@ -823,7 +823,7 @@ bot.command(:serverstat,
             usage: "`~serverstat`") do |event|
 next "I don't have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
   members = event.server.member_count
-  age = event.server.owner.joined_at
+  age = event.server.creation_time.strftime("%B %eth, %Y at %r")
   owner = event.server.owner.display_name
   rolenum =  event.server.roles.count
   chancount = event.server.channels.count
