@@ -833,10 +833,12 @@ next "I don't have permission to do that!" unless event.bot.profile.on(event.ser
   servername = event.server.name
   veriflvl = event.server.verification_level.upcase
   emoji = event.server.any_emoji?
+  usrjoin = event.user.joined_at.strftime("%B %eth, %Y at %r")
   # event.server.icon_url
 
 "`#{owner}` is the owner of this server named `#{servername}`.
 The server was created on `#{age}`.
+You joined this server on #{usrjoin}
 There are `#{members}` users on this server with `#{onlinemems}` online.
 There are `#{rolenum}` roles on this server.
 There are `#{chancount}` channels.
