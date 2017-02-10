@@ -124,14 +124,15 @@ bot.command(:userstat,
         event.channel.send_embed do |e|
           #Returns the username of the user that initiated the command
           e.add_field name: 'Username', value: event.user.display_name, inline: true
+          #Grabs the URL for the user's avater 
+          e.thumbnail = { url: event.user.avatar_url }
           #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
           #e.color = '3498db'
-          e.thumbnail = { url: event.user.avatar_url }
-          # e.title = 'System report'
+                    # e.title = 'System report'
           # e.description = 'Sapphire system information report'
           # e.url         = 'http://github.com/cyan101'
           # e.timestamp   = Time.now.utc
-          # e.image       = { url: 'https://puu.sh/stDbZ.png' }
+           e.image       = { url: 'http://i.imgur.com/QD6Q5FE.png' }
           # e.footer      = { text: '- Created by Cyan', icon_url: event.bot.profile.avatar_url }
                     #e.add_field name: 'Servers/Users:', value: "**Servers:** #{event.bot.servers.count}\n**Users:** #{event.bot.users.count}", inline: true
           #e.add_field name: 'Server\'s inactive Memory: ', value: "`#{free_mem[0..3]}GB`", inline: true
