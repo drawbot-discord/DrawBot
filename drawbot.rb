@@ -862,6 +862,7 @@ bot.command(:userinfo,
             e.add_field name: 'Username', value: event.user.name, inline: true
               #Grabs the discriminator number for the user
             e.add_field name: 'Discriminator', value: "##{event.user.discriminator}", inline: true
+            e.add_field name: 'People know you on this server as:', value: event.user.display_name, inline: true
 
               #Grabs the URL for the user's avater
             e.thumbnail = { url: event.user.avatar_url }
