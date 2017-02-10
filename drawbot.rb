@@ -857,7 +857,7 @@ end
 bot.command(:userinfo,
             description: "WIP Command",) do |event|
             event.channel.send_embed do |e|
-            e.description = "User information for #{event.user.display_name}"
+            e.description = 'User information'
               #Returns the username of the user that initiated the command
             e.add_field name: 'Username', value: event.user.display_name, inline: true
               #Grabs the discriminator number for the user
