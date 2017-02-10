@@ -854,9 +854,8 @@ Custom emojis on server? `#{emoji}`"
 end
 
 #litterally stolen from Cyan
-bot.command(:userstat,
-            description: "WIP Command",
-            usage: `~userstat`) do |event|
+bot.command(:serverstat,
+            description: "WIP Command",) do |event|
             event.channel.send_embed do |e|
               #Litteraly the colour
             e.color = '165910'
@@ -881,7 +880,7 @@ bot.command(:userstat,
             #e.add_field name: 'Server\'s inactive Memory: ', value: "`#{free_mem[0..3]}GB`", inline: true
             #e.add_field name: "#{event.bot.profile.name} is using:", value: "`#{res_mem[0..4]}MB`", inline: true
         end
-    end
+end
 
 
 #Litterally stolen from Cyan No Shame (https://github.com/Cyan101/sapphire/blob/master/modules/reactions.rb)
