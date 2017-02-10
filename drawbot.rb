@@ -117,31 +117,7 @@ Use `~commands` to find out what I can do for you!"
 end
 
 
-#litterally stolen from Cyan
-bot.command(:userstat,
-        description: "WIP Command",
-        usage: `~userstat`) do |event|
-        event.channel.send_embed do |e|
-            #Litteraly the colour
-          e.color = '165910'
-            #Returns the username of the user that initiated the command
-          e.add_field name: 'Username', value: event.user.display_name, inline: true
-            #Grabs the URL for the user's avater
-          e.thumbnail = { url: event.user.avatar_url }
-          e.add_field name: 'UserID', value: event.user.id, inline: false
-          #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
-          #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
-                              # e.title = 'System report'
-          # e.description = 'Sapphire system information report'
-          # e.url         = 'http://github.com/cyan101'
-          # e.timestamp   = Time.now.utc
 
-          # e.footer      = { text: '- Created by Cyan', icon_url: event.bot.profile.avatar_url }
-                    #e.add_field name: 'Servers/Users:', value: "**Servers:** #{event.bot.servers.count}\n**Users:** #{event.bot.users.count}", inline: true
-          #e.add_field name: 'Server\'s inactive Memory: ', value: "`#{free_mem[0..3]}GB`", inline: true
-          #e.add_field name: "#{event.bot.profile.name} is using:", value: "`#{res_mem[0..4]}MB`", inline: true
-        end
-    end
 
 
 #------------ART COMMANDS-----------#
@@ -876,6 +852,34 @@ The verification level for this server is set to `#{veriflvl}`
 Custom emojis on server? `#{emoji}`"
 
 end
+
+#litterally stolen from Cyan
+bot.command(:userstat,
+        description: "WIP Command",
+        usage: `~userstat`) do |event|
+        event.channel.send_embed do |e|
+            #Litteraly the colour
+          e.color = '165910'
+            #Returns the username of the user that initiated the command
+          e.add_field name: 'Username', value: event.user.display_name, inline: true
+            #Grabs the URL for the user's avater
+          e.thumbnail = { url: event.user.avatar_url }
+          e.add_field name: 'UserID', value: event.user.id, inline: false
+          e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r")
+          #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
+          #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
+                              # e.title = 'System report'
+          # e.description = 'Sapphire system information report'
+          # e.url         = 'http://github.com/cyan101'
+          # e.timestamp   = Time.now.utc
+
+          # e.footer      = { text: '- Created by Cyan', icon_url: event.bot.profile.avatar_url }
+                    #e.add_field name: 'Servers/Users:', value: "**Servers:** #{event.bot.servers.count}\n**Users:** #{event.bot.users.count}", inline: true
+          #e.add_field name: 'Server\'s inactive Memory: ', value: "`#{free_mem[0..3]}GB`", inline: true
+          #e.add_field name: "#{event.bot.profile.name} is using:", value: "`#{res_mem[0..4]}MB`", inline: true
+        end
+    end
+
 
 #Litterally stolen from Cyan No Shame (https://github.com/Cyan101/sapphire/blob/master/modules/reactions.rb)
 
