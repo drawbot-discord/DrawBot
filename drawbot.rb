@@ -857,6 +857,7 @@ end
 bot.command(:userinfo,
             description: "WIP Command",) do |event|
             event.channel.send_embed do |e|
+            e.description = 'User information'
               #Litteraly the colour
             e.color = '165910'
               #Returns the username of the user that initiated the command
@@ -871,7 +872,6 @@ bot.command(:userinfo,
             #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
             #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
                                 # e.title = 'System report'
-            e.description = 'Sapphire system information report'
             # e.url         = 'http://github.com/cyan101'
             # e.timestamp   = Time.now.utc
 
