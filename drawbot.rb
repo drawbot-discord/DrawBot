@@ -872,11 +872,11 @@ bot.command(:userstat,
             #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
             #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
                                 # e.title = 'System report'
-            # e.description = 'Sapphire system information report'
+            e.description = 'Sapphire system information report'
             # e.url         = 'http://github.com/cyan101'
             # e.timestamp   = Time.now.utc
 
-            # e.footer      = { text: '- Created by Cyan', icon_url: event.bot.profile.avatar_url }
+            #e.footer = { text: '- Created by Cyan', icon_url: event.bot.profile.avatar_url }
                       #e.add_field name: 'Servers/Users:', value: "**Servers:** #{event.bot.servers.count}\n**Users:** #{event.bot.users.count}", inline: true
             #e.add_field name: 'Server\'s inactive Memory: ', value: "`#{free_mem[0..3]}GB`", inline: true
             #e.add_field name: "#{event.bot.profile.name} is using:", value: "`#{res_mem[0..4]}MB`", inline: true
