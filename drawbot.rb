@@ -864,7 +864,7 @@ bot.command(:userstat,
           e.add_field name: 'Username', value: event.user.display_name, inline: true
             #Grabs the URL for the user's avater
           e.thumbnail = { url: event.user.avatar_url }
-          e.add_field name: 'UserID', value: event.user.id, inline: false
+          e.add_field name: 'UserID', value: event.user.id, inline: true
           e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r")
           #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
           #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
