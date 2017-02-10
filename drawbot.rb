@@ -124,7 +124,7 @@ bot.command(:userstat,
         event.channel.send_embed do |e|
           #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
           #e.color = '3498db'
-          e.thumbnail = { url: event.user.profile.avatar_url }
+          #e.thumbnail = { url: event.user.profile.avatar_url }
           # e.title = 'System report'
           # e.description = 'Sapphire system information report'
           # e.url         = 'http://github.com/cyan101'
