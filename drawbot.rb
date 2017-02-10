@@ -858,8 +858,6 @@ bot.command(:userinfo,
             description: "WIP Command",) do |event|
             event.channel.send_embed do |e|
             e.description = 'User information'
-              #Litteraly the colour
-            e.color = '165910'
               #Returns the username of the user that initiated the command
             e.add_field name: 'Username', value: event.user.display_name, inline: true
               #Grabs the discriminator number for the user
@@ -868,7 +866,7 @@ bot.command(:userinfo,
               #Grabs the URL for the user's avater
             e.thumbnail = { url: event.user.avatar_url }
             e.add_field name: 'UserID', value: event.user.id, inline: true
-            e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r")
+            e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r"), inline: true
             #e.image = { url: 'http://i.imgur.com/QD6Q5FE.png' }
             #e.author = { name: event.bot.profile.name, url: 'http://github.com/cyan101/sapphire', icon_url: event.bot.profile.avatar_url }
                                 # e.title = 'System report'
