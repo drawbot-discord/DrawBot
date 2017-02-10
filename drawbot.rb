@@ -118,7 +118,7 @@ end
 
 
 #litterally stolen from Cyan
-command(:userstat,
+bot.command(:userstat,
         description: "WIP Command",
         usage: `~userstat`) do |event|
         event.channel.send_embed do |e|
