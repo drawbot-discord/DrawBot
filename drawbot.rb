@@ -854,7 +854,7 @@ Custom emojis on server? `#{emoji}`"
 end
 
 #litterally stolen from Cyan
-bot.command(:serverstat,
+bot.command(:userstat,
             description: "WIP Command",) do |event|
             event.channel.send_embed do |e|
               #Litteraly the colour
