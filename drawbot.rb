@@ -859,7 +859,7 @@ bot.command(:userinfo,
             event.channel.send_embed do |e|
             e.description = 'User information'
               #Returns the username of the user that initiated the command
-            e.add_field name: 'Username', value: event.user.display_name, inline: true
+            e.add_field name: 'Username', value: event.user.name, inline: true
               #Grabs the discriminator number for the user
             e.add_field name: 'Discriminator', value: "##{event.user.discriminator}", inline: true
 
