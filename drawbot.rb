@@ -867,7 +867,7 @@ bot.command(:userinfo) do |event|
             e.thumbnail = { url: event.user.avatar_url }
             e.add_field name: 'UserID', value: event.user.id, inline: true
             e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r"), inline: true
-            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %eth, %Y at %r")
+            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %eth, %Y at %r"), inline: true
         end
 end
 
