@@ -857,17 +857,20 @@ end
 bot.command(:userinfo) do |event|
             event.channel.send_embed do |e|
             e.description = 'User information'
+              #Grabs the URL for the user's avater
+            e.thumbnail = { url: event.user.avatar_url }
               #Returns the username of the user that initiated the command
             e.add_field name: 'Username', value: event.user.name, inline: true
               #Grabs the discriminator number for the user
             e.add_field name: 'Discriminator', value: "##{event.user.discriminator}", inline: true
               #Grabs user's nickname on server
             e.add_field name: 'People know you as:', value: event.user.display_name, inline: true
-              #Grabs the URL for the user's avater
-            e.thumbnail = { url: event.user.avatar_url }
+              #Grabs the user's userID
             e.add_field name: 'UserID', value: event.user.id, inline: true
-            e.add_field name: 'You joined this server on', value: event.user.joined_at.strftime("%B %eth, %Y at %r"), inline: true
-            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %eth, %Y at %r"), inline: true
+              #Grabs the time the suer joined the server the command is run on
+            e.add_field name: 'You joined this server on  ', value: event.user.joined_at.strftime("%B %e, %Y at %r"), inline: true
+              #Grabs the time the user created his/her/their account
+            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %e, %Y at %r"), inline: false
         end
 end
 
