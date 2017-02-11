@@ -816,7 +816,7 @@ bot.command(:submit,
    num = Time.now.strftime("%Y%j%H%M%S")
    url = url.join(' ')
    event.bot.channel(215742813831168004).send_message("**Submission number** `#{num}`"\
-   "\n#{event.user.display_name} posted their art #{url}")
+   "\n#{event.user.name} posted their art #{url}")
 end
 
 ############################
