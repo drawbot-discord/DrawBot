@@ -831,7 +831,7 @@ bot.command(:serverstat,
     e.description = 'General Server-wide information'
     e.add_field name: 'Server Owner', value: event.server.owner.name, inline: true
     e.add_field name: 'Server Name', value: event.server.name, inline: true
-    e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %eth, %Y at %r"), inline:true
+    e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %e, %Y"), inline:true
     e.add_field name: 'Voice Region', value: event.server.region.upcase, inline: true
     e.add_field name: 'Online Members', value: "#{event.server.online_members.count}"
     e.add_field name: 'Total Members', value: "#{event.server.member_count}", inline: true
