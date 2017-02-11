@@ -832,16 +832,16 @@ bot.command(:serverstat,
     e.add_field name: 'Server Owner', value: event.server.owner.name, inline: true
     e.add_field name: 'Server Name', value: event.server.name, inline: true
     e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %eth, %Y at %r"), inline:true
-    e.add_field name: 'Online Members/Total Members', value: "#{event.server.member_count}/#{event.server.online_members.count}"
+    e.add_field name: 'Online Members', value: "#{event.server.online_members.count}", inline: true
+    e.add_field name: 'Total Members', value: "#{event.server.member_count}", inline: true
     e.add_field name: 'Amount of Roles', value: event.server.roles.count, inline: true
     e.add_field name: 'Amount of Channels', value: event.server.channels.count, inline: true
     e.add_field name: 'Banned Members', value: event.server.bans.count, inline: true
     e.add_field name: 'Voice Region', value: event.server.region.upcase, inline: true
     e.add_field name: 'Verification Level', value: event.server.verification_level.upcase, inline: true
-    e.add_field name: 'Custoemr emojies on server?', value: event.server.any_emoji?, inline: true
+    e.add_field name: 'Custom emojis on server?', value: event.server.any_emoji?, inline: true
   end
 end
-
 #litterally stolen from Cyan
 bot.command(:userinfo) do |event|
             event.channel.send_embed do |e|
