@@ -845,7 +845,7 @@ end
 #litterally stolen from Cyan
 bot.command(:userstat,
              description: "Get general info about yourself!",
-             usage: `~userstat`) do |event|
+             usage: "`~userstat`") do |event|
             event.channel.send_embed do |e|
             e.description = 'User information'
               #Grabs the URL for the user's avater
