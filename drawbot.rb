@@ -861,7 +861,7 @@ bot.command(:userstat,
               #Grabs the time the suer joined the server the command is run on
             e.add_field name: 'You joined this server on  ', value: event.user.joined_at.strftime("%B %e, %Y at %r"), inline: true
               #Grabs the time the user created his/her/their account
-            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %e, %Y at %r"), inline: false
+            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %e, %Y at %r"), inline: true
         end
 end
 
