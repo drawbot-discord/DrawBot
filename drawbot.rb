@@ -834,7 +834,7 @@ bot.command(:serverstat,
     e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %e, %Y"), inline:true
     e.add_field name: 'Voice Region', value: event.server.region.upcase, inline: true
     e.add_field name: 'Online Members', value: "#{event.server.online_members.count}"
-    e.add_field name: 'Total Members', value: "#{event.server.member_count}", inline: true
+    e.add_field name: 'Total Members', value: "#{event.server.member_count}"
     e.add_field name: 'Amount of Roles', value: event.server.roles.count, inline: true
     e.add_field name: 'Amount of Channels', value: event.server.channels.count, inline: true
     e.add_field name: 'Banned Members', value: event.server.bans.count, inline: true
