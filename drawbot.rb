@@ -801,7 +801,7 @@ bot.member_join do |event|
     welcome_channel.send_message "#{event.user.mention} has joined!"
   end
 
-  member_role = event.server.roles.find { |r| r.name == 'Blue Members'}
+  member_role = event.server.roles.find { |r| r.name == 'Members'}
   unless member_role.nil?
     event.user.add_role member_role
   end
