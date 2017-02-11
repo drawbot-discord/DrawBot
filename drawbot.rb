@@ -825,32 +825,21 @@ end
 bot.command(:serverstat,
             description: "Get general information about your server!",
             usage: "`~serverstat`") do |event|
-next "I don't have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
-  members = event.server.member_count
-  age = event.server.creation_time.strftime("%B %eth, %Y at %r")
-  owner = event.server.owner.display_name
-  rolenum =  event.server.roles.count
-  chancount = event.server.channels.count
-  bancount = event.server.bans.count
-  region = event.server.region.upcase
-  onlinemems = event.server.online_members.count
-  servername = event.server.name
-  veriflvl = event.server.verification_level.upcase
-  emoji = event.server.any_emoji?
-  usrjoin = event.user.joined_at.strftime("%B %eth, %Y at %r")
-  # event.server.icon_url
-
-"`#{owner}` is the owner of this server named `#{servername}`.
-The server was created on `#{age}`.
-You joined this server on `#{usrjoin}`
-There are `#{members}` users on this server with `#{onlinemems}` online.
-There are `#{rolenum}` roles on this server.
-There are `#{chancount}` channels.
-There are `#{bancount}` ban(s) on this server
-The voice region is `#{region}`.
-The verification level for this server is set to `#{veriflvl}`
-Custom emojis on server? `#{emoji}`"
-
+  next "I don't have permission to do that!" unless event.bot.profile.on(event.server).permission? :manage_server
+    event.channel.send_embed do |e|
+    e.thumbnail = { url: event.server.icon_url }
+    e.description = 'General Server-wide information'
+    e.add_field name: 'Server Owner', value: event.server.owner.name, inline: true
+    e.add_field name: 'Server Name', value: event.server.name, inline: true
+    e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %eth, %Y at %r"), inline:true
+    e.add_field name: 'Online Members/Total Members', value: "#{event.server.member_count}/#{event.server.online_members.count}"
+    e.add_field name: 'Amount of Roles', value: event.server.roles.count, inline: true
+    e.add_field name: 'Amount of Channels', value: event.server.channels.count, inline: true
+    e.add_field name: 'Banned Members', value: event.server.bans.count, inline: true
+    e.add_field name: 'Voice Region', value: event.server.region.upcase, inline: true
+    e.add_field name: 'Verification Level', value: event.server.verification_level.upcase, inline: true
+    e.add_field name: 'Custoemr emojies on server?', value: event.server.any_emoji?, inline: true
+  end
 end
 
 #litterally stolen from Cyan
