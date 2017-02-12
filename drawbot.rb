@@ -391,8 +391,8 @@ bot.command(:eris) do |event, *message|
     zii = EIGHTBALL[index]['zii']
       event.channel.send_embed do |e|
       e.thumbnail = "#{zii}"
-      e.description = "#{event.user.name} "
-      e.add_field name: "`#{message}`", value: " #{fortune}", inline: true
+      e.description = "#{event.user.name}"
+      e.add_field name: "`#{message}`", value: "#{fortune}", inline: true
   end
 end
 
