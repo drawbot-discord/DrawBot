@@ -382,7 +382,7 @@ bot.command(:'8ball') do |event, *message|
   event << "#{event.user.mention} `#{message}`: #{fortune}"
 end
 
-bot.command(:zii) do |event, *message|
+bot.command(:eris) do |event, *message|
   next event.respond "I need the `zii` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'zii'
    message = message.join(' ')
@@ -390,9 +390,11 @@ bot.command(:zii) do |event, *message|
     index = rand 0..EIGHTBALL.length-1
     fortune = EIGHTBALL[index]['fortune']
     zii = EIGHTBALL[index]['zii']
-
-    event << "#{event.user.mention} #{zii}"
-   event << "`#{message}` : #{fortune}"
+    event.channel.send_embed do |e|
+    e.thumbnail = "#{zii}"
+    e.description = "#{event.user.mention} "
+    e.add_field name: "`#{message}`", value: " #{fortune}", inline: true
+  end
 end
 
 bot.command :roll do |event, roll|
