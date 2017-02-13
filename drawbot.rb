@@ -1122,7 +1122,10 @@ bot.command(:debug) do |event|
   out: { long: 'OUT', short: '→', format_code: "\u001B[36m" }, # cyan
   in: { long: 'IN', short: '←', format_code: "\u001B[35m" } # purple
 }.freeze
-  initialize(fancy, streams).mode(:debug)
+open('debug.txt', 'w') do |f|
+  f.puts "#{initialize(fancy, streams).mode(:debug)}"
+end
+
   "Started debugging!"
 end
 
