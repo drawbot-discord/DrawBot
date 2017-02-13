@@ -1125,7 +1125,7 @@ bot.command(:debug) do |event|
   }.freeze
   end
 
-
+file.write("debugtxt", "w")
 
   "Started debugging!"
 end
