@@ -1108,16 +1108,14 @@ bot.command(:getdb) do |event|
   event.channel.send_file(file)
 end
 
+
 bot.command(:debug) do |event|
-  def save
-    File.new("debug.txt", "w")
-  end
   def initialize( fancy: false, stream: [STDOUT])
     mode :debug
   end
-
-event << Initialize
-event <<   "Started debugging!"
+File.new("debug.txt", "w")
+File.write(puts initialize)
+"Started debugging!"
 
 end
 
