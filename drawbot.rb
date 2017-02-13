@@ -1109,7 +1109,12 @@ bot.command(:getdb) do |event|
 end
 
 bot.command(:debug) do |event|
-  f = File.new("debug.txt")
+  def save
+    File.new("debug.txt", "w")
+    file = File.open("debug.txt", "w")
+    file.write
+  end
+
     {
   debug: { long: 'DEBUG', short: 'D', format_code: '' },
   good: { long: 'GOOD', short: '✓', format_code: "\u001B[32m" }, # green
@@ -1120,7 +1125,7 @@ bot.command(:debug) do |event|
   in: { long: 'IN', short: '←', format_code: "\u001B[35m" } # purple
 }.freeze
 fancy = false
-streams = f
+streams = save
   initialize(fancy, streams).mode(:debug)
 end
 
