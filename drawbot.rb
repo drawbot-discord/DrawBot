@@ -818,7 +818,7 @@ bot.command(:submit,
    num = Time.now.strftime("%Y%j%H%M%S")
    url = url.join(' ')
    event.bot.channel(215742813831168004).send_message("**Submission number** `#{num}`"\
-   "\n#{event.user.name} posted their art #{url}")
+   "\n#{event.user.mention} posted their art #{url}")
 end
 
 ############################
@@ -1106,17 +1106,6 @@ bot.command(:getdb) do |event|
   break unless event.channel.id == DEVCHANNEL
   file = File.open('db.yaml')
   event.channel.send_file(file)
-end
-
-
-bot.command(:debug) do |event|
-  def initialize( fancy: false, stream: [STDOUT])
-    mode :debug
-  end
-File.new("debug.txt", "w")
-File.write(puts initialize)
-"Started debugging!"
-
 end
 
 
