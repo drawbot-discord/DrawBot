@@ -1111,8 +1111,6 @@ end
 bot.command(:debug) do |event|
   def save
     File.new("debug.txt", "w")
-    file = File.open("debug.txt", "w")
-    file.write
   end
 
     {
@@ -1124,9 +1122,8 @@ bot.command(:debug) do |event|
   out: { long: 'OUT', short: '→', format_code: "\u001B[36m" }, # cyan
   in: { long: 'IN', short: '←', format_code: "\u001B[35m" } # purple
 }.freeze
-fancy = false
-streams = save
   initialize(fancy, streams).mode(:debug)
+  "Started debugging!"
 end
 
 
