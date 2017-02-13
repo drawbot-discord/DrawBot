@@ -1109,27 +1109,23 @@ bot.command(:getdb) do |event|
 end
 
 bot.command(:debug) do |event|
-  def save
-    File.new("debug.txt", "w")
+#  def save
+#    File.new("debug.txt", "w")
+#  end
+#
+  def initialize( fancy: false, stream: [STDOUT])
+    {
+    debug: { long: 'DEBUG', short: 'D', format_code: '' },
+    good: { long: 'GOOD', short: '✓', format_code: "\u001B[32m" }, # green
+    info: { long: 'INFO', short: 'i', format_code: '' },
+    warn: { long: 'WARN', short: '!', format_code: "\u001B[33m" }, # yellow
+    error: { long: 'ERROR', short: '✗', format_code: "\u001B[31m" }, # red
+    out: { long: 'OUT', short: '→', format_code: "\u001B[36m" }, # cyan
+    in: { long: 'IN', short: '←', format_code: "\u001B[35m" } # purple
+  }.freeze
   end
 
-  def initialize( fancy: false, stream: debug.txt)
 
-  end
-
-  {
-  debug: { long: 'DEBUG', short: 'D', format_code: '' },
-  good: { long: 'GOOD', short: '✓', format_code: "\u001B[32m" }, # green
-  info: { long: 'INFO', short: 'i', format_code: '' },
-  warn: { long: 'WARN', short: '!', format_code: "\u001B[33m" }, # yellow
-  error: { long: 'ERROR', short: '✗', format_code: "\u001B[31m" }, # red
-  out: { long: 'OUT', short: '→', format_code: "\u001B[36m" }, # cyan
-  in: { long: 'IN', short: '←', format_code: "\u001B[35m" } # purple
-}.freeze
-
-open('debug.txt', 'w') do |f|
-  f.puts initialize
-end
 
   "Started debugging!"
 end
