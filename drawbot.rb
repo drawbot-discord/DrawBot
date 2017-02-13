@@ -1109,10 +1109,10 @@ bot.command(:getdb) do |event|
 end
 
 bot.command(:debug) do |event|
-#  def save
-#    File.new("debug.txt", "w")
-#  end
-#
+  def save
+    File.new("debug.txt", "w")
+  end
+
   def initialize( fancy: false, stream: [STDOUT])
     {
     debug: { long: 'DEBUG', short: 'D', format_code: '' },
