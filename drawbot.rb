@@ -1112,9 +1112,12 @@ bot.command(:debug) do |event|
   def save
     File.new("debug.txt", "w")
   end
-fancy = false
-streams = [STDOUT]
-    {
+
+  def initialize( fancy: false, stream: debug.txt)
+
+  end
+
+  {
   debug: { long: 'DEBUG', short: 'D', format_code: '' },
   good: { long: 'GOOD', short: '✓', format_code: "\u001B[32m" }, # green
   info: { long: 'INFO', short: 'i', format_code: '' },
@@ -1125,7 +1128,7 @@ streams = [STDOUT]
 }.freeze
 
 open('debug.txt', 'w') do |f|
-  f.puts "#{initialize(fancy, streams).mode:debug}"
+  f.puts initialize
 end
 
   "Started debugging!"
