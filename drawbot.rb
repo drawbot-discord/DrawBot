@@ -815,7 +815,7 @@ bot.command(:submit,
              usage: "~submit (link)") do |event, channel, url|
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url)
    num = Time.now.strftime("%Y%j%H%M%S")
-   event.bot.channel(channel).send_message("**Submission number** `#{num}`"\
+   event.bot.channel(channel[2..-1]).send_message("**Submission number** `#{num}`"\
    "\n#{event.user.mention} posted their art #{url}")
 end
 
