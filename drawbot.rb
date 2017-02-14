@@ -812,11 +812,12 @@ end
 #http://apidock.com/ruby/DateTime/strftime
 bot.command(:submit,
              description: "Submit to the gallery!",
-             usage: "~submit (link)") do |event, channel, url|
+             usage: "~submit (link)") do |event, channel, url, *message|
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url)
    num = Time.now.strftime("%Y%j%H%M%S")
    event.bot.channel(channel[2..-1]).send_message("**Submission number** `#{num}`"\
-   "\n#{event.user.mention} posted their art #{url}")
+   "\n#{event.user.mention} posted their art #{url}"\
+   "\n#{message.join(" ")}")
 end
 
 ############################
