@@ -813,7 +813,7 @@ end
 bot.command(:submit,
              description: "Submit to the gallery!",
              usage: "~submit (link)") do |event, channel, url|
-     next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url.first)
+     next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url)
    num = Time.now.strftime("%Y%j%H%M%S")
    url = url.join(' ')
    channel = channel.join(' ')
