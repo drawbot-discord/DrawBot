@@ -813,7 +813,7 @@ end
 bot.command(:submit,
              description: "Submit to the gallery!",
              usage: "`~submit #channel (link)`") do |event, channel, url, *message|
-     next event.respond('I am need a channel to post to, sweetheart!') if channel.nil?
+     next event.respond('I am need a channel to post to, sweetheart!') unless /\d/.match(channel)
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url)
    num = Time.now.strftime("%Y%j%H%M%S")
    event.bot.channel(channel[2..-1]).send_message("**Submission number** `#{num}`"\
