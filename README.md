@@ -10,5 +10,6 @@ DrawBot is made possible by:
 
 - `Echo#5248`
 - `Lune#2639`
+- `Cyan#3717`
 
 Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/u3a2Ck9)
