@@ -343,7 +343,6 @@ bot.command(:addref,
               file = File.open("db.yaml", "w")
               file.write($db.to_yaml)
             end
-  url = url.join(' ')
   user = $db['users'][event.user.id]
          if user.nil?
        $db['users'][event.user.id] = Hash["name" => event.user.display_name, "hearts" => 0, "salt" => 0, "stipend" => 25]
