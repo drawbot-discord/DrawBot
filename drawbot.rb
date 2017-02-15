@@ -362,14 +362,18 @@ bot.command(:addchan,
                 file = File.open("serverlist.yaml", "w")
                 file.write($serverlist.to_yaml)
               end
+  channel = ['$serverlist'][event.bot.channel(channel[2..-1])]
   server = $serverlist[Server][event.server.id]
       if server.nil?
-      $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [] ]
+      $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
         save
         "Registered!"
       end
-
-"Channel added!"
+    channel = $serverlist['Allowedchans'][event.bot.channel(channel[2..-1])]
+        channel['Allowedchans'] << channel.to_s
+        event << "Channel added!"
+        save
+        nil
 end
 
 #-------------EVENTS---------#
@@ -841,6 +845,9 @@ bot.command(:submit,
     "Sorry sweety, something went wrong!"
   end
 end
+
+
+
 
 ############################
 
