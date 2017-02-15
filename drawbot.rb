@@ -370,7 +370,7 @@ bot.command(:addchan,
           event << " Server Registered!"
         end
   server = $serverlist['Server'][event.server.id]
-        channeltoadd['Allowedchans'] << channel.to_s
+        server['Allowedchans'] << channeltoadd.to_s
         event << "Channel added!"
         save
         nil
