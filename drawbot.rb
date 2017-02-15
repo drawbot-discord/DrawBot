@@ -345,7 +345,7 @@ bot.command(:addref,
             end
   user = $db['users'][event.user.id]
          if user.nil?
-       $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs:" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
+       $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
            event << "User added"
          end
   user = $db['users'][event.user.id]
