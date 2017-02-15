@@ -349,7 +349,7 @@ bot.command(:addref,
            event << "User added"
            user = $db['users'][event.user.id]
          end
-       user['refs'] << url.to_s
+       #user['refs'] << url.to_s
        event << "Ref added! :wink:"
        save
        nil
