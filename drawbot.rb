@@ -338,7 +338,7 @@ end
 
 bot.command(:addref,
             description: 'Add a reference for yourself or your character!',
-            usage: "`~addref (URL)`") do |event, *url|
+            usage: "`~addref (URL)`") do |event, url|
             def save
               file = File.open("db.yaml", "w")
               file.write($db.to_yaml)
