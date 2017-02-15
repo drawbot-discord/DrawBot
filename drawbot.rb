@@ -366,11 +366,12 @@ bot.command(:addchan,
   channeltoadd = event.channel.id
   currentserver = event.server.id
 
+  $serverlist['Server'] << currentserver = []
   $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
   $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
   event << "Added"
+  save
 end
-
 #-------------EVENTS---------#
 
 bot.message(with_text: '/o/') do |event|
