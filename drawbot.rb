@@ -355,19 +355,18 @@ bot.command(:addref,
        nil
 end
 
-
+#event.bot.channel(channel[2..-1])
 bot.command(:addchan,
             ) do |event, server, channel|
               def save
                 file = File.open("serverlist.yaml", "w")
                 file.write($serverlist.to_yaml)
               end
-  server = event.server.id
-  channel = channel.join(' ')
-
-
-
-
+  server = $serverlist['Server']
+      if server.nil?
+      $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [] ]
+        "Registered!"
+      end
 
 "Channel added!"
 end
