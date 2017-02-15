@@ -23,7 +23,7 @@ puts ' '
 #-------YAML THINGS------#
 
 $db = YAML.load(File.read('db.yaml'))
-$serverlist = YAML.load(file.read('serverlist'))
+$serverlist = YAML.load(File.read('serverlist'))
 
 
 BoopAction = $db['BoopAction']
