@@ -23,6 +23,8 @@ puts ' '
 #-------YAML THINGS------#
 
 $db = YAML.load(File.read('db.yaml'))
+$serverlist = YAML.load(file.read('serverlist'))
+
 
 BoopAction = $db['BoopAction']
 WaterContainer = $db['WaterContainer']
@@ -344,7 +346,8 @@ bot.command(:addref,
   url = url.join(' ')
   user = $db['users'][event.user.id]
          if user.nil?
-           event << "User not found.. sorry hun!"
+       $db['users'][event.user.id] = Hash["name" => event.user.display_name, "hearts" => 0, "salt" => 0, "stipend" => 25]
+           event << "User added"
            return
          end
        user['refs'] << url
@@ -354,6 +357,21 @@ bot.command(:addref,
 end
 
 
+bot.command(:addchan,
+            ) do |event, server, channel|
+              def save
+                file = File.open("serverlist.yaml", "w")
+                file.write($serverlist.to_yaml)
+              end
+  server = event.server.id
+  channel = channel.join(' ')
+
+
+
+
+
+"Channel added!"
+end
 
 #-------------EVENTS---------#
 
