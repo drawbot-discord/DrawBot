@@ -383,8 +383,8 @@ bot.command(:'8ball') do |event, *message|
 end
 
 bot.command(:eris) do |event, *message|
-  next event.respond "I need the `zii` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'zii'
+  next event.respond "I need the `eris` role for that, silly" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'eris'
    message = message.join(' ')
     index = rand 0..EIGHTBALL.length-1
     fortune = EIGHTBALL[index]['fortune']
@@ -821,7 +821,7 @@ bot.command(:submit,
    "\n#{event.user.mention} posted their art #{url}"\
    "\n#{message.join(" ")}")
   rescue
-    "Sorry sweety, something went wrong! check to see if you're giving me a channel, or a URL"
+    "Sorry sweety, something went wrong!"
   end
 end
 
