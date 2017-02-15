@@ -363,7 +363,7 @@ bot.command(:addchan,
                 file.write($serverlist.to_yaml)
               end
     #Grabs the channel the command is used in
-  channeltoadd = event.channel
+  channeltoadd = event.channel.id
   server = $serverlist['Server'][event.server.id]
         if server.nil?
       $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
