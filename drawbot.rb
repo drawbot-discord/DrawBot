@@ -366,7 +366,7 @@ bot.command(:addchan,
   channeltoadd = event.channel.id
   currentserver = event.server.id
 
-  $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ] if $serverlist['Server'][currentserver].nil?
+  $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
   $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
   event << "Added"
 end
