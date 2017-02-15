@@ -365,7 +365,6 @@ bot.command(:addchan,
   server = $serverlist['Server'][event.server.id]
       if server.nil?
       $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [] ]
-        save
         "Registered!"
       end
 
