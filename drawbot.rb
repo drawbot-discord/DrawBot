@@ -364,16 +364,11 @@ bot.command(:addchan,
               end
     #Grabs the channel the command is used in
   channeltoadd = event.channel.id
-  server = $serverlist['Server'][event.server.id]
-        if server.nil?
-      $serverlist['Server'][event.server.id] = Hash["Server" => event.server.id, "Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
-          event << " Server Registered!"
-        end
-  server = $serverlist['Server'][event.server.id]
-        server['Allowedchans'] << channeltoadd.to_s
-        event << "Channel added!"
-        save
-        nil
+  currentserver = event.server.id
+
+  $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ] if $serverlist['Server'][currentserver].nil?
+  $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
+  event << "Added"
 end
 
 #-------------EVENTS---------#
