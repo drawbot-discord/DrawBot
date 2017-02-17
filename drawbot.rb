@@ -802,25 +802,33 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
 end
 
 
-bot.command(:r34) do |event, *search|
+bot.command(:r34,
+             description: "Search for an image on R34 Paheal",
+             usage: `~r34 (search term)`) do |event, *search|
+  #If the bot doesn't have the required role; command won't run
   next event.respond "I need the `r34` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
     begin
-      return if input == 'exit'
-      input.join(' ', '_')
+      #The thing we're looking for. What comes after the command
+      search.join!('_')
+      next event.respond 'Please give me something to look for' if search.empty?
+      #The URL the search starts with
       base_url = 'http://rule34.paheal.net/post/list/'
-      rule34 = Nokogiri::HTML RestClient.get(base_url + input + '/1')
+      #Tacks the search onto the end of the base_url
+      rule34 = Nokogiri::HTML RestClient.get(base_url + search + '/1')
+      #Uses x to grab the URL from the css
       pictures = rule34.css('.shm-thumb').map do |x|
+        #This produces the img URL from pictures
         x = x.css('a')[1].attr('href')
         #x = "https://rule34.paheal.net#{x.css('a')[0].attr('href')}" # This gets the post not a direct image
       end
-      raise 'No pictures found' if pictures.empty?
+      next event.respond 'No pictures found' if pictures.empty?
     rescue => error
-      puts error
+      event.respond error
       retry
     end
-
-    event.respond "#{x}\n Full page: <#{xfull}>"
+    #Spits out the randomized end result
+    event.respond pictures.sample
 end
 
 
