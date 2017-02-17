@@ -807,7 +807,7 @@ bot.command(:r34) do |event, *search|
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
     begin
       return if input == 'exit'
-      input.gsub!.join('')
+      input.join(' ', '_')
       base_url = 'http://rule34.paheal.net/post/list/'
       rule34 = Nokogiri::HTML RestClient.get(base_url + input + '/1')
       pictures = rule34.css('.shm-thumb').map do |x|
@@ -819,6 +819,7 @@ bot.command(:r34) do |event, *search|
       puts error
       retry
     end
+
     event.respond "#{x}\n Full page: <#{xfull}>"
 end
 
