@@ -356,22 +356,22 @@ bot.command(:addref,
 end
 
 #event.bot.channel(channel[2..-1])
-bot.command(:addchan,
-            ) do |event, server|
-              def save
-                file = File.open("serverlist.yaml", "w")
-                file.write($serverlist.to_yaml)
-              end
-    #Grabs the channel the command is used in
-  channeltoadd = event.channel.id
-  currentserver = event.server.id
-
-  $serverlist['Server'] << currentserver = []
-  $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
-  $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
-  event << "Added"
-  save
-end
+# bot.command(:addchan,
+#             ) do |event, server|
+#               def save
+#                 file = File.open("serverlist.yaml", "w")
+#                 file.write($serverlist.to_yaml)
+#               end
+#     #Grabs the channel the command is used in
+#   channeltoadd = event.channel.id
+#   currentserver = event.server.id
+#
+#   $serverlist['Server'] << currentserver = []
+#   $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
+#   $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
+#   event << "Added"
+#   save
+# end
 #-------------EVENTS---------#
 
 bot.message(with_text: '/o/') do |event|
@@ -801,6 +801,26 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
         event.respond bigimage[1]
 end
 
+
+bot.command(:r34) do |event, *search|
+  next event.respond "I need the `r34` role for that, silly" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
+    begin
+      return if input == 'exit'
+      input.gsub!.join('')
+      base_url = 'http://rule34.paheal.net/post/list/'
+      rule34 = Nokogiri::HTML RestClient.get(base_url + input + '/1')
+      pictures = rule34.css('.shm-thumb').map do |x|
+        x = x.css('a')[1].attr('href')
+        #x = "https://rule34.paheal.net#{x.css('a')[0].attr('href')}" # This gets the post not a direct image
+      end
+      raise 'No pictures found' if pictures.empty?
+    rescue => error
+      puts error
+      retry
+    end
+    event.respond "#{x}\n Full page: <#{xfull}>"
+end
 
 
 bot.command(:echo) do |event|
