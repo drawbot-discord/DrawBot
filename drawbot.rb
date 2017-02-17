@@ -810,7 +810,7 @@ bot.command(:r34,
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
     begin
       #The thing we're looking for. What comes after the command
-      search.join!('_')
+      search.join('_')
       next event.respond 'Please give me something to look for' if search.empty?
       #The URL the search starts with
       base_url = 'http://rule34.paheal.net/post/list/'
