@@ -821,8 +821,8 @@ bot.command(:r34,
         #y = "https://rule34.paheal.net#{x.css('a')[0].attr('href')}" # This gets the post not a direct image
       end
       next event.respond 'No pictures found' if pictures.empty?
-    rescue => error
-      event.respond error
+    rescue
+      event.respond "Couldn't find anything"
     end
     #Spits out the randomized end result
     event.respond pictures.sample
