@@ -809,13 +809,11 @@ bot.command(:r34,
   next event.respond "I need the `r34` role for that, silly" unless
   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
     begin
-      #The thing we're looking for. What comes after the command
-      search.join('_')
       next event.respond 'Please give me something to look for' if search.empty?
       #The URL the search starts with
       base_url = 'http://rule34.paheal.net/post/list/'
       #Tacks the search onto the end of the base_url
-      rule34 = Nokogiri::HTML RestClient.get(base_url + search + '/1')
+      rule34 = Nokogiri::HTML RestClient.get(base_url + search.join('_') + '/1')
       #Uses x to grab the URL from the css
       pictures = rule34.css('.shm-thumb').map do |x|
         #This produces the img URL from pictures
