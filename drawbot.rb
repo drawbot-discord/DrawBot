@@ -128,8 +128,8 @@ bot.command(:info,
     #           value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     #e.add_field name: 'RAM usage',
     #           value: "#{usw.uw_memused}", inline: true
-    #e.add_field name: 'Avg CPU lod in the last minute',
-    #           value: "#{usw.uw_load}", inline: true
+    e.add_field name: 'Avg CPU lod in the last minute',
+               value: "#{usw.uw_load}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Received',
                value: "#{usw.uw_bandrx}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
