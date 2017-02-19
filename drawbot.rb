@@ -127,7 +127,7 @@ bot.command(:info,
                value: "#{usw.uw_bandtx} Mbit/s", inline: true
     e.add_field name: 'Inbound bandwidth',
                value: "#{usw.uw_bandrx} Mbit/s", inline: true
-    e.add_field name: 'Avg CPU lode (past 60 secs)',
+    e.add_field name: 'Avg CPU load',
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
