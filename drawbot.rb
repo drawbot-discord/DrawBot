@@ -115,11 +115,11 @@ bot.command(:info,
                usw = Usagewatch
                event.channel.send_embed do |e|
     #e.description = '**DrawBot General information**'
-    #e.add_field name: 'I am worked on by',
-    #           value: "`Echo#5248` and `Lune#2639` `Cyan「Alter」#3717`", inline: true
-    #e.add_field name: "[my server](discord.gg/u3a2Ck9)", inline: true
-    #e.add_field name: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
-    #e.add_field name: "[Invite link](#{event.bot.invite_url})", inline: true
+    e.add_field name: 'I am worked on by',
+               value: "`Echo#5248` and `Lune#2639` `Cyan「Alter」#3717`", inline: true
+    e.add_field name: "[my server](discord.gg/u3a2Ck9)", inline: true
+    e.add_field name: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
+    e.add_field name: "[Invite link](#{event.bot.invite_url})", inline: true
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'CPU being used',
