@@ -117,17 +117,17 @@ bot.command(:info,
      e.description = '**DrawBot General information**'
    e.add_field name: 'I am worked on by',
               value: "`Echo#5248`\n"\
-                      "'Lune#2639'\n"\
-                      "'Cyan「Alter」#3717`", inline: true
+                      "`Lune#2639`\n"\
+                      "`Cyan「Alter」#3717`", inline: true
     e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
-    e.add_field name: 'CPU being used',
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
+    e.add_field name: 'CPU used',
                value: "#{usw.uw_cpuused}%", inline: true
-    e.add_field name: 'TCP/UDP connections',
-               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
-    e.add_field name: 'Avg CPU lod in the last minute',
+    e.add_field name: 'TCP/UDP connections',
+               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
+    e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Received',
                value: "#{usw.uw_bandrx}", inline: true
