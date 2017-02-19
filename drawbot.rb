@@ -114,28 +114,27 @@ bot.command(:info,
              description: 'Get some general info about drawbot!') do |event|
                usw = Usagewatch
                event.channel.send_embed do |e|
-    e.thumbnail = { url: event.server.icon_url }
-    e.description = '**DrawBot General information**'
-    e.add_field name: 'I am worked on by',
-               value: "`Echo#5248` and `Lune#2639` `Cyan「Alter」#3717`", inline: true
-    e.add_field name: "[my server](discord.gg/u3a2Ck9)", inline: true
-    e.add_field name: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
-    e.add_field name: "[Invite link](#{event.bot.invite_url})", inline: true
-    e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
-    e.add_field name: 'CPU being used',
-               value: "#{usw.uw_cpuused}%", inline: true
-    e.add_field name: 'TCP/UDP connections',
-               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
-    e.add_field name: 'RAM usage',
-               value: "#{usw.uw_memused}", inline: true
-    e.add_field name: 'Avg CPU lod in the last minute',
-               value: "#{usw.uw_load}", inline: true
-    e.add_field name: 'Mbit/s Current Bandwidth Received',
-               value: "#{usw.uw_bandrx}", inline: true
+    #e.description = '**DrawBot General information**'
+    #e.add_field name: 'I am worked on by',
+    #           value: "`Echo#5248` and `Lune#2639` `Cyan「Alter」#3717`", inline: true
+    #e.add_field name: "[my server](discord.gg/u3a2Ck9)", inline: true
+    #e.add_field name: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
+    #e.add_field name: "[Invite link](#{event.bot.invite_url})", inline: true
+    #e.add_field name: 'Disk space used',
+    #           value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
+    #e.add_field name: 'CPU being used',
+    #           value: "#{usw.uw_cpuused}%", inline: true
+    #e.add_field name: 'TCP/UDP connections',
+    #           value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
+    #e.add_field name: 'RAM usage',
+    #           value: "#{usw.uw_memused}", inline: true
+    #e.add_field name: 'Avg CPU lod in the last minute',
+    #           value: "#{usw.uw_load}", inline: true
+    #e.add_field name: 'Mbit/s Current Bandwidth Received',
+    #           value: "#{usw.uw_bandrx}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
                value: "#{usw.uw_bandtx}", inline: true
-    #e.footer = { text: 'This operation took #{Time.now - event.timestamp} seconds to calculate' }
+    e.footer = { text: 'This operation took #{Time.now - event.timestamp} seconds to calculate' }
   end
 end
 
