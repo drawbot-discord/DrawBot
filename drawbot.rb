@@ -124,7 +124,7 @@ bot.command(:info,
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'CPU used',
                value: "#{usw.uw_cpuused}%", inline: true
     e.add_field name: 'RAM usage',
