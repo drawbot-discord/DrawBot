@@ -119,12 +119,12 @@ bot.command(:info,
               value: "`Echo#5248`\n"\
                       "'Lune#2639'\n"\
                       "'Cyan「Alter」#3717`", inline: true
-    e.add_field name: 'My server',
-               value: "[Click here](discord.gg/u3a2Ck9)", inline: true
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
+    e.add_field name: 'My server',
+               value: "[Click here](discord.gg/u3a2Ck9)", inline: true
     e.add_field name: 'Github',
-               value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:false
+               value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
     e.add_field name: 'Invite link',
                value: "[Click here](#{event.bot.invite_url})", inline: false
     e.add_field name: 'CPU being used',
