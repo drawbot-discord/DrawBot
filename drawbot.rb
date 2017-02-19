@@ -130,11 +130,11 @@ bot.command(:info,
     #           value: "#{usw.uw_memused}", inline: true
     #e.add_field name: 'Avg CPU lod in the last minute',
     #           value: "#{usw.uw_load}", inline: true
-    #e.add_field name: 'Mbit/s Current Bandwidth Received',
-    #           value: "#{usw.uw_bandrx}", inline: true
+    e.add_field name: 'Mbit/s Current Bandwidth Received',
+               value: "#{usw.uw_bandrx}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
                value: "#{usw.uw_bandtx}", inline: true
-    e.footer = { text: 'This operation took #{Time.now - event.timestamp} seconds to calculate' }
+    e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate" }
   end
 end
 
