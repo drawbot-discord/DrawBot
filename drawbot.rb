@@ -122,14 +122,14 @@ bot.command(:info,
     e.add_field name: "Connected servers/users",
                value:  "Servers: #{event.bot.servers.count}\n"\
                        "Users: #{event.bot.users.count}", inline: true
-    e.add_field name: 'TCP/UDP connections',
-               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: false
     e.add_field name: 'Outbound bandwidth Transmitted',
                value: "#{usw.uw_bandtx} Mbit/s", inline: true
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'Inbound bandwidth Transmitted',
                value: "#{usw.uw_bandrx} Mbit/s", inline: true
+    e.add_field name: 'TCP/UDP connections',
+               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: false
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
     e.add_field name: 'CPU used',
