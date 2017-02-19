@@ -123,7 +123,7 @@ bot.command(:info,
                value:  "Servers: #{event.bot.servers.count}\n"\
                        "Users: #{event.bot.users.count}", inline: true
     e.add_field name: 'CPU used',
-               value: "#{usw.uw_cpuused}%", inline: true
+               value: "#{usw.uw_cpuused}%", inline: false
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'Disk taken',
