@@ -120,10 +120,10 @@ bot.command(:info,
     #e.add_field name: "[my server](discord.gg/u3a2Ck9)", inline: true
     #e.add_field name: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
     #e.add_field name: "[Invite link](#{event.bot.invite_url})", inline: true
-    #e.add_field name: 'Disk space used',
-    #           value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
-    #e.add_field name: 'CPU being used',
-    #           value: "#{usw.uw_cpuused}%", inline: true
+    e.add_field name: 'Disk space used',
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
+    e.add_field name: 'CPU being used',
+               value: "#{usw.uw_cpuused}%", inline: true
     e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'RAM usage',
