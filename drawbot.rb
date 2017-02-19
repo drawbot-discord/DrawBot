@@ -122,7 +122,7 @@ bot.command(:info,
     e.add_field name: "Connected servers/users",
                value:  "Servers: #{event.bot.servers.count}\n"\
                        "Users: #{event.bot.users.count}", inline: true
-        e.add_field name: 'TCP/UDP connections',
+    e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: false
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
@@ -137,7 +137,7 @@ bot.command(:info,
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'My server',
-               value: "[Click here](discord.gg/u3a2Ck9)", inline: true
+               value: "[Click here](discord.gg/u3a2Ck9)", inline: false
     e.add_field name: 'Invite link',
                value: "[Click here](#{event.bot.invite_url})", inline: true
     e.add_field name: 'Github',
