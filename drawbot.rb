@@ -125,8 +125,7 @@ Use `~commands` to find out what I can do for you!
   Avg CPU lod in the last minute #{usw.uw_load}\n
   Mbit/s Current Bandwidth Received #{usw.uw_bandrx}\n
   Mbit/s Current Bandwidth Transmitted #{usw.uw_bandtx}\n
-  Current Disk Reads Completed #{usw.uw_diskioreads}\n
-  Current Disk Writes Completed #{usw.uw_diskiowrites}\n"
+  This operation took #{Time.now - event.timestamp} ms to calculate"
 end
 
 
