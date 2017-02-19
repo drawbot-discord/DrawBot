@@ -114,7 +114,7 @@ bot.command(:info,
              description: 'Get some general info about drawbot!') do |event|
                usw = Usagewatch
                event.channel.send_embed do |e|
-   e.description = '**DrawBot General information**'
+   e.description = '##**DrawBot General information**'
    e.thumbnail = { url: event.bot.profile.avatar_url }
    e.add_field name: 'I am worked on by',
               value: "`Echo#5248`\n"\
