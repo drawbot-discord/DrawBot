@@ -116,7 +116,9 @@ bot.command(:info,
                event.channel.send_embed do |e|
      e.description = '**DrawBot General information**'
    e.add_field name: 'I am worked on by',
-              value: "`Echo#5248` and `Lune#2639` `Cyan「Alter」#3717`", inline: true
+              value: "`Echo#5248`"\
+                      "Lune#2639"\
+                      "Cyan「Alter」#3717`", inline: true
     e.add_field name: 'My server',
                value: "[my server](discord.gg/u3a2Ck9)", inline: true
     e.add_field name: 'Github',
