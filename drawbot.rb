@@ -112,7 +112,7 @@ end
 
 bot.command(:info,
              description: 'Get some general info about drawbot!') do |event|
-  response = "Hey there, my name is DrawBot AKA Eris. I'm hosted by `Echo#5248` and worked on by `Echo#5248` and `Lune#2639`\n
+"Hey there, my name is DrawBot AKA Eris. I'm hosted by `Echo#5248` and worked on by `Echo#5248` and `Lune#2639`\n
 If you have any questions or issues you can join my server `discord.gg/u3a2Ck9`\n
 My github home can be found here: `github.com/LeggoMyEcho/DrawBot` and my invite link is `discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot`
 Use `~commands` to find out what I can do for you!
@@ -130,7 +130,7 @@ Use `~commands` to find out what I can do for you!
 #{usw.uw_cputop}
 #{usw.uw_memtop}"
 
-  event << response
+
 end
 
 
