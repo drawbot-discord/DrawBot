@@ -117,19 +117,20 @@ bot.command(:info,
 If you have any questions or issues you can join my server `discord.gg/u3a2Ck9`\n
 My github home can be found here: `github.com/LeggoMyEcho/DrawBot` and my invite link is `discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot`
 Use `~commands` to find out what I can do for you!
-#{usw.uw_diskused}
-#{usw.uw_diskused_perc}
-#{usw.uw_cpuused}
-#{usw.uw_tcpused}
-#{usw.uw_udpused}
-#{usw.uw_memused}
-#{usw.uw_load}
-#{usw.uw_bandrx}
-#{usw.uw_bandtx}
-#{usw.uw_diskioreads}
-#{usw.uw_diskiowrites}
-#{usw.uw_cputop}
-#{usw.uw_memtop}"
+
+  diskused #{usw.uw_diskused}\n
+  diskused_perc #{usw.uw_diskused_perc}\n
+  cpuused #{usw.uw_cpuused}\n
+  tcpused #{usw.uw_tcpused}\n
+  udpused #{usw.uw_udpused}\n
+  memused #{usw.uw_memused}\n
+  load #{usw.uw_load}\n
+  bandrx #{usw.uw_bandrx}\n
+  bandtx #{usw.uw_bandtx}\n
+  diskioreads #{usw.uw_diskioreads}\n
+  diskiowrites #{usw.uw_diskiowrites}\n
+  cputop #{usw.uw_cputop}\n
+  memtop #{usw.uw_memtop}"
 
 
 end
