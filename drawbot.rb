@@ -123,16 +123,16 @@ bot.command(:info,
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
+    e.add_field name: 'Mbit/s Current Bandwidth Received',
+               value: "#{usw.uw_bandrx}", inline: true
+    e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
+               value: "#{usw.uw_bandtx}", inline: true
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'CPU used',
                value: "#{usw.uw_cpuused}%", inline: true
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
-    e.add_field name: 'Mbit/s Current Bandwidth Received',
-               value: "#{usw.uw_bandrx}", inline: true
-    e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
-               value: "#{usw.uw_bandtx}", inline: true
     e.add_field name: 'My server',
                value: "[Click here](discord.gg/u3a2Ck9)", inline: true
     e.add_field name: 'Github',
