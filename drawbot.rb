@@ -131,7 +131,7 @@ bot.command(:info,
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
-    e.add_field name: 'CPU percentage used',
+    e.add_field name: 'CPU',
                value: "#{usw.uw_cpuused}%", inline: false
     e.add_field name: 'Disk taken',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
