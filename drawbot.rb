@@ -123,10 +123,10 @@ bot.command(:info,
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
-    e.add_field name: 'Mbit/s Current Bandwidth Received',
-               value: "#{usw.uw_bandrx}", inline: true
-    e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
-               value: "#{usw.uw_bandtx}", inline: true
+    e.add_field name: 'Inbound bandwidth Transmitted',
+               value: "#{usw.uw_bandrx} Mbit/s", inline: true
+    e.add_field name: 'Outbound bandwidth Transmitted',
+               value: "#{usw.uw_bandtx} Mbit/s", inline: true
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'CPU used',
