@@ -135,7 +135,7 @@ bot.command(:info,
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'My server',
                value: "[Click here](discord.gg/u3a2Ck9)", inline: false
     e.add_field name: 'Invite link',
