@@ -119,11 +119,9 @@ bot.command(:info,
               value: "`Echo#5248`\n"\
                       "`Lune#2639`\n"\
                       "`Cyan「Alter」#3717`", inline: true
-    e.add_field name: "Connected servers",
-               value:  "#{event.bot.servers.count}", inline: true
-    e.add_field name: "Connected users",
-               value: "#{event.bot.users.count}", inline: false
-    e.add_field name: 'TCP/UDP connections',
+    e.add_field name: "Connected servers/users",
+               value:  "#{event.bot.servers.count}/#{event.bot.users.count}", inline: true
+        e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'Avg CPU lode (past 60 secs)',
                value: "#{usw.uw_load}", inline: true
