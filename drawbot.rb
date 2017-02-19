@@ -131,7 +131,7 @@ bot.command(:info,
     e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
     e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
     e.add_field name: 'CPU used',
                value: "#{usw.uw_cpuused}%", inline: true
     e.add_field name: 'RAM usage',
