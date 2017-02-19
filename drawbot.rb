@@ -124,10 +124,10 @@ bot.command(:info,
     #           value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     #e.add_field name: 'CPU being used',
     #           value: "#{usw.uw_cpuused}%", inline: true
-    #e.add_field name: 'TCP/UDP connections',
-    #           value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
-    #e.add_field name: 'RAM usage',
-    #           value: "#{usw.uw_memused}", inline: true
+    e.add_field name: 'TCP/UDP connections',
+               value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
+    e.add_field name: 'RAM usage',
+               value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'Avg CPU lod in the last minute',
                value: "#{usw.uw_load}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Received',
