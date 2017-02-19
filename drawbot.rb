@@ -135,7 +135,7 @@ bot.command(:info,
                value: "#{usw.uw_bandrx}", inline: true
     e.add_field name: 'Mbit/s Current Bandwidth Transmitted',
                value: "#{usw.uw_bandtx}", inline: true
-    e.footer value: "This operation took #{Time.now - event.timestamp} seconds to calculate"
+    e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate"}
   end
 end
 
