@@ -117,14 +117,14 @@ bot.command(:info,
      e.description = '**DrawBot General information**'
    e.add_field name: 'I am worked on by',
               value: "`Echo#5248`"\
-                      "Lune#2639"\
-                      "Cyan「Alter」#3717`", inline: true
+                      "'Lune#2639'"\
+                      "'Cyan「Alter」#3717`", inline: true
     e.add_field name: 'My server',
-               value: "[my server](discord.gg/u3a2Ck9)", inline: true
+               value: "[Click here](discord.gg/u3a2Ck9)", inline: true
     e.add_field name: 'Github',
-               value: "[Github link](github.com/LeggoMyEcho/DrawBot)", inline:true
+               value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:false
     e.add_field name: 'Invite link',
-               value: "[Click here](#{event.bot.invite_url})", inline: true
+               value: "[Click here](#{event.bot.invite_url})", inline: false
     e.add_field name: 'Disk space used',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'CPU being used',
