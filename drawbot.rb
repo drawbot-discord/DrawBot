@@ -134,7 +134,7 @@ bot.command(:info,
                value: "#{usw.uw_cpuused}%", inline: false
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
-    e.add_field name: 'Disk space used',
+    e.add_field name: 'Disk taken',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'My server',
                value: "[Click here](discord.gg/u3a2Ck9)", inline: true
