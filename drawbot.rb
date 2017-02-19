@@ -143,6 +143,8 @@ bot.command(:info,
                value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'Github',
                value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
+    e.add_field name: "DrawBot Info",
+               value: "DrawBot .9 Alpha **Ruby:** `#{RUBY_VERSION}`\n**Discordrb:** `#{Discordrb::VERSION}`"              
     e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate" }
   end
 end
