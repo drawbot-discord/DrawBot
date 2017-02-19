@@ -130,12 +130,12 @@ bot.command(:info,
                value: "#{usw.uw_bandrx} Mbit/s", inline: true
     e.add_field name: 'TCP/UDP connections',
                value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
-    e.add_field name: 'Disk space used',
-               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
     e.add_field name: 'CPU used',
                value: "#{usw.uw_cpuused}%", inline: true
     e.add_field name: 'RAM usage',
                value: "#{usw.uw_memused}", inline: true
+    e.add_field name: 'Disk space used',
+               value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: false
     e.add_field name: 'My server',
                value: "[Click here](discord.gg/u3a2Ck9)", inline: false
     e.add_field name: 'Invite link',
