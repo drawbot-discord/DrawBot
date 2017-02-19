@@ -135,10 +135,10 @@ bot.command(:info,
                value: "#{usw.uw_memused}", inline: true
     e.add_field name: 'My server',
                value: "[Click here](discord.gg/u3a2Ck9)", inline: true
-    e.add_field name: 'Github',
-               value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
     e.add_field name: 'Invite link',
                value: "[Click here](#{event.bot.invite_url})", inline: true
+    e.add_field name: 'Github',
+               value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
     e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate" }
   end
 end
