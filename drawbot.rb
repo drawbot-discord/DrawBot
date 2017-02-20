@@ -391,8 +391,8 @@ bot.command(:reg) do |event|
             file = File.open("db.yaml", "w")
             file.write($db.to_yaml)
           end
-          user = $db['users'][event.user.id]
-      if user
+  user = $db['users'][event.user.id]
+      if user == true
         "You're already registered sweetheart."
       end
     if user.nil?
