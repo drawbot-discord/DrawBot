@@ -386,6 +386,21 @@ bot.command(:addref,
        nil
 end
 
+bot.command(:reg) do |event|
+          def save
+            file = File.open("db.yaml", "w")
+            file.write($db.to_yaml)
+          end
+    user = $db['users'][event.user.id]
+    if user == true
+      "You are already registered!"
+    elsif
+      if user.nil?
+      $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
+      event << "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
+      end
+    end
+end
 #event.bot.channel(channel[2..-1])
 # bot.command(:addchan,
 #             ) do |event, server|
