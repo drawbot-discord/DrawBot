@@ -394,11 +394,13 @@ bot.command(:reg) do |event|
 begin
   user = $db['users'][event.user.id]
       if user == true
-        "You're already registered sweetheart."
+      event << "You're already registered sweetheart."
       end
     if user.nil?
       $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
-      "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
+      event << "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
+      save
+      nil
     end
 rescue => e
   puts e
