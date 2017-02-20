@@ -391,11 +391,14 @@ bot.command(:reg) do |event|
             file = File.open("db.yaml", "w")
             file.write($db.to_yaml)
           end
+          if user.nil? == false
+            "You are already registered!"
+          end
     if user.nil?
       $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
       event << "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
     end
-    "You are already registered!"
+
 end
 
 
