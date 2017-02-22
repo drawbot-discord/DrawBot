@@ -242,7 +242,7 @@ end
 bot.command(:poses,
              description: "Get two lists of poses to draw from! (Use ~roll # to choose)",
              usage: '~poses') do |event|
-  event << "`~roll 98`\nhttps://puu.sh/oNXxK/474217250e.jpg\n`~roll 20`\nhttps://puu.sh/oNxer/cb15424c85.jpg"
+  event << "`~roll 1d98`\nhttps://puu.sh/oNXxK/474217250e.jpg\n`~roll 1d20`\nhttps://puu.sh/oNxer/cb15424c85.jpg"
 end
 
 bot.command([:randomchar, :pc],
@@ -902,6 +902,13 @@ bot.member_join do |event|
   member_role = event.server.roles.find { |r| r.name == 'Members'}
   unless member_role.nil?
     event.user.add_role member_role
+  end
+end
+
+bot.member_leave do |event|
+  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
+  unless welcome_channel.nil?
+    welcome_channel.send_message "#{event.user.mention} has left!"
   end
 end
 
