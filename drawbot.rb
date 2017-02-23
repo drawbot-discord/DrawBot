@@ -908,7 +908,7 @@ end
 bot.member_leave do |event|
   welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
   unless welcome_channel.nil?
-    welcome_channel.send_message "#{event.user.mention} has left!"
+    welcome_channel.send_message "#{event.user.name} has left!"
   end
 end
 
