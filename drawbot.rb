@@ -64,9 +64,9 @@ Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
 Selfie = $db['Selfie']
-Gender = $pc['Gender'].sample
-HairLength = $pc['HairLength']
-Height = $pc['Height']
+Gender = $pc['gender'].sample
+HairLength = $pc['hairlength']
+Height = $pc['height']
 Hair = $pc['hair']
 Deity = $pc['deity']
 
