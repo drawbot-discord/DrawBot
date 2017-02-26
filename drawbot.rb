@@ -249,13 +249,13 @@ bot.command([:randomchar, :pc],
              height = $pc['height']
              hair = $pc['hair']
              deity = $pc['deity']
-             bodyType = $pc['bodytype']
+             bodytype = $pc['bodytype']
              race = $pc['race']
-             pclass = $pc['class']
+             pclass = $pc['class'].sample
              stats = $pc['stats']
 
              align = case pclass
-             when paladin then "Lawful Good"
+             when "paladin" then "Lawful Good"
              else $pc['align'].sample
              end
 
@@ -264,7 +264,7 @@ bot.command([:randomchar, :pc],
   e.description = 'Randomly generated character sheet'
   #e.add_field name: 'Alignment', value: align, inline: true
   #e.add_field name: 'Race', value: "#{Race.sample}", inline: true
-  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass.sample}"\
+  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass}"\
                                     " #{stats.sample}", inline: true
   e.add_field name: "#{gender} may follow", value: "`#{deity.sample}`,"\
                                                    "`#{deity.sample}`,"\
@@ -273,7 +273,7 @@ bot.command([:randomchar, :pc],
                                     "`#{FantasyNames.sample}`,"\
                                     "`#{FantasyNames.sample}`,",inline: true
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
-                                             " #{hair.sample} hair, #{bodyType.sample}"\
+                                             " #{hair.sample} hair, #{bodytype.sample}"\
                                                           " body and #{height.sample}.", inline: true
   end
 end
