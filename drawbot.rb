@@ -248,7 +248,6 @@ bot.command([:randomchar, :pc],
              hairLength = $pc['hairlength']
              height = $pc['height']
              hair = $pc['hair']
-             deity = $pc['deity']
              bodytype = $pc['bodytype']
              race = $pc['race']
              pclass = $pc['class'].sample
@@ -258,12 +257,21 @@ bot.command([:randomchar, :pc],
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
              end
-
+             deity = case align
+             when "Lawful Good" then $pc['lgdeity'].sample
+             when "Lawful Neutral" then $pc['lndeity'].sample
+             when "Lawful Evil" then $pc['ledeity'].sample
+             when "Neutral" then $pc['ndeity'].sample
+             when "Neutral Good" then $pc['ngdeity'].sample
+             when "Neutral Evil" then $pc['nedeity'].sample
+             when "Chaotic Good" then $pc['cgdeity'].sample
+             when "Chaotic Neutral" then $pc['cndeity'].sample
+             when "Chaotic Evil" then $pc['cedeity'].sample
+             else $pc['deity'].sample
+             end
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
-  #e.add_field name: 'Alignment', value: align, inline: true
-  #e.add_field name: 'Race', value: "#{Race.sample}", inline: true
   e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass}"\
                                     " #{stats.sample}", inline: true
   e.add_field name: "#{gender} may follow", value: "`#{deity.sample}`,"\
