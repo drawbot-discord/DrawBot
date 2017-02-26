@@ -47,10 +47,6 @@ Rekt = $db['rekt'].join("\n")
 Lewd = $db['lewd']
 Compcolour = $db['compcolour']
 EIGHTBALL = $db['eightball']
-Race = $db['race']
-PClass = $db['class']
-Stats = $db['stats']
-Align = $db['align']
 Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
 References = $db['refs']
@@ -63,11 +59,7 @@ Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
 Selfie = $db['Selfie']
-HairLength = $pc['hairlength']
-Height = $pc['height']
-Hair = $pc['hair']
-Deity = $pc['deity']
-BodyType = $pc['bodytype']
+
 
 
 DEVCHANNEL = 222032313154928640
@@ -253,6 +245,15 @@ bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
              gender = ["He", "She"].sample
+             HairLength = $pc['hairlength']
+             Height = $pc['height']
+             Hair = $pc['hair']
+             Deity = $pc['deity']
+             BodyType = $pc['bodytype']
+             Race = $pc['race']
+             PClass = $pc['class']
+             Stats = $pc['stats']
+             Align = $pc['align']
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
