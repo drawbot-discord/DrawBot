@@ -259,47 +259,38 @@ bot.command([:randomchar, :pc],
              race = $pc['race']
              pclass = $pc['class'].sample
              stats = $pc['stats']
+             lgd = $pc['lgdeity']
+             lnd = $pc['lndeity']
+             led = $pc['ledeity']
+             nd = $pc['ndeity']
+             ngd = $pc['ngdeity']
+             ned = $pc['nedeity']
+             cgd = $pc['cgdeity']
+             cnd = $pc['cndeity']
+             ced = $pc['cedeity']
              align = case pclass
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
              end
              deity = case align
              when "Lawful Good"
-               then "#{$pc['lgdeity'].sample}, "\
-                    "#{$pc['lgdeity'].sample}, "\
-                    "#{$pc['lgdeity'].sample}"
+               then "#{lgd.sample}, #{lgd.sample}, #{lgd.sample}"
              when "Lawful Neutral"
-               then "#{$pc['lndeity'].sample}, "\
-                    "#{$pc['lndeity'].sample}, "\
-                    "#{$pc['lndeity'].sample}"
+               then "#{lnd.sample}, #{lnd.sample}, #{lnd.sample}"
              when "Lawful Evil"
-                then "#{$pc['ledeity'].sample}, "\
-                     "#{$pc['ledeity'].sample}, "\
-                     "#{$pc['ledeity'].sample}"
+                then "#{led.sample}, #{led.sample}, #{led.sample}"
              when "Neutral"
-               then "#{$pc['ndeity'].sample}, "\
-                    "#{$pc['ndeity'].sample}, "\
-                    "#{$pc['ndeity'].sample}"
+               then "#{nd.sample}, #{nd.sample}, #{nd.sample}"
              when "Neutral Good"
-               then "#{$pc['ngdeity'].sample}, "\
-                    "#{$pc['ngdeity'].sample}, "\
-                    "#{$pc['ngdeity'].sample}"
+               then "#{ngd.sample}, #{ngd.sample}, #{ngd.sample}"
              when "Neutral Evil"
-               then "#{$pc['nedeity'].sample}, "\
-                    "#{$pc['nedeity'].sample}, "\
-                    "#{$pc['nedeity'].sample}"
+               then "#{ned.sample}, #{ned.sample}, #{ned.sample}"
              when "Chaotic Good"
-               then "#{$pc['cgdeity'].sample}, "\
-                    "#{$pc['cgdeity'].sample}, "\
-                    "#{$pc['cgdeity'].sample}"
+               then "#{cgd.sample}, #{cgd.sample}, #{cgd.sample}"
              when "Chaotic Neutral"
-               then "#{$pc['cndeity'].sample}, "\
-                    "#{$pc['cndeity'].sample}, "\
-                    "#{$pc['cndeity'].sample}"
+               then "#{cnd.sample}, #{cnd.sample}, #{cnd.sample}"
              when "Chaotic Evil"
-               then "#{$pc['cedeity'].sample}, "\
-                    "#{$pc['cedeity'].sample}, "\
-                    "#{$pc['cedeity'].sample}"
+               then "#{ced.sample}, #{ced.sample}, #{ced.sample}"
              else $pc['deity'].sample
              end
              weapon = case pclass
