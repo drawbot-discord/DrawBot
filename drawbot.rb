@@ -346,7 +346,7 @@ bot.command([:randomchar, :pc],
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
                                              " #{hair.sample} hair, #{bodytype.sample}"\
                                                           " body and #{height.sample}."\
-                                                          " #{pronoun} preferes to use #{weapon}.", inline: true
+                                                          " #{pronoun} weapon of choice is #{weapon}.", inline: true
   end
 end
 
