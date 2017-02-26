@@ -274,9 +274,7 @@ bot.command([:randomchar, :pc],
   e.description = 'Randomly generated character sheet'
   e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass}"\
                                     " #{stats.sample}", inline: true
-  e.add_field name: "#{gender} may follow", value: "`#{deity.sample}`,"\
-                                                   "`#{deity.sample}`,"\
-                                                   "`#{deity.sample}`,",inline: true
+  e.add_field name: "#{gender} may follow", value: deity, inline: true
   e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
                                     "`#{FantasyNames.sample}`,"\
                                     "`#{FantasyNames.sample}`,",inline: true
