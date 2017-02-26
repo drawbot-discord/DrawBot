@@ -1279,6 +1279,13 @@ bot.command :sayccmain do |event, *message|
 end
 
 
+bot.command :announce do |event, *message|
+   break unless event.channel.id == DEVCHANNEL
+    message = message.join(' ')
+    event.bot.channel(event.server.default_channel.id).send_message(message)
+end
+
+
 
 #------------Eval-----------#
 bot.command(:eval,
