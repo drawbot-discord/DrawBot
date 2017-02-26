@@ -255,7 +255,7 @@ bot.command([:randomchar, :pc],
              align = case pclass
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
-             end             
+             end
              deity = case align
              when "Lawful Good"
                then "#{$pc['lgdeity'].sample}, "\
@@ -339,7 +339,7 @@ bot.command([:randomchar, :pc],
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
                                              " #{hair.sample} hair, #{bodytype.sample}"\
                                                           " body and #{height.sample}."\
-                                                          "#{gender} preferes to use #{weapon}.", inline: true
+                                                          " #{gender} preferes to use #{weapon}.", inline: true
   end
 end
 
