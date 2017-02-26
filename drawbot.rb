@@ -263,8 +263,8 @@ bot.command([:randomchar, :pc],
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
   #e.add_field name: 'Alignment', value: align, inline: true
-  e.add_field name: 'Race', value: "#{Race.sample}", inline: true
-  e.add_field name: 'Class', value:"A #{align} #{PClass.sample} "\
+  #e.add_field name: 'Race', value: "#{Race.sample}", inline: true
+  e.add_field name: 'Class', value:"A #{align} #{Race.sample} #{PClass.sample} "\
                                     " #{Stats.sample}", inline: true
   e.add_field name: "#{gender} may follow", value: "`#{Deity.sample}`,"\
                                                    "`#{Deity.sample}`,"\
