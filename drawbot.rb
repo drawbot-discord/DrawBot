@@ -251,17 +251,17 @@ end
 bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
-  Gender = ["He", "She"].sample
+  gender = ["He", "She"].sample
   ##HairLength = ["long", "short", "thick", "thin"]
   ##Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
   event << "Your randomly generated fantasy character is a;"
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
-  event << "#{Gender} may follow `#{Deity.sample}`, `#{Deity.sample}`,"\
+  event << "#{gender} may follow `#{Deity.sample}`, `#{Deity.sample}`,"\
                                  " `#{Deity.sample}`, or `#{Deity.sample}`"
   event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
                                " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
-  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
+  event << "#{gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
            " body and #{Height.sample}."
 end
 
