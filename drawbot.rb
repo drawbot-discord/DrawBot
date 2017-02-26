@@ -1282,7 +1282,7 @@ end
 bot.command :announce do |event, *message|
    break unless event.channel.id == DEVCHANNEL
     message = message.join(' ')
-    event.bot.channel(event.server.default_channel.id).send_message(message)
+        event.bot.channel(event.bot.servers.collect{ |_, s| s.default_channel.id }.join(", ")).send_message(message)
 end
 
 
