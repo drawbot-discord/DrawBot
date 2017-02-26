@@ -64,7 +64,6 @@ Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
 Selfie = $db['Selfie']
-Gender = $pc['gender'].sample
 HairLength = $pc['hairlength']
 Height = $pc['height']
 Hair = $pc['hair']
@@ -252,7 +251,7 @@ end
 bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
-  ##Gender = ["He", "She"].sample
+  Gender = ["He", "She"].sample
   ##HairLength = ["long", "short", "thick", "thin"]
   ##Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
   event << "Your randomly generated fantasy character is a;"
