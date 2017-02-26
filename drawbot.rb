@@ -25,7 +25,7 @@ puts ' '
 
 $db = YAML.load(File.read('db.yaml'))
 $serverlist = YAML.load(File.read('serverlist.yaml'))
-
+$pc = YAML.load(File.read('pc.yaml'))
 
 BoopAction = $db['BoopAction']
 WaterContainer = $db['WaterContainer']
@@ -57,8 +57,6 @@ References = $db['refs']
 Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
-Hair = $db['hair']
-Deity = $db['deity']
 DirtyJoke = $db['dirtyjoke']
 BodyType = $db['bodytype']
 Weather = $db['weather']
@@ -66,6 +64,12 @@ Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
 Selfie = $db['Selfie']
+Gender = $pc['Gender']
+HairLength = $pc['HairLength']
+Height = $pc['Height']
+Hair = $pc['hair']
+Deity = $pc['deity']
+
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
