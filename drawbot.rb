@@ -59,6 +59,22 @@ Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
 Subject = $db['subject']
 Selfie = $db['Selfie']
+hairLength = $pc['hairlength']
+height = $pc['height']
+hair = $pc['hair']
+bodytype = $pc['bodytype']
+race = $pc['race']
+pclass = $pc['class'].sample
+stats = $pc['stats']
+lgd = $pc['lgdeity']
+lnd = $pc['lndeity']
+led = $pc['ledeity']
+nd = $pc['ndeity']
+ngd = $pc['ngdeity']
+ned = $pc['nedeity']
+cgd = $pc['cgdeity']
+cnd = $pc['cndeity']
+ced = $pc['cedeity']
 
 
 
@@ -252,22 +268,6 @@ bot.command([:randomchar, :pc],
                then "Her"
              else "their"
              end
-             hairLength = $pc['hairlength']
-             height = $pc['height']
-             hair = $pc['hair']
-             bodytype = $pc['bodytype']
-             race = $pc['race']
-             pclass = $pc['class'].sample
-             stats = $pc['stats']
-             lgd = $pc['lgdeity']
-             lnd = $pc['lndeity']
-             led = $pc['ledeity']
-             nd = $pc['ndeity']
-             ngd = $pc['ngdeity']
-             ned = $pc['nedeity']
-             cgd = $pc['cgdeity']
-             cnd = $pc['cndeity']
-             ced = $pc['cedeity']
              align = case pclass
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
