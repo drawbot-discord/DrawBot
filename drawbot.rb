@@ -269,9 +269,9 @@ bot.command([:randomchar, :pc],
   e.add_field name: "#{gender} may follow", value: "`#{deity.sample}`,"\
                                                    "`#{deity.sample}`,"\
                                                    "`#{deity.sample}`,",inline: true
-  e.add_field name: 'Names', value: "`#{fantasyNames.sample}`,"\
-                                    "`#{fantasyNames.sample}`,"\
-                                    "`#{fantasyNames.sample}`,",inline: true
+  e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
+                                    "`#{FantasyNames.sample}`,"\
+                                    "`#{FantasyNames.sample}`,",inline: true
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
                                              " #{hair.sample} hair, #{bodyType.sample}"\
                                                           " body and #{height.sample}.", inline: true
