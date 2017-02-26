@@ -69,6 +69,7 @@ Hair = $pc['hair']
 Deity = $pc['deity']
 BodyType = $pc['bodytype']
 
+
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
@@ -251,18 +252,24 @@ end
 bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
-  gender = ["He", "She"].sample
-  ##HairLength = ["long", "short", "thick", "thin"]
-  ##Height = ["is shorter than most of their kind", "is taller than most of their kind", "is of average height"]
-  event << "Your randomly generated fantasy character is a;"
-  event << " "
-  event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
-  event << "#{gender} may follow `#{Deity.sample}`, `#{Deity.sample}`,"\
-                                 " `#{Deity.sample}`, or `#{Deity.sample}`"
-  event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
-                               " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
-  event << "#{gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
-           " body and #{Height.sample}."
+             gender = ["He", "She"].sample
+  event.channel.send_embed do |e|
+  #e.thumbnail = { url: event.server.icon_url }
+  e.description = 'Randomly generated character sheet'
+  e.add_field name: 'Alignment', value: "#{Align.sample}", inline: true
+  e.add_field name: 'Race', value: "#{Race.sample}", inline: true
+  e.add_field name: 'Class', value: "#{PClass.sample} "\
+                                    " #{Stats.sample}", inline: true
+  e.add_field name: "#{gender} may follow", value: "`#{Deity.sample}`,"\
+                                                   "`#{Deity.sample}`,"\
+                                                   "`#{Deity.sample}`,",inline: true
+  e.add_field name: 'Names', value: "#{FantasyNames.sample}`,"\
+                                   "`#{FantasyNames.sample}`,"\
+                                   "`#{FantasyNames.sample}`,",inline: true
+  e.add_field name: 'Physical description', value: "#{gender} has #{HairLength.sample}"\
+                                             " #{Hair.sample} hair, #{BodyType.sample}"\
+                                                          " body and #{Height.sample}.", inline: true
+  end
 end
 
 bot.command(:scene,
