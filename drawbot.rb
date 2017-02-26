@@ -262,7 +262,7 @@ bot.command([:randomchar, :pc],
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
-  e.add_field name: 'Alignment', value: align, inline: true
+  #e.add_field name: 'Alignment', value: align, inline: true
   e.add_field name: 'Race', value: "#{Race.sample}", inline: true
   e.add_field name: 'Class', value:"A #{align} #{PClass.sample} "\
                                     " #{Stats.sample}", inline: true
