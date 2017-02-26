@@ -252,11 +252,10 @@ bot.command([:randomchar, :pc],
              race = $pc['race']
              pclass = $pc['class'].sample
              stats = $pc['stats']
-
              align = case pclass
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
-             end
+             end             
              deity = case align
              when "Lawful Good"
                then "#{$pc['lgdeity'].sample}, "\
@@ -296,6 +295,38 @@ bot.command([:randomchar, :pc],
                     "#{$pc['cedeity'].sample}"
              else $pc['deity'].sample
              end
+             weapon = case pclass
+             when "barbarian", "fighter",\
+                  "paladin", "ranger",\
+                  "cavalier", "gunslinger"\
+                  "magus", "vigilante",\
+                  "bloodrager", "skald",\
+                  "slayer", "swashbuckler",\
+                  "warpriest", "hunter"
+               then $pc['simpmart'].sample
+             when "cleric", "sorcerer",\
+                  "alchemist", "oracle",\
+                  "summoner", "witch", "arcanist"
+               then $pc['simple'].sample
+             when "bard"
+               then $pc['bardwep'].sample
+             when "inquisitor"
+               then $pc['inquisitor'].sample
+             when "rogue"
+               then $pc['roguewep'].sample
+             when "brawler"
+               then $pc['brawlerwep'].sample
+             when "investigator"
+               then $pc['investigatorwep'].sample
+             when "druid"
+               then $pc['druidwep'].sample
+             when "monk"
+               then $pc['monkwep'].sample
+             when "wizard"
+               then $pc['wizardwep'].sample
+              else $pc['simpmart'].sample
+             end
+
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
@@ -304,10 +335,11 @@ bot.command([:randomchar, :pc],
   e.add_field name: "#{gender} may follow", value: deity, inline: true
   e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
                                     "`#{FantasyNames.sample}`,"\
-                                    "`#{FantasyNames.sample}`,",inline: true
+                                    "`#{FantasyNames.sample}`",inline: true
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
                                              " #{hair.sample} hair, #{bodytype.sample}"\
-                                                          " body and #{height.sample}.", inline: true
+                                                          " body and #{height.sample}."\
+                                                          "#{gender} preferes to use #{weapon}.", inline: true
   end
 end
 
