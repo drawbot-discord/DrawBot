@@ -255,10 +255,11 @@ bot.command([:randomchar, :pc],
              Stats = $pc['stats']
              #Align = $pc['align']
              Align = A
-             case align
+             case Align
              when PClass = Paladin
                A = lawful good
-             else A = $pc['align']
+             else
+               A = $pc['align']
              end
 
   event.channel.send_embed do |e|
