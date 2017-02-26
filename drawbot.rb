@@ -245,6 +245,13 @@ bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
              gender = ["He", "She"].sample
+             pronoun = case gender
+             when "He"
+               then "His"
+             when "She"
+               then "Her"
+             else "their"
+             end
              hairLength = $pc['hairlength']
              height = $pc['height']
              hair = $pc['hair']
@@ -339,7 +346,7 @@ bot.command([:randomchar, :pc],
   e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
                                              " #{hair.sample} hair, #{bodytype.sample}"\
                                                           " body and #{height.sample}."\
-                                                          " #{gender} preferes to use #{weapon}.", inline: true
+                                                          " #{pronoun} preferes to use #{weapon}.", inline: true
   end
 end
 
