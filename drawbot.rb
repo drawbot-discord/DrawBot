@@ -1282,7 +1282,9 @@ end
 bot.command :announce do |event, *message|
    break unless event.channel.id == DEVCHANNEL
     message = message.join(' ')
-        event.bot.channel(event.bot.servers.collect{ |_, s| s.default_channel.id }.join(", ")).send_message(message)
+        event.bot.servers.values.each { |s| s.default_channel.send_temporary_message \
+        "Hello #{s.name}. #{message}
+        **This message will self-delete in two minutes**", 120 }
 end
 
 
