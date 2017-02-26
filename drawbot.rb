@@ -259,9 +259,9 @@ bot.command([:randomchar, :pc],
   event << " "
   event << "#{Align.sample} #{Race.sample} #{PClass.sample}, #{Stats.sample}"
   event << "#{Gender} may follow `#{Deity.sample}`, `#{Deity.sample}`,"\
-#                                 " `#{Deity.sample}`, or `#{Deity.sample}`"
-#  event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
-#                               " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
+                                 " `#{Deity.sample}`, or `#{Deity.sample}`"
+  event << "Possible names are `#{FantasyNames.sample}` `#{FantasyNames.sample}`"\
+                               " `#{FantasyNames.sample}` `#{FantasyNames.sample}`"
 #  event << "#{Gender} has #{HairLength.sample} #{Hair.sample} hair, #{BodyType.sample}"\
 #           " body and #{Height.sample}."
 end
