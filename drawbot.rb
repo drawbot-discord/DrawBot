@@ -245,14 +245,14 @@ bot.command([:randomchar, :pc],
              description: "Generate a random fantasy character (Pathfinder/DnD)",
              usage: '~randomchar') do |event|
              gender = ["He", "She"].sample
-             HairLength = $pc['hairlength']
-             Height = $pc['height']
-             Hair = $pc['hair']
-             Deity = $pc['deity']
-             BodyType = $pc['bodytype']
-             Race = $pc['race']
-             PClass = $pc['class']
-             Stats = $pc['stats']
+             hairLength = $pc['hairlength']
+             height = $pc['height']
+             hair = $pc['hair']
+             deity = $pc['deity']
+             bodyType = $pc['bodytype']
+             race = $pc['race']
+             pclass = $pc['class']
+             stats = $pc['stats']
 
              align = case PClass
              when "paladin" then "Lawful Good"
@@ -264,17 +264,17 @@ bot.command([:randomchar, :pc],
   e.description = 'Randomly generated character sheet'
   #e.add_field name: 'Alignment', value: align, inline: true
   #e.add_field name: 'Race', value: "#{Race.sample}", inline: true
-  e.add_field name: 'Class', value:"A #{align} #{Race.sample} #{PClass.sample} "\
-                                    " #{Stats.sample}", inline: true
-  e.add_field name: "#{gender} may follow", value: "`#{Deity.sample}`,"\
-                                                   "`#{Deity.sample}`,"\
-                                                   "`#{Deity.sample}`,",inline: true
-  e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
-                                    "`#{FantasyNames.sample}`,"\
-                                    "`#{FantasyNames.sample}`,",inline: true
-  e.add_field name: 'Physical description', value: "#{gender} has #{HairLength.sample}"\
-                                             " #{Hair.sample} hair, #{BodyType.sample}"\
-                                                          " body and #{Height.sample}.", inline: true
+  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass.sample}"\
+                                    " #{stats.sample}", inline: true
+  e.add_field name: "#{gender} may follow", value: "`#{deity.sample}`,"\
+                                                   "`#{deity.sample}`,"\
+                                                   "`#{deity.sample}`,",inline: true
+  e.add_field name: 'Names', value: "`#{fantasyNames.sample}`,"\
+                                    "`#{fantasyNames.sample}`,"\
+                                    "`#{fantasyNames.sample}`,",inline: true
+  e.add_field name: 'Physical description', value: "#{gender} has #{hairLength.sample}"\
+                                             " #{hair.sample} hair, #{bodyType.sample}"\
+                                                          " body and #{height.sample}.", inline: true
   end
 end
 
