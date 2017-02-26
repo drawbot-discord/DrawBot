@@ -258,15 +258,42 @@ bot.command([:randomchar, :pc],
              else $pc['align'].sample
              end
              deity = case align
-             when "Lawful Good" then $pc['lgdeity'].sample
-             when "Lawful Neutral" then $pc['lndeity'].sample
-             when "Lawful Evil" then $pc['ledeity'].sample
-             when "Neutral" then $pc['ndeity'].sample
-             when "Neutral Good" then $pc['ngdeity'].sample
-             when "Neutral Evil" then $pc['nedeity'].sample
-             when "Chaotic Good" then $pc['cgdeity'].sample
-             when "Chaotic Neutral" then $pc['cndeity'].sample
-             when "Chaotic Evil" then $pc['cedeity'].sample
+             when "Lawful Good"
+               then "#{$pc['lgdeity'].sample}, "\
+                    "#{$pc['lgdeity'].sample}, "\
+                    "#{$pc['lgdeity'].sample}"
+             when "Lawful Neutral"
+               then "#{$pc['lndeity'].sample}, "\
+                    "#{$pc['lndeity'].sample}, "\
+                    "#{$pc['lndeity'].sample}"
+             when "Lawful Evil"
+                then "#{$pc['ledeity'].sample}, "\
+                     "#{$pc['ledeity'].sample}, "\
+                     "#{$pc['ledeity'].sample}"
+             when "Neutral"
+               then "#{$pc['ndeity'].sample}, "\
+                    "#{$pc['ndeity'].sample}, "\
+                    "#{$pc['ndeity'].sample}"
+             when "Neutral Good"
+               then "#{$pc['ngdeity'].sample}, "\
+                    "#{$pc['ngdeity'].sample}, "\
+                    "#{$pc['ngdeity'].sample}"
+             when "Neutral Evil"
+               then "#{$pc['nedeity'].sample}, "\
+                    "#{$pc['nedeity'].sample}, "\
+                    "#{$pc['nedeity'].sample}"
+             when "Chaotic Good"
+               then "#{$pc['cgdeity'].sample}, "\
+                    "#{$pc['cgdeity'].sample}, "\
+                    "#{$pc['cgdeity'].sample}"
+             when "Chaotic Neutral"
+               then "#{$pc['cndeity'].sample}, "\
+                    "#{$pc['cndeity'].sample}, "\
+                    "#{$pc['cndeity'].sample}"
+             when "Chaotic Evil"
+               then "#{$pc['cedeity'].sample}, "\
+                    "#{$pc['cedeity'].sample}, "\
+                    "#{$pc['cedeity'].sample}"
              else $pc['deity'].sample
              end
   event.channel.send_embed do |e|
