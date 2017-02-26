@@ -58,7 +58,6 @@ Malenames = $db['malenames']
 Femalenames = $db['femalesnames']
 FantasyNames = $db['fantasynames']
 DirtyJoke = $db['dirtyjoke']
-BodyType = $db['bodytype']
 Weather = $db['weather']
 Seasons = $db['seasons']
 TimeofDay = $db['timeofday']
@@ -68,6 +67,7 @@ HairLength = $pc['hairlength']
 Height = $pc['height']
 Hair = $pc['hair']
 Deity = $pc['deity']
+BodyType = $pc['bodytype']
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
