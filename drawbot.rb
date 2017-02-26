@@ -257,13 +257,13 @@ bot.command([:randomchar, :pc],
              Align = case Align
              when PClass = paladin
                "lawful good"
-             else $pc['align']
+             else $pc['align'].sample
              end
 
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
-  e.add_field name: 'Alignment', value: "#{Align.sample}", inline: true
+  e.add_field name: 'Alignment', value: "#{Align}", inline: true
   e.add_field name: 'Race', value: "#{Race.sample}", inline: true
   e.add_field name: 'Class', value: "#{PClass.sample} "\
                                     " #{Stats.sample}", inline: true
