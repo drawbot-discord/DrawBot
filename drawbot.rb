@@ -253,7 +253,14 @@ bot.command([:randomchar, :pc],
              Race = $pc['race']
              PClass = $pc['class']
              Stats = $pc['stats']
-             Align = $pc['align']
+             #Align = $pc['align']
+             Align = A
+             case align
+             when PClass = Paladin
+               A = lawful good
+             else A = $pc['align']
+             end
+
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
