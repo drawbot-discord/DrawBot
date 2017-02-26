@@ -254,7 +254,7 @@ bot.command([:randomchar, :pc],
              PClass = $pc['class']
              Stats = $pc['stats']
              #Align = $pc['align']
-             case Align
+             Align = case Align
              when PClass = paladin
                "lawful good"
              else $pc['align']
