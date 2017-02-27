@@ -1114,7 +1114,7 @@ bot.command :poll, help_available: true,
 bot.command(:bank, bucket: :bank, rate_limit_message:'I can\'t spread the wealth that fast!',
              description: "Fetches your balance, or @user's balance") do |event, mention|
   next event.respond "I need the `banker` or `unlocksfw` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.included_in? (["banker", "unlocksfw"])
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.included_in? ["banker", "unlocksfw"]
    if mention.nil?
      mention = event.user.id.to_i
    else
