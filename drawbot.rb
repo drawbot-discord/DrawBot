@@ -81,6 +81,11 @@ ced = $pc['cedeity']
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
+class Array
+   def included_in? array
+     array.to_set.superset?(self.to_set)
+   end
+end
 
 
 bot = Discordrb::Commands::CommandBot.new token: $db['token'], client_id: 186636165938413569, prefix: '~'
@@ -1107,8 +1112,8 @@ bot.command :poll, help_available: true,
 bot.bucket :bank, limit: 1, time_span: 30, delay: 30
 bot.command(:bank, bucket: :bank, rate_limit_message:'I can\'t spread the wealth that fast!',
              description: "Fetches your balance, or @user's balance") do |event, mention|
-  next event.respond "I need the `banker` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
+  next event.respond "I need the `banker` or `unlocksfw` role for that, silly" unless
+  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.included_in?([banker, unlocksfw])
    if mention.nil?
      mention = event.user.id.to_i
    else
@@ -1282,9 +1287,8 @@ end
 bot.command :announce do |event, *message|
    break unless event.channel.id == DEVCHANNEL
     message = message.join(' ')
-        event.bot.servers.values.each { |s| s.default_channel.send_temporary_message \
-        "Hello #{s.name}. #{message}
-        **This message will self-delete in two minutes**", 120 }
+        event.bot.servers.values.each { |s| s.default_channel.send_message \
+        "Hello #{s.name}. #{message}"}
 end
 
 
