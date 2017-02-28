@@ -863,20 +863,20 @@ bot.command(:snek) do |event|
 end
 
 bot.command(:pun) do |event|
-  next event.respond "I need the `pun` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    event << "#{Puns.sample}"
 end
 
 bot.command(:told) do |event|
-  next event.respond "I need the `spam` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'spam'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["spam", "unlocksfw"]
+  next event.respond "I need the `playful` or `spam` role for that, silly" if check.empty?
    event << Told
 end
 
 bot.command(:rekt) do |event|
-  next event.respond "I need the `spam` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'spam'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["spam", "unlocksfw"]
+  next event.respond "I need the `spam` or `unlocksfw` role for that, silly" if check.empty?
    event << Rekt
 end
 
@@ -884,8 +884,8 @@ end
 bot.command(:joke,
             description: "Tells an offensive joke.",
             usage: '~joke') do |event|
-  next event.respond "I need the `offensive` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'offensive'
+              check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["offensive", "unlocknsfw"]
+              next event.respond "I need the `offensive` or `unlocknsfw` role for that, silly" if check.empty?
    event << "#{DirtyJoke.sample}"
 end
 
@@ -1115,6 +1115,25 @@ bot.command(:bank, bucket: :bank, rate_limit_message:'I can\'t spread the wealth
              description: "Fetches your balance, or @user's balance") do |event, mention|
   check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["banker", "unlocksfw"]
   next event.respond "I need the `banker` or `unlocksfw` role for that, silly" if check.empty?
+     def save
+       file = File.open("db.yaml", "w")
+       file.write($db.to_yaml)
+     end
+   begin
+   user = $db['users'][event.user.id]
+   if user == true
+   event << "You're already registered sweetheart."
+   end
+   if user.nil?
+   $db['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
+   event << "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
+   save
+   nil
+   end
+   rescue => e
+   puts e
+   end
+
    if mention.nil?
      mention = event.user.id.to_i
    else
