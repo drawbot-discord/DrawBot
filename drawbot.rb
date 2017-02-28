@@ -182,8 +182,8 @@ end
 bot.command(:drawlewd,
              description: "Generate a random lewd thing to draw!",
              usage: '~drawlewd') do |event|
-   next event.respond "I need the `lewd` role for that, silly" unless
-   event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'lewd'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["lewd", "unlocknsfw"]
+  next event.respond "I need the `lewd` or `unlocknsfw` role for that, silly" if check.empty?
      if rand(1...5) == 1
        "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
     # elsif rand(1...3) == 2
@@ -252,8 +252,8 @@ end
 bot.command(:fpose,
              description: "Generate a random female image from the Playboy Centerfolds (1958-2008) as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
-               next event.respond "I need the `nsfw` role hun." unless
-               event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'nsfw'
+               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["fpose", "unlocknsfw"]
+               next event.respond "I need the `banker` or `unlocksfw` role for that, silly" if check.empty?
   event << "The pose you get is #{Fpose.sample}"
 end
 
@@ -568,240 +568,240 @@ bot.command(:pick,
 end
 
 bot.command(:wave) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} waves #{message}"
    event.message.delete
 end
 
 bot.command(:boop) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} boops #{message}"
    event.message.delete
 end
 
 bot.command(:slap) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} slaps #{message}"
    event.message.delete
 end
 
 bot.command(:rub) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} rubs #{message}"
    event.message.delete
 end
 
 bot.command(:grope) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} gropes #{message}"
    event.message.delete
 end
 
 bot.command(:hug) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} hugs #{message}"
    event.message.delete
 end
 
 bot.command(:hump) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} humps #{message}"
    event.message.delete
 end
 
 bot.command(:bite) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} bites #{message}"
    event.message.delete
 end
 
 bot.command(:smack) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} smacks #{message}"
    event.message.delete
 end
 
 bot.command(:punch) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} punches #{message}"
    event.message.delete
 end
 
 bot.command(:noogie) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} gives #{message} a noogie"
    event.message.delete
 end
 
 bot.command(:smell) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} smells #{message}"
    event.message.delete
 end
 
 bot.command(:lick) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} licks #{message}"
    event.message.delete
 end
 
 bot.command(:kick) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} kicks #{message}"
    event.message.delete
 end
 
 bot.command(:chop) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} karate chops #{message}"
    event.message.delete
 end
 
 bot.command(:squeeze) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} squeezes #{message}"
    event.message.delete
 end
 
 bot.command(:arrest) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} arrests #{message}"
    event.message.delete
 end
 
 bot.command(:sharpie) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} draws all over #{message} with a sharpie"
    event.message.delete
 end
 
 bot.command(:dance) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} dances with #{message}"
    event.message.delete
 end
 
 bot.command(:pat) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} pats #{message}"
    event.message.delete
 end
 
 bot.command(:pet) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} pets #{message}"
    event.message.delete
 end
 
 bot.command(:sit) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} sits on #{message}"
    event.message.delete
 end
 
 bot.command(:tease) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} teases #{message}"
    event.message.delete
 end
 
 bot.command(:whip) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} whips #{message}"
    event.message.delete
 end
 
 bot.command(:murder) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} murders #{message}"
    event.message.delete
 end
 
 bot.command(:wink) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} winks at #{message}"
    event.message.delete
 end
 
 bot.command(:kiss) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} gives #{message} a kiss :kiss:"
    event.message.delete
 end
 
 bot.command(:lean) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} #{BoopAction.sample} leans on #{message}"
    event.message.delete
 end
 
 bot.command(:squish) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} squishes #{message} Quick, grab the broom!"
    event.message.delete
 end
 
 bot.command(:pokeball) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    catch = ['caught', 'missed', 'missed', 'missed', 'missed'].sample
    event << "#{event.user.display_name} throws a pokeball at #{message}, #{event.user.display_name} #{catch} #{message}"
@@ -847,8 +847,8 @@ bot.command(:bad) do |event, *message|
 end
 
 bot.command(:spray) do |event, *message|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
    event << "#{event.user.display_name} sprays #{message} with a #{WaterContainer.sample}"
    event.message.delete
@@ -857,8 +857,8 @@ end
 
 
 bot.command(:snek) do |event|
-  next event.respond "I need the `playful` role and I need to be able to delete messages" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'playful'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
    event << "#{Snake.sample}"
 end
 
@@ -922,8 +922,8 @@ bot.bucket :e621, limit: 3, time_span: 30, delay: 10
 bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
             description: "Search for an image on e621.net",
             usage: '~e621 (search_term)') do |event, *search|
-  next event.respond "I need the `e621` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'e621'
+    check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["e621", "unlocknsfw"]
+    next event.respond "I need the `e621` or `unlocknsfw` role for that, silly" if check.empty?
     search = search.join('%20')
     next event.respond 'Please give me something to search for' if search.empty?
       base_url = 'https://e621.net/post/index/1/'
@@ -944,8 +944,8 @@ bot.command(:r34,
              description: "Search for an image on R34 Paheal",
              usage: `~r34 (search term)`) do |event, *search|
   #If the bot doesn't have the required role; command won't run
-  next event.respond "I need the `r34` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'r34'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["r34", "unlocknsfw"]
+  next event.respond "I need the `r34` or `unlocknsfw` role for that, silly" if check.empty?
     begin
       next event.respond 'Please give me something to look for' if search.empty?
       #The URL the search starts with
