@@ -361,8 +361,23 @@ bot.command(:selfie,
            "Here's an album of all my selfies <http://imgur.com/a/8lWRt>"
 end
 
+BOT.command(:c,
+            description: "Genereates completely random colours",
+            usage: `~colour`) do |event|
+              hex1 = SecureRandom.hex(3)
+              url = "https://dummyimage.com/400x400/#{hex1}&text=+"
+              event.channel.send_embed do |e|
+              e.thumbnail = { url: event.server.icon_url }
+              #e.description = 'General Server-wide information'
+              e.add_field name: " Your colour is #{hex1}",
+                value: "#{url}", inline: true
+              end
+            end
+
+            #{ |e, c|  ; e.channel.send_embed { |em| em.image = { url: url } ; em.color = c }
+
 #COLOUR COMMAND
-bot.command(:colour,
+bot.command(:compcolour,
              description: "Generate a random set of complementary colours!",
              usage: '~colour') do |event|
   event << "Your complementary colours are"
@@ -371,7 +386,7 @@ bot.command(:colour,
 end
 
 #COLOUR COMMAND
-bot.command(:color,
+bot.command(:compcolor,
              description: "Generate a random set of complementary colours, you yankee!",
              usage: '~color') do |event|
   event << "Your complementary colours are"
