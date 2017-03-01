@@ -371,8 +371,8 @@ bot.command(:c,
               url = "https://dummyimage.com/75x75/#{hex1}&text=+"
               event.channel.send_embed do |e|
               #e.description = 'General Server-wide information'
-              e.image = { url: "#{url}", value: "\u200b", inline:true }
-              e.thumbnail = { url: "#{url}" }
+              e.image = { url: "#{url}", value: "\u200b", inline: true }
+              e.thumbnail = { url: "#{url}", inline: true }
               e.add_field name: "\u200b",
                 value: "\u200b", inline: true
               end
