@@ -367,10 +367,10 @@ bot.command(:c,
               hex1 = SecureRandom.hex(3)
               url = "https://dummyimage.com/400x400/#{hex1}&text=+"
               event.channel.send_embed do |e|
-              e.thumbnail = { url: event.server.icon_url }
               #e.description = 'General Server-wide information'
+              e.image = { url: "#{url}" }
               e.add_field name: " Your colour is #{hex1}",
-                value: "#{url}", inline: true
+                value: "\u299", inline: true
               end
             end
 
