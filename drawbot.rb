@@ -362,14 +362,7 @@ bot.command(:selfie,
 end
 
 
-require 'chunky_png'
-bot.command(:chunky) do |event|
 
-     png = ChunkyPNG::Image.new(16, 16, ChunkyPNG::Color::TRANSPARENT)
-     png[1,1] = ChunkyPNG::Color.rgba(10, 20, 30, 255)
-     png.save('filename.png', :interlace => true)
-     "You colour is #{png}"
-     end
 
 bot.command(:c,
             description: "Genereates completely random colours",
@@ -378,7 +371,7 @@ bot.command(:c,
               url = "https://dummyimage.com/75x75/#{hex1}&text=+"
               event.channel.send_embed do |e|
               #e.description = 'General Server-wide information'
-              e.image = { url: "#{url}" }
+              e.image = { url: "#{url}", value: "\u200b", inline:true }
               e.thumbnail = { url: "#{url}" }
               e.add_field name: "\u200b",
                 value: "\u200b", inline: true
