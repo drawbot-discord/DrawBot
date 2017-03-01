@@ -369,6 +369,7 @@ bot.command(:c,
               event.channel.send_embed do |e|
               #e.description = 'General Server-wide information'
               e.image = { url: "#{url}" }
+              e.image = { url: "#{url}" }
               e.add_field name: " Your colour is #{hex1}",
                 value: "\u200b", inline: true
               end
