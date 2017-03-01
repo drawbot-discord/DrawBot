@@ -361,7 +361,7 @@ bot.command(:selfie,
            "Here's an album of all my selfies <http://imgur.com/a/8lWRt>"
 end
 
-BOT.command(:c,
+bot.command(:c,
             description: "Genereates completely random colours",
             usage: `~colour`) do |event|
               hex1 = SecureRandom.hex(3)
