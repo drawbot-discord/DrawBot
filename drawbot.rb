@@ -253,7 +253,7 @@ bot.command(:fpose,
              description: "Generate a random female image from the Playboy Centerfolds (1958-2008) as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
                check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["fpose", "unlocknsfw"]
-               next event.respond "I need the `banker` or `unlocksfw` role for that, silly" if check.empty?
+               next event.respond "I need the `fpose` or `unlocksfw` role for that, silly" if check.empty?
   event << "The pose you get is #{Fpose.sample}"
 end
 
@@ -538,8 +538,8 @@ bot.command(:'8ball') do |event, *message|
 end
 
 bot.command(:eris) do |event, *message|
-  next event.respond "I need the `eris` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'eris'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["eris", "unlocksfw"]
+  next event.respond "I need the `eris` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
     index = rand 0..EIGHTBALL.length-1
     fortune = EIGHTBALL[index]['fortune']
