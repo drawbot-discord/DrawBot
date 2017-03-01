@@ -253,7 +253,7 @@ bot.command(:fpose,
              description: "Generate a random female image from the Playboy Centerfolds (1958-2008) as a drawing reference (NSFW)",
              usage: '~fpose') do |event|
                check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["fpose", "unlocknsfw"]
-               next event.respond "I need the `fpose` or `unlocksfw` role for that, silly" if check.empty?
+               next event.respond "I need the `fpose` or `unlocknsfw` role for that, silly" if check.empty?
   event << "The pose you get is #{Fpose.sample}"
 end
 
@@ -1026,17 +1026,28 @@ bot.command(:serverstat,
     event.channel.send_embed do |e|
     e.thumbnail = { url: event.server.icon_url }
     e.description = 'General Server-wide information'
-    e.add_field name: 'Server Owner', value: event.server.owner.name, inline: true
-    e.add_field name: 'Server Name', value: event.server.name, inline: true
-    e.add_field name: 'Server Creation Date', value: event.server.creation_time.strftime("%B %e, %Y"), inline:true
-    e.add_field name: 'Voice Region', value: event.server.region.upcase, inline: true
-    e.add_field name: 'Online Members', value: "#{event.server.online_members.count}", inline: true
-    e.add_field name: 'Total Members', value: "#{event.server.member_count}", inline: true
-    e.add_field name: 'Amount of Roles', value: event.server.roles.count, inline: true
-    e.add_field name: 'Amount of Channels', value: event.server.channels.count, inline: true
-    e.add_field name: 'Banned Members', value: event.server.bans.count, inline: true
-    e.add_field name: 'Verification Level', value: event.server.verification_level.upcase, inline: true
-    e.add_field name: 'Custom emojis on server?', value: event.server.any_emoji?, inline: true
+    e.add_field name: 'Server Owner',
+      value: event.server.owner.name, inline: true
+    e.add_field name: 'Server Name',
+      value: event.server.name, inline: true
+    e.add_field name: 'Server Creation Date',
+      value: event.server.creation_time.strftime("%B %e, %Y"), inline:true
+    e.add_field name: 'Voice Region',
+      value: event.server.region.upcase, inline: true
+    e.add_field name: 'Online Members',
+      value: "#{event.server.online_members.count}", inline: true
+    e.add_field name: 'Total Members',
+      value: "#{event.server.member_count}", inline: true
+    e.add_field name: 'Amount of Roles',
+      value: event.server.roles.count, inline: true
+    e.add_field name: 'Amount of Channels',
+      value: event.server.channels.count, inline: true
+    e.add_field name: 'Banned Members',
+      value: event.server.bans.count, inline: true
+    e.add_field name: 'Verification Level',
+      value: event.server.verification_level.upcase, inline: true
+    e.add_field name: 'Custom emojis on server?',
+      value: event.server.any_emoji?, inline: true
   end
 end
 #litterally stolen from Cyan
@@ -1048,17 +1059,23 @@ bot.command(:userstat,
               #Grabs the URL for the user's avater
             e.thumbnail = { url: event.user.avatar_url }
               #Returns the username of the user that initiated the command
-            e.add_field name: 'Username', value: event.user.name, inline: true
+            e.add_field name: 'Username',
+              value: event.user.name, inline: true
               #Grabs the discriminator number for the user
-            e.add_field name: 'Discriminator', value: "##{event.user.discriminator}", inline: true
+            e.add_field name: 'Discriminator',
+              value: "##{event.user.discriminator}", inline: true
               #Grabs user's nickname on server
-            e.add_field name: 'People know you as:', value: event.user.display_name, inline: true
+            e.add_field name: 'People know you as:',
+              value: event.user.display_name, inline: true
               #Grabs the user's userID
-            e.add_field name: 'UserID', value: event.user.id, inline: true
+            e.add_field name: 'UserID',
+              value: event.user.id, inline: true
               #Grabs the time the suer joined the server the command is run on
-            e.add_field name: 'You joined this server on  ', value: event.user.joined_at.strftime("%B %e, %Y at %r"), inline: true
+            e.add_field name: 'You joined this server on  ',
+              value: event.user.joined_at.strftime("%B %e, %Y at %r"), inline: true
               #Grabs the time the user created his/her/their account
-            e.add_field name: 'You created your account on', value: event.user.creation_time.strftime("%B %e, %Y at %r"), inline: true
+            e.add_field name: 'You created your account on',
+              value: event.user.creation_time.strftime("%B %e, %Y at %r"), inline: true
         end
 end
 
