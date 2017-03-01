@@ -361,6 +361,16 @@ bot.command(:selfie,
            "Here's an album of all my selfies <http://imgur.com/a/8lWRt>"
 end
 
+
+require 'chunky_png'
+bot.command(:chunky) do |event|
+
+     png = ChunkyPNG::Image.new(16, 16, ChunkyPNG::Color::TRANSPARENT)
+     png[1,1] = ChunkyPNG::Color.rgba(10, 20, 30, 255)
+     png.save('filename.png', :interlace => true)
+     "You colour is #{png}"
+     end
+
 bot.command(:c,
             description: "Genereates completely random colours",
             usage: `~colour`) do |event|
