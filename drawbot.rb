@@ -370,7 +370,7 @@ bot.command(:c,
               #e.description = 'General Server-wide information'
               e.image = { url: "#{url}" }
               e.add_field name: " Your colour is #{hex1}",
-                value: "\u299", inline: true
+                value: "\u200b", inline: true
               end
             end
 
