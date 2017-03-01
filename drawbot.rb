@@ -365,10 +365,9 @@ bot.command(:c,
             description: "Genereates completely random colours",
             usage: `~colour`) do |event|
               hex1 = SecureRandom.hex(3)
-              url = "https://dummyimage.com/400x400/#{hex1}&text=+"
+              url = "https://dummyimage.com/100x100/#{hex1}&text=+"
               event.channel.send_embed do |e|
               #e.description = 'General Server-wide information'
-              e.image = { url: "#{url}" }
               e.image = { url: "#{url}" }
               e.add_field name: " Your colour is #{hex1}",
                 value: "\u200b", inline: true
