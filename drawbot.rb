@@ -368,9 +368,9 @@ bot.command(:c,
             description: "Genereates completely random colours",
             usage: `~colour`) do |event|
               hex1 = SecureRandom.hex(3)
-              url = "https://dummyimage.com/75x75/#{hex1}&text=#{hex1}.upcase"
+              url = "https://dummyimage.com/75x75/#{hex1}&text=#{hex1}"
               hex2 = SecureRandom.hex(3)
-              url2 = "https://dummyimage.com/75x75/#{hex2}&text=+#{hex2}.upcase"
+              url2 = "https://dummyimage.com/75x75/#{hex2}&text=+#{hex2}"
               event.channel.send_embed do |e|
               #e.description = 'General Server-wide information'
               e.image = { url: "#{url}", value: "\u200b", inline: true }
