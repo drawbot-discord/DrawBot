@@ -376,7 +376,7 @@ bot.command(:c,
               e.image = { url: "#{url}", value: "\u200b", inline: true }
               e.thumbnail = { url: "#{url2}", inline: true }
               e.add_field name: "\u200b",
-                value: "\u200b", inline: true
+                value: "Your colours are #{hex1} and #{hex2}", inline: true
               end
             end
 
