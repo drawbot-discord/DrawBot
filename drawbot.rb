@@ -65,7 +65,7 @@ height = $pc['height']
 hair = $pc['hair']
 bodytype = $pc['bodytype']
 race = $pc['race']
-pclass = $pc['class'].sample
+pclass = $pc['class']
 stats = $pc['stats']
 lgd = $pc['lgdeity']
 lnd = $pc['lndeity']
@@ -334,7 +334,7 @@ bot.command([:randomchar, :pc],
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
-  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass}"\
+  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass.sample}"\
                                     " #{stats.sample}", inline: true
   e.add_field name: "#{gender} may follow", value: deity, inline: true
   e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
@@ -365,7 +365,7 @@ end
 
 
 bot.command(:c,
-            description: "Genereates completely random colours",
+            description: "Generates completely random colours",
             usage: `~colour`) do |event|
               hex1 = SecureRandom.hex(3)
               url = "https://dummyimage.com/75x75/#{hex1}&text=#{hex1}"
@@ -383,7 +383,7 @@ bot.command(:c,
             #{ |e, c|  ; e.channel.send_embed { |em| em.image = { url: url } ; em.color = c }
 
 #COLOUR COMMAND
-bot.command(:compcolour,
+bot.command(:colour,
              description: "Generate a random set of complementary colours!",
              usage: '~colour') do |event|
   event << "Your complementary colours are"
