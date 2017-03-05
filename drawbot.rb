@@ -274,7 +274,8 @@ bot.command([:randomchar, :pc],
                then "Her"
              else "their"
              end
-             align = case pclass
+             pclasscase = "#{pclass.sample}"
+             align = case pclasscase
              when "paladin" then "Lawful Good"
              else $pc['align'].sample
              end
@@ -299,7 +300,7 @@ bot.command([:randomchar, :pc],
                then "#{ced.sample}, #{ced.sample}, #{ced.sample}"
              else $pc['deity'].sample
              end
-             weapon = case pclass
+             weapon = case pclasscase
              when "barbarian", "fighter",\
                   "paladin", "ranger",\
                   "cavalier", "gunslinger"\
@@ -334,7 +335,7 @@ bot.command([:randomchar, :pc],
   event.channel.send_embed do |e|
   #e.thumbnail = { url: event.server.icon_url }
   e.description = 'Randomly generated character sheet'
-  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclass.sample}"\
+  e.add_field name: 'Class', value:"A #{align} #{race.sample} #{pclasscase}"\
                                     " #{stats.sample}", inline: true
   e.add_field name: "#{gender} may follow", value: deity, inline: true
   e.add_field name: 'Names', value: "`#{FantasyNames.sample}`,"\
