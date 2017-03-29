@@ -542,11 +542,6 @@ bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
   event.respond '༼∩ •́ ヮ •̀ ༽⊃━☆ﾟ. * ･ ｡ﾟ'
 end
 
-bot.message(wth_text: 'a') do |event|
-  break unless event.channel.id == 153108535239114752
-  event.message.delete
-  event.message.delete
-end
 
 
 #bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
