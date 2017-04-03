@@ -1001,24 +1001,24 @@ end
 #Creation Corner commands
 
 
-#bot.member_join do |event|
-#  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
-#  unless welcome_channel.nil?
-#    welcome_channel.send_message "#{event.user.mention} has joined!"
-#  end
-#
-#  member_role = event.server.roles.find { |r| r.name == 'Members'}
-#  unless member_role.nil?
-#    event.user.add_role member_role
-#  end
-#end
-#
-#bot.member_leave do |event|
-#  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
-#  unless welcome_channel.nil?
-#    welcome_channel.send_message "#{event.user.name} has left!"
-#  end
-#end
+bot.member_join do |event|
+  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
+  unless welcome_channel.nil?
+    welcome_channel.send_message "#{event.user.mention} has joined!"
+  end
+
+  member_role = event.server.roles.find { |r| r.name == 'Members'}
+  unless member_role.nil?
+    event.user.add_role member_role
+  end
+end
+
+bot.member_leave do |event|
+  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
+  unless welcome_channel.nil?
+    welcome_channel.send_message "#{event.user.name} has left!"
+  end
+end
 
 #http://apidock.com/ruby/DateTime/strftime
 bot.command(:submit,
