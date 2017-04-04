@@ -152,7 +152,7 @@ bot.command(:info,
     e.add_field name: 'Disk taken',
                value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
     e.add_field name: 'Invite link',
-               value: "[Click here](#{event.bot.invite_url})", inline: true
+               value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=8192)", inline: true
     e.add_field name: 'CPU',
                value: "#{usw.uw_cpuused}%", inline: true
         e.add_field name: 'My server',
