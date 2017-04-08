@@ -1238,7 +1238,8 @@ bot.command(:give, min_args: 3,
             description: "give currency",
             usage: '~give @user # hearts or salt') do |event, to, value, type|
   next event.respond "I need the `banker` role for that, silly" unless
-  event.bot.profile.on(event.server).roles.map {|x| x.name }.join.include? 'banker'
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["banker", "unlocksfw"]
+  next event.respond "I need the `banker` or `unlocksfw` role for that, silly" if check.empty?
    value = value.to_i
    def save
      file = File.open("db.yaml", "w")
