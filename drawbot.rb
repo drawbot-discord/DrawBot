@@ -8,8 +8,7 @@ require 'json'
 require 'usagewatch'
 require 'set'
 
-$: << "."
-require 'References.rb'
+
 puts ' '
 puts ' '
 puts ' '
@@ -106,6 +105,8 @@ end
 
 
 bot.ready do |event|
+  $: << "."
+  require 'References.rb'
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
   avatar = File.open('media/avatar.jpg','rb')
   event.bot.profile.avatar = avatar
