@@ -431,12 +431,11 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-  msg = "boop"
-  event << msg
+event.message.("boop").react(":eyes:")
   #Stealing cyan's code
-  event.reactions[":eyes:"].each do |r|
-    msg.react r
-  end
+  #event.reactions[":eyes:"].each do |r|
+  #  msg.react r
+  #end
   #event.message.react(":eyes:")
 #bot.add_await
 #if event.message.reactions "success"
