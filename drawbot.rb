@@ -431,21 +431,29 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-  msg = event.respond "🇦 Bones and Skeletons and Bases
-  🇧 Fabric and Clothes
-  🇨 Perspective
-  🇩 Male
-  🇪 Female
-  🇫 Full Tutorials
-  🇬 Head Face Eyes Ears Nose
-  🇭 Hair
-  ☠ Main Menu"
+  msg = event.channel.send_embed do |e|
+  #e.thumbnail = { url: zii }
+  #e.author = { name: event.user.name, icon_url: event.user.avatar_url }
+  e.description = "Use reactions to go through the menu!"
+  e.add_field name: "\u200b", value: "🇦 Bones and Skeletons and Bases
+ 🇧 Fabric and Clothes
+ 🇨 Perspective
+ 🇩 Male
+ 🇪 Female
+ 🇫 Full Tutorials
+ 🇬 Head Face Eyes Ears Nose
+ 🇭 Hair
+ ☠ Main Menu", inline: true
+ 
+ options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
+   options[0...26].each do |r|
+   msg.react r
+ end
+   return false
+end
+   event.respond
   #event << msg
-  options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
-    options[0...26].each do |r|
-    msg.react r
-  end
-    return false
+
   #event.reaction[":eyes:"].each do |r|
   #  msg.react r
   #end
