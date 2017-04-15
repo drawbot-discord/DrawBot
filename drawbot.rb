@@ -7,8 +7,9 @@ require 'rest-client'
 require 'json'
 require 'usagewatch'
 require 'set'
+
+$: << "."
 require 'References.rb'
-$LOAD_PATH << '.' 
 puts ' '
 puts ' '
 puts ' '
