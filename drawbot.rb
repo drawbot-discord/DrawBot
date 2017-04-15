@@ -113,7 +113,6 @@ bot.ready do |event|
  - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
   #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   $: << "."
-  require 'References.rb'
   include 'References.rb'
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
