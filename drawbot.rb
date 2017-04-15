@@ -7,9 +7,7 @@ require 'rest-client'
 require 'json'
 require 'usagewatch'
 require 'set'
-$: << "."
-require 'References'
-include 'References.rb'
+
 
 puts ' '
 puts ' '
