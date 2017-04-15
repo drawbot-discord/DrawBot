@@ -432,26 +432,23 @@ end
 
 bot.command(:await) do |event|
   msg = event.channel.send_embed do |e|
-  #e.thumbnail = { url: zii }
-  #e.author = { name: event.user.name, icon_url: event.user.avatar_url }
   e.description = "Use reactions to go through the menu!"
   e.add_field name: "\u200b", value: "🇦 Bones and Skeletons and Bases\n"\
- "🇧 Fabric and Clothes\n"\
- "🇨 Perspective\n"\
- "🇩 Male\n"\
- "🇪 Female\n"\
+ "🇧 Female Lewd\n"\
+ "🇨 Male Lewd\n"\
+ "🇩 Perspective\n"\
+ "🇪 Fabric and Clothes\n"\
  "🇫 Full Tutorials\n"\
  "🇬 Head Face Eyes Ears Nose\n"\
  "🇭 Hair\n"\
  "☠ Main Menu", inline: true
 end
 
-  #event << msg
   options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
     options[0...26].each do |r|
     msg.react r
   end
-event.add_await(A, ReactionAddEvent, msg.react(options[0]))
+event.message.await(:🇦)
 event.remove.reaction
     return false
 
