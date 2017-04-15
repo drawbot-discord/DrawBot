@@ -435,15 +435,14 @@ bot.command(:await) do |event|
   #e.thumbnail = { url: zii }
   #e.author = { name: event.user.name, icon_url: event.user.avatar_url }
   e.description = "Use reactions to go through the menu!"
-  e.add_field name: "\u200b", value: \
- "🇦 Bones and Skeletons and Bases"\
- "🇧 Fabric and Clothes"\
- "🇨 Perspective"\
- "🇩 Male"\
- "🇪 Female"\
- "🇫 Full Tutorials"\
- "🇬 Head Face Eyes Ears Nose"\
- "🇭 Hair"\
+  e.add_field name: "\u200b", value: "🇦 Bones and Skeletons and Bases\n"\
+ "🇧 Fabric and Clothes\n"\
+ "🇨 Perspective\n"\
+ "🇩 Male\n"\
+ "🇪 Female\n"\
+ "🇫 Full Tutorials\n"\
+ "🇬 Head Face Eyes Ears Nose\n"\
+ "🇭 Hair\n"\
  "☠ Main Menu", inline: true
 end
 
