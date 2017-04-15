@@ -444,16 +444,14 @@ bot.command(:await) do |event|
  🇬 Head Face Eyes Ears Nose
  🇭 Hair
  ☠ Main Menu", inline: true
- 
- options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
-   options[0...26].each do |r|
-   msg.react r
- end
-   return false
 end
-   event.respond
-  #event << msg
 
+  #event << msg
+  options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
+    options[0...26].each do |r|
+    msg.react r
+  end
+    return false
   #event.reaction[":eyes:"].each do |r|
   #  msg.react r
   #end
