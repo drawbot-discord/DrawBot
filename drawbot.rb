@@ -433,7 +433,7 @@ end
 bot.command(:await) do |event|
   msg = "nice boi"
   reactions = %w(🇦 🇧 🇨 🇩 🇪)
-  reactions.each do |r|
+  reactions do |r|
     msg.react r
   end
   #event.reaction[":eyes:"].each do |r|
