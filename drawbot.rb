@@ -431,7 +431,7 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-  msg = event.respond "🇦 Bones and Skeletons and Bases
+  msg = event.respond " 🇦 Bones and Skeletons and Bases
   🇧 Breasts and Vagina
   🇨 Buttocks
   🇩 Chibi
@@ -450,7 +450,8 @@ bot.command(:await) do |event|
   🇵 Trees
   🇶 blank
   🇷 blank
-  🇸 blank"
+  🇸 blank
+  ☠ Main Menu"
   #event << msg
   options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 ☠)
     options[0...26].each do |r|
