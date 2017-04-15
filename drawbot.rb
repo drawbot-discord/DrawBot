@@ -433,8 +433,8 @@ end
 bot.command(:await) do |event|
   msg = event.respond "ffffffffff"
   #event << msg
-  options = %w(🇦 🇧 🇨 🇩 🇪)
-  options[0...5].each do |r|
+  options = %w(🇦 🇧 🇨 🇩 🇪 :skull_crossbones:)
+  options[0...6].each do |r|
     msg.react r
   end
     return false
