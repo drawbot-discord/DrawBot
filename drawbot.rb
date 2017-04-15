@@ -432,9 +432,13 @@ end
 
 bot.command(:await) do |event|
   msg = "nice boi"
-  event.reaction[":eyes:"].each do |r|
+  reactions = %w(🇦 🇧 🇨 🇩 🇪)
+  reactions[0...options.length].each do |r|
     msg.react r
   end
+  #event.reaction[":eyes:"].each do |r|
+  #  msg.react r
+  #end
   event << msg
   #msg.creat_reaction(":eyes:")
   #Stealing cyan's code
