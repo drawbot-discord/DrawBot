@@ -433,11 +433,11 @@ end
 bot.command(:await) do |event|
   msg = "nice boi"
   event << msg
-  msg.creat_reaction(":eyes:")
+  #msg.creat_reaction(":eyes:")
   #Stealing cyan's code
-  #event.reactions[":eyes:"].each do |r|
-  #  msg.react r
-  #end
+  event.reactions[":eyes:"].each do |r|
+    msg.react r
+  end
   #event.message.react(":eyes:")
 #bot.add_await
 #if event.message.reactions "success"
