@@ -432,7 +432,7 @@ end
 
 bot.command(:await) do |event|
   msg = "nice boi"
-  event.create_reaction[":eyes:"].each do |r|
+  event.reaction[":eyes:"].each do |r|
     msg.react r
   end
   event << msg
