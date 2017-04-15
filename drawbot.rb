@@ -431,7 +431,7 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-
+  event << "boop"
 event.await.reaction
 if event.message.reaction "success"
 end
