@@ -445,10 +445,10 @@ bot.command(:await) do |event|
 end
 
   options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
-    options[0...26].each do |r|
+    options[0...2].each do |r|
     msg.react r
   end
-event.message.reaction.await(:🇦)
+event.reaction.await(:🇦)
 event.remove.reaction
     return false
 
