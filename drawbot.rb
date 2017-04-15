@@ -431,29 +431,17 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-  msg = event.respond " 🇦 Bones and Skeletons and Bases
-  🇧 Breasts and Vagina
-  🇨 Buttocks
-  🇩 Chibi
-  🇪 Colouring
-  🇫 Eyes
-  🇬 Fabric and Clothes
-  🇭 Female Upperbody
-  🇮 Full Body
-  🇯 Full Tutorials
-  🇰 Hair
-  l Hands and Arms
-  🇱 Head Face Eyes Ears Nose
-  🇲 Legs and Feet
-  🇳 Penis
-  🇴 Perspective
-  🇵 Trees
-  🇶 blank
-  🇷 blank
-  🇸 blank
+  msg = event.respond "🇦 Bones and Skeletons and Bases
+  🇧 Fabric and Clothes
+  🇨 Perspective
+  🇩 Male
+  🇪 Female
+  🇫 Full Tutorials
+  🇬 Head Face Eyes Ears Nose
+  🇭 Hair
   ☠ Main Menu"
   #event << msg
-  options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 ☠)
+  options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
     options[0...26].each do |r|
     msg.react r
   end
