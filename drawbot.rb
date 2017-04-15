@@ -7,7 +7,8 @@ require 'rest-client'
 require 'json'
 require 'usagewatch'
 require 'set'
-
+$: << "."
+include 'References.rb'
 
 puts ' '
 puts ' '
@@ -112,8 +113,6 @@ bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;
  - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
   #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
-  $: << "."
-  include 'References.rb'
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
