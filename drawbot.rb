@@ -431,7 +431,26 @@ bot.command(:references,
 end
 
 bot.command(:await) do |event|
-  msg = event.respond "ffffffffff"
+  msg = event.respond "🇦 Bones and Skeletons and Bases
+  🇧 Breasts and Vagina
+  🇨 Buttocks
+  🇩 Chibi
+  🇪 Colouring
+  🇫 Eyes
+  🇬 Fabric and Clothes
+  🇭 Female Upperbody
+  🇮 Full Body
+  🇯 Full Tutorials
+  🇰 Hair
+  l Hands and Arms
+  🇱 Head Face Eyes Ears Nose
+  🇲 Legs and Feet
+  🇳 Penis
+  🇴 Perspective
+  🇵 Trees
+  🇶 blank
+  🇷 blank
+  🇸 blank"
   #event << msg
   options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 ☠)
     options[0...26].each do |r|
