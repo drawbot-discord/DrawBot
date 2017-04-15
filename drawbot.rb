@@ -451,18 +451,10 @@ end
     options[0...26].each do |r|
     msg.react r
   end
+event.add_await(A, ReactionAddEvent, msg.react(options[0]))
+event.remove.reaction
     return false
-  #event.reaction[":eyes:"].each do |r|
-  #  msg.react r
-  #end
 
-  #msg.create_reaction(":eyes:")
-  #Stealing cyan's code
-
-  #event.message.react(":eyes:")
-#bot.add_await
-#if event.message.reactions "success"
-#end
 end
 
 
