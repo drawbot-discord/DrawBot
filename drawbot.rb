@@ -430,6 +430,14 @@ bot.command(:references,
   event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
 end
 
+bot.command(:await) do |event|
+
+event.await.reaction
+if event.message.reaction "success"
+end
+end
+
+
 
 #NAMES COMMANDS
 bot.command(:names,
