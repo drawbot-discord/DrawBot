@@ -432,7 +432,7 @@ end
 
 bot.command(:await) do |event|
 event << ("boop")
-event.create_reaction(":eyes:")
+event.react(":eyes:")
   #Stealing cyan's code
   #event.reactions[":eyes:"].each do |r|
   #  msg.react r
