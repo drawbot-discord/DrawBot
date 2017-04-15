@@ -432,12 +432,13 @@ end
 
 bot.command(:await) do |event|
   msg = "nice boi"
-  event << msg
-  #msg.creat_reaction(":eyes:")
-  #Stealing cyan's code
   event.create_reaction[":eyes:"].each do |r|
     msg.react r
   end
+  event << msg
+  #msg.creat_reaction(":eyes:")
+  #Stealing cyan's code
+
   #event.message.react(":eyes:")
 #bot.add_await
 #if event.message.reactions "success"
