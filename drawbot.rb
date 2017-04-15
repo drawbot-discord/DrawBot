@@ -448,7 +448,7 @@ end
     options[0...2].each do |r|
     msg.react r
   end
-  event.message.reaction_add(🇦) do |a|
+  event.message.reaction_add("\u1F1E6") do |a|
     a.message.edit("http://i.imgur.com/zQsIC2m.png")
   end
     return false
