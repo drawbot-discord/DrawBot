@@ -433,7 +433,7 @@ end
 bot.command(:await) do |event|
   event << "boop"
 #event.await.reaction
-if event.message.reactionaddevent "success"
+if event.message.reactions "success"
 end
 end
 
