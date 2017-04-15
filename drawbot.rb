@@ -7,6 +7,7 @@ require 'rest-client'
 require 'json'
 require 'usagewatch'
 require 'set'
+require 'References'
 
 puts ' '
 puts ' '
