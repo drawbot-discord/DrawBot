@@ -448,7 +448,7 @@ end
     options[0...26].each do |r|
     msg.react r
   end
-event.message.await(:🇦)
+event.message.reaction.await(:🇦)
 event.remove.reaction
     return false
 
