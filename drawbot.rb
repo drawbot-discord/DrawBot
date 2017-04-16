@@ -427,7 +427,7 @@ bot.command(:references,
     unless ref.nil?
       event.channel.send_embed do |e|
       e.add_field name: "#{ref['title']}", value:"#{ref['url']}", inline: true
-      e.footer = { text: $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ') }
+      e.footer = { text: $db['refs'].collect { |r| "#{r['title']}" }.join(', ') }
       end
 
       return
