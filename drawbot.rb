@@ -417,13 +417,16 @@ bot.command(:references,
   args = args.join(' ')
   #finds the ref listed with the arg you use
   ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
-  unless args.empty?  event.channel.send_embed do |e|
+  unless args.empty?
+    event.channel.send_embed do |e|
     e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
     end
 
 
-    unless ref.nil? event.channel.send_embed do |e|
-      e.description = "#{ref['title']}"
+    unless ref.nil?
+      event.channel.send_embed do |e|
+      #e.description = "#{ref['title']}"
+      e.description = "ref nil"
       e.image       = { url: "#{ref['url']}" }
             return
       end
