@@ -414,6 +414,13 @@ end
 bot.command(:references,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
+              event.channel.send_embed do |e|
+              #e.thumbnail = { url: event.server.icon_url }
+              e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+              e.add_field name: ' ', value:" ", inline: true
+              e.add_field name: ' ', value:" ", inline: true
+              e.add_field name: ' ', value:" ", inline: true
+              end
   args = args.join(' ')
   unless args.empty?
     #finds the ref listed with the arg you use
@@ -430,30 +437,6 @@ bot.command(:references,
   event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
 end
 
-bot.command(:await) do |event|
-  msg = event.channel.send_embed do |e|
-  e.description = "Use reactions to go through the menu!"
-  e.add_field name: "\u200b", value: "🇦 Bones and Skeletons and Bases\n"\
- "🇧 Female Lewd\n"\
- "🇨 Male Lewd\n"\
- "🇩 Perspective\n"\
- "🇪 Fabric and Clothes\n"\
- "🇫 Full Tutorials\n"\
- "🇬 Head Face Eyes Ears Nose\n"\
- "🇭 Hair\n"\
- "☠ Main Menu", inline: true
-end
-
-  options = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 ☠)
-    options[0...2].each do |r|
-    msg.react r
-  end
-  event.message.reaction_add("\u1F1E6") do |a|
-    a.message.edit("http://i.imgur.com/zQsIC2m.png")
-  end
-    return false
-
-end
 
 
 
@@ -1020,31 +1003,6 @@ end
 bot.command(:echo) do |event|
     break unless event.user.id == 132893552102342656
       event << "Olly olly oxen free! `#{Time.now - event.timestamp} ms`"
-end
-
-
-
-
-#Creation Corner commands
-
-
-bot.member_join do |event|
-  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
-  unless welcome_channel.nil?
-    welcome_channel.send_message "#{event.user.mention} has joined!"
-  end
-
-  member_role = event.server.roles.find { |r| r.name == 'Members'}
-  unless member_role.nil?
-    event.user.add_role member_role
-  end
-end
-
-bot.member_leave do |event|
-  welcome_channel = event.server.channels.find { |c| c.name == 'green_chat' }
-  unless welcome_channel.nil?
-    welcome_channel.send_message "#{event.user.name} has left!"
-  end
 end
 
 #http://apidock.com/ruby/DateTime/strftime
