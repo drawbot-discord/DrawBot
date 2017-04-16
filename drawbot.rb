@@ -442,6 +442,37 @@ bot.command(:references,
     end
 end
 
+bot.command(:rufs,
+            description: 'Lists artistic reference galleries',
+            usage: '~references (topic)') do |event, *args|
+              #event.channel.send_embed do |e|
+              ##e.thumbnail = { url: event.server.icon_url }
+              #e.description = 'Randomly generated character sheet'
+              #
+              #e.add_field name: ' ', value:" ", inline: true
+              #end
+  args = args.join(' ')
+  unless args.empty?
+    #finds the ref listed with the arg you use
+    ref = $db['reffz'].find { |r| r['group'].casecmp(args).zero? }
+    unless ref.nil?
+      event.channel.send_embed do |e|
+      e.add_field name: "#{ref['group']}", value:"#{ref['group']}\n #{ref['url']}", inline: true
+      e.footer = { text: $db['reffz'].collect { |r| "#{r['group']}" }.join(', ') }
+      end
+
+      return
+    end
+  end
+  #this is for when you don't have arguments, to find the list of refs
+    event.channel.send_embed do |e|
+        e.add_field name: 'I couldn\'t find that reference..',\
+        value: "\u200b" ,inline: true
+        e.add_field name: 'Here is a ist of available references:',\
+        value: $db['reffz'].collect { |r| "`#{r['group']}`" }.join(', '), inline: true
+    end
+end
+
 
 
 
