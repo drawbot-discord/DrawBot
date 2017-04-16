@@ -417,29 +417,26 @@ bot.command(:references,
   args = args.join(' ')
   #finds the ref listed with the arg you use
   ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
-  unless ref.nil?
-    event << 'I couldn\'t find that reference..'
-  end
   unless args.empty?
-    #this is for when you don't have arguments, to find the list of refs
-    event.channel.send_embed do |e|
-    e.title = 'List of available references:'
-    e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-    end
-
     event.channel.send_embed do |e|
     e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
     end
 
+    unless ref.nil?
       event.channel.send_embed do |e|
       #e.description = "#{ref['title']}"
-      e.description = "ref nil"
-      e.image       = { url: "#{ref['url']}" }
-            return
-      end
+      e.description = "I couldn\'t find that reference.."
+      #e.image       = { url: "#{ref['url']}" }
+#          return
+          end
+    end
   end
 
-
+   #this is for when you don't have arguments, to find the list of refs
+   event.channel.send_embed do |e|
+   e.title = 'List of available references:'
+   e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+   end
 end
 
 
