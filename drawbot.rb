@@ -457,7 +457,7 @@ bot.command(:rufs,
     ref = $db['reffz'].find { |r| r['group'].casecmp(args).zero? }
     unless ref.nil?
       event.channel.send_embed do |e|
-      e.add_field name: "#{ref['group']}", value:"#{ref['title']}" "#{ref['url']}", inline: true
+      e.add_field name: "#{reffz['group']}", value:"#{reffz['title']}" "#{reffz['url']}", inline: true
       e.footer = { text: $db['reffz'].collect { |r| "#{r['group']}" }.join(', ') }
       end
 
