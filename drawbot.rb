@@ -426,9 +426,8 @@ bot.command(:references,
     ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
     unless ref.nil?
       event.channel.send_embed do |e|
-        rf = "#{ref['url']}"
-      e.add_field name: "#{ref['title']}", value: "\u200b", inline: true
-      e.image       = { url: rf }
+      e.add_field name: "#{ref['title']}", value:"#{ref['url']}", inline: true
+      e.footer = { text: $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ') }
       end
 
       return
