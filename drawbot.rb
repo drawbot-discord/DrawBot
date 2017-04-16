@@ -415,14 +415,14 @@ bot.command(:references,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
   args = args.join(' ')
-  unless args.empty?
-    #finds the ref listed with the arg you use
-    ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
-      event.channel.send_embed do |e|
-      e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-      end
-    unless ref.nil?
-      event.channel.send_embed do |e|
+  #finds the ref listed with the arg you use
+  ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
+  unless args.empty?  event.channel.send_embed do |e|
+    e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+    end
+
+
+    unless ref.nil? event.channel.send_embed do |e|
       e.description = "#{ref['title']}"
       e.image       = { url: "#{ref['url']}" }
             return
