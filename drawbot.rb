@@ -424,15 +424,16 @@ bot.command(:references,
 
 
     unless ref.nil?
+      event << 'I couldn\'t find that reference..'
+    end
       event.channel.send_embed do |e|
       #e.description = "#{ref['title']}"
       e.description = "ref nil"
       e.image       = { url: "#{ref['url']}" }
             return
       end
-    end
-    event << 'I couldn\'t find that reference..'
   end
+
    #this is for when you don't have arguments, to find the list of refs
    event.channel.send_embed do |e|
    e.title = 'List of available references:'
