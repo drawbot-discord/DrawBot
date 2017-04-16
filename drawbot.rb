@@ -414,29 +414,28 @@ end
 bot.command(:references,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
+              #event.channel.send_embed do |e|
+              ##e.thumbnail = { url: event.server.icon_url }
+              #e.description = 'Randomly generated character sheet'
+              #
+              #e.add_field name: ' ', value:" ", inline: true
+              #end
   args = args.join(' ')
-  #finds the ref listed with the arg you use
-  ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
   unless args.empty?
-    event.channel.send_embed do |e|
-    e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-    end
-
+    #finds the ref listed with the arg you use
+    ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
     unless ref.nil?
       event.channel.send_embed do |e|
-      #e.description = "#{ref['title']}"
-      e.description = "I couldn\'t find that reference.."
-      #e.image       = { url: "#{ref['url']}" }
-#          return
-          end
-    end
-  end
+      e.add_field name: "#{ref['title']}", value:"#{ref['url']}", inline: true
+      end
 
-   #this is for when you don't have arguments, to find the list of refs
-   event.channel.send_embed do |e|
-   e.title = 'List of available references:'
-   e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-   end
+      return
+    end
+    event << 'I couldn\'t find that reference..'
+  end
+  #this is for when you don't have arguments, to find the list of refs
+  event << 'List of available references:'
+  event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
 end
 
 
