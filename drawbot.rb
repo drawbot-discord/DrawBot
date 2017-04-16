@@ -432,11 +432,12 @@ bot.command(:references,
 
       return
     end
-    event << 'I couldn\'t find that reference..'
   end
   #this is for when you don't have arguments, to find the list of refs
     event.channel.send_embed do |e|
-        e.add_field name: 'List of available references:',\
+        e.add_field name: 'I couldn\'t find that reference..',\
+        value: "\u200b" ,inline: true
+        e.add_field name: 'Here is a ist of available references:',\
         value: $db['refs'].collect { |r| "`#{r['title']}`" }.join(', '), inline: true
     end
 end
