@@ -414,21 +414,26 @@ end
 bot.command(:references,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
-              event.channel.send_embed do |e|
-              #e.thumbnail = { url: event.server.icon_url }
-              e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-              e.add_field name: ' ', value:" ", inline: true
-              e.add_field name: ' ', value:" ", inline: true
-              e.add_field name: ' ', value:" ", inline: true
-              end
+              #event.channel.send_embed do |e|
+              #e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+              #e.add_field name: ' ', value:" ", inline: true
+              #e.add_field name: ' ', value:" ", inline: true
+              #e.add_field name: ' ', value:" ", inline: true
+              #end
   args = args.join(' ')
   unless args.empty?
     #finds the ref listed with the arg you use
     ref = $db['refs'].find { |r| r['title'].casecmp(args).zero? }
+      event.channel.send_embed do |e|
+      e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+      end
     unless ref.nil?
-      event << "#{ref['title']}"
-      event << "#{ref['url']}"
-      return
+      event.channel.send_embed do |e|
+      e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+      e.add_field name: "#{ref['title']}", value:" ", inline: true
+      e.image       = { url: "#{ref['url']}" }
+            return
+      end
     end
     event << 'I couldn\'t find that reference..'
   end
