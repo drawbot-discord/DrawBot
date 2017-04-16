@@ -414,12 +414,6 @@ end
 bot.command(:references,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
-              #event.channel.send_embed do |e|
-              #e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-              #e.add_field name: ' ', value:" ", inline: true
-              #e.add_field name: ' ', value:" ", inline: true
-              #e.add_field name: ' ', value:" ", inline: true
-              #end
   args = args.join(' ')
   unless args.empty?
     #finds the ref listed with the arg you use
@@ -436,9 +430,11 @@ bot.command(:references,
     end
     event << 'I couldn\'t find that reference..'
   end
-  #this is for when you don't have arguments, to find the list of refs
-  event << 'List of available references:'
-  event << $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+   #this is for when you don't have arguments, to find the list of refs
+   event.channel.send_embed do |e|
+   e.title = 'List of available references:'
+   e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
+   end
 end
 
 
