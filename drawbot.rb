@@ -429,8 +429,7 @@ bot.command(:references,
       end
     unless ref.nil?
       event.channel.send_embed do |e|
-      e.description = $db['refs'].collect { |r| "`#{r['title']}`" }.join(', ')
-      e.add_field name: "#{ref['title']}", value:" ", inline: true
+      e.description = "#{ref['title']}"
       e.image       = { url: "#{ref['url']}" }
             return
       end
