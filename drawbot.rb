@@ -437,7 +437,7 @@ bot.command(:references,
     event.channel.send_embed do |e|
         e.add_field name: 'I couldn\'t find that reference..',\
         value: "\u200b" ,inline: true
-        e.add_field name: 'Here is a ist of available references:',\
+        e.add_field name: 'Here is a list of available references:',\
         value: $db['refs'].collect { |r| "`#{r['title']}`" }.join(', '), inline: true
     end
 end
@@ -457,7 +457,7 @@ bot.command(:rufs,
     ref = $db['reffz'].find { |r| r['group'].casecmp(args).zero? }
     unless ref.nil?
       event.channel.send_embed do |e|
-      e.add_field name: "#{ref['group']}", value:"#{ref['group']}\n #{ref['url']}", inline: true
+      e.add_field name: "#{ref['group']}", value:"#{ref['group']}\n" "#{ref['url']}", inline: true
       e.footer = { text: $db['reffz'].collect { |r| "#{r['group']}" }.join(', ') }
       end
 
@@ -468,7 +468,7 @@ bot.command(:rufs,
     event.channel.send_embed do |e|
         e.add_field name: 'I couldn\'t find that reference..',\
         value: "\u200b" ,inline: true
-        e.add_field name: 'Here is a ist of available references:',\
+        e.add_field name: 'Here is a list of available references:',\
         value: $db['reffz'].collect { |r| "`#{r['group']}`" }.join(', '), inline: true
     end
 end
