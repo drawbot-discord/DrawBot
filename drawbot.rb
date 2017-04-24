@@ -613,6 +613,21 @@ bot.command(:eris) do |event, *message|
    message = message.join(' ')
     index = rand 0..EIGHTBALL.length-1
     fortune = EIGHTBALL[index]['fortune']
+    eris = EIGHTBALL[index]['zii']
+      event.channel.send_embed do |e|
+      e.thumbnail = { url: eris }
+      e.author = { name: event.user.name, icon_url: event.user.avatar_url }
+      e.description = "`#{message}`"
+      e.add_field name: "\u200b", value: fortune, inline: true
+  end
+end
+
+bot.command(:zii) do |event, *message|
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["zii", "unlocksfw"]
+  next event.respond "I need the `zii` or `unlocksfw` role for that, silly" if check.empty?
+   message = message.join(' ')
+    index = rand 0..EIGHTBALL.length-1
+    fortune = EIGHTBALL[index]['fortune']
     zii = EIGHTBALL[index]['zii']
       event.channel.send_embed do |e|
       e.thumbnail = { url: zii }
