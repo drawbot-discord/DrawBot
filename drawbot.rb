@@ -49,6 +49,7 @@ Rekt = $db['rekt'].join("\n")
 Lewd = $db['lewd']
 Compcolour = $db['compcolour']
 EIGHTBALL = $db['eightball']
+EIGHTBALLZ = $db['eightballz']
 Study = $db['StudyDrawTopic']
 Colourshade = $db['shadecolour']
 References = $db['refs']
