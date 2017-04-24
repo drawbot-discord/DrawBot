@@ -661,6 +661,14 @@ bot.command(:slap) do |event, *message|
    event.message.delete
 end
 
+bot.command(:spank) do |event, *message|
+  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
+  next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
+   message = message.join(' ')
+   event << "#{event.user.display_name} #{BoopAction.sample} spanks #{message}"
+   event.message.delete
+end
+
 bot.command(:rub) do |event, *message|
   check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["playful", "unlocksfw"]
   next event.respond "I need the `playful` or `unlocksfw` role for that, silly" if check.empty?
