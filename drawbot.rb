@@ -627,7 +627,7 @@ bot.command(:zii) do |event, *message|
   next event.respond "I need the `zii` or `unlocksfw` role for that, silly" if check.empty?
    message = message.join(' ')
     index = rand 0..ZBALL.length-1
-    zfortune = ZBALL[index]['fortune']
+    zfortune = ZBALL[index]['zfortune']
     zii = ZBALL[index]['zii']
       event.channel.send_embed do |e|
       e.thumbnail = { url: zii }
