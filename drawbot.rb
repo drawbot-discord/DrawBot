@@ -111,9 +111,9 @@ bot.ready do |event|
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
   #event.bot.name = "DrawBat"
-  event.bot.send_message(DEVCHANNEL, "Number of servers I'm in; `#{event.bot.servers.count}` and they are;
+  event.bot.send_message(DEVCHANNEL, "I'm in `#{event.bot.servers.count}` and they are;
  - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
-  #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
+   #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
@@ -123,6 +123,10 @@ bot.ready do |event|
     bot.channel(DEVCHANNEL).send_message("Stipends reset to: `#{$db['stipend']}`")
     nil
   end
+end
+
+bot.command(:bluh) do |event|
+"#{event.bot.servers.collect { |_, s| s.name } + "#{event.server.member_count}".sort_by(&:downcase).join("\n - ")}"
 end
 
 bot.command(:commands) do |event|
@@ -563,23 +567,7 @@ end
 end
 
 
-#event.bot.channel(channel[2..-1])
-# bot.command(:addchan,
-#             ) do |event, server|
-#               def save
-#                 file = File.open("serverlist.yaml", "w")
-#                 file.write($serverlist.to_yaml)
-#               end
-#     #Grabs the channel the command is used in
-#   channeltoadd = event.channel.id
-#   currentserver = event.server.id
-#
-#   $serverlist['Server'] << currentserver = []
-#   $serverlist['Server'][currentserver] = Hash["Name" => event.server.name, "Allowedchans" => [], "NSFW" => [] ]
-#   $serverlist['Server'][currentserver]["Allowedchans"] << channeltoadd
-#   event << "Added"
-#   save
-# end
+
 #-------------EVENTS---------#
 
 bot.message(with_text: '/o/') do |event|
@@ -592,11 +580,11 @@ end
 
 
 
-#bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
-#        event.respond ["Yea, #{event.user.display_name} :thumbsup:",
-#                       "Nah, #{event.user.display_name} :thumbsdown:",
-#                       "Dunno, #{event.user.display_name} :open_hands:"].sample
-#end
+bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
+        event.respond ["Yea, #{event.user.display_name} :thumbsup:",
+                       "Nah, #{event.user.display_name} :thumbsdown:",
+                       "Dunno, #{event.user.display_name} :open_hands:"].sample
+end
 
 
 #-------------SILLY COMMANDS---------#
