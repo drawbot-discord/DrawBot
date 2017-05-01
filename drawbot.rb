@@ -126,7 +126,7 @@ bot.ready do |event|
 end
 
 bot.command(:bluh) do |event|
-"#{event.bot.servers.collect { |_, s| s.name } + "#{event.server.member_count}".sort_by(&:downcase).join("\n - ")}"
+"#{event.bot.servers.collect { |_, s| s.name {s.member_count}}.sort_by(&:downcase).join("\n - ")}"
 end
 
 bot.command(:commands) do |event|
