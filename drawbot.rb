@@ -125,9 +125,10 @@ bot.ready do |event|
   end
 end
 
-bot.command(:bluh) do |event|
-"#{event.bot.servers.collect { |_, s| s.name s.member_count}.sort_by(&:downcase).join("\n - ")}"
-end
+#fuckit
+#bot.command(:bluh) do |event|
+#"#{event.bot.servers.collect { |_, s| s.name s.member_count}.sort_by(&:downcase).join("\n - ")}"
+#end
 
 bot.command(:commands) do |event|
   event << "<https://github.com/LeggoMyEcho/DrawBot/wiki/Commands>"
