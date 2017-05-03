@@ -144,7 +144,7 @@ bot.command(:info,
    e.thumbnail = { url: event.bot.profile.avatar_url }
    e.add_field name: 'I am worked on by',
               value: "`Echo#5248`\n"\
-                      "`Lune#2639`\n"\
+                      "`z64#2639`\n"\
                       "`Cyan「Alter」#3717`", inline: true
     e.add_field name: "Connected servers/users",
                value:  "Servers: #{event.bot.servers.count}\n"\
