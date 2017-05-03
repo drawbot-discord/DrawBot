@@ -628,26 +628,11 @@ bot.command(:zii) do |event, *message|
 end
 
 bot.command :roll do |event, roll|
-  if roll.nil?
-    roll = rand(1..20)
-      "#{event.user.display_name} throws their dice down and rolls `#{roll}`"
-  end
   roll = roll.split('d').map(&:to_i)
   roll = roll[0].times.collect { |x| rand(1..roll[1]) }
   total = roll.inject(0){|sum,x| sum + x }
   event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
-
-#bot.command (:roll) do |event, dice|
-#    if dice.nil?
-#    roll = rand(1..20)
-#      "#{event.user.display_name} throws their dice down and rolls `#{roll}`"
-#    end
-#  roll = dice.split('d').map(&:to_i)                   # => [1, 20] 1d20 gets split into [1, 20]
-#  die = roll[0].times.collect { |x| rand(1..roll[1]) } # => [1, 3] (Random Numbers)
-#  total = die.inject(0){|sum,x| sum + x }
-#  "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
-#end
 
 bot.command(:pick,
              description: 'Use Drawbot to choose things for you',
