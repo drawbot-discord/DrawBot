@@ -628,7 +628,7 @@ bot.command(:zii) do |event, *message|
 end
 
 bot.command :roll do |event, roll|
-  if dice.nil?
+  if roll.nil?
     roll = rand(1..20)
       "#{event.user.display_name} throws their dice down and rolls `#{roll}`"
   end
