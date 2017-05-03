@@ -629,7 +629,7 @@ end
 
 
 bot.command (:roll) do |event, dice|
-    if dice.nil? roll = rand(1..20)
+    if dice.nil roll = rand(1..20)
       "#{event.user.display_name} throws their dice down and rolls `#{roll}`"
     end
   roll = dice.split('d').map(&:to_i)                   # => [1, 20] 1d20 gets split into [1, 20]
