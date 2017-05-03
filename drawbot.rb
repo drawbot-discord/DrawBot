@@ -144,7 +144,7 @@ bot.command(:info,
    e.thumbnail = { url: event.bot.profile.avatar_url }
    e.add_field name: 'I am worked on by',
               value: "`Echo#5248`\n"\
-                      "`z64#2639`\n"\
+                      "`Lune#2639`\n"\
                       "`Cyan「Alter」#3717`", inline: true
     e.add_field name: "Connected servers/users",
                value:  "Servers: #{event.bot.servers.count}\n"\
@@ -627,13 +627,20 @@ bot.command(:zii) do |event, *message|
   end
 end
 
-bot.command :roll do |event, roll|
-  roll = roll.split('d').map(&:to_i)
-  roll = roll[0].times.collect { |x| rand(1..roll[1]) }
-  total = roll.inject(0){|sum,x| sum + x }
-  event << "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
+bot.command (:roll,
+             description: "Roll a random number!",
+             usage: `~roll 1d20 or ~roll`) do |event, dice|
+    if dice.nil? roll = rand(1..20)
+        elsif roll = 20
+          "#{event.user.display_name} throws their dice down and rolls `#{roll}`\nCritical! Hit!"
+        end
+      "#{event.user.display_name} throws their dice down and rolls `#{roll}`"
+    end
+  roll = dice.split('d').map(&:to_i)                   # => [1, 20] 1d20 gets split into [1, 20]
+  die = roll[0].times.collect { |x| rand(1..roll[1]) } # => [1, 3] (Random Numbers)
+  total = die.inject(0){|sum,x| sum + x }
+  "#{event.user.display_name} throws their dice down and rolls `#{roll.join(', ')} = #{total}`"
 end
-
 bot.command(:pick,
              description: 'Use Drawbot to choose things for you',
              usage: "~pick choice 1, choice 2" ) do |event, *message|
