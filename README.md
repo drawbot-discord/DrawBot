@@ -2,7 +2,7 @@
 
 DrawBot is a bot dedicated to helping artists improve, as well as have fun!
 
-### **[Click here to add DrawBot to your server! :art:](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot)**
+### **[Click here to add DrawBot to your server! :art:](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=8192)**
 
 ## Development
 
