@@ -111,7 +111,7 @@ bot.ready do |event|
   event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
   #event.bot.name = "DrawBat"
-  event.bot.send_message(DEVCHANNEL, "I'm in `#{event.bot.servers.count}` and they are;
+  event.bot.send_message(DEVCHANNEL, "I'm in `#{event.bot.servers.count}` servers and they are;
  - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
    #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
@@ -185,6 +185,12 @@ bot.command(:draw,
             description: 'Generate a random thing to draw!',
             usage: "~draw") do |event|
   event << "You should draw #{DrawTopic.sample}"
+end
+
+bot.command(:drawlood,
+            description: 'Generate a random thing to draw!',
+            usage: "~draw") do |event, *thing|
+  event << "You should draw #{thing} #{LewdDrawTopic.sample}"
 end
 
 bot.command(:drawlewd,
