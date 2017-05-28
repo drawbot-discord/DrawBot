@@ -189,8 +189,9 @@ end
 
 bot.command(:drawlood,
             description: 'Generate a random thing to draw!',
-            usage: "~draw") do |event, *thing|
-  event << "You should draw #{thing} #{LewdDrawTopic.sample}"
+            usage: "~draw") do |event, *message|
+  event << "Draw #{message} #{LewdDrawTopic.sample}"
+
 end
 
 bot.command(:drawlewd,
