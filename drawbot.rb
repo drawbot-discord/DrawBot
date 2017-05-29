@@ -187,9 +187,8 @@ bot.command(:draw,
   event << "You should draw #{DrawTopic.sample}"
 end
 
-bot.command(:drawlood,
-            description: 'Generate a random thing to draw!',
-            usage: "~draw") do |event, *message|
+bot.command(:drawlood) do |event, *message|
+  message = message.join(' ')
   event << "Draw #{message} #{LewdDrawTopic.sample}"
 
 end
