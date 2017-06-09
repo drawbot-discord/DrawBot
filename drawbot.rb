@@ -1376,7 +1376,8 @@ bot.command(:todo,
              help_available: false) do |event, *message|
    break unless event.user.id == 132893552102342656
     message = message.join(' ')
-    event.bot.channel(322615736717672450).send_message(message)
+    num = Time.now.strftime("%Y%j%H%M%S")
+    event.bot.channel(322615736717672450).send_message("Ref number #{num} - #{message}")
     "New thing added to your To Do list hun!"
 end
 
