@@ -1372,6 +1372,14 @@ bot.command :say do |event, *message|
     event.bot.channel(175579371975868416).send_message(message)
 end
 
+bot.command(:todo,
+             help_available: false) do |event, *message|
+   break unless event.user.id == 132893552102342656
+    message = message.join(' ')
+    event.bot.channel(322615736717672450).send_message(message)
+    "New thing added to your To Do list hun!"
+end
+
 
 bot.command :sayoify do |event, *message|
    break unless event.channel.id == DEVCHANNEL
