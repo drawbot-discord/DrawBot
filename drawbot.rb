@@ -1378,7 +1378,7 @@ bot.command(:todo,
     message = message.join(' ')
     num = Time.now.strftime("%Y%j%H%M%S")
     event.bot.channel(322615736717672450).send_message("Ref number #{num} - #{message}")
-    "New thing added to your To Do list hun!"
+    "New thing added to your To Do list hun! Ref Number #{num}"
 end
 
 
