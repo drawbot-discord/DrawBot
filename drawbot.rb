@@ -78,7 +78,7 @@ ned = $pc['nedeity']
 cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
-Wordlist = $wl['list']
+wordlist = $wl['list']
 
 
 
@@ -460,7 +460,7 @@ end
 bot.command(:word,
              description: "Generate a random set of words",
              usage: '~word') do |event|
-  "#{Wordlist.sample}"
+  "#{wordlist.sample}"
 end
 
 
