@@ -78,6 +78,7 @@ ned = $pc['nedeity']
 cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
+Wordlist = $wordlist['wordlist']
 
 
 
@@ -454,6 +455,13 @@ bot.command(:references,
         value: $db['refs'].collect { |r| "`#{r['title']}`" }.join(', '), inline: true
     end
 end
+
+bot.command(:word,
+             description: "Generate a random set of words",
+             usage: '~word') do |event|
+  "#{Wordlist.sample}"
+end
+
 
 bot.command(:rufs,
             description: 'Lists artistic reference galleries',
