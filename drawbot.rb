@@ -78,7 +78,7 @@ ned = $pc['nedeity']
 cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
-Wordlist = $wl['wordlist']
+Wordlist = $wl['list']
 
 
 
