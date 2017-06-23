@@ -461,7 +461,9 @@ end
 bot.command(:word,
              description: "Generate a random set of words",
              usage: '~word') do |event|
-  "#{wordlist.sample}"
+               5.times do |e|
+  "#{e.wordlist.sample}"
+               end
 end
 
 
