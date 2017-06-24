@@ -462,7 +462,8 @@ end
 
 bot.command(:word,
              description: "Generate a random set of words",
-             usage: '~word') do |event, message|
+             usage: '~word') do |event, *message|
+               message = message.join(' ')
                if message = graff
                   "#{graff.sample},"
                end
