@@ -383,8 +383,7 @@ end
 
 
 bot.command(:c,
-            description: "Generates completely random colours",
-            usage: `~colour`) do |event|
+            description: "Generates completely random colours") do |event|
               hex1 = SecureRandom.hex(3)
               url = "https://dummyimage.com/75x75/#{hex1}&text=#{hex1}"
               hex2 = SecureRandom.hex(3)
