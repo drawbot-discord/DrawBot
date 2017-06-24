@@ -29,7 +29,6 @@ $db = YAML.load(File.read('db.yaml'))
 $serverlist = YAML.load(File.read('serverlist.yaml'))
 $pc = YAML.load(File.read('pc.yaml'))
 $wl = YAML.load(File.read('wl.yaml'))
-$graff = YAML.load(File.read('graff.yaml'))
 
 BoopAction = $db['BoopAction']
 WaterContainer = $db['WaterContainer']
@@ -81,7 +80,6 @@ cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
 wordlist = $wl['list']
-#graff = $graff['LIST']
 
 
 
@@ -462,11 +460,7 @@ end
 
 bot.command(:word,
              description: "Generate a random set of words",
-             usage: '~word') do |event, *message|
-               #message = message.join(' ')
-               #if message = graff
-              #    "#{graff.sample},"
-               #end
+             usage: '~word') do |event|
   "You get the following words:
   `#{wordlist.sample}`, `#{wordlist.sample}`, `#{wordlist.sample}`,"\
   " `#{wordlist.sample}`, `#{wordlist.sample}`"
