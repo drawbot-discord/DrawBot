@@ -81,7 +81,7 @@ cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
 wordlist = $wl['list']
-graff = $graff['LIST']
+#graff = $graff['LIST']
 
 
 
@@ -463,10 +463,10 @@ end
 bot.command(:word,
              description: "Generate a random set of words",
              usage: '~word') do |event, *message|
-               message = message.join(' ')
-               if message = graff
-                  "#{graff.sample},"
-               end
+               #message = message.join(' ')
+               #if message = graff
+              #    "#{graff.sample},"
+               #end
   "You get the following words:
   `#{wordlist.sample}`, `#{wordlist.sample}`, `#{wordlist.sample}`,"\
   " `#{wordlist.sample}`, `#{wordlist.sample}`"
