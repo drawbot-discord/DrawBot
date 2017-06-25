@@ -477,8 +477,8 @@ bot.command(:graff,
              description: "Generate a random set of words 3-5 characters in length",
              usage: '~graff') do |event|
   "You get the following words:
-  `#{grafflist.sample}`,`#{grafflist.sample}`, `#{grafflist.sample}`, "\
-  "`#{grafflist.sample}`,`#{grafflist.sample}`,"
+  `#{graff.sample}`,`#{graff.sample}`, `#{graff.sample}`, "\
+  "`#{graff.sample}`,`#{graff.sample}`,"
 end
 
 
