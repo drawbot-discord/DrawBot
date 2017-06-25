@@ -30,6 +30,7 @@ $serverlist = YAML.load(File.read('serverlist.yaml'))
 $pc = YAML.load(File.read('pc.yaml'))
 $wl = YAML.load(File.read('wl.yaml'))
 $graff = YAML.load(File.read('graff.yaml'))
+$prompt = YAML.load(File.read('prompt.yaml'))
 
 
 BoopAction = $db['BoopAction']
@@ -83,6 +84,7 @@ cnd = $pc['cndeity']
 ced = $pc['cedeity']
 wordlist = $wl['list']
 graff = $graff['LIST']
+prompt = $prompt['prompt']
 
 
 
@@ -477,7 +479,12 @@ bot.command(:graff,
   "`#{graff.sample}`,`#{graff.sample}`,"
 end
 
-
+bot.command(:prompt,
+             description: "Generate a random story prompt",
+             usage: '~prompt') do |event, *message|
+  "You get the following words:
+  `#{prompt.sample}`"
+end
 bot.command(:rufs,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
