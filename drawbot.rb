@@ -463,10 +463,6 @@ end
 bot.command(:word,
              description: "Generate a random set of words",
              usage: '~word') do |event, *message|
-      message = message
-               if message = graff
-                 "#{grafflist.sample}"
-               end
   "You get the following words:
   `#{wordlist.sample}`, `#{wordlist.sample}`, `#{wordlist.sample}`,"\
   " `#{wordlist.sample}`, `#{wordlist.sample}`"
