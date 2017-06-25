@@ -482,9 +482,15 @@ end
 bot.command(:prompt,
              description: "Generate a random story prompt",
              usage: '~prompt') do |event, *message|
-  "You get the following words:
-  `#{prompt.sample}`"
+             thing = ["scary", "creepy", "uplifting", "happy", "melancholy", "exciting",
+                 "Ambiguous", "Ambivalent", "Apathetic", "Cynical", "Disturbing", "Diverse",
+                 "Dominant", "Exuberant", "Humourous", "Hysterical", "Insensitive", "Jovial",
+                 "Lackadaisical", "Livid", "Morose", "Precocious", "Raucous", "Relaxed",
+                 "Sarcastic", "Sensitive", "Sleep", "Soothed", "Vivacious"]
+  "You get the following story prompt: `#{prompt.sample}` Make it #{thing}"
 end
+
+
 bot.command(:rufs,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
