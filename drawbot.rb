@@ -28,7 +28,8 @@ puts ' '
 $db = YAML.load(File.read('db.yaml'))
 $serverlist = YAML.load(File.read('serverlist.yaml'))
 $pc = YAML.load(File.read('pc.yaml'))
-$wl = YAML.load(File.read('wl.yaml'))
+$graff = YAML.load(File.read('graff.yaml'))
+
 
 BoopAction = $db['BoopAction']
 WaterContainer = $db['WaterContainer']
@@ -80,6 +81,7 @@ cgd = $pc['cgdeity']
 cnd = $pc['cndeity']
 ced = $pc['cedeity']
 wordlist = $wl['list']
+graff = $graff['LIST']
 
 
 
@@ -110,13 +112,13 @@ end
 
 bot.ready do |event|
   event.bot.send_message(DEVCHANNEL, "Drawbot online! Let's get some art done!")
-  #avatar = File.open('media/avatar.jpg','rb')
-  #event.bot.profile.avatar = avatar
+  avatar = File.open('media/avatar.jpg','rb')
+  event.bot.profile.avatar = avatar
   event.bot.game = "~commands"
   #event.bot.name = "DrawBat"
-  event.bot.send_message(DEVCHANNEL, "I'm in `#{event.bot.servers.count}` servers and they are;
- - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
-   #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
+#  event.bot.send_message(DEVCHANNEL, "I'm in `#{event.bot.servers.count}` servers and they are;
+# - #{event.bot.servers.collect { |_, s| s.name }.sort_by(&:downcase).join("\n - ")}")
+# #event.bot.send_message(DEVCHANNEL, event.bot.servers.collect { |_, s| s.name }.join(', '))
   scheduler = Rufus::Scheduler.new
   scheduler.cron '0 0 * * *' do
     #update all users
@@ -459,7 +461,11 @@ end
 
 bot.command(:word,
              description: "Generate a random set of words",
-             usage: '~word') do |event|
+             usage: '~word') do |event, *message|
+      message = message.join(' ')
+               if message == graff
+                 "#{grafflist.sample}"
+               end
   "You get the following words:
   `#{wordlist.sample}`, `#{wordlist.sample}`, `#{wordlist.sample}`,"\
   " `#{wordlist.sample}`, `#{wordlist.sample}`"
