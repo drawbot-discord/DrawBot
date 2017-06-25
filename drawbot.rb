@@ -487,7 +487,7 @@ bot.command(:prompt,
                  "Dominant", "Exuberant", "Humourous", "Hysterical", "Insensitive", "Jovial",
                  "Lackadaisical", "Livid", "Morose", "Precocious", "Raucous", "Relaxed",
                  "Sarcastic", "Sensitive", "Sleep", "Soothed", "Vivacious"]
-  "You get the following story prompt: `#{prompt.sample}` Make it #{thing}"
+  "You get the following story prompt: `#{prompt.sample}` Make it #{thing.sample}"
 end
 
 
