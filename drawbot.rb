@@ -28,6 +28,7 @@ puts ' '
 $db = YAML.load(File.read('db.yaml'))
 $serverlist = YAML.load(File.read('serverlist.yaml'))
 $pc = YAML.load(File.read('pc.yaml'))
+$wordlist = YAML.load(File.read('wl.yaml'))
 $graff = YAML.load(File.read('graff.yaml'))
 
 
