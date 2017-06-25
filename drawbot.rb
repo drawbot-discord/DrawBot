@@ -473,6 +473,15 @@ bot.command(:word,
 end
 
 
+bot.command(:graff,
+             description: "Generate a random set of words 3-5 characters in length",
+             usage: '~graff') do |event|
+  "You get the following words:
+  `#{grafflist.sample}`,`#{grafflist.sample}`, `#{grafflist.sample}`, "\
+  "`#{grafflist.sample}`,`#{grafflist.sample}`,"
+end
+
+
 bot.command(:rufs,
             description: 'Lists artistic reference galleries',
             usage: '~references (topic)') do |event, *args|
