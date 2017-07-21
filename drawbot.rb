@@ -133,10 +133,9 @@ bot.ready do |event|
   end
 end
 
-#
-#bot.command(:bluh) do |event|
-#"#{event.bot.servers.collect { |_, s| s.name s.member_count}.sort_by(&:downcase).join("\n - ")}"
-#end
+bot.command(:help) do |event|
+"Please use `~commands`, thanks hun!"
+end
 
 bot.command(:commands) do |event|
   event << "<https://github.com/LeggoMyEcho/DrawBot/wiki/Commands>"
@@ -223,8 +222,8 @@ end
 bot.command(:drawcombo,
              description: "Generate a more random thing to draw!",
              usage: '~drawcombo') do |event|
-    event << "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}
-    This command will be removed soon; it's been integrated in the `~draw` command"
+    event << "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}\n"\
+    "\nThis command will be removed soon; it's been integrated in the `~draw` command"
 end
 
 bot.command(:drawfaglewd) do |event|
