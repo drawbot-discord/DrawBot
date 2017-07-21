@@ -192,7 +192,12 @@ end
 bot.command(:draw,
             description: 'Generate a random thing to draw!',
             usage: "~draw") do |event|
-  event << "You should draw #{DrawTopic.sample}"
+            rndm = rand(1..2)
+             if rndm == 1
+               "You should draw #{DrawTopic.sample}"
+             elsif rndm == 2
+               "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
+             end
 end
 
 bot.command(:drawlood) do |event, *message|
@@ -486,7 +491,7 @@ bot.command(:prompt,
                  "Ambiguous", "Ambivalent", "Apathetic", "Cynical", "Disturbing", "Diverse",
                  "Dominant", "Exuberant", "Humourous", "Hysterical", "Insensitive", "Jovial",
                  "Lackadaisical", "Livid", "Morose", "Precocious", "Raucous", "Relaxed",
-                 "Sarcastic", "Sensitive", "Sleep", "Soothed", "Vivacious"]
+                 "Sarcastic", "Sensitive", "Sleepy", "Soothed", "Vivacious"]
   "You get the following story prompt: `#{prompt.sample}` Make it #{thing.sample}"
 end
 
