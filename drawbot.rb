@@ -1466,7 +1466,7 @@ CHANNELS = [
        175579371975868416
      ]
 
-     message(in: CHANNELS) do |event|
+     bot.message(in: CHANNELS) do |event|
        next unless rand(1..50) == 1
 
        meme = event.message.content
@@ -1487,7 +1487,7 @@ CHANNELS = [
 
        m.delete
      end
-   
+
 
 
 
