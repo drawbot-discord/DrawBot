@@ -1462,6 +1462,32 @@ bot.command(:getdb) do |event|
   event.channel.send_file(file)
 end
 
+CHANNELS = [
+       175579371975868416
+     ]
+
+     message(in: CHANNELS) do |event|
+       next unless rand(1..50) == 1
+
+       meme = event.message.content
+                           .chars
+                           .map { |c| [c.downcase, c.upcase].sample }
+                           .join
+
+       m = event.channel.send_embed(
+         meme,
+         {
+           image: {
+             url: 'http://i0.kym-cdn.com/entries/icons/original/000/022/940/spongebobicon.jpg'
+           }
+         }
+       )
+
+       sleep 25
+
+       m.delete
+     end
+
 
 
 bot.run
