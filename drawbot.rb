@@ -1467,7 +1467,7 @@ CHANNELS = [
      ]
 
      bot.message(in: CHANNELS) do |event|
-       next unless rand(1..2) == 1
+       next unless rand(1..200) == 1
 
        meme = event.message.content
                            .chars
