@@ -393,7 +393,7 @@ end
 
 
 bot.command(:c,
-            description: "Generates completely random colours") do |event|
+            description: "Generates completel:y random colours") do |event|
               hex1 = SecureRandom.hex(3)
               url = "https://dummyimage.com/75x75/#{hex1}&text=#{hex1}"
               hex2 = SecureRandom.hex(3)
@@ -1467,7 +1467,7 @@ CHANNELS = [
      ]
 
      bot.message(in: CHANNELS) do |event|
-       next unless rand(1..50) == 1
+       next unless rand(1..2) == 1
 
        meme = event.message.content
                            .chars
@@ -1485,7 +1485,7 @@ CHANNELS = [
 
        sleep 25
 
-       m.delete
+     m.delete
      end
 
 
