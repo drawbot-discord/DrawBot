@@ -192,7 +192,7 @@ bot.command(:draw,
             description: 'Generate a random thing to draw!',
             usage: "~draw") do |event, *message|
             message = message.join(' ')
-  if message.empty?
+            if message.empty?
             rndm = rand(1..3)
              if rndm == 1
                "You should draw #{DrawTopic.sample}"
@@ -201,7 +201,7 @@ bot.command(:draw,
              end
              else
                 "You should draw #{message} #{NormalDrawTopic.sample}"
-  end
+            end
 end
 
 bot.command(:drawlewd,
@@ -209,7 +209,8 @@ bot.command(:drawlewd,
              usage: '~drawlewd') do |event, *message|
              check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["lewd", "unlocknsfw"]
              next event.respond "I need the `lewd` or `unlocknsfw` role for that, silly" if check.empty?
-              if message.empty?
+             message = message.join(' ')
+             if message.empty?
                 rndm = rand(1..3)
               if rndm == 1
                 "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
@@ -218,7 +219,7 @@ bot.command(:drawlewd,
               end
               else
                 "You should draw #{message} #{NormalDrawTopic.sample}"
-              end
+             end
 end
 
 bot.command(:drawcombo,
