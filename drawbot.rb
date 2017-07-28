@@ -190,7 +190,7 @@ end
 
 bot.command(:draw,
             description: 'Generate a random thing to draw!',
-            usage: "~draw") do |event|
+            usage: "~draw") do |event, *message|
             message = message.join(' ')
   if message.empty?
             rndm = rand(1..3)
