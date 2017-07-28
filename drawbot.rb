@@ -218,7 +218,7 @@ bot.command(:drawlewd,
                 "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
               end
               else
-                "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
+                "You should draw #{message} #{LewdDrawTopic.sample}"
              end
 end
 
