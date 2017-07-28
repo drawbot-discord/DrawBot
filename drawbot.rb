@@ -204,24 +204,21 @@ bot.command(:draw,
   end
 end
 
-bot.command(:drawlood) do |event, *message|
-  message = message.join(' ')
-  event << "Draw #{message} #{LewdDrawTopic.sample}"
-
-end
-
 bot.command(:drawlewd,
              description: "Generate a random lewd thing to draw!",
-             usage: '~drawlewd') do |event|
-  check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["lewd", "unlocknsfw"]
-  next event.respond "I need the `lewd` or `unlocknsfw` role for that, silly" if check.empty?
-     if rand(1...5) == 1
-       "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
-    # elsif rand(1...3) == 2
-    #   "You should draw #{event.server.members.sample.display_name} #{LewdDrawTopic.sample}"
-     else
-       "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
-     end
+             usage: '~drawlewd') do |event, *message|
+             check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["lewd", "unlocknsfw"]
+             next event.respond "I need the `lewd` or `unlocknsfw` role for that, silly" if check.empty?
+              if message.empty?
+                rndm = rand(1..3)
+              if rndm == 1
+                "You should draw #{event.user.display_name} #{LewdDrawTopic.sample}"
+              elsif rndm.between?(2,3)
+                "You should draw #{DrawComboTopic.sample} #{LewdDrawTopic.sample}"
+              end
+              else
+                "You should draw #{message} #{NormalDrawTopic.sample}"
+              end
 end
 
 bot.command(:drawcombo,
@@ -229,11 +226,6 @@ bot.command(:drawcombo,
              usage: '~drawcombo') do |event|
     event << "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}\n"\
     "\nThis command will be removed soon; it's been integrated in the `~draw` command"
-end
-
-bot.command(:drawfaglewd) do |event|
-  break unless event.channel.id == DRAWCHANNEL
-  event << "You must draw #{Artists.sample} #{LewdDrawFagTopic.sample}"
 end
 
 bot.command(:outfit,
