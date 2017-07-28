@@ -191,12 +191,17 @@ end
 bot.command(:draw,
             description: 'Generate a random thing to draw!',
             usage: "~draw") do |event|
-            rndm = rand(1..2)
+            message = message.join(' ')
+  if message.empty?
+            rndm = rand(1..3)
              if rndm == 1
                "You should draw #{DrawTopic.sample}"
-             elsif rndm == 2
+             elsif rndm.between?(2,3)
                "You should draw #{DrawComboTopic.sample} #{NormalDrawTopic.sample}"
              end
+             else
+                "You should draw #{message} #{NormalDrawTopic.sample}"
+  end
 end
 
 bot.command(:drawlood) do |event, *message|
