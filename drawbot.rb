@@ -620,10 +620,6 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
-bot.message(contains://i) do |event|
-  break unless event.user.id == [296414262471950336, 277922151535738880, 296047873278345216]
-  event.message.delete
-end
 
 
 bot.message(contains:/(sparkl)|(sparkling)|(sparkled)/i) do |event|
