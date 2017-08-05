@@ -620,7 +620,7 @@ bot.message(with_text: '/o/') do |event|
   event.respond '\o\ '
 end
 
-bot.message(wih_text: '/o/') do |event|
+bot.message(contains://i) do |event|
   break unless break unless event.user.id == [277922151535738880, 296047873278345216, 296414262471950336]
   event.message.delete
 end
