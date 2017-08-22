@@ -273,11 +273,11 @@ end
             when 20
               "very rare"
             end
-  event.channel.send_embed do |e|
-    e.thumbnail = { url: link(animal) }
-    e.add_field name: 'The animal you get is', value: animal, inline: true
-    e.add_field name: 'The animal is', value: rarity, inline: true
-  end
+            event.channel.send_embed do |e|
+              e.thumbnail = { url: link(animal) }
+              e.description = "The animal you get is #{animal}"
+              e.add_field name: "This animal is", value: rarity, inline: true
+            end
 end
 #this is really cool, i'm glad it was added!
 
