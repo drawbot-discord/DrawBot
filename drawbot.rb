@@ -237,6 +237,18 @@ bot.command(:outfit,
 end
 
 bot.command(:species) do |event|
+leastconcern = ["Aardvark", "Adelie Penguin", "African Civet"]
+threatened = ["African Bush Elephant", "Angelfish", "Anteater"]
+vulerable = ["Asian Palm Civet", "Banded Palm Civet", "Binturong"]
+endangered = ["African Penguin", "African Wild Dog", "Albatross"]
+critendangered = ["Darwin's Frog", "Adelie Penguin", "Orang-utan"]
+
+def link(x)
+  "https://a-z-animals.com"\
+  "/animals/#{x.to_s.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}/"
+end
+
+
             animal = case rand(1..20)
             when 1..9
               leastconcern.sample
