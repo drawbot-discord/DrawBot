@@ -90,9 +90,17 @@ leastconcern = $animals['leastconcern']
 threatened = $animals['threatened']
 vulerable = $animals['vulerable']
 endangered = $animals['endangered']
-critendangered = $animals['critendangered']
+critendangered = $animals['criticallyendangered']
 
-
+#"#{leastconcern.sample}"
+#when 10..14
+#"#{threatened.sample}"
+#when 15..17
+#"#{vulerable.sample}"
+#when 18..19
+#"#{endangered.sample}"
+#when 20
+#"#{critendangered.sample}"
 
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
