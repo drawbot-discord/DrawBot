@@ -236,6 +236,37 @@ bot.command(:outfit,
   event << "I bet you'll look great in it~"
 end
 
+bot.command(:species) do |event|
+            animal = case rand(1..20)
+            when 1..9
+              leastconcern.sample
+            when 10..14
+              threatened.sample
+            when 15..17
+              vulerable.sample
+            when 18..19
+              endangered.sample
+            when 20
+              critendangered.sample
+            end
+            rarity = case animal
+            when 1..9
+              "common"
+            when 10..14
+              "uncommon"
+            when 15..17
+              "sparse"
+            when 18..19
+              "rare"
+            when 20
+              "very rare"
+            end
+  event.channel.send_embed do |e|
+    e.thumbnail = { url: link(animal) }
+    e.add_field name: 'The animal you get is', value: animal, inline: true
+    e.add_field name: 'The animal is', value: rarity, inline: true
+  end
+end
 #this is really cool, i'm glad it was added!
 
 bot.bucket :pokemon, limit: 3, time_span: 30, delay: 10
