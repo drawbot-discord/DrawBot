@@ -31,6 +31,7 @@ $pc = YAML.load(File.read('pc.yaml'))
 $wl = YAML.load(File.read('wl.yaml'))
 $graff = YAML.load(File.read('graff.yaml'))
 $prompt = YAML.load(File.read('prompt.yaml'))
+$animals = YAML.load(File.read('animals.yaml'))
 
 
 BoopAction = $db['BoopAction']
