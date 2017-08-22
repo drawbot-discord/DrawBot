@@ -248,15 +248,15 @@ def link(x)
 end
             animal = case rand(1..20)
             when 1..9
-              leastconcern.sample
+              "#{leastconcern.sample}"
             when 10..14
-              threatened.sample
+              "#{threatened.sample}"
             when 15..17
-              vulerable.sample
+              "#{vulerable.sample}"
             when 18..19
-              endangered.sample
+              "#{endangered.sample}"
             when 20
-              critendangered.sample
+              "#{critendangered.sample}"
             end
             event.channel.send_embed do |e|
               e.add_field name: "Your animal is", value: "[#{animal}](#{link(animal)})", inline: true
