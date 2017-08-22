@@ -85,7 +85,11 @@ ced = $pc['cedeity']
 wordlist = $wl['list']
 graff = $graff['LIST']
 prompt = $prompt['prompt']
-
+leastconcern = $animals['leastconcern']
+threatened = $animals['threatened']
+vulerable = $animals['vulerable']
+endangered = $animals['endangered']
+critendangered = $animals['critendangered']
 
 
 
@@ -236,13 +240,7 @@ bot.command(:outfit,
   event << "I bet you'll look great in it~"
 end
 
-bot.command(:species) do |event|
-leastconcern = ["Aardvark", "Adelie Penguin", "African Civet"]
-threatened = ["African Bush Elephant", "Angelfish", "Anteater"]
-vulerable = ["Asian Palm Civet", "Banded Palm Civet", "Binturong"]
-endangered = ["African Penguin", "African Wild Dog", "Albatross"]
-critendangered = ["Darwin's Frog", "Adelie Penguin", "Orang-utan"]
-
+bot.command(:species, :animal) do |event|
 def link(x)
   "https://a-z-animals.com"\
   "/animals/#{x.to_s.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}/"
@@ -261,7 +259,7 @@ end
             end
             event.channel.send_embed do |e|
               e.add_field name: "Your animal is", value: "[#{animal}](#{link(animal)})", inline: true
-              e.description = "#{link(animal)}"
+              #e.description = "#{link(animal)}"
             end
 end
 #this is really cool, i'm glad it was added!
