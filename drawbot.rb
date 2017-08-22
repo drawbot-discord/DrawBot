@@ -260,7 +260,8 @@ end
               critendangered.sample
             end
             event.channel.send_embed do |e|
-               e.description = "[#{animal}](#{link(animal)})"
+              e.add_field name: "Your animal is", value: "[#{animal}](#{link(animal)})", inline: true
+               #e.description = "[#{animal}](#{link(animal)})"
             end
 end
 #this is really cool, i'm glad it was added!
