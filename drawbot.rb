@@ -247,8 +247,6 @@ def link(x)
   "https://a-z-animals.com"\
   "/animals/#{x.to_s.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}/"
 end
-
-
             animal = case rand(1..20)
             when 1..9
               leastconcern.sample
@@ -261,19 +259,9 @@ end
             when 20
               critendangered.sample
             end
-            rarity = case animal
-            when 1..9
-              "common"
-            when 10..14
-              "uncommon"
-            when 15..17
-              "sparse"
-            when 18..19
-              "rare"
-            when 20
-              "very rare"
+            event.channel.send_embed do |e|
+               e.description = "[#{animal}](#{link(animal)})"
             end
-"The animal you get is #{animal}. It's #{rarity}. #{link(animal)}"
 end
 #this is really cool, i'm glad it was added!
 
