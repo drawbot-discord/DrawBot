@@ -241,7 +241,7 @@ bot.command(:outfit,
   event << "I bet you'll look great in it~"
 end
 
-bot.command(:species, :animal) do |event|
+bot.command(:animal) do |event|
 def link(x)
   "https://a-z-animals.com"\
   "/animals/#{x.to_s.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}/"
