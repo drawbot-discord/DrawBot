@@ -1143,11 +1143,14 @@ bot.command(:submit,
              usage: "`~submit #channel (link)`") do |event, channel, url, *message|
      next event.respond('I need a channel to post to, sweetheart!') unless /\d{18}/.match(channel)
      next event.respond('I need a link, hun!') unless /(http|https):\/\/(.)*/i.match(url)
-   num = Time.now.strftime("%Y%j%H%M%S")
+   num = Time.now.strftime("%j%H%M%S")
   begin
-   event.bot.channel(channel[2..-1]).send_message("**Submission number** `#{num}`"\
-   "\n#{event.user.mention} posted their art #{url}"\
-   "\n#{message.join(" ")}")
+    event.bot.channel(channel[2..-1]).send_embed do |e|
+        e.author = { name: event.user.name, icon_url: event.user.avatar_url }
+        e.image  = { url: url }
+        e.description = "#{message.join(" ")}"
+        e.footer = { text:"Post Number #{num}" }
+    end
   rescue
     "Sorry sweety, something went wrong!"
   end
