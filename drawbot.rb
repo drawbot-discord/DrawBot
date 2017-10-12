@@ -1154,6 +1154,7 @@ bot.command(:submit,
         e.description = "#{message.join(" ")}"
         e.footer = { text:"Post Number #{num}" }
     end
+    event.message.delete
   rescue
     "Sorry sweety, something went wrong!"
   end
