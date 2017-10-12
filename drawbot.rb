@@ -1101,7 +1101,10 @@ bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I c
         bigimage = bigimage_page.css('.content').css('img').map do |x|
           x.attr('src')
         end
-        event.respond bigimage[1]
+        event.channel.send_embed do |e|
+        e.image  = { url: bigimage[1] }
+        e.description = "Search result for: `#{search}`"
+    end
 end
 
 bot.bucket :r34, limit: 3, time_span: 30, delay: 10
