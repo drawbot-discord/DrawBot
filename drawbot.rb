@@ -1086,7 +1086,7 @@ end
 
 bot.command :fight do |event, *message|
   message = message.join(" ")
-a = rand(20..20)
+a = rand(1..20)
 b = rand(1..20)
 extremecondition = ["extreme force", "with a nuke"]
 killcondition = [
