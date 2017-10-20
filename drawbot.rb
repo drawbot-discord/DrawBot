@@ -1083,6 +1083,40 @@ bot.command(:pout) do |event|
 end
 
 
+
+bot.command :fight do |event, *message|
+  message = message.join(" ")
+a = rand(20..20)
+b = rand(1..20)
+extremecondition = ["extreme force", "with a nuke"]
+killcondition = [
+  "with a hammer",
+  "with a hatchet",
+  "with a dick",
+  "by sacrifice to the Lord of Terror",
+  "telefragged",
+  "with a 360NoScope",
+  "with a stick of dynamite",
+  "with a lobotomy",
+  "with a fish",
+  "with a shovel",
+  "with a pencil",
+  "with a pinecone",
+  "with fists"]
+roll = "#{event.user.name}: #{a}\n#{message}: #{b}"
+result = "#{event.user.name} killed #{message} #{killcondition.sample}" if a > b
+result = "#{message} killed #{event.user.name} #{killcondition.sample}" if a < b
+result = "#{event.user.name} killed #{message} #{extremecondition.sample}" if a == 20
+result = "#{message} killed #{event.user.name} #{extremecondition.sample}" if b == 20
+result = "It's a tie! RE-ROLL!" if a == b
+  event.channel.send_embed do |e|
+    e.description = "**#{result}**"
+    e.add_field name: "\u200b", value: roll, inline: true
+  end
+  event.message.delete
+end
+
+
 bot.bucket :e621, limit: 3, time_span: 30, delay: 10
 bot.command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
             description: "Search for an image on e621.net",
