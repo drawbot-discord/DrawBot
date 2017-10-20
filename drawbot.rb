@@ -1124,7 +1124,7 @@ def avian
   hash = {}
   hash["species"] = "avian"
   hash["size"] = $randimal['size'].sample
-  hash["size"] = $randimal['rarity'].sample
+  hash["rarity"] = $randimal['rarity'].sample
   hash["knowledge"] = $randimal['knowledge'].sample
   hash["colour"] = "#{$randimal['feathercolourdesc'].sample} #{$randimal['feathercolour'].sample}"
   hash["skindesc"] = $randimal['avianskin'].sample
