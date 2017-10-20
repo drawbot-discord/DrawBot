@@ -1151,7 +1151,7 @@ end
 
 
 
-command(:randimal) do |event|
+bot.command(:randimal) do |event|
   animal =
     case rand(3..3)
       when 1
