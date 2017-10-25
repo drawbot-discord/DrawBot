@@ -1030,7 +1030,8 @@ end
 bot.command(:told) do |event|
   check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["spam", "unlocksfw"]
   next event.respond "I need the `playful` or `spam` role for that, silly" if check.empty?
-   event << Told
+   ":negative_squared_cross_mark: Not Told\n"\
+   "#{$db['told'].sample(5).join("\n")}"
 end
 
 bot.command(:rekt) do |event|
