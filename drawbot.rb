@@ -92,16 +92,6 @@ vulerable = $animals['vulerable']
 endangered = $animals['endangered']
 critendangered = $animals['criticallyendangered']
 
-#"#{leastconcern.sample}"
-#when 10..14
-#"#{threatened.sample}"
-#when 15..17
-#"#{vulerable.sample}"
-#when 18..19
-#"#{endangered.sample}"
-#when 20
-#"#{critendangered.sample}"
-
 DEVCHANNEL = 222032313154928640
 DRAWCHANNEL = 175579371975868416
 
@@ -663,6 +653,10 @@ end
 
 
 
+
+
+
+
 #bot.message(start_with:/(should i.+\?)|(should.+\?)|(can.+\?i)|(can.+\?)|(will.+\?)|(is.+\?)|(do.+\?)/i) do |event|
 #        event.respond ["Yea, #{event.user.display_name} :thumbsup:",
 #                       "Nah, #{event.user.display_name} :thumbsdown:",
@@ -1042,7 +1036,8 @@ end
 bot.command(:rekt) do |event|
   check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["spam", "unlocksfw"]
   next event.respond "I need the `spam` or `unlocksfw` role for that, silly" if check.empty?
-   event << Rekt
+   ":negative_squared_cross_mark: Not REKT
+   #{$db['rekt'].sample(5).join("\n")}"
 end
 
 
@@ -1386,6 +1381,8 @@ bot.command(:bank, bucket: :bank, rate_limit_message:'I can\'t spread the wealth
    rescue => e
    puts e
    end
+
+
 
    if mention.nil?
      mention = event.user.id.to_i
