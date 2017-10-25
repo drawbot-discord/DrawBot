@@ -1036,8 +1036,10 @@ end
 bot.command(:rekt) do |event|
   check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["spam", "unlocksfw"]
   next event.respond "I need the `spam` or `unlocksfw` role for that, silly" if check.empty?
-   ":negative_squared_cross_mark: Not REKT
-   #{$db['rekt'].sample(5).join("\n")}"
+   ":negative_squared_cross_mark: Not REKT\n"\
+   ":heavy_check_mark: REKT\n"\
+   ":heavy_check_mark: Really Rekt\n"\
+   "#{$db['rekt'].sample(4).join("\n")}"
 end
 
 
