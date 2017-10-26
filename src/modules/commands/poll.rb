@@ -2,7 +2,7 @@ module Bot
   module DiscordCommands
     # Document your command
     # in some YARD comments here!
-    module MyCommand
+    module Poll
       extend Discordrb::Commands::CommandContainer
       command(:poll, help_available: true,
               description: "Does a poll that ends after 2min or the set time, can have up to 5 options seperated with a \'-\'",

@@ -2,7 +2,7 @@ module Bot
   module DiscordCommands
     # Document your command
     # in some YARD comments here!
-    module MyCommand
+    module Information
       extend Discordrb::Commands::CommandContainer
 
 

@@ -2,7 +2,7 @@ module Bot
   module DiscordCommands
     # Document your command
     # in some YARD comments here!
-    module MyCommand
+    module Dice
       extend Discordrb::Commands::CommandContainer
         command :roll do |event, *dice|
         def is_numeric?(obj)

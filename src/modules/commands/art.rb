@@ -2,7 +2,7 @@ module Bot
   module DiscordCommands
     # Document your command
     # in some YARD comments here!
-    module MyCommand
+    module ArtCommands
       extend Discordrb::Commands::CommandContainer
       $dct = YAML.load(File.read('data/dct.yaml'))
       $dt = YAML.load(File.read('data/dt.yaml'))

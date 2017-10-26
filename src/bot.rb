@@ -34,6 +34,14 @@ module Bot
     BOT.include! DiscordEvents.const_get mod
   end
 
+
+
+
+  puts 'I think it\'s time to blow this thing.'
+  puts 'Get everybody and their stuff together'
+  puts 'Okay, three, two, one let\'s jam.'
+  puts ' '
+  puts ' '
   # Run the bot
   BOT.run
 end

@@ -5,7 +5,7 @@ module Bot
     module UserInfo
       extend Discordrb::Commands::CommandContainer
       module_function
-      $bank = YAML.load(File.read('data/userinfo.yaml'))
+      $userinfo = YAML.load(File.read('data/userinfo.yaml'))
 
 
       command(:bank, bucket: :bank, rate_limit_message:'I can\'t spread the wealth that fast!',
@@ -13,16 +13,16 @@ module Bot
         check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["banker", "unlocksfw"]
         next event.respond "I need the `banker` or `unlocksfw` role for that, silly" if check.empty?
            def save
-             file = File.open("bank.yaml", "w")
-             file.write($bank.to_yaml)
+             file = File.open("userinfo.yaml", "w")
+             file.write($userinfo.to_yaml)
            end
          begin
-         user = $bank['users'][event.user.id]
+         user = $userinfo['users'][event.user.id]
          if user == true
          event << "You're already registered sweetheart."
          end
          if user.nil?
-         $bank['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
+         $userinfo['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
          event << "User added! You now have `0 HEARTS`, `0 SALT`, `25 STIPEND`, and can add refs!"
          save
          nil
@@ -39,8 +39,8 @@ module Bot
            mention = event.message.mentions.at(0).id.to_i
          end
 
-          #load user from $bank, report if user is invalid or not registered.
-          user = $bank["users"][mention]
+          #load user from $userinfo, report if user is invalid or not registered.
+          user = $userinfo["users"][mention]
           if user.nil?
             event << "User does not exist, sorry sweety."
             return
@@ -76,7 +76,7 @@ module Bot
             #checks to make sure people aren't stealing (giving negative values)
          next "No negatives allowed" if value < 1
             #pick up user
-          fromUser = $bank["users"][event.user.id]
+          fromUser = $userinfo["users"][event.user.id]
 
           #return if invalid user
           if fromUser.nil?
@@ -92,7 +92,7 @@ module Bot
 
 
           #pick up user to receive currency
-          toUser = $bank["users"][event.bot.parse_mention(to).id]
+          toUser = $userinfo["users"][event.bot.parse_mention(to).id]
 
           if toUser == event.bot.profile.id
             event << "Is that all you have to offer, hun?"
@@ -130,8 +130,8 @@ module Bot
         #notification
         event << "**#{event.user.display_name}** awarded **#{event.message.mentions.at(0).on(event.server).display_name}** with **#{value.to_s} #{type}** :yum:"
         def save
-          file = File.open("bank.yaml", "w")
-          file.write($bank.to_yaml)
+          file = File.open("data/userinfo.yaml", "w")
+          file.write($userinfo.to_yaml)
         end
         save
           nil
@@ -140,7 +140,7 @@ module Bot
       command(:refs,
               description: "Get the reference of a fellow artist!",
               usage: '~refs @user') do |event, mention|
-        user = $bank['users'][event.bot.parse_mention(mention).id]
+        user = $userinfo['users'][event.bot.parse_mention(mention).id]
 
         if mention.nil?
           user = event.user.id.to_i
@@ -166,15 +166,15 @@ module Bot
               description: 'Add a reference for yourself or your character!',
               usage: "`~addref (URL)`") do |event, url|
                   def save
-                    file = File.open("db.yaml", "w")
-                    file.write($bank.to_yaml)
+                    file = File.open("data/userinfo.yaml", "w")
+                    file.write($userinfo.to_yaml)
                   end
-        user = $bank['users'][event.user.id]
+        user = $userinfo['users'][event.user.id]
                if user.nil?
-             $bank['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
+             $userinfo['users'][event.user.id] = Hash["name" => event.user.display_name, "refs" => [], "hearts" => 0, "salt" => 0, "stipend" => 25]
                  event << "User added"
                end
-        user = $bank['users'][event.user.id]
+        user = $userinfo['users'][event.user.id]
              user['refs'] << url.to_s
              event << "Ref added! :wink:"
              save

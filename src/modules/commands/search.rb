@@ -2,7 +2,7 @@ module Bot
   module DiscordCommands
     # Document your command
     # in some YARD comments here!
-    module MyCommand
+    module Search
       extend Discordrb::Commands::CommandContainer
       bucket :e621, limit: 3, time_span: 30, delay: 10
       command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
