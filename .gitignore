@@ -1,0 +1,12 @@
+# Discord config file
+/data
+/Gemfile.lock
+/run.sh
+/media
+Gemfile
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
