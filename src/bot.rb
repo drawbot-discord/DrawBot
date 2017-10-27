@@ -1,10 +1,13 @@
 # Gems
-require 'bundler/setup'
 require 'discordrb'
 require 'yaml'
+require 'rest_client'
+require 'rufus-scheduler'
 require 'nokogiri'
 require 'rest-client'
-require 'rest_client'
+require 'json'
+require 'usagewatch'
+require 'set'
 # The main bot module.
 module Bot
   # Load non-Discordrb modules
