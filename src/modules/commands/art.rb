@@ -12,6 +12,7 @@ module Bot
       $outfit = YAML.load(File.read('data/outfit.yaml'))
       $refdb = YAML.load(File.read('data/refdb.yaml'))
       $colour = YAML.load(File.read('data/colour.yaml'))
+      $fpose = YAML.load(File.read('data/fpose.yaml'))
       DrawTopic = $dt['DrawTopic']
       DrawComboTopic = $dct['DrawComboTopic']
       LewdDrawTopic = $ldt['LewdDrawTopic']
@@ -72,7 +73,7 @@ module Bot
               usage: '~fpose') do |event|
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["fpose", "unlocknsfw"]
               next event.respond "I need the `fpose` or `unlocknsfw` role for that, silly" if check.empty?
-              event << "The pose you get is #{Fpose.sample}"
+              event << "The pose you get is #{$fpose['fpose'].sample}"
       end
 
       command(:scene,
