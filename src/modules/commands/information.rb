@@ -34,7 +34,7 @@ module Bot
                e.add_field name: 'Disk taken',
                           value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
                e.add_field name: 'Invite link',
-                          value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=268435493)", inline: true
+                          value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: true
                e.add_field name: 'CPU',
                           value: "#{usw.uw_cpuused}%", inline: true
                    e.add_field name: 'My server',
@@ -44,7 +44,7 @@ module Bot
                e.add_field name: 'Github',
                           value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
                e.add_field name: "\u200b",
-                          value: "DrawBot `.9 Alpha` Ruby: `#{RUBY_VERSION}` Discordrb: `#{Discordrb::VERSION}`"
+                          value: "DrawBot `2.0 Beta` Ruby: `#{RUBY_VERSION}` Discordrb: `#{Discordrb::VERSION}`"
               e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate" }
               end
       end
