@@ -11,6 +11,7 @@ module Bot
       $sdt = YAML.load(File.read('data/sdt.yaml'))
       $outfit = YAML.load(File.read('data/outfit.yaml'))
       $refdb = YAML.load(File.read('data/refdb.yaml'))
+      $colour = YAML.load(File.read('data/colour.yaml'))
       DrawTopic = $dt['DrawTopic']
       DrawComboTopic = $dct['DrawComboTopic']
       LewdDrawTopic = $ldt['LewdDrawTopic']
@@ -84,17 +85,8 @@ module Bot
                    description: "Generate a random set of complementary colours!",
                    usage: '~colour') do |event|
         event << "Your complementary colours are"
-        event << "#{Compcolour.sample}"
+        event << "#{$colour['compcolour'].sample}"
         event << "Oooh they're so pretty~"
-      end
-
-      #COLOUR COMMAND
-      command(:compcolor,
-                   description: "Generate a random set of complementary colours, you yankee!",
-                   usage: '~color') do |event|
-        event << "Your complementary colours are"
-        event << "#{Compcolour.sample}"
-        event << "You yankee"
       end
 
       #COLOUR SHADES COMMAND
