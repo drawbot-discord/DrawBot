@@ -13,6 +13,7 @@ module Bot
       $refdb = YAML.load(File.read('data/refdb.yaml'))
       $colour = YAML.load(File.read('data/colour.yaml'))
       $fpose = YAML.load(File.read('data/fpose.yaml'))
+      $scene = YAML.load(File.read('data/scene.yaml'))
       DrawTopic = $dt['DrawTopic']
       DrawComboTopic = $dct['DrawComboTopic']
       LewdDrawTopic = $ldt['LewdDrawTopic']
@@ -79,7 +80,7 @@ module Bot
       command(:scene,
                   description: "Get a random scene to draw/paint!",
                   usage: '~scene') do |event|
-        event << "You should draw #{Subject.sample} #{Weather.sample} #{TimeofDay.sample} in #{Seasons.sample}"
+        event << "You should draw #{$scene['subject'].sample} #{$scene['weather'].sample} #{$scene['timeofday'].sample} in #{$scene['seasons'].sample}"
       end
 
       command(:colour,
