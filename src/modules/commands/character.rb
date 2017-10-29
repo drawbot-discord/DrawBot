@@ -124,9 +124,9 @@ module Bot
                            " #{$pc['stats'].sample}. #{gender} has #{$pc['hairlength'].sample}"\
                            " #{$pc['hair'].sample} hair, #{$pc['bodytype'].sample}"\
                            " body and #{$pc['height'].sample}."\
-                           " #{pronoun} weapon of choice is #{weapon}.\n\n"\
-                           "#{$pc['birth'].sample} #{$pc['adolesence'].sample} "\
-                           " But not everyone is perfect.. #{$pc['drawback'].sample}", inline: true
+                           " #{pronoun} weapon of choice is #{weapon}.\n", inline: true
+        e.add_field name: "\u200b", value: "#{$pc['birth'].sample} #{$pc['adolesence'].sample} #{$pc['childhood'].sample}"\
+                                           " But not everyone is perfect.. #{$pc['drawback'].sample}", inline: true
         end
       end
     end
