@@ -10,7 +10,7 @@ module Bot
               usage: '~e621 (search_term)') do |event, *search|
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["e621", "unlocknsfw"]
               next event.respond "I need the `e621` or `unlocknsfw` role for that, silly" if check.empty?
-              searchterm = search
+              searchterm = search.join(" ")
               search = search.join('%20')
 
               next event.respond 'Please give me something to search for' if search.empty?
