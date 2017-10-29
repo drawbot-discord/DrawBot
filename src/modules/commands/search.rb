@@ -10,7 +10,9 @@ module Bot
               usage: '~e621 (search_term)') do |event, *search|
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["e621", "unlocknsfw"]
               next event.respond "I need the `e621` or `unlocknsfw` role for that, silly" if check.empty?
+              searchterm = search
               search = search.join('%20')
+
               next event.respond 'Please give me something to search for' if search.empty?
                 base_url = 'https://e621.net/post/index/1/'
                 e621 = Nokogiri::HTML RestClient.get(base_url + search)
@@ -24,7 +26,7 @@ module Bot
               end
               event.channel.send_embed do |e|
               e.image  = { url: bigimage[1] }
-              e.description = "Search result for: `#{search}`"
+              e.description = "Search result for: `#{searchterm}`"
           end
           event.message.delete
       end
