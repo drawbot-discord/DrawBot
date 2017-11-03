@@ -27,6 +27,7 @@ module Bot
       command(:joke,
               description: "Tells an offensive joke.",
               usage: '~joke') do |event|
+        next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
         check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["offensive", "unlocknsfw"]
         next event.respond "I need the `offensive` or `unlocknsfw` role for that, silly" if check.empty?
         "#{$silly['dirtyjoke'].sample}"

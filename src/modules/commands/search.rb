@@ -8,6 +8,7 @@ module Bot
       command(:e621, bucket: :e621, rate_limit_message: 'Calm down sweetheart! I can\'t keep up with the lewd!',
               description: "Search for an image on e621.net",
               usage: '~e621 (search_term)') do |event, *search|
+              next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["e621", "unlocknsfw"]
               next event.respond "I need the `e621` or `unlocknsfw` role for that, silly" if check.empty?
               searchterm = search.join(" ")
@@ -31,10 +32,11 @@ module Bot
           event.message.delete
       end
 
-      bucket :r34, limit: 3, time_span: 30, delay: 10
+      bucket :paheal, limit: 3, time_span: 30, delay: 10
       command(:paheal,
               description: "Search for an image on R34 Paheal",
               usage: `~r34 (search term)`) do |event, *search|
+              next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["r34", "unlocknsfw"]
               next event.respond "I need the `r34` or `unlocknsfw` role for that, silly" if check.empty?
               begin

@@ -40,6 +40,7 @@ module Bot
       command(:drawlewd,
               description: "Generate a random lewd thing to draw!",
               usage: '~drawlewd') do |event, *message|
+              next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["lewd", "unlocknsfw"]
               next event.respond "I need the `lewd` or `unlocknsfw` role for that, silly" if check.empty?
               message = message.join(' ')
@@ -72,6 +73,7 @@ module Bot
       command(:fpose,
               description: "Generate a random female image from the Playboy Centerfolds (1958-2008) as a drawing reference (NSFW)",
               usage: '~fpose') do |event|
+              next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["fpose", "unlocknsfw"]
               next event.respond "I need the `fpose` or `unlocknsfw` role for that, silly" if check.empty?
               event << "The pose you get is #{$fpose['fpose'].sample}"
