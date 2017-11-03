@@ -78,6 +78,7 @@ module Bot
       command(:selfie,
               description: "See my selfies of me, DrawBot AKA Eris!",
               usage: '~selfie') do |event|
+              next event.respond "I'm sorry. I can't do that because this is a SFW channel." unless event.channel.nsfw?
               check = event.bot.profile.on(event.server).roles.map {|x| x.name }  & ["unlocknsfw"]
               next event.respond "I need the `unlocknsfw` role for that, silly" if check.empty?
         event.channel.send_embed do |e|
