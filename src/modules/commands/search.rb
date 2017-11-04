@@ -19,7 +19,7 @@ module Bot
           next event.respond 'I couldn\'t find anything, sorry hun.' if json.nil?
         event.channel.send_embed do |e|
           e.add_field name: '__**Artist**__', value: json['artist'][0] , inline: true
-          e.add_field name: "\u200b", value: "[Source](https://e621.net/post/show/#{json['file_url']})", inline: true
+          e.add_field name: "\u200b", value: "[Source](https://e621.net/post/show/#{json['id']})", inline: true
           e.image = { url: json['file_url'] }
           e.description = "Search result for: `#{tags}`"
         end
