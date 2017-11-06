@@ -23,8 +23,6 @@ module Bot
                                             token: CONFIG.token,
                                             prefix: CONFIG.prefix)
 
-
-
   # Discord commands
   module DiscordCommands; end
   Dir['src/modules/commands/*.rb'].each { |mod| load mod }
