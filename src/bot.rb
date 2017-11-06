@@ -22,9 +22,9 @@ module Bot
   BOT = Discordrb::Commands::CommandBot.new(client_id: CONFIG.client_id,
                                             token: CONFIG.token,
                                             prefix: CONFIG.prefix)
-RestClient.post("https://discordbots.org/api/bots/#{bot.bot_user.id}/stats","\
-                " '{"server_count":'+bot.servers.count+'}',
-                :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json);
+
+
+
   # Discord commands
   module DiscordCommands; end
   Dir['src/modules/commands/*.rb'].each { |mod| load mod }
