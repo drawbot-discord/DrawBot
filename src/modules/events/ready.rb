@@ -5,11 +5,10 @@ module Bot
       extend Discordrb::EventContainer
       $userinfo = YAML.load(File.read('data/userinfo.yaml'))
       ready do |event|
+        RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats", {"server_count": event.bot.servers.count}, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json);
         event.bot.game = CONFIG.game
         avatar = File.open('media/avatar.jpg','rb')
         event.bot.profile.avatar = avatar
-        event.bot.send_message(CONFIG.devchannel, "Drawbot online! Let's get some art done!")
-        event.bot.send_message(CONFIG.devchannel, "I'm in `#{event.bot.servers.count}` servers ")
         scheduler = Rufus::Scheduler.new
         scheduler.cron '0 0 * * *' do
           #update all users
