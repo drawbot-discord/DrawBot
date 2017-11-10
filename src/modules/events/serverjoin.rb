@@ -10,9 +10,9 @@ module Bot
           e.add_field name: "Connected servers/users",
                      value:  "Servers: #{event.bot.servers.count}\n"\
                              "Users: #{event.bot.users.count}", inline: true
-          e.add_field name: 'Online Members',
+          e.add_field name: 'Server Online Members',
             value: "#{event.server.online_members.count}", inline: true
-          e.add_field name: 'Total Members',
+          e.add_field name: 'Server Total Members',
             value: "#{event.server.member_count}", inline: true
         end
       end
