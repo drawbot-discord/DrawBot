@@ -1,4 +1,5 @@
 # Gems
+require 'bundler/setup'
 require 'discordrb'
 require 'yaml'
 require 'rest_client'
