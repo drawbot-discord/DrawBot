@@ -1,4 +1,8 @@
 # DrawBot
+<a href="https://discordbots.org/bot/186636165938413569">
+  <img src="https://discordbots.org/api/widget/186636165938413569.png" alt="Discord Bots" />
+</a>
+
 
 DrawBot is a bot dedicated to helping artists improve, as well as have fun!
 She goes by both DrawBot and Eris. DrawBot has many commands right out of the box that will help any artist improve their skills and even branch out!
@@ -17,3 +21,5 @@ DrawBot is made possible by:
 - `Cyan「Alter」#3717`
 
 Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/u3a2Ck9)
+
+
