@@ -16,6 +16,9 @@ module Bot
             value: "#{event.server.member_count}", inline: true
         end
       end
+      server_create do |event|
+        RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats", {"server_count": event.bot.servers.count}, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json);
+      end
     end
   end
 end

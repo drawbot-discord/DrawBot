@@ -5,7 +5,6 @@ module Bot
       extend Discordrb::EventContainer
       $userinfo = YAML.load(File.read('data/userinfo.yaml'))
       ready do |event|
-        RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats", {"server_count": event.bot.servers.count}, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json);
         event.bot.game = CONFIG.game
         avatar = File.open('media/avatar.jpg','rb')
         event.bot.profile.avatar = avatar
