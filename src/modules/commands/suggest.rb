@@ -17,7 +17,8 @@ module Bot
                                                              "User: #{event.user.name}", inline: false
               e.footer = { text: "Ref number #{num}" }
             end
-          "New thing added to your To Do list hun!\n"\
+          "I went ahead and let Echo know about your idea!\n"\
+          "[Be sure to join my development server to discuss your idea.](https://discord.gg/u3a2Ck9)\n"\
           "Ref Number `#{num}`"
       end
     end
