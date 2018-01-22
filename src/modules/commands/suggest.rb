@@ -8,6 +8,7 @@ module Bot
       command(:suggest,
               description: "Suggest something to the bot developer",
               usage: `~suggest "suggestion here"`) do |event, *message|
+                next "I can't bring back an empty suggestion silly! :kissing_heart:" if message.empty?
           message = message.join(' ')
           num = event.message.id
             event.bot.channel(404797071129051138).send_embed do |e|
@@ -17,9 +18,11 @@ module Bot
                                                              "User: #{event.user.name}", inline: false
               e.footer = { text: "Ref number #{num}" }
             end
-          "I went ahead and let Echo know about your idea!\n"\
-          "[Be sure to join my development server to discuss your idea.](https://discord.gg/u3a2Ck9)\n"\
-          "Ref Number `#{num}`"
+        event.channel.send_embed do |e|
+          e.add_field name: "I went ahead and let Echo know about your idea!\n",
+                     value: "[Be sure to join my development server to discuss your idea.](https://discord.gg/u3a2Ck9)\n"\
+                            "Ref Number `#{num}`", inline: true
+        end
       end
     end
   end
