@@ -4,7 +4,10 @@ module Bot
     # in some YARD comments here!
     module ArtCommands
       extend Discordrb::Commands::CommandContainer
-
+      bucket :suggest, limit: 12,
+             time_span: 43200,
+             delay: 3600,
+             rate_limit_message: "Please wait another hour before submitting a new suggestion"
       command(:suggest,
               description: "Suggest something to the bot developer",
               usage: `~suggest "suggestion here"`) do |event, *message|
