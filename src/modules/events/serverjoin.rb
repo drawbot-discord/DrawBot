@@ -13,7 +13,8 @@ module Bot
           e.add_field name: 'Server Owner',
             value: event.server.owner.distinct, inline: true
           e.add_field name: 'Online/Total Members',
-            value: "#{event.server.online_members.count}/#{event.server.member_count}", inline: true
+            value: "Online: #{event.server.online_members.count}\n"\
+                   "Total: #{event.server.member_count}", inline: true
         end
       end
       server_create do |event|
