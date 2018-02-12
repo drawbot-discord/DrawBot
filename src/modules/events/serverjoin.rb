@@ -8,12 +8,12 @@ module Bot
           e.thumbnail = { url: event.server.icon_url }
           e.add_field name: 'New Server Joined', value: event.server.name, inline: true
           e.add_field name: "Connected servers/users",
-                     value:  "Servers: #{event.bot.servers.count}\n"\
-                             "Users: #{event.bot.users.count}", inline: true
-          e.add_field name: 'Server Online Members',
-            value: "#{event.server.online_members.count}", inline: true
-          e.add_field name: 'Server Total Members',
-            value: "#{event.server.member_count}", inline: true
+                     value: "Servers: #{event.bot.servers.count}\n"\
+                            "Users: #{event.bot.users.count}", inline: true
+          e.add_field name: 'Server Owner',
+            value: event.server.owner.distinct, inline: true
+          e.add_field name: 'Online/Total Members',
+            value: "#{event.server.online_members.count}/#{event.server.member_count}", inline: true
         end
       end
       server_create do |event|
