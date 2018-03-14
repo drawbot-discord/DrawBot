@@ -18,7 +18,7 @@ module Bot
               e.add_field name: 'New suggestion', value: "#{message}", inline: true
               e.add_field name: '__**Created in**__', value: "Server: #{event.server.name}\n"\
                                                              "Channel: #{event.channel.name}\n"\
-                                                             "User: #{event.user.name}", inline: false
+                                                             "User: #{event.user.distinct}", inline: false
               e.footer = { text: "Ref number #{num}" }
             end
         event.channel.send_embed do |e|
