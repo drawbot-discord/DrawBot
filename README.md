@@ -1,26 +1,27 @@
-# DrawBot
-<a href="https://discordbots.org/bot/186636165938413569">
-  <img src="https://discordbots.org/api/widget/186636165938413569.png" alt="Discord Bots" />
-</a>
+# DrawBot-Crystal
 
-### **[Click here to add DrawBot to your server! :art:](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)**
+TODO: Write a description here
 
+## Installation
 
-DrawBot is a bot dedicated to helping artists improve, as well as have fun!
-She goes by both DrawBot and Eris. DrawBot has many commands right out of the box that will help any artist improve their skills and even branch out!
+TODO: Write installation instructions here
 
+## Usage
+
+TODO: Write usage instructions here
 
 ## Development
 
-DrawBot runs on Ruby 2.3.3 and DiscordRB 3.2.1.
-She's hosted on her own dedicated server on the east coast of the United States. She has a 99.9% uptime with dedicated developers working on her.
+TODO: Write development instructions here
 
-DrawBot is made possible by:
+## Contributing
 
-- `Echo#5248`
-- `z64#2639`
-- `Cyan「Alter」#3717`
+1. Fork it ( https://github.com/[your-github-name]/DrawBot-Crystal/fork )
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
 
-Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/u3a2Ck9)
+## Contributors
 
-
+- [[your-github-name]](https://github.com/[your-github-name]) PixeLInc - creator, maintainer
