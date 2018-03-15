@@ -10,4 +10,9 @@ Gemfile
 /_yardoc/
 /doc/
 /rdoc/
- 
+
+./shards/
+/bin/
+/lib/
+/doc/
+

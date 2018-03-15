@@ -1,0 +1,13 @@
+name: DrawBot-Crystal
+version: 0.1.0
+
+authors:
+  - PixeLInc <officialpixelinc@gmail.com>
+
+targets:
+  DrawBot-Crystal:
+    main: src/DrawBot-Crystal.cr
+
+crystal: 0.24.2
+
+license: MIT
