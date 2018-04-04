@@ -5,13 +5,12 @@ authors:
   - Echo
 
 targets:
-  draw_bot:
-    main: src/draw_bot.cr
+  bot:
+    main: src/run.cr
 
 dependencies:
-  discordcr:
-    github: meew0/discordcr
-    branch: master
+  discordcr-middleware:
+    github: z64/discordcr-middleware
 
 crystal: 0.24.1
 
