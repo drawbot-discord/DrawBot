@@ -3,7 +3,13 @@ require "discordcr-middleware"
 module DrawBot
   {% begin %}
     # Bot configuration
-    class_property config = Config.from_yaml(File.read("config.yml"))
+    class_property config do
+      if ENV["DRAWBOT_ENV"]? == "test"
+        Config.new("Bot TOKEN", 0_u64)
+      else
+        config = Config.from_yaml(File.read("config.yml"))
+      end
+    end
 
     # Bot client
     class_property client = Discord::Client.new(config.token)

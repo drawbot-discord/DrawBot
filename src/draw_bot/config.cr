@@ -6,5 +6,8 @@ module DrawBot
       token: String,
       owner_id: UInt64
     )
+
+    def initialize(@token : String, @owner_id : UInt64)
+    end
   end
 end
