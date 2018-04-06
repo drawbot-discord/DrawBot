@@ -15,16 +15,20 @@ module DrawBot
   # end
   # ```
   class SplitParser < Discord::Middleware
-    def initialize(@command_name : String, @min_args : Int32? = nil,
+    @command_name : String
+
+    def initialize(command_name : String, @min_args : Int32? = nil,
                    @max_args : Int32? = nil, @join_after : Int32? = nil)
+      @command_name = command_name.downcase
     end
 
     def call(context : Discord::Context(Discord::Message), done)
-      return unless context.payload.content.starts_with?(@command_name)
+      return if context.payload.content.empty?
       args = context.payload.content.split(
         ' ',
         limit: @join_after.try { |v| v + 1 },
         remove_empty: true)
+      return unless args[0].downcase == @command_name
 
       given = args.size - 1
 
