@@ -1,0 +1,20 @@
+{
+  "guild_id": "225375815087554563",
+  "name": "general🍆",
+  "permission_overwrites": [
+    {
+      "deny": 0,
+      "type": "role",
+      "id": "225375815087554563",
+      "allow": 0
+    }
+  ],
+  "last_pin_timestamp": "2018-04-08T07:24:20.193000+00:00",
+  "topic": "***THE SWEDISH BONE ZONE*** <a:blobseizure:425223977305374720><a:NUT:425165853278076928>",
+  "parent_id": "356076132971446272",
+  "nsfw": false,
+  "position": 4,
+  "last_message_id": "434281709471793152",
+  "type": 0,
+  "id": "345687437722386433"
+}

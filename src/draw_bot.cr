@@ -1,11 +1,12 @@
 require "discordcr-middleware"
+require "discordcr-middleware/middleware/cached_routes"
 
 module DrawBot
   {% begin %}
     # Bot configuration
     class_property config do
       if ENV["DRAWBOT_ENV"]? == "test"
-        Config.new("Bot TOKEN", 0_u64)
+        Config.new("Bot TOKEN", 0_u64, 0_u64)
       else
         config = Config.from_yaml(File.read("config.yml"))
       end

@@ -1,0 +1,67 @@
+{
+  "mfa_level": 0,
+  "emojis": [
+    {
+      "managed": false,
+      "name": "weeb",
+      "roles": [
+
+      ],
+      "require_colons": true,
+      "animated": false,
+      "id": "246811049834053632"
+    },
+    {
+      "managed": false,
+      "name": "cyanpls",
+      "roles": [
+
+      ],
+      "require_colons": true,
+      "animated": false,
+      "id": "247788907519934464"
+    }
+  ],
+  "application_id": null,
+  "name": "Y32",
+  "roles": [
+    {
+      "hoist": false,
+      "name": "foo",
+      "mentionable": false,
+      "color": 0,
+      "position": 40,
+      "id": "240172879361212416",
+      "managed": false,
+      "permissions": 103809088
+    },
+    {
+      "hoist": true,
+      "name": "bar",
+      "mentionable": true,
+      "color": 2123412,
+      "position": 51,
+      "id": "226855600586358785",
+      "managed": false,
+      "permissions": 2146827507
+    }
+  ],
+  "afk_timeout": 300,
+  "system_channel_id": "345687437722386433",
+  "widget_channel_id": null,
+  "region": "us-east",
+  "default_message_notifications": 0,
+  "embed_channel_id": null,
+  "explicit_content_filter": 0,
+  "splash": null,
+  "features": [
+
+  ],
+  "afk_channel_id": null,
+  "widget_enabled": true,
+  "verification_level": 1,
+  "owner_id": "120571255635181568",
+  "embed_enabled": true,
+  "id": "225375815087554563",
+  "icon": "70edbed16d93b9615af82948ded07962"
+}
