@@ -1,12 +1,12 @@
 version: 1.0
 shards:
   discordcr:
-    github: meew0/discordcr
-    commit: 8f0f47a42e719146ac980c5c8a999ef51aaab38a
+    github: z64/discordcr
+    commit: ccf659be4b074b5a34805de10ab1b2dcc53193ae
 
   discordcr-middleware:
     github: z64/discordcr-middleware
-    version: 0.3.1
+    version: 0.4.0
 
   rate_limiter:
     github: z64/rate_limiter

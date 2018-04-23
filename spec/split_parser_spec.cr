@@ -5,11 +5,11 @@ module DrawBot
     it "parses #{string} into #{expected}" do
       message = json_fixture(Discord::Message, "message.json")
       message.content = string
-      context = Discord::Context(Discord::Message).new(client, message)
+      context = Discord::Context.new
+      context.put(client)
 
-      called = mw.call(context, ->{ true })
-      called.should be_true
-      context.arguments.should eq expected
+      mw.call(message, context) { true }.should be_true
+      context[SplitParser::Results].arguments.should eq expected
     end
   end
 
@@ -17,8 +17,9 @@ module DrawBot
     it "ignores #{string}" do
       message = json_fixture(Discord::Message, "message.json")
       message.content = string
-      context = Discord::Context(Discord::Message).new(client, message)
-      mw.call(context, ->{ true }).should be_falsey
+      context = Discord::Context.new
+      context.put(client)
+      mw.call(message, context) { true }.should be_falsey
     end
   end
 

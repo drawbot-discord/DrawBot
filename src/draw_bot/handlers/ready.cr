@@ -4,15 +4,15 @@ module DrawBot
 
   # READY event handler that counts how many guilds we should
   # expect from GUILD_CREATE streaming
-  client.on_ready(READY_STATE) do |ctx|
+  client.on_ready(READY_STATE) do
     Discord::LOGGER.info "Expecting #{READY_STATE.expected_guilds.size} guilds.."
   end
 
   # GUILD_CREATE handler that displays logging as the guilds stream in,
   # (on DEBUG level) as well as elapsed time once the bot is done loading.
-  client.on_guild_create(READY_STATE) do |ctx|
+  client.on_guild_create(READY_STATE) do |payload|
     if Discord::LOGGER.debug?
-      Discord::LOGGER.debug "Received #{READY_STATE.loaded_guilds.size} / #{READY_STATE.expected_guilds.size} guilds (#{ctx.payload.id} #{ctx.payload.name})"
+      Discord::LOGGER.debug "Received #{READY_STATE.loaded_guilds.size} / #{READY_STATE.expected_guilds.size} guilds (#{payload.id} #{payload.name})"
     end
 
     if READY_STATE.ready?

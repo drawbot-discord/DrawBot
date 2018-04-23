@@ -46,7 +46,7 @@ module DrawBot
   # ```
   #
   # NOTE: This middleware always passes to the rest of the chain.
-  class CannedResponse < Discord::Middleware
+  class CannedResponse
     include DiscordMiddleware::CachedRoutes
 
     @sources = {} of String => Array(String)
@@ -114,11 +114,12 @@ module DrawBot
       end
     end
 
-    def call(context : Discord::Context(Discord::Message), done)
+    def call(payload, context)
+      client = context[Discord::Client]
       display_name = context.payload.author.username
 
-      if guild_id = get_channel(context.client, context.payload.channel_id).guild_id
-        member = get_member(context.client, guild_id, context.payload.author.id)
+      if guild_id = get_channel(client, payload.channel_id).guild_id
+        member = get_member(client, guild_id, payload.author.id)
         display_name = member.nick || display_name
       end
 
@@ -127,7 +128,7 @@ module DrawBot
         context.payload.channel_id,
         response
       )
-      done.call
+      yield
     end
   end
 end

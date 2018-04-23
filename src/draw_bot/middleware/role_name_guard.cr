@@ -4,11 +4,11 @@ module DrawBot
   # The user will be presented with an error message
   # if the bot does not have any of the listed roles.
   # ```
-  # client.on_message_create(RoleNameGuard.new("nsfw", "noclip")) do |ctx|
-  #   client.create_message(ctx.payload.channel_id, "I have the nsfw or noclip role!")
+  # client.on_message_create(RoleNameGuard.new("nsfw", "noclip")) do |payload, ctx|
+  #   client.create_message(payload.channel_id, "I have the nsfw or noclip role!")
   # end
   # ```
-  class RoleNameGuard < Discord::Middleware
+  class RoleNameGuard
     include DiscordMiddleware::CachedRoutes
 
     @response : String
@@ -19,12 +19,11 @@ module DrawBot
       @response = build_response(@role_names)
     end
 
-    # :nodoc:
-    def roles_in(context)
+    private def roles_in(client, payload)
       results = [] of String
-      if guild_id = get_channel(context.client, context.payload.channel_id).guild_id
-        member = get_member(context.client, guild_id, DrawBot.config.client_id)
-        get_guild(context.client, guild_id).roles.each do |role|
+      if guild_id = get_channel(client, payload.channel_id).guild_id
+        member = get_member(client, guild_id, DrawBot.config.client_id)
+        get_guild(client, guild_id).roles.each do |role|
           results << role.name if member.roles.any? { |id| id == role.id }
         end
       end
@@ -49,13 +48,13 @@ module DrawBot
       end
     end
 
-    def call(context : Discord::Context(Discord::Message), done)
-      roles = roles_in(context)
+    def call(payload, context)
+      roles = roles_in(context[Discord::Client], payload)
       if @role_names.any? { |r| roles.includes?(r) }
-        done.call
+        yield
       else
-        context.client.create_message(
-          context.payload.channel_id,
+        context[Discord::Client].create_message(
+          payload.channel_id,
           @response
         )
       end

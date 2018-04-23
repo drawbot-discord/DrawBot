@@ -8,7 +8,7 @@ module DrawBot
       guild = json_fixture(Discord::Guild, "guild.json")
       channel = json_fixture(Discord::Channel, "channel.json")
       member = json_fixture(Discord::GuildMember, "member.json")
-      member.user.id = 0_u64
+      member.user.id = config.client_id
       member.roles = guild.roles.map &.id
 
       cache.cache(guild)
@@ -18,8 +18,9 @@ module DrawBot
       it "passes when the bot has correct roles" do
         message = json_fixture(Discord::Message, "message.json")
         message.channel_id = channel.id
-        context = Discord::Context(Discord::Message).new(client, message)
-        instance.call(context, ->{ true }).should be_true
+        context = Discord::Context.new
+        context.put(client)
+        instance.call(message, context) { true }.should be_true
       end
     end
 

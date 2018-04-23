@@ -1,5 +1,6 @@
 module DrawBot
-  class ReadyState < Discord::Middleware
+  # Middleware for tracking "boot-up" progress when connecting
+  class ReadyState
     # Array of expected guild IDs from READY
     getter expected_guilds = Set(UInt64).new
 
@@ -19,17 +20,17 @@ module DrawBot
       @start_time.try { |value| Time.now - value }
     end
 
-    def call(context : Discord::Context(Discord::Gateway::ReadyPayload), done)
+    def call(payload : Discord::Gateway::ReadyPayload, context)
       @start_time = Time.now
-      context.payload.guilds.each do |guild|
+      payload.guilds.each do |guild|
         @expected_guilds.add guild.id
       end
-      done.call
+      yield
     end
 
-    def call(context : Discord::Context(Discord::Gateway::GuildCreatePayload), done)
-      @loaded_guilds.add context.payload.id
-      done.call
+    def call(payload : Discord::Gateway::GuildCreatePayload, context)
+      @loaded_guilds.add payload.id
+      yield
     end
   end
 end
