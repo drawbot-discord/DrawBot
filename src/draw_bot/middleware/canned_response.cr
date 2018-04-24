@@ -68,7 +68,7 @@ module DrawBot
     def validate_template
       @sources.each do |key, data|
         uses = 0
-        @template.scan(/\$\w+/) do |word|
+        @template.scan(/\$[a-zA-Z_]+/) do |word|
           uses += 1 if word[0] == "$#{key}"
         end
 
@@ -87,8 +87,9 @@ module DrawBot
           case reader.current_char
           when '$'
             start = reader.pos + 1
-            while reader.has_next? && reader.next_char.letter?
-              # Nothing to do
+            while reader.has_next?
+              char = reader.next_char
+              break unless char.letter? || char == '_'
             end
             key = @template[start..reader.pos - 1]
             case key

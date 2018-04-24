@@ -26,6 +26,11 @@ module DrawBot
         instance = CannedResponse.new({"foo" => ["bar"]}, "$author")
         instance.produce_response(nil, "baz").should eq "baz"
       end
+
+      it "supports underscores in source names" do
+        instance = CannedResponse.new({"foo_bar" => ["baz"]}, "$foo_bar")
+        instance.produce_response(nil, "baz").should eq "baz"
+      end
     end
   end
 end
