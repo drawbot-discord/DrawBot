@@ -1,7 +1,4 @@
 module DrawBot
-  # We do this so we don't load the file a bunch of times into memory
-  action_data = {"action" => File.read_lines("data/action")}
-
   # All handlers here guard on "playful" and "unlocknsfw"
   role_name_guard = RoleNameGuard.new("playful", "unlocknsfw")
 
@@ -42,73 +39,13 @@ module DrawBot
     client.on_message_create(
       SplitParser.new({{data[0]}}, join_after: 1),
       role_name_guard,
-      CannedResponse.new(action_data,
+      CannedResponse.new("data/action",
         template: {{data[1]}}))
   {% end %}
 
   client.on_message_create(
     SplitParser.new("~spray", join_after: 1),
     role_name_guard,
-    CannedResponse.new({
-      "container" => [
-        "fire hose",
-        "garden hose",
-        "spray bottle",
-        "water gun",
-        "super soaker",
-      ],
-    },
+    CannedResponse.new("data/spray",
       template: "$author sprays $content with a $container"))
-
-  fight_data = {
-    "extreme" => [
-      "with extreme force",
-      "with a nuke",
-    ],
-    "method" => [
-      "with a hammer",
-      "with a hatchet",
-      "with a dick",
-      "by sacrifice to the Lord of Terror",
-      "telefragged",
-      "with a 360NoScope",
-      "with a stick of dynamite",
-      "with a lobotomy",
-      "with a fish",
-      "with a shovel",
-      "with a pencil",
-      "with a pinecone",
-      "with fists",
-    ],
-  }
-
-  fight_map = {
-    win:       CannedResponse.new(fight_data, template: "$author killed $content $method"),
-    lose:      CannedResponse.new(fight_data, template: "$content killed $author $method"),
-    win_crit:  CannedResponse.new(fight_data, template: "$author killed $author $extreme"),
-    lose_crit: CannedResponse.new(fight_data, template: "$content killed $author $extreme"),
-  }
-
-  client.on_message_create(
-    SplitParser.new("~fight", join_after: 1),
-    role_name_guard) do |payload, context|
-    a, b = rand(1..20), rand(1..20)
-    if a > b
-      if a == 20
-        fight_map[:win_crit].call(payload, context)
-      else
-        fight_map[:win].call(payload, context)
-      end
-    elsif b > a
-      if b == 20
-        fight_map[:lose_crit].call(payload, context)
-      else
-        fight_map[:lose].call(payload, context)
-      end
-    elsif a == b
-      client.create_message(
-        payload.channel_id,
-        "It's a tie! RE-ROLL!")
-    end
-  end
 end
