@@ -114,18 +114,24 @@ module DrawBot
       end
     end
 
+    # :nodoc:
+    def call(payload, context)
+      call(payload, context) { }
+    end
+
     def call(payload, context)
       client = context[Discord::Client]
-      display_name = context.payload.author.username
+      display_name = payload.author.username
 
       if guild_id = get_channel(client, payload.channel_id).guild_id
         member = get_member(client, guild_id, payload.author.id)
         display_name = member.nick || display_name
       end
 
-      response = produce_response(context.arguments[0]?, display_name)
-      context.client.create_message(
-        context.payload.channel_id,
+      arguments = context[SplitParser::Results].arguments
+      response = produce_response(arguments[0]?, display_name)
+      client.create_message(
+        payload.channel_id,
         response
       )
       yield
