@@ -1,17 +1,17 @@
 module DrawBot
   fight_map = {
     win: CannedResponse.new(
-      "data/fightmethod",
-      template: "**$author killed $content $fightmethod!**"),
+      "data/fight_method",
+      template: "**$author** killed **$content** $fight_method!"),
     lose: CannedResponse.new(
-      "data/fightmethod",
-      template: "**$content killed $author $fightmethod!**"),
+      "data/fight_method",
+      template: "**$content** killed **$author** $fight_method!"),
     win_crit: CannedResponse.new(
-      "data/fightextreme",
-      template: "**$author killed $author $fightextreme!**"),
+      "data/fight_extreme",
+      template: "**$author** killed **$content** $fight_extreme!"),
     lose_crit: CannedResponse.new(
-      "data/fightextreme",
-      template: "**$content killed $author $fightextreme!**"),
+      "data/fight_extreme",
+      template: "**$content** killed **$author** $fight_extreme!"),
   }
 
   client.on_message_create(
