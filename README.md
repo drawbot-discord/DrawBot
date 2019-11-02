@@ -12,13 +12,14 @@ She goes by both DrawBot and Eris. DrawBot has many commands right out of the bo
 
 ## Development
 
-DrawBot runs on Ruby 2.3.3 and DiscordRB 3.2.1.
-She's hosted on her own dedicated server on the east coast of the United States. She has a 99.9% uptime with dedicated developers working on her.
+DrawBot runs on Ruby 2.6.5 and DiscordRB 3.3.0.
+She's hosted on her own dedicated server on the west coast of the United States. She has a 99.9% uptime with dedicated developers working on her.
 
 DrawBot is made possible by:
 
 - `Echo#5248`
-- `z64#2639`
+- `PixeL#1337`
+- `z64#1337`
 - `Cyan「Alter」#3717`
 
 Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/u3a2Ck9)
