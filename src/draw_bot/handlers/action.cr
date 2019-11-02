@@ -37,15 +37,15 @@ module DrawBot
                    {"~squish", "$author squishes $content - Quick, grab the broom!"},
                  } %}
     client.on_message_create(
-      SplitParser.new({{data[0]}}, join_after: 1),
+      SplitParser.new({{data[0]}}, join_after: 1, min_args: 1),
       role_name_guard,
       CannedResponse.new("data/action",
         template: {{data[1]}}))
   {% end %}
 
   client.on_message_create(
-    SplitParser.new("~spray", join_after: 1),
+    SplitParser.new("~spray", join_after: 1, min_args: 1),
     role_name_guard,
     CannedResponse.new("data/spray",
-      template: "$author sprays $content with a $container"))
+      template: "$author sprays $content with a $spray"))
 end

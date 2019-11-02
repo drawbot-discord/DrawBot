@@ -2,10 +2,10 @@ module DrawBot
   # Middleware for tracking "boot-up" progress when connecting
   class ReadyState
     # Array of expected guild IDs from READY
-    getter expected_guilds = Set(UInt64).new
+    getter expected_guilds = Set(Discord::Snowflake).new
 
     # Set of guild IDs we've received GUILD_CREATE for
-    getter loaded_guilds = Set(UInt64).new
+    getter loaded_guilds = Set(Discord::Snowflake).new
 
     # Time at which guild streaming started
     getter start_time : Time? = nil

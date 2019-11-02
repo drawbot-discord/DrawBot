@@ -22,7 +22,7 @@ module DrawBot
     private def roles_in(client, payload)
       results = [] of String
       if guild_id = get_channel(client, payload.channel_id).guild_id
-        member = get_member(client, guild_id, DrawBot.config.client_id)
+        member = get_member(client, guild_id, Discord::Snowflake.new(DrawBot.config.client_id))
         get_guild(client, guild_id).roles.each do |role|
           results << role.name if member.roles.any? { |id| id == role.id }
         end

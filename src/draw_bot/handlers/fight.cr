@@ -15,7 +15,7 @@ module DrawBot
   }
 
   client.on_message_create(
-    SplitParser.new("~fight", join_after: 1),
+    SplitParser.new("~fight", join_after: 1, min_args: 1),
     RoleNameGuard.new("playful", "unlocknsfw")) do |payload, context|
     a, b = rand(1..20), rand(1..20)
     if a > b
