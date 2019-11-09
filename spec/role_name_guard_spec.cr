@@ -8,7 +8,7 @@ module DrawBot
       guild = json_fixture(Discord::Guild, "guild.json")
       channel = json_fixture(Discord::Channel, "channel.json")
       member = json_fixture(Discord::GuildMember, "member.json")
-      member.user.id = config.client_id
+      member.user.id = Discord::Snowflake.new(config.client_id)
       member.roles = guild.roles.map &.id
 
       cache.cache(guild)
