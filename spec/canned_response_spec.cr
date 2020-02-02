@@ -8,6 +8,12 @@ module DrawBot
       end
     end
 
+    it "raises when data contains empty lines" do
+      expect_raises(CannedResponseError, "Data source \"foo\" contains empty lines") do
+        CannedResponse.new({"foo" => [""]}, "$foo")
+      end
+    end
+
     describe "#produce_response" do
       it "builds a string with random data into a template" do
         instance = CannedResponse.new(
