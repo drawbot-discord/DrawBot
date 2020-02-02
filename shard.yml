@@ -11,6 +11,7 @@ targets:
 dependencies:
   discordcr-middleware:
     github: z64/discordcr-middleware
+    branch: master
 
 crystal: 0.24.1
 
