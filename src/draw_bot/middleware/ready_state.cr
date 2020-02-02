@@ -8,7 +8,7 @@ module DrawBot
     getter loaded_guilds = Set(Discord::Snowflake).new
 
     # Time at which guild streaming started
-    getter start_time : Time? = nil
+    getter start_time : Time::Span? = nil
 
     # Whether all guilds have been observed
     def ready?
@@ -17,11 +17,11 @@ module DrawBot
 
     # Amount of time streaming took
     def elapsed_time
-      @start_time.try { |value| Time.now - value }
+      @start_time.try { |value| Time.monotonic - value }
     end
 
     def call(payload : Discord::Gateway::ReadyPayload, context)
-      @start_time = Time.now
+      @start_time = Time.monotonic
       payload.guilds.each do |guild|
         @expected_guilds.add guild.id
       end
