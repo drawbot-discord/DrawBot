@@ -75,6 +75,10 @@ module DrawBot
         if uses > data.size
           raise CannedResponseError.new("Template invokes $#{key} more times than its data pool can provide! #{uses} / #{data.size}")
         end
+
+        if data.any? { |entry| entry.empty? }
+          raise CannedResponseError.new("Data source #{key.inspect} contains empty lines")
+        end
       end
     end
 
