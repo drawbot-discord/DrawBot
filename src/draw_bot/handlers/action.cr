@@ -48,4 +48,23 @@ module DrawBot
     role_name_guard,
     CannedResponse.new("data/spray",
       template: "$author sprays $content with a $spray"))
+
+  client.on_message_create(
+    SplitParser.new("~pokeball", join_after: 1, min_args: 1)
+  ) do |payload, context|
+    args = context[DrawBot::SplitParser::Results].arguments
+    user = args[0]
+
+    rand_number = rand(0..6)
+    result = if rand_number >= 4
+               "caught"
+             else
+               "missed"
+             end
+
+    client.create_message(
+      payload.channel_id,
+      "#{payload.author.username} throws a pokeball at #{user}, #{payload.author.username} #{result} #{user}"
+    )
+  end
 end
