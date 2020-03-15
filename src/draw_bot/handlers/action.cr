@@ -49,19 +49,10 @@ module DrawBot
     CannedResponse.new("data/spray",
       template: "$author sprays $content with a $spray"))
 
-  client.on_message_create(
-    SplitParser.new("~pokeball", join_after: 1, min_args: 1)
-  ) do |payload, context|
-    args = context[DrawBot::SplitParser::Results].arguments
-    subject = args[0]
+  client.on_message_create(SplitParser.new("~pokeball", join_after: 1, min_args: 1)) do |payload, context|
+    subject = context[DrawBot::SplitParser::Results].arguments[0]
     author_name = payload.member.try(&.nick) || payload.author.username
-
-    rand_number = rand(0..6)
-    result = if rand_number >= 4
-               "caught"
-             else
-               "missed"
-             end
+    result = rand(0..6) >= 4 ? "caught" : "missed"
 
     client.create_message(
       payload.channel_id,
