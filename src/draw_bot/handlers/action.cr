@@ -53,7 +53,8 @@ module DrawBot
     SplitParser.new("~pokeball", join_after: 1, min_args: 1)
   ) do |payload, context|
     args = context[DrawBot::SplitParser::Results].arguments
-    user = args[0]
+    subject = args[0]
+    author_name = payload.member.try(&.nick) || payload.author.username
 
     rand_number = rand(0..6)
     result = if rand_number >= 4
@@ -64,7 +65,7 @@ module DrawBot
 
     client.create_message(
       payload.channel_id,
-      "#{payload.author.username} throws a pokeball at #{user}, #{payload.author.username} #{result} #{user}"
+      "#{author_name} throws a pokeball at #{subject}, #{author_name} #{result} #{subject}"
     )
   end
 end
