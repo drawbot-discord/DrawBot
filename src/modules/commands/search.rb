@@ -17,11 +17,11 @@ module Bot
 
         result = RestClient.get("https://e621.net/posts.json?tags=#{tags}")
         json = JSON.parse(result)
+        posts = json['posts']
 
-        next event.respond 'I couldn\'t find anything, sorry hun.' if json.nil?
+        next event.respond 'I couldn\'t find anything, sorry hun.' if json.nil? || posts.size == 0
 
-        post = json['posts'].sample
-
+        post = posts.sample
         event.channel.send_embed do |e|
           e.add_field name: '__**Artist**__', value: post['tags']['artist'][0] , inline: true
           e.add_field name: "\u200b", value: "[Source](https://e621.net/post/show/#{post['id']})", inline: true
