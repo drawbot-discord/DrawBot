@@ -14,13 +14,18 @@ module Bot
         next event.respond "I need the `e621` or `unlocknsfw` role for that, silly" if check.empty?
         tags = tags.join(" ")
         next "Give me something to search for" if tags.empty?
-        result = RestClient.get("https://e621.net/post/index.json?tags=#{tags}")
-        json = JSON.parse(result).sample
-          next event.respond 'I couldn\'t find anything, sorry hun.' if json.nil?
+
+        result = RestClient.get("https://e621.net/posts.json?tags=#{tags}")
+        json = JSON.parse(result)
+        posts = json['posts']
+
+        next event.respond 'I couldn\'t find anything, sorry hun.' if json.nil? || posts.size == 0
+
+        post = posts.sample
         event.channel.send_embed do |e|
-          e.add_field name: '__**Artist**__', value: json['artist'][0] , inline: true
-          e.add_field name: "\u200b", value: "[Source](https://e621.net/post/show/#{json['id']})", inline: true
-          e.image = { url: json['file_url'] }
+          e.add_field name: '__**Artist**__', value: post['tags']['artist'][0] , inline: true
+          e.add_field name: "\u200b", value: "[Source](https://e621.net/post/show/#{post['id']})", inline: true
+          e.image = { url: post['file']['url'] }
           e.description = "Search result for: `#{tags}`"
         end
       end
@@ -70,12 +75,12 @@ module Bot
                 result = RestClient.get("https://rule34.xxx/index.php?page=dapi&s=post&q=index&tags=#{tags}")
                 xml = XmlSimple.xml_in result
                 postcount = xml['count'].to_i
-                  next "I couldn\'t find anything, sorry hun." if postcount == 0
+                next "I couldn\'t find anything, sorry hun." if postcount == 0
                 post = xml['post'].sample
 
                 event.channel.send_embed do |e|
                   e.add_field name: "\u200b", value: "[Source](https://rule34.xxx/index.php?page=post&s=view&id=#{post['id']})", inline: true
-                  e.image = { url: "https:#{post['file_url']}" }
+                  e.image = { url: post['file_url'] }
                   e.description = "Search result for: `#{tags}`"
                 end
       end
