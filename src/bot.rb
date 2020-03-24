@@ -1,4 +1,3 @@
-# Gems
 require 'bundler/setup'
 require 'discordrb'
 require 'yaml'
@@ -22,7 +21,11 @@ module Bot
   # can access the cache anywhere.
   BOT = Discordrb::Commands::CommandBot.new(client_id: CONFIG.client_id,
                                             token: CONFIG.token,
-                                            prefix: CONFIG.prefix)
+                                            prefix: CONFIG.prefix,
+                                            log_mode: :debug,
+                                            subscription_events: false)
+
+  BOT.gateway.check_heartbeat_acks = false
 
   # Discord commands
   module DiscordCommands; end

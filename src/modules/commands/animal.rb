@@ -28,14 +28,21 @@ module Bot
         animal(hash)
       end
 
+
+
+
       def animal(info)
-       "Your animal is a #{info["knowledge"]} and #{info["rarity"]} #{info["species"]} that is #{info["size"]} in size.\n"\
-       "It's covered in #{info["skinlength"]} #{info["colour"]} #{info["skindesc"]} and has #{info["ubodypart"]} and #{info["lbodypart"]}. #{info["tail"]}. #{info["nose"]} #{info["eyes"]} #{info["ears"]} \n"\
-       "#{info["mating"]} The typical lifespan is #{info["lifespan"]}. The #{info["teritorial"]}"
+       hash = {}
+       info["knowledge"]
+       thing(hash)
       end
 
+
+
+
+
       command(:randimal) do |event|
-        animal =
+        thing =
           case rand(3..3)
             when 1
               mammal
@@ -48,11 +55,10 @@ module Bot
             when 5
               amphibian
           end
-          event.channel.send_embed do |e|
-          e.title = "Fantasy Animal Generator"
-          e.description = animal
-          end
-
+        event.channel.send_embed do |e|
+        e.title = "Fantasy Animal Generator"
+        e.description = thing[0]
+        end
       end
     end
   end

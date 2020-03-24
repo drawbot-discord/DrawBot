@@ -7,7 +7,10 @@ module Bot
       extend Discordrb::Commands::CommandContainer
       module_function
       $userinfo = YAML.load(File.read('data/userinfo.yaml'))
+
       command(:eval, help_available: false) do |event, *code|
+        puts event.user
+        puts event.user.id
         break unless event.user.id == CONFIG.owner
         begin
           eval code.join(' ')

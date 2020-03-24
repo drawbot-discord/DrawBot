@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'discordrb', git: 'https://github.com/discordrb/discordrb.git', branch: 'master'
+gem 'discordrb', git: 'https://github.com/PixeLInc/discordrb.git', :branch => "guild-sub"
 gem 'rufus-scheduler'
 gem 'nokogiri'
 gem 'rest-client'
