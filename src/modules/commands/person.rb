@@ -14,22 +14,26 @@ module Bot
               usage: "~pick choice 1, choice 2" ) do |event, *message|
                 info = RestClient.get("https://randomuser.me/api/?nat=us,ca,au,nz")
                 json = JSON.parse(info)
-                rslt = json['results'][0]
+                rslt = json['results'].first
+
+                street = "#{rslt['location']['street']['number']} #{rslt['location']['street']['name']}"
+                dob_date = Time.parse(rslt['dob']['date'])
+                dob = "#{dob_date} (Age: #{rslt['dob']['age']})"
+                
                 event.channel.send_embed do |e|
                   e.thumbnail = { url: rslt['picture']['large'] }
                   e.add_field name: "Random #{rslt['gender'].capitalize}",
-                              value: "#{rslt['name']['title'].capitalize} "\
-                                     "#{rslt['name']['first'].capitalize} "\
-                                     "#{rslt['name']['last'].capitalize}", inline: true
+                              value: "#{rslt['name']['title']} "\
+                                     "#{rslt['name']['first']} "\
+                                     "#{rslt['name']['last']}", inline: true
                   e.add_field name: "Location",
-                              value: "#{rslt['location']['street']}\n\n\n\n"\
-                                     "#{rslt['location']['city']},\n\n"\
+                              value: "#{street}\n\n"\
+                                     "#{rslt['location']['city']}, "\
                                      "#{rslt['location']['state']}, "\
-                                     "#{rslt['location']['postcode']} "
-                                     .split.map(&:capitalize).join(' ')\
-                                      + " #{rslt['nat'].upcase}", inline: false
+                                     "#{rslt['location']['postcode']} "\
+                                      + "#{rslt['nat'].upcase}", inline: false
                   e.add_field name: "Personal Info",
-                              value: "D.O.B.: #{rslt['dob']}", inline: true
+                              value: "D.O.B: #{dob}", inline: true
                   e.add_field name: "Login Details",
                               value: "Username: #{rslt['login']['username']}\n"\
                                      "Email: #{rslt['email']}\n", inline: false
