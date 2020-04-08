@@ -22,6 +22,4 @@ DrawBot is made possible by:
 - `z64#1337`
 - `Cyan「Alter」#3717`
 
-Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/u3a2Ck9)
-
-
+Got questions, concerns, or suggestions? [Come hang out in the DB Discord sever!](https://discord.gg/rYJrhSH)
