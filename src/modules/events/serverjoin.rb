@@ -51,7 +51,7 @@ module Bot
         shard_id, shard_total = event.bot.shard_key
         
         RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats",
-                        {"server_count": event.bot.servers.count,
+                        {"server_count": event.bot.servers.size,
                          "shard_count": shard_total,
                          "shard_id": shard_id
                         }, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json)
