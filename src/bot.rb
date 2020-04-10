@@ -16,6 +16,12 @@ module Bot
   # Bot configuration
   CONFIG = OpenStruct.new YAML.load_file 'data/config.yaml'
 
+  # Take shard info from command line
+  SHARD_ID = ARGV[0].to_i
+  TOTAL_SHARDS = ARGV[1].to_i
+
+  puts "Starting shard #{SHARD_ID} of #{TOTAL_SHARDS}"
+
   # Create the bot.
   # The bot is created as a constant, so that you
   # can access the cache anywhere.
@@ -23,6 +29,8 @@ module Bot
                                             token: CONFIG.token,
                                             prefix: CONFIG.prefix,
                                             log_mode: :debug,
+                                            shard_id: SHARD_ID,
+                                            num_shards: TOTAL_SHARDS,
                                             subscription_events: false)
 
   BOT.gateway.check_heartbeat_acks = false
