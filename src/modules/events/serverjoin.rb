@@ -3,7 +3,7 @@ module Bot
     # This event is processed each time the bot succesfully connects to discord.
     module ServerJoin
       extend Discordrb::EventContainer
-      DEV_CHANNEL = 378478860095848448
+      DEV_CHANNEL = 697260397245235250
       #DEV_CHANNEL = 584901156795318276
       server_create do |event|
         message =

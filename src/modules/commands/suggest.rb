@@ -14,7 +14,7 @@ module Bot
                 next "I can't bring back an empty suggestion silly! :kissing_heart:" if message.empty?
           message = message.join(' ')
           num = event.message.id
-            event.bot.channel(404797071129051138).send_embed do |e|
+            event.bot.channel(697260213069152407).send_embed do |e|
               e.add_field name: 'New suggestion', value: "#{message}", inline: true
               e.add_field name: '__**Created in**__', value: "Server: #{event.server.name}\n"\
                                                              "Channel: #{event.channel.name}\n"\
