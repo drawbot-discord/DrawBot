@@ -4,11 +4,11 @@ module Bot
     module ServerJoin
       extend Discordrb::EventContainer
       DEV_CHANNEL = 697260397245235250
-      #DEV_CHANNEL = 584901156795318276
+      
       server_create do |event|
         message =
           <<~MESSAGE
-        **New Server Joined**
+        **New Server Joined (Shard #{event.bot.shard_key[0]}/#{event.bot.shard_key[1]})**
         Name: #{event.server.name}
         Owner: #{event.server.owner.distinct} (#{event.server.owner.id})
         Members: #{event.server.member_count}
@@ -32,7 +32,7 @@ module Bot
       server_delete do |event|
         message =
           <<~MESSAGE
-        **Server Left**
+        **Server Left (Shard #{event.bot.shard_key[0]}/#{event.bot.shard_key[1]})**
         Name: #{event.server.name}
         ----------------------
         Total Servers: #{event.bot.servers.count}
@@ -48,7 +48,13 @@ module Bot
 
       # Post bot stats to dbots.
       server_create do |event|
-        RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats", {"server_count": event.bot.servers.count}, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json);
+        shard_id, shard_total = event.bot.shard_key
+        
+        RestClient.post("https://discordbots.org/api/bots/186636165938413569/stats",
+                        {"server_count": event.bot.servers.count,
+                         "shard_count": shard_total,
+                         "shard_id": shard_id
+                        }, :'Authorization' => CONFIG.dbotstoken, :'Content-Type' => :json)
       end
     end
   end
