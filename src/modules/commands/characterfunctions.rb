@@ -7,76 +7,59 @@ module Bot
       extend Discordrb::Commands::CommandContainer
       $character = YAML.load(File.read('data/character.yaml'))
       $pc = YAML.load(File.read('data/pc.yaml'))
-      $gender = ["He", "She"].sample
-      $pronoun =
-      case $gender
-      when "He"
-        then "His"
-      when "She"
-        then "Her"
-      else "their"
+
+      def generate_deity(align)
+        return case align
+               when "Lawful Good"
+                 "#{$pc['lgdeity'].sample(3).join(", ")}"
+               when "Lawful Neutral"
+                 "#{$pc['lndeity'].sample(3).join(", ")}"
+               when "Lawful Evil"
+                 "#{$pc['ledeity'].sample(3).join(", ")}"
+               when "Neutral"
+                 "#{$pc['ndeity'].sample(3).join(", ")}"
+               when "Neutral Good"
+                 "#{$pc['ngdeity'].sample(3).join(", ")}"
+               when "Neutral Evil"
+                 "#{$pc['nedeity'].sample(3).join(", ")}"
+               when "Chaotic Good"
+                 "#{$pc['cgdeity'].sample(3).join(", ")}"
+               when "Chaotic Neutral"
+                 "#{$pc['cndeity'].sample(3).join(", ")}"
+               when "Chaotic Evil"
+                 "#{$pc['cedeity'].sample(3).join(", ")}"
+               else $pc['deity'].sample(3).join(", ")
+               end  
       end
 
-      $pcclass = $pc['class'].sample
-      $pclasscase = $pcclass["pcclass"]
-      $icon = $pcclass['icon']
-      $race = "#{$pc['race'].sample.capitalize}"
-
-      $align =
-      case $pclasscase
-        when "paladin"
-          then "Lawful Good"
-        else $pc['align'].sample
-      end
-
-      $deity =
-      case $align
-        when "Lawful Good"
-          then "#{$pc['lgdeity'].sample(3).join(", ")}"
-        when "Lawful Neutral"
-          then "#{$pc['lndeity'].sample(3).join(", ")}"
-        when "Lawful Evil"
-           then "#{$pc['ledeity'].sample(3).join(", ")}"
-        when "Neutral"
-          then "#{$pc['ndeity'].sample(3).join(", ")}"
-        when "Neutral Good"
-          then "#{$pc['ngdeity'].sample(3).join(", ")}"
-        when "Neutral Evil"
-          then "#{$pc['nedeity'].sample(3).join(", ")}"
-        when "Chaotic Good"
-          then "#{$pc['cgdeity'].sample(3).join(", ")}"
-        when "Chaotic Neutral"
-          then "#{$pc['cndeity'].sample(3).join(", ")}"
-        when "Chaotic Evil"
-          then "#{$pc['cedeity'].sample(3).join(", ")}"
-        else $pc['deity'].sample(3).join(", ")
-      end
-      $weapon =
-      case $pclasscase
-      when "barbarian", "fighter", "paladin", "ranger", "cavalier",\
-           "gunslinger", "magus", "vigilante", "bloodrager", "skald",\
-           "slayer", "swashbuckler", "warpriest", "hunter"
-          then $pc['simpmart'].sample
-        when "cleric", "sorcerer", "alchemist",\
-             "oracle", "summoner", "witch", "arcanist"
-          then $pc['simple'].sample
-        when "bard"
-          then $pc['bardwep'].sample
-        when "inquisitor"
-          then $pc['inquisitorwep'].sample
-        when "rogue"
-          then $pc['roguewep'].sample
-        when "brawler"
-          then $pc['brawlerwep'].sample
-        when "investigator"
-          then $pc['investigatorwep'].sample
-        when "druid"
-          then $pc['druidwep'].sample
-        when "monk"
-          then $pc['monkwep'].sample
-        when "wizard"
-          then $pc['wizardwep'].sample
-       else $pc['simpmart'].sample
+      def generate_weapon(pc_class_case)
+        return case pc_class_case
+               when "barbarian", "fighter", "paladin", "ranger", "cavalier",\
+                    "gunslinger", "magus", "vigilante", "bloodrager", "skald",\
+                    "slayer", "swashbuckler", "warpriest", "hunter"
+                 $pc['simpmart'].sample
+               when "cleric", "sorcerer", "alchemist",\
+                    "oracle", "summoner", "witch", "arcanist"
+                 $pc['simple'].sample
+               when "bard"
+                 $pc['bardwep'].sample
+               when "inquisitor"
+                 $pc['inquisitorwep'].sample
+               when "rogue"
+                 $pc['roguewep'].sample
+               when "brawler"
+                 $pc['brawlerwep'].sample
+               when "investigator"
+                 $pc['investigatorwep'].sample
+               when "druid"
+                 $pc['druidwep'].sample
+               when "monk"
+                 $pc['monkwep'].sample
+               when "wizard"
+                 $pc['wizardwep'].sample
+               else
+                 $pc['simpmart'].sample
+               end
       end
 
       def romanticrelation
