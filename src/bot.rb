@@ -31,7 +31,7 @@ module Bot
                                             log_mode: :debug,
                                             shard_id: SHARD_ID,
                                             num_shards: TOTAL_SHARDS,
-                                            subscription_events: false)
+                                            subscription_events: true)
 
   BOT.gateway.check_heartbeat_acks = false
 
