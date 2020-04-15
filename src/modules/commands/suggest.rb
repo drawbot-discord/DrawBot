@@ -23,7 +23,7 @@ module Bot
             end
         event.channel.send_embed do |e|
           e.add_field name: "I went ahead and let Echo know about your idea!\n",
-                     value: "[Be sure to join my development server to discuss your idea.](https://discord.gg/u3a2Ck9)\n"\
+                     value: "[Be sure to join my development server to discuss your idea.](https://discord.gg/rYJrhSH)\n"\
                             "Ref Number `#{num}`", inline: true
         end
       end

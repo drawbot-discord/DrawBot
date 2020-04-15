@@ -38,7 +38,7 @@ module Bot
                e.add_field name: 'CPU',
                           value: "#{usw.uw_cpuused}%", inline: true
                    e.add_field name: 'My server',
-                          value: "[Click here](discord.gg/u3a2Ck9)", inline: true
+                          value: "[Click here](https://discord.gg/rYJrhSH)", inline: true
                e.add_field name: 'RAM usage',
                           value: "#{usw.uw_memused}", inline: true
                e.add_field name: 'Github',
