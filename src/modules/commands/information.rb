@@ -17,9 +17,10 @@ module Bot
               e.description = '**DrawBot General information**'
               e.thumbnail = { url: event.bot.profile.avatar_url }
               e.add_field name: 'I am worked on by',
-                         value: "`Echo#5248`\n"\
-                                 "`z64#2639`\n"\
-                                 "`Cyan「Alter」#3717`", inline: true
+                         value: "`Echo#3389`\n"\
+                                "`z64#1337`\n"\
+                                "`PixeL#1337`\n"\
+                                "`Cyan「Alter」#3717`", inline: true
                e.add_field name: "Connected servers/users",
                           value:  "Servers: #{event.bot.servers.count}\n"\
                                   "Users: #{event.bot.users.count}", inline: true
