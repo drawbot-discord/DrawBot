@@ -43,7 +43,7 @@ module Bot
                e.add_field name: 'RAM usage',
                           value: "#{usw.uw_memused}", inline: true
                e.add_field name: 'Github',
-                          value: "[Click here](github.com/LeggoMyEcho/DrawBot)", inline:true
+                          value: "[Click here](https://github.com/LeggoMyEcho/DrawBot)", inline:true
                e.add_field name: "\u200b",
                           value: "DrawBot `2.0 Beta` Ruby: `#{RUBY_VERSION}` Discordrb: `#{Discordrb::VERSION}`"
               e.footer = { text: "This operation took #{Time.now - event.timestamp} seconds to calculate" }
