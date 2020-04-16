@@ -22,26 +22,20 @@ module Bot
                                 "`PixeL#1337`\n"\
                                 "`Cyan「Alter」#3717`", inline: true
                e.add_field name: "Connected servers/users",
-                          value:  "Servers: #{event.bot.servers.count}\n"\
-                                  "Users: #{event.bot.users.count}", inline: true
+                          value:  "Servers: #{event.bot.servers.size}\n"\
+                                  "Users: #{event.bot.users.size}", inline: true
                e.add_field name: 'Outbound bandwidth',
                           value: "#{usw.uw_bandtx} Mbit/s", inline: true
                e.add_field name: 'Inbound bandwidth',
                           value: "#{usw.uw_bandrx} Mbit/s", inline: true
                e.add_field name: 'Avg CPU load',
                           value: "#{usw.uw_load}", inline: true
-               e.add_field name: 'TCP/UDP connections',
-                          value: "#{usw.uw_tcpused}/#{usw.uw_udpused}", inline: true
-               e.add_field name: 'Disk taken',
-                          value: "#{usw.uw_diskused}GB (#{usw.uw_diskused_perc}%)", inline: true
                e.add_field name: 'Invite link',
                           value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: true
                e.add_field name: 'CPU',
                           value: "#{usw.uw_cpuused}%", inline: true
                    e.add_field name: 'My server',
                           value: "[Click here](https://discord.gg/rYJrhSH)", inline: true
-               e.add_field name: 'RAM usage',
-                          value: "#{usw.uw_memused}", inline: true
                e.add_field name: 'Github',
                           value: "[Click here](https://github.com/LeggoMyEcho/DrawBot)", inline:true
                e.add_field name: "\u200b",
@@ -67,15 +61,15 @@ module Bot
                   e.add_field name: 'Voice Region',
                     value: event.server.region.upcase, inline: true
                   e.add_field name: 'Online Members',
-                    value: "#{event.server.online_members.count}", inline: true
+                    value: "#{event.server.online_members.size}", inline: true
                   e.add_field name: 'Total Members',
                     value: "#{event.server.member_count}", inline: true
                   e.add_field name: 'Amount of Roles',
-                    value: event.server.roles.count, inline: true
+                    value: event.server.roles.size, inline: true
                   e.add_field name: 'Amount of Channels',
-                    value: event.server.channels.count, inline: true
+                    value: event.server.channels.size, inline: true
                   e.add_field name: 'Banned Members',
-                    value: event.server.bans.count, inline: true
+                    value: event.server.bans.size, inline: true
                   e.add_field name: 'Verification Level',
                     value: event.server.verification_level.upcase, inline: true
                   e.add_field name: 'Custom emojis on server?',

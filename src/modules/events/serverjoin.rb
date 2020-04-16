@@ -13,8 +13,8 @@ module Bot
         Owner: #{event.server.owner.distinct} (#{event.server.owner.id})
         Members: #{event.server.member_count}
         -------------------------
-        Total Servers: #{event.bot.servers.count}
-        Total Cached Users: #{event.bot.users.count}
+        Total Servers: #{event.bot.servers.size}
+        Total Cached Users: #{event.bot.users.size}
           MESSAGE
         event.bot.channel(DEV_CHANNEL).send_message(message)
 
@@ -35,8 +35,8 @@ module Bot
         **Server Left (Shard #{event.bot.shard_key[0]}/#{event.bot.shard_key[1]})**
         Name: #{event.server.name}
         ----------------------
-        Total Servers: #{event.bot.servers.count}
-        Total Cached Users: #{event.bot.users.count}
+        Total Servers: #{event.bot.servers.size}
+        Total Cached Users: #{event.bot.users.size}
           MESSAGE
         event.bot.channel(DEV_CHANNEL).send_message(message)
       #  event.bot.channel(DEV_CHANNEL).send_embed do |e|
