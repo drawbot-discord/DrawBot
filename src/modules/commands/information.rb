@@ -12,7 +12,6 @@ module Bot
 
       command(:info,
               description: 'Get some general info about drawbot!') do |event|
-              usw = Usagewatch
               event.channel.send_embed do |e|
               e.description = '**DrawBot General information**'
               e.thumbnail = { url: event.bot.profile.avatar_url }
@@ -24,16 +23,8 @@ module Bot
                e.add_field name: "Connected servers/users",
                           value:  "Servers: #{event.bot.servers.size}\n"\
                                   "Users: #{event.bot.users.size}", inline: true
-               e.add_field name: 'Outbound bandwidth',
-                          value: "#{usw.uw_bandtx} Mbit/s", inline: true
-               e.add_field name: 'Inbound bandwidth',
-                          value: "#{usw.uw_bandrx} Mbit/s", inline: true
-               e.add_field name: 'Avg CPU load',
-                          value: "#{usw.uw_load}", inline: true
                e.add_field name: 'Invite link',
-                          value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: true
-               e.add_field name: 'CPU',
-                          value: "#{usw.uw_cpuused}%", inline: true
+                          value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: false
                    e.add_field name: 'My server',
                           value: "[Click here](https://discord.gg/rYJrhSH)", inline: true
                e.add_field name: 'Github',
