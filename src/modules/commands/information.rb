@@ -24,8 +24,10 @@ module Bot
                           value:  "Servers: #{event.bot.servers.size}\n"\
                                   "Users: #{event.bot.users.size}", inline: true
                e.add_field name: 'Invite link',
-                          value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: false
-                   e.add_field name: 'My server',
+                           value: "[Click here](https://discordapp.com/oauth2/authorize?client_id=186636037001445377&scope=bot&permissions=201351236)", inline: false
+               e.add_field name: 'Shard Info',
+                           value: "#{event.bot.shard_key[0] + 1} of #{event.bot.shard_key[1]}", inline: true
+               e.add_field name: 'My server',
                           value: "[Click here](https://discord.gg/rYJrhSH)", inline: true
                e.add_field name: 'Github',
                           value: "[Click here](https://github.com/LeggoMyEcho/DrawBot)", inline:true
