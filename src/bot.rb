@@ -6,7 +6,6 @@ require 'rufus-scheduler'
 require 'nokogiri'
 require 'rest-client'
 require 'json'
-require 'usagewatch'
 require 'set'
 # The main bot module.
 module Bot
