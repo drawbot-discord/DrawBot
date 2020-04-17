@@ -27,7 +27,6 @@ module Bot
   BOT = Discordrb::Commands::CommandBot.new(client_id: CONFIG.client_id,
                                             token: CONFIG.token,
                                             prefix: CONFIG.prefix,
-                                            log_mode: :debug,
                                             shard_id: SHARD_ID,
                                             num_shards: TOTAL_SHARDS,
                                             subscription_events: true)
