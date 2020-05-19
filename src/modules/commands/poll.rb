@@ -7,13 +7,13 @@ module Bot
       command(:poll, help_available: true,
               description: "Does a poll that ends after 2min or the set time, can have up to 5 options seperated with a \'-\'",
               usage: "poll 20min <option 1> - <option 2>` (from 1min to 60min don't forget the 'min')`", min_args: 1) do |event, *message|
-              reactions = %w(🇦 🇧 🇨 🇩 🇪)
+              reactions = %w(🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯)
               time = '2m'
               next event.respond 'I can only count to 60min :sweat: sorry' unless message[0].strip =~ /^[1-5]\dm|^60m|^\dm/i
               time = message.shift if message[0].strip =~ /^[1-5]\dm|^60m|^\dm/i
               message = message.join(' ')
               options = message.split('-')
-              next event.respond 'I can only count up to 5 options :stuck_out_tongue_closed_eyes:' if options.length > 5
+              next event.respond 'I can only count up to 10 options :stuck_out_tongue_closed_eyes:' if options.length > 10
               next event.respond 'I need at least one option :thinking:' if options.empty?
               eachoption = options.map.with_index { |x, i| "#{reactions[i]}. #{x.strip.capitalize}" }
               output = eachoption.join("\n")
@@ -27,7 +27,7 @@ module Bot
                 time -= 30
                 poll.edit "Starting poll for: (Remaining time: #{time.to_f / 60}m)\n#{output}"
               end
-              values = event.channel.message(poll.id).reactions.values
+              values = event.channel.message(poll.id).reactions
               winning_score = values.collect(&:count).max
               winners = values.select { |r| r.count == winning_score if reactions.include? r.name }
               result = ''
