@@ -2,14 +2,17 @@ require "yaml"
 
 module DrawBot
   class Config
-    YAML.mapping(
-      token: String,
-      owner_id: UInt64,
-      client_id: UInt64
-    )
+    include YAML::Serializable
 
-    def initialize(@token : String, @owner_id : UInt64,
-                   @client_id : UInt64)
+    property token : String
+    property owner_id : UInt64
+    property client_id : UInt64
+
+    def initialize(
+      @token : String,
+      @owner_id : UInt64,
+      @client_id : UInt64
+    )
     end
   end
 end
