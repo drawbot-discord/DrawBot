@@ -1,14 +1,14 @@
-version: 1.0
+version: 2.0
 shards:
   discordcr:
-    github: meew0/discordcr
-    commit: cf93eb9912545257707278caa7fed8b3c9730b38
+    git: https://github.com/meew0/discordcr.git
+    version: 0.4.0+git.commit.619e08d31fd10918f2554f7623e2066ac308c439
 
   discordcr-middleware:
-    github: z64/discordcr-middleware
-    commit: 5c0b2ba082839aef76b6f452eacb30a54bdd2675
+    git: https://github.com/z64/discordcr-middleware.git
+    version: 0.4.0+git.commit.5c0b2ba082839aef76b6f452eacb30a54bdd2675
 
   rate_limiter:
-    github: z64/rate_limiter
-    commit: b9992a7c474f9f863aa34ac677244d6b520cba97
+    git: https://github.com/z64/rate_limiter.git
+    version: 0.1.0+git.commit.e63f0b1d8e17105d7dc8bb875462693caf221499
 
