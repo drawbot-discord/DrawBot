@@ -13,10 +13,10 @@ module DrawBot
     end
 
     # Logger
-    class_property logger = Logger.new(STDOUT)
+    class_property logger = Log.for("drawbot")
 
     # Bot client
-    class_property client = Discord::Client.new(config.token, logger: logger)
+    class_property client = Discord::Client.new(config.token)
 
     # Client cache
     class_property cache = Discord::Cache.new(client)
@@ -25,8 +25,9 @@ module DrawBot
   # Attach the cache to the client
   client.cache = cache
 
-  # Set logger to debug mode.
-  logger.level = :debug
+  # setup logger
+  backend = Log::IOBackend.new
+  Log.builder.bind "*", :debug, backend
 end
 
 # Require other major application components
