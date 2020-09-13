@@ -39,8 +39,7 @@ module DrawBot
       "",
       Discord::Embed.new(
         title: "I went ahead and submitted your suggestion!",
-        # TODO: change discord invite to a config value or something.
-        description: "[Be sure to join my development server to discuss your idea.](https://discord.gg/rYJrhSH)",
+        description: "[Be sure to join my development server to discuss your idea.](#{config.support_server_invite})",
         colour: 0x08FF1F,
       )
     )
