@@ -14,7 +14,7 @@ module DrawBot
       @token : String,
       @owner_id : UInt64,
       @client_id : UInt64,
-      @suggestions_channel: UInt64,
+      @suggestions_channel : UInt64,
       @support_server_invite : String
     )
     end
