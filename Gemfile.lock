@@ -1,0 +1,74 @@
+GIT
+  remote: https://github.com/shardlab/discordrb
+  revision: 4551619ecdfacf438ad1dd18b55e1906effaf80a
+  ref: 4551619ecdfacf438ad1dd18b55e1906effaf80a
+  specs:
+    discordrb (3.4.2)
+      discordrb-webhooks (~> 3.4.2)
+      ffi (>= 1.9.24)
+      opus-ruby
+      rest-client (>= 2.0.0)
+      websocket-client-simple (>= 0.3.0)
+    discordrb-webhooks (3.4.2)
+      rest-client (>= 2.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.2.2)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    et-orbi (1.2.7)
+      tzinfo
+    event_emitter (0.2.6)
+    ffi (1.15.5)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
+    http-accept (1.7.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    json (2.6.3)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0218.1)
+    netrc (0.11.0)
+    nokogiri (1.15.2-x86_64-linux)
+      racc (~> 1.4)
+    opus-ruby (1.0.1)
+      ffi
+    raabro (1.4.0)
+    racc (1.6.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    rexml (3.2.5)
+    rufus-scheduler (3.9.0)
+      fugit (~> 1.1, >= 1.1.6)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
+    websocket (1.2.9)
+    websocket-client-simple (0.6.1)
+      event_emitter
+      websocket
+    xml-simple (1.1.9)
+      rexml
+
+PLATFORMS
+  x86_64-linux-musl
+
+DEPENDENCIES
+  discordrb!
+  json
+  nokogiri
+  rest-client
+  rufus-scheduler
+  xml-simple
+
+BUNDLED WITH
+   2.4.10
