@@ -18,6 +18,7 @@ module Bot
   # Take shard info from command line
   SHARD_ID = ARGV[0].to_i
   TOTAL_SHARDS = ARGV[1].to_i
+  INTENTS = %i[servers server_members direct_messages server_messages]
 
   puts "Starting shard #{SHARD_ID} of #{TOTAL_SHARDS}"
 
@@ -29,7 +30,7 @@ module Bot
                                             prefix: CONFIG.prefix,
                                             shard_id: SHARD_ID,
                                             num_shards: TOTAL_SHARDS,
-                                            subscription_events: true)
+                                            intents: INTENTS)
 
   BOT.gateway.check_heartbeat_acks = false
 
