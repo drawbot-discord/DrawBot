@@ -52,7 +52,7 @@ module Bot
                   e.add_field name: 'Server Creation Date',
                     value: event.server.creation_time.strftime("%B %e, %Y"), inline:true
                   e.add_field name: 'Voice Region',
-                    value: event.server.region.upcase, inline: true
+                    value: event.server.region.nil? ? "Automatic" : event.server.region.upcase, inline: true
                   e.add_field name: 'Online Members',
                     value: "#{event.server.online_members.size}", inline: true
                   e.add_field name: 'Total Members',
