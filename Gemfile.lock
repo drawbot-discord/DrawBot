@@ -44,7 +44,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.5)
+    rexml (3.3.9)
     rufus-scheduler (3.9.0)
       fugit (~> 1.1, >= 1.1.6)
     tzinfo (2.0.6)
@@ -60,6 +60,7 @@ GEM
       rexml
 
 PLATFORMS
+  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
